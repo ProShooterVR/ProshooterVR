@@ -278,10 +278,24 @@ namespace BNG {
 
             // Fire gun if possible
             if (readyToShoot && triggerValue >= 0.75f) {
-                Shoot();
 
-                // Immediately ready to keep firing if 
-                readyToShoot = FiringMethod == FiringType.Automatic;
+                if (PistolGameManeger.Instance.isRankedMode == true)
+                {
+                    if (PistolGameManeger.Instance.timeRemaining > 0 && PistolGameManeger.Instance.noOfShotsFired < 30)
+                    {
+                        Shoot();
+
+                        // Immediately ready to keep firing if 
+                        readyToShoot = FiringMethod == FiringType.Automatic;
+                    }
+                }
+                if (PistolGameManeger.Instance.isPracticeMode == true)
+                {
+                    Shoot();
+
+                    // Immediately ready to keep firing if 
+                    readyToShoot = FiringMethod == FiringType.Automatic;
+                }
             }
 
             // These are here for convenience. Could be called through GrabbableUnityEvents instead
@@ -343,6 +357,8 @@ namespace BNG {
         
         public virtual void Shoot() {
 
+          
+              
             // Has enough time passed between shots
             float shotInterval = Time.timeScale < 1 ? SlowMoRateOfFire : FiringRate;
             if (Time.time - lastShotTime < shotInterval) {
@@ -444,6 +460,8 @@ namespace BNG {
                 shotRoutine = doMuzzleFlash();
                 StartCoroutine(shotRoutine);
             }
+               
+             
         }
 
         // Apply recoil by requesting sprinyness and apply a local force to the muzzle point
