@@ -277,23 +277,41 @@ namespace BNG {
             }
 
             // Fire gun if possible
-            if (readyToShoot && triggerValue >= 0.75f) {
+            if (readyToShoot && triggerValue >= 0.75f)
+            {
 
-                if (PistolGameManeger.Instance.isRankedMode == true)
+                if (PistolGameManeger.Instance.isPistolMode == true)
                 {
-                    if (PistolGameManeger.Instance.timeRemaining > 0 && PistolGameManeger.Instance.noOfShotsFired < 30)
+                    if (PistolGameManeger.Instance.isRankedMode == true)
                     {
-                        Shoot();
+                        if (PistolGameManeger.Instance.timeRemaining > 0 && PistolGameManeger.Instance.noOfShotsFired < 30)
+                        {
+                            if (PistolGameManeger.Instance.isReloaded == true)
+                            {
+                                Shoot();
+                                PistolGameManeger.Instance.isReloaded = false;
+                            }
+                            // Immediately ready to keep firing if 
+                            readyToShoot = FiringMethod == FiringType.Automatic;
+                        }
+                    }
 
+                    if (PistolGameManeger.Instance.isPracticeMode == true)
+                    {
+                        if (PistolGameManeger.Instance.isReloaded == true)
+                        {
+                            Shoot();
+                            PistolGameManeger.Instance.isReloaded = false;
+                        }
                         // Immediately ready to keep firing if 
                         readyToShoot = FiringMethod == FiringType.Automatic;
                     }
                 }
-                if (PistolGameManeger.Instance.isPracticeMode == true)
+
+
+                if (PistolGameManeger.Instance.isRifleMode == true)
                 {
                     Shoot();
-
-                    // Immediately ready to keep firing if 
                     readyToShoot = FiringMethod == FiringType.Automatic;
                 }
             }

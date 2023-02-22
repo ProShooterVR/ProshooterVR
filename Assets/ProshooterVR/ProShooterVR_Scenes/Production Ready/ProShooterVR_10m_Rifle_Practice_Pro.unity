@@ -1114,7 +1114,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 722032734}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!136 &88127073
 CapsuleCollider:
@@ -1795,7 +1795,7 @@ Transform:
   - {fileID: 1384262823}
   - {fileID: 242323380}
   m_Father: {fileID: 722032734}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &130985220
 LineRenderer:
@@ -3343,7 +3343,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 722032734}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &237086003
 GameObject:
@@ -3743,7 +3743,7 @@ Transform:
   m_Children:
   - {fileID: 535457471}
   m_Father: {fileID: 722032734}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &251737395
 GameObject:
@@ -3778,6 +3778,7 @@ MonoBehaviour:
   angle: 0
   shotScore: 0
   shotRoundScore: 0
+  finalScore: 
   totalTScore: 0
   Totalscore: 0
   totalScoreTxt: {fileID: 1433169278}
@@ -11989,6 +11990,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707236444}
   m_CullTransparentMesh: 1
+--- !u!1001 &707773721
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 722032734}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 1741a95c0420c0f40ab620c9af812337,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1741a95c0420c0f40ab620c9af812337,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1741a95c0420c0f40ab620c9af812337,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1741a95c0420c0f40ab620c9af812337,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1741a95c0420c0f40ab620c9af812337,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1741a95c0420c0f40ab620c9af812337,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1741a95c0420c0f40ab620c9af812337,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1741a95c0420c0f40ab620c9af812337,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1741a95c0420c0f40ab620c9af812337,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1741a95c0420c0f40ab620c9af812337,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1741a95c0420c0f40ab620c9af812337,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1741a95c0420c0f40ab620c9af812337,
+        type: 3}
+      propertyPath: m_Name
+      value: WaltherLG400 (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1741a95c0420c0f40ab620c9af812337, type: 3}
+--- !u!4 &707773722 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1741a95c0420c0f40ab620c9af812337,
+    type: 3}
+  m_PrefabInstance: {fileID: 707773721}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &719123100
 GameObject:
   m_ObjectHideFlags: 0
@@ -12447,8 +12523,8 @@ MonoBehaviour:
   BeingHeld: 0
   GrabButton: 0
   Grabtype: 0
-  GrabPhysics: 0
-  GrabMechanic: 0
+  GrabPhysics: 4
+  GrabMechanic: 1
   GrabSpeed: 15
   RemoteGrabbable: 1
   RemoteGrabMechanic: 0
@@ -12487,8 +12563,8 @@ MonoBehaviour:
   CollisionAngularMotionY: 2
   CollisionAngularMotionZ: 1
   ApplyCorrectiveForce: 1
-  MoveVelocityForce: 3000
-  MoveAngularVelocityForce: 90
+  MoveVelocityForce: 100
+  MoveAngularVelocityForce: 2
   LastGrabTime: 0
   LastDropTime: 0
   AddControllerVelocityOnDrop: 1
@@ -12540,6 +12616,7 @@ Transform:
   - {fileID: 1973226075}
   - {fileID: 1506456496}
   - {fileID: 1641405988}
+  - {fileID: 707773722}
   - {fileID: 251600041}
   - {fileID: 1748650959}
   - {fileID: 88127072}
@@ -16789,7 +16866,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 722032734}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19492,6 +19569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff7389a53a350541abde1dc4fa4ff18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRifleMode: 1
+  isPistolMode: 0
   isPracticeMode: 1
   isRankedMode: 0
   pistolObj: {fileID: 444357993}
@@ -19509,6 +19588,12 @@ MonoBehaviour:
   sco2ten: 0
   sco3ten: 0
   isScoreUpdated: 0
+  isReloaded: 0
+  isReloading: 0
+  animator: {fileID: 0}
+  animationName: 
+  audioSrc: {fileID: 0}
+  pistol: []
 --- !u!4 &1133697549
 Transform:
   m_ObjectHideFlags: 0
@@ -26431,6 +26516,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4504679487725642988, guid: 4edc36264bf75824f9706e594c34fd93,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504679487725642988, guid: 4edc36264bf75824f9706e594c34fd93,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -27703,6 +27793,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WaltherLG400
+      objectReference: {fileID: 0}
+    - target: {fileID: 526456578882586086, guid: 7d4381323fe824a4abe33b85e3dd65bd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 526456578882586086, guid: 7d4381323fe824a4abe33b85e3dd65bd,
         type: 3}
@@ -29633,7 +29728,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 722032734}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 30.593002, y: 0, z: 0}
 --- !u!65 &1748650960
 BoxCollider:

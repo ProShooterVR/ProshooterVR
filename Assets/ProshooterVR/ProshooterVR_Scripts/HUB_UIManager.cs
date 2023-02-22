@@ -17,12 +17,13 @@ public class HUB_UIManager : MonoBehaviour
 
     // Get panles
     [SerializeField]
-    GameObject mainMenu_UIPanel, PlayMode_UIPanel;
+    GameObject mainMenu_UIPanel, PlayMode_UIPanel,startPanel;
 
     private void Start()
     {
         mainMenu_UIPanel.SetActive(true);
         PlayMode_UIPanel.SetActive(false);
+        startPanel.SetActive(true);
     }
 
     public void PlayButtonClick()
@@ -30,6 +31,7 @@ public class HUB_UIManager : MonoBehaviour
 
         mainMenu_UIPanel.SetActive(false);
         PlayMode_UIPanel.SetActive(true);
+        startPanel.SetActive(false);
 
     }
 
@@ -37,7 +39,16 @@ public class HUB_UIManager : MonoBehaviour
     {
         mainMenu_UIPanel.SetActive(true);
         PlayMode_UIPanel.SetActive(false);
+        startPanel.SetActive(false);
     }
+
+    public void StartPanelClick()
+    {
+        mainMenu_UIPanel.SetActive(true);
+        PlayMode_UIPanel.SetActive(false);
+        startPanel.SetActive(false);
+    }
+
 
     public void Load_10mRangePractice_pro()
     {
