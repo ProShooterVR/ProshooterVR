@@ -5,10 +5,13 @@ using UnityEngine;
 using BNG;
 using TMPro;
 
+
 public class PistolGameManeger : MonoBehaviour
 {
 
     public static PistolGameManeger Instance;
+
+    public bool isRifleMode, isPistolMode;
 
     public bool isPracticeMode, isRankedMode;
 
@@ -25,6 +28,17 @@ public class PistolGameManeger : MonoBehaviour
     public float sco1ten, sco2ten, sco3ten;
 
     public bool isScoreUpdated;
+
+
+    public bool isReloaded,isReloading;
+
+    public Animator animator;
+    public string animationName;
+
+    public AudioSource audioSrc;
+    public AudioClip[] pistol;
+
+
 
     void Awake()
     {
@@ -59,6 +73,8 @@ public class PistolGameManeger : MonoBehaviour
         sc1ten = sc2ten = sc3ten = 0;
         sco1ten = sco2ten = sco3ten = 0f;
         isScoreUpdated = true;
+        isReloaded = false;
+        isReloading = false;
 
     }
 
@@ -83,6 +99,10 @@ public class PistolGameManeger : MonoBehaviour
             }
         }
 
+        
+        
+        
+
     }
 
     public void shotFired()
@@ -103,7 +123,7 @@ public class PistolGameManeger : MonoBehaviour
                     scorePanels[0].gameObject.transform.GetChild(noOfShotsFired).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = (noOfShotsFired + 1).ToString();
                     scorePanels[0].gameObject.transform.GetChild(noOfShotsFired).GetChild(3).gameObject.SetActive(true);
                     scorePanels[0].gameObject.transform.GetChild(noOfShotsFired).GetChild(3).gameObject.transform.Rotate(0, 180, UIManager.Instance.angle);
-                    scorePanels[0].gameObject.transform.GetChild(noOfShotsFired).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = UIManager.Instance.shotRoundScore.ToString();
+                    scorePanels[0].gameObject.transform.GetChild(noOfShotsFired).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = UIManager.Instance.finalScore;
                     scorePanels[0].gameObject.transform.GetChild(noOfShotsFired).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = UIManager.Instance.shotScore.ToString();
 
                     sc1ten = sc1ten + UIManager.Instance.shotRoundScore;
@@ -122,7 +142,7 @@ public class PistolGameManeger : MonoBehaviour
                     scorePanels[1].gameObject.transform.GetChild(noOfShotsFired - 10).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = (noOfShotsFired + 1).ToString();
                     scorePanels[1].gameObject.transform.GetChild(noOfShotsFired - 10).GetChild(3).gameObject.SetActive(true);
                     scorePanels[1].gameObject.transform.GetChild(noOfShotsFired - 10).GetChild(3).gameObject.transform.Rotate(0, 180, UIManager.Instance.angle);
-                    scorePanels[1].gameObject.transform.GetChild(noOfShotsFired - 10).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = UIManager.Instance.shotRoundScore.ToString();
+                    scorePanels[1].gameObject.transform.GetChild(noOfShotsFired - 10).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = UIManager.Instance.finalScore;
                     scorePanels[1].gameObject.transform.GetChild(noOfShotsFired - 10).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = UIManager.Instance.shotScore.ToString();
 
 
@@ -143,7 +163,7 @@ public class PistolGameManeger : MonoBehaviour
                     scorePanels[2].gameObject.transform.GetChild(noOfShotsFired - 20).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = (noOfShotsFired + 1).ToString();
                     scorePanels[2].gameObject.transform.GetChild(noOfShotsFired - 20).GetChild(3).gameObject.SetActive(true);
                     scorePanels[2].gameObject.transform.GetChild(noOfShotsFired - 20).GetChild(3).gameObject.transform.Rotate(0, 180, UIManager.Instance.angle);
-                    scorePanels[2].gameObject.transform.GetChild(noOfShotsFired - 20).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = UIManager.Instance.shotRoundScore.ToString();
+                    scorePanels[2].gameObject.transform.GetChild(noOfShotsFired - 20).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = UIManager.Instance.finalScore;
                     scorePanels[2].gameObject.transform.GetChild(noOfShotsFired - 20).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = UIManager.Instance.shotScore.ToString();
 
                     sc3ten = sc3ten + UIManager.Instance.shotRoundScore;
@@ -174,7 +194,7 @@ public class PistolGameManeger : MonoBehaviour
                     scorePanels[0].gameObject.transform.GetChild(noOfShotsFired).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = (noOfShotsFired + 1).ToString();
                     scorePanels[0].gameObject.transform.GetChild(noOfShotsFired).GetChild(3).gameObject.SetActive(true);
                     scorePanels[0].gameObject.transform.GetChild(noOfShotsFired).GetChild(3).gameObject.transform.Rotate(0, 180, UIManager.Instance.angle);
-                    scorePanels[0].gameObject.transform.GetChild(noOfShotsFired).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = UIManager.Instance.shotRoundScore.ToString();
+                    scorePanels[0].gameObject.transform.GetChild(noOfShotsFired).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = UIManager.Instance.finalScore;
                     scorePanels[0].gameObject.transform.GetChild(noOfShotsFired).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = UIManager.Instance.shotScore.ToString();
 
                     sc1ten = sc1ten + UIManager.Instance.shotRoundScore;

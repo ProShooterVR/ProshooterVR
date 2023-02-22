@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     public float angle;
     public float shotScore;
     public int shotRoundScore;
+    public string finalScore;
     public float totalTScore, Totalscore;
 
     public TextMeshProUGUI totalScoreTxt;
@@ -71,8 +72,24 @@ public class UIManager : MonoBehaviour
             shotRoundScore = 0;
         }
         else {
-            shotScore = Mathf.Round(scoreVal * 10f) / 10f;
-            shotRoundScore = Mathf.RoundToInt(scoreVal);
+           // shotScore = Mathf.Round(scoreVal * 10f) / 10f;
+            shotScore = Mathf.Round(scoreVal * 100f) / 100f; ;
+
+            shotRoundScore = (int)shotScore;
+            Debug.Log("shotScore : " + shotScore + "shotRoundScore : " + shotRoundScore);
+
+            if (shotScore < 10.4f)
+            {
+                finalScore = shotRoundScore.ToString();
+                
+            }
+
+            if(shotScore >= 10.4f)
+            {
+                finalScore = "10x";
+                shotRoundScore = 10;
+            }
+            Debug.Log("Final score : "+finalScore);
         }
         
 
