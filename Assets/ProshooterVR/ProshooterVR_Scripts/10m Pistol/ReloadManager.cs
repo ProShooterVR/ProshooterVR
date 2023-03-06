@@ -14,9 +14,9 @@ public class ReloadManager : MonoBehaviour
     {
         if (InputBridge.Instance.AButton == true)
         {
-            if (PistolGameManeger.Instance.isReloading == true)
+            if (GunGameManeger.Instance.isReloading == true)
             {
-                PistolGameManeger.Instance.isReloading = false;
+                GunGameManeger.Instance.isReloading = false;
                 StartCoroutine(WaitForAnimation());
             }
         }
@@ -26,17 +26,17 @@ public class ReloadManager : MonoBehaviour
 
     private IEnumerator WaitForAnimation()
     {
-        PistolGameManeger.Instance.animator.Rebind();
-        PistolGameManeger.Instance.animator.Play(PistolGameManeger.Instance.animationName);
-        yield return new WaitForSeconds(1.20f);
-        PistolGameManeger.Instance.audioSrc.PlayOneShot(PistolGameManeger.Instance.pistol[0]);
+        GunGameManeger.Instance.animator.Rebind();
+        GunGameManeger.Instance.animator.Play(GunGameManeger.Instance.animationName);
+        yield return new WaitForSeconds(0.6f);
+        GunGameManeger.Instance.audioSrc.PlayOneShot(GunGameManeger.Instance.pistol[0]);
 
-        yield return new WaitForSeconds(2.3f);
-        PistolGameManeger.Instance.audioSrc.PlayOneShot(PistolGameManeger.Instance.pistol[1]);
+        yield return new WaitForSeconds(1.2f);
+        GunGameManeger.Instance.audioSrc.PlayOneShot(GunGameManeger.Instance.pistol[1]);
 
-        yield return new WaitForSeconds(1f);
-        PistolGameManeger.Instance.isReloading = false;
-        PistolGameManeger.Instance.isReloaded = true;
+        yield return new WaitForSeconds(0.5f);
+        GunGameManeger.Instance.isReloading = false;
+        GunGameManeger.Instance.isReloaded = true;
         Debug.Log("Animation is complete.");
     }
 
@@ -44,8 +44,8 @@ public class ReloadManager : MonoBehaviour
     {
         if (string.Compare(other.gameObject.name, "Pistol") == 0)
         {
-            PistolGameManeger.Instance.isReloaded = false;
-            PistolGameManeger.Instance.isReloading = true;
+            GunGameManeger.Instance.isReloaded = false;
+            GunGameManeger.Instance.isReloading = true;
             Debug.Log("Target entered collision area." + other.gameObject.name);
         }
         
@@ -56,7 +56,7 @@ public class ReloadManager : MonoBehaviour
         if (string.Compare(other.gameObject.name, "Pistol") == 0)
         {
             //PistolGameManeger.Instance.isReloaded = true;
-            PistolGameManeger.Instance.isReloading = false;
+            GunGameManeger.Instance.isReloading = false;
             Debug.Log("Target exited collision area." + other.gameObject.name);
         }
     }

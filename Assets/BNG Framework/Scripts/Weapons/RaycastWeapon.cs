@@ -10,6 +10,8 @@ namespace BNG {
     /// </summary>
     public class RaycastWeapon : GrabbableEvents {
 
+        
+
         [Header("General : ")]
         /// <summary>
         /// How far we can shoot in meters
@@ -271,37 +273,37 @@ namespace BNG {
             }
 
             // Trigger up, reset values
-            if (triggerValue <= 0.5) {
+            if (triggerValue <= 0.45f) {
                 readyToShoot = true;
                 playedEmptySound = false;
             }
 
             // Fire gun if possible
-            if (readyToShoot && triggerValue >= 0.75f)
+            if (readyToShoot && triggerValue >= 0.45f)
             {
 
-                if (PistolGameManeger.Instance.isPistolMode == true)
+                if (GunGameManeger.Instance.isPistolMode == true)
                 {
-                    if (PistolGameManeger.Instance.isRankedMode == true)
+                    if (GunGameManeger.Instance.isRankedMode == true)
                     {
-                        if (PistolGameManeger.Instance.timeRemaining > 0 && PistolGameManeger.Instance.noOfShotsFired < 30)
+                        if (GunGameManeger.Instance.timeRemaining > 0 && GunGameManeger.Instance.noOfShotsFired < 30)
                         {
-                            if (PistolGameManeger.Instance.isReloaded == true)
+                            if (GunGameManeger.Instance.isReloaded == true)
                             {
                                 Shoot();
-                                PistolGameManeger.Instance.isReloaded = false;
+                                GunGameManeger.Instance.isReloaded = false;
                             }
                             // Immediately ready to keep firing if 
                             readyToShoot = FiringMethod == FiringType.Automatic;
                         }
                     }
 
-                    if (PistolGameManeger.Instance.isPracticeMode == true)
+                    if (GunGameManeger.Instance.isPracticeMode == true)
                     {
-                        if (PistolGameManeger.Instance.isReloaded == true)
+                        if (GunGameManeger.Instance.isReloaded == true)
                         {
                             Shoot();
-                            PistolGameManeger.Instance.isReloaded = false;
+                            GunGameManeger.Instance.isReloaded = false;
                         }
                         // Immediately ready to keep firing if 
                         readyToShoot = FiringMethod == FiringType.Automatic;
@@ -309,7 +311,28 @@ namespace BNG {
                 }
 
 
-                if (PistolGameManeger.Instance.isRifleMode == true)
+                if (GunGameManeger.Instance.isRifleMode == true)
+                {
+                    if (GunGameManeger.Instance.isRankedMode == true)
+                    {
+                        if (GunGameManeger.Instance.timeRemaining > 0 && GunGameManeger.Instance.noOfShotsFired < 30)
+                        {
+                                Shoot();
+                                GunGameManeger.Instance.isReloaded = false;
+                            // Immediately ready to keep firing if 
+                            readyToShoot = FiringMethod == FiringType.Automatic;
+                        }
+                    }
+
+                    if (GunGameManeger.Instance.isPracticeMode == true)
+                    {
+                            Shoot();
+                        // Immediately ready to keep firing if 
+                        readyToShoot = FiringMethod == FiringType.Automatic;
+                    }
+                }
+
+                if (GunGameManeger.Instance.isRapidFireMode == true)
                 {
                     Shoot();
                     readyToShoot = FiringMethod == FiringType.Automatic;
