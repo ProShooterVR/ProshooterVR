@@ -50,32 +50,44 @@ public class HUB_UIManager : MonoBehaviour
     }
 
 
-    public void Load_10mRangePractice_pro()
+    //public void Load_10mRangePractice_pro()
+    //{
+    //    SceneManager.LoadSceneAsync("ProShooterVR_10m_Pistol_Practice_pro");
+    //}
+    //public void Load_10mRangePractice_semPro()
+    //{
+    //    SceneManager.LoadSceneAsync("ProShooterVR_10m_Pistol_Practice_Sempro");
+    //}
+    //public void Load_10mRangePractice_Ama()
+    //{
+    //    SceneManager.LoadSceneAsync("ProShooterVR_10m_Pistol_Practice_Amateur");
+    //}
+    //public void Load_10mRangeRanked()
+    //{
+    //    SceneManager.LoadSceneAsync("ProShooterVR_10m_Pistol_ranked");
+    //}
+    //public void Load_10mRangeRifle_pro()
+    //{
+    //    SceneManager.LoadSceneAsync("ProShooterVR_10m_Rifle_Practice_Pro");
+    //}
+    //public void Load_10mRangeRifle_sempro()
+    //{
+    //    SceneManager.LoadSceneAsync("ProShooterVR_10m_Rifle_Practice_SemPro");
+    //}
+    //public void Load_10mRangeRifle_Ama()
+    //{
+    //    SceneManager.LoadSceneAsync("ProShooterVR_10m_Rifle_Practice_Amateur");
+    //}
+
+    //public void Load_25M_RapidFire()
+    //{
+    //    SceneManager.LoadSceneAsync("ProShooterVR_25m_RapidFire");
+
+    //}
+
+    public void LoadSceneOnButtonClick(string scene)
     {
-        SceneManager.LoadSceneAsync("ProShooterVR_10m_Pistol_Practice_pro");
-    }
-    public void Load_10mRangePractice_semPro()
-    {
-        SceneManager.LoadSceneAsync("ProShooterVR_10m_Pistol_Practice_Sempro");
-    }
-    public void Load_10mRangePractice_Ama()
-    {
-        SceneManager.LoadSceneAsync("ProShooterVR_10m_Pistol_Practice_Amateur");
-    }
-    public void Load_10mRangeRanked()
-    {
-        SceneManager.LoadSceneAsync("ProShooterVR_10m_Pistol_ranked");
-    }
-    public void Load_10mRangeRifle_pro()
-    {
-        SceneManager.LoadSceneAsync("ProShooterVR_10m_Rifle_Practice_Pro");
-    }
-    public void Load_10mRangeRifle_sempro()
-    {
-        SceneManager.LoadSceneAsync("ProShooterVR_10m_Rifle_Practice_SemPro");
-    }
-    public void Load_10mRangeRifle_Ama()
-    {
-        SceneManager.LoadSceneAsync("ProShooterVR_10m_Rifle_Practice_Amateur");
+        SceneManager.LoadSceneAsync(scene);
+
     }
 }

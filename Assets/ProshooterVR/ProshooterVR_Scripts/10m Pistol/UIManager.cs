@@ -70,24 +70,49 @@ public class UIManager : MonoBehaviour
         {
             shotScore = 0;
             shotRoundScore = 0;
+            finalScore = "0";
         }
         else {
            // shotScore = Mathf.Round(scoreVal * 10f) / 10f;
             shotScore = Mathf.Round(scoreVal * 100f) / 100f; ;
 
+            
+
             shotRoundScore = (int)shotScore;
-            Debug.Log("shotScore : " + shotScore + "shotRoundScore : " + shotRoundScore);
 
-            if (shotScore < 10.4f)
+            shotScore = Mathf.Floor(shotScore);
+            Debug.Log("shotScore : " + shotScore + " || shotRoundScore : " + shotRoundScore);
+
+
+            if (GunGameManeger.Instance.isPistolMode == true)
             {
-                finalScore = shotRoundScore.ToString();
-                
+
+                if (shotScore < 10.4f)
+                {
+                    finalScore = shotRoundScore.ToString();
+
+                }
+                else if (shotScore >= 10.4f)
+                {
+                    finalScore = "10x";
+                    shotRoundScore = 10;
+                }
+                else { }
             }
-
-            if(shotScore >= 10.4f)
+            if (GunGameManeger.Instance.isRifleMode == true)
             {
-                finalScore = "10x";
-                shotRoundScore = 10;
+
+                if (shotScore < 10.2f)
+                {
+                    finalScore = shotRoundScore.ToString();
+
+                }
+                else if (shotScore >= 10.2f)
+                {
+                    finalScore = shotScore.ToString() + "x";
+                    shotRoundScore = (int)shotScore;
+                }
+                else { }
             }
             Debug.Log("Final score : "+finalScore);
         }
