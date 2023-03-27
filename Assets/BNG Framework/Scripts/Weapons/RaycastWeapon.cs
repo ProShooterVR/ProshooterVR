@@ -291,6 +291,8 @@ namespace BNG {
                             if (GunGameManeger.Instance.isReloaded == true)
                             {
                                 Shoot();
+                                GunGameManeger.Instance.mat.GetComponent<Renderer>().material = GunGameManeger.Instance.yellow;
+
                                 GunGameManeger.Instance.isReloaded = false;
                             }
                             // Immediately ready to keep firing if 
@@ -300,13 +302,18 @@ namespace BNG {
 
                     if (GunGameManeger.Instance.isPracticeMode == true)
                     {
-                        if (GunGameManeger.Instance.isReloaded == true)
+                        if (GunGameManeger.Instance.noOfShotsFired < 30)
                         {
-                            Shoot();
-                            GunGameManeger.Instance.isReloaded = false;
+                            if (GunGameManeger.Instance.isReloaded == true)
+                            {
+                                Shoot();
+                                GunGameManeger.Instance.mat.GetComponent<Renderer>().material = GunGameManeger.Instance.yellow;
+
+                                GunGameManeger.Instance.isReloaded = false;
+                            }
+                            // Immediately ready to keep firing if 
+                            readyToShoot = FiringMethod == FiringType.Automatic;
                         }
-                        // Immediately ready to keep firing if 
-                        readyToShoot = FiringMethod == FiringType.Automatic;
                     }
                 }
 
@@ -318,6 +325,7 @@ namespace BNG {
                         if (GunGameManeger.Instance.timeRemaining > 0 && GunGameManeger.Instance.noOfShotsFired < 30)
                         {
                                 Shoot();
+
                                 GunGameManeger.Instance.isReloaded = false;
                             // Immediately ready to keep firing if 
                             readyToShoot = FiringMethod == FiringType.Automatic;

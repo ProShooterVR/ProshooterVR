@@ -83,9 +83,9 @@ namespace BNG {
         /// <returns></returns>
         public virtual bool SlowTimeInputDown() {
             // Check default Y Key
-            if ((YKeySlowsTime && InputBridge.Instance.YButton)) {
-                return true;
-            }
+            //if ((YKeySlowsTime && InputBridge.Instance.YButton)) {
+            //    return true;
+            //}
             
             // Check for Unity Input Action
             if (SlowTimeAction != null) {

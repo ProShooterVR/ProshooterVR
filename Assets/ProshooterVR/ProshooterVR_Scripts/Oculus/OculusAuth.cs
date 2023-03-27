@@ -10,7 +10,6 @@ public class OculusAuth : MonoBehaviour
 
     private void Start()
     {
-        VRDebugManager.Instance.AddLog("Oculus Auth Started");
         Core.AsyncInitialize().OnComplete(OnInitializationCallback);
     }
 
@@ -19,8 +18,6 @@ public class OculusAuth : MonoBehaviour
         if (msg.IsError)
         {
             Debug.LogErrorFormat("Oculus: Error during initialization. Error Message: {0}",
-                msg.GetError().Message);
-            VRDebugManager.Instance.AddLog("Oculus: Error during initialization. Error Message: {0}"+
                 msg.GetError().Message);
         }
         else
@@ -34,8 +31,6 @@ public class OculusAuth : MonoBehaviour
         if (msg.IsError)
         {
             Debug.LogErrorFormat("Oculus: Error verifying the user is entitled to the application. Error Message: {0}",
-                msg.GetError().Message);
-            VRDebugManager.Instance.AddLog("Oculus: Error verifying the user is entitled to the application. Error Message: {0}" +
                 msg.GetError().Message);
         }
         else
@@ -55,19 +50,16 @@ public class OculusAuth : MonoBehaviour
         {
             Debug.LogErrorFormat("Oculus: Error getting logged in user. Error Message: {0}",
                 msg.GetError().Message);
-            VRDebugManager.Instance.AddLog("Oculus: Error getting logged in user. Error Message: {0}" +
-                msg.GetError().Message);
         }
         else
         {
             userId = msg.Data.ID.ToString(); // do not use msg.Data.OculusID;
             
-            VRDebugManager.Instance.AddLog("User Id By Oculus : "+ userId + " Name :" + msg.Data.OculusID);
-            VRDebugManager.Instance.AddLog("call to add data 0k00");
-            UserDataManager.Instance.userID = userId;
-            UserDataManager.Instance.userName = msg.Data.OculusID;
-            VRDebugManager.Instance.AddLog("call to add data 0ksdsddfdsf00");
+            LocalUserDataManager.Instance.userID = userId;
+            LocalUserDataManager.Instance.userName = msg.Data.OculusID;
+            Debug.Log("ID : " + LocalUserDataManager.Instance.userID + " | Name : " + LocalUserDataManager.Instance.userName);
 
+            LiveUserDataManager.Instance.CheckIfDocumentExists();
             GetUserProof();
           
         }
@@ -75,27 +67,24 @@ public class OculusAuth : MonoBehaviour
 
     private void GetUserProof()
     {
-        VRDebugManager.Instance.AddLog("call to add data 1");
         Users.GetUserProof().OnComplete(OnUserProofCallback);
     }
 
     private void OnUserProofCallback(Message<UserProof> msg)
     {
-        VRDebugManager.Instance.AddLog("call to add data 2 ");
         if (msg.IsError)
         {
             Debug.LogErrorFormat("Oculus: Error getting user proof. Error Message: {0}",
-                msg.GetError().Message);
-            VRDebugManager.Instance.AddLog("Oculus: Error getting user proof. Error Message: {0}" +
                 msg.GetError().Message);
         }
         else
         {
             string oculusNonce = msg.Data.Value;
-            VRDebugManager.Instance.AddLog("call to add data");
-            UserDataManager.Instance.saveMeta();
-            // Authentication can be performed here
             
+            
+
+            // Authentication can be performed here
+
         }
     }
 

@@ -56,7 +56,7 @@ public class targetscore : MonoBehaviour
 
             Score = -Score;
              
-            UIManager.Instance.updateShotScreen(newobjet.transform.localPosition, Score, angle);
+            PistolUIManager.Instance.updateShotScreen(newobjet.transform.localPosition, Score, angle);
             GunGameManeger.Instance.shotFired();
             
 

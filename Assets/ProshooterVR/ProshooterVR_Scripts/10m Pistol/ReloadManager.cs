@@ -8,16 +8,21 @@ public class ReloadManager : MonoBehaviour
 {
     public GameObject target;
 
-
+    
 
     private void Update()
     {
-        if (InputBridge.Instance.AButton == true)
+        if (GunGameManeger.Instance.isGamePause == false)
         {
-            if (GunGameManeger.Instance.isReloading == true)
+            if (InputBridge.Instance.BButton == true)
             {
-                GunGameManeger.Instance.isReloading = false;
-                StartCoroutine(WaitForAnimation());
+                if (GunGameManeger.Instance.isReloading == true)
+                {
+                    GunGameManeger.Instance.mat.GetComponent<Renderer>().material = GunGameManeger.Instance.blue;
+
+                    GunGameManeger.Instance.isReloading = false;
+                    StartCoroutine(WaitForAnimation());
+                }
             }
         }
     }
@@ -26,6 +31,8 @@ public class ReloadManager : MonoBehaviour
 
     private IEnumerator WaitForAnimation()
     {
+        GunGameManeger.Instance.mat.GetComponent<Renderer>().material = GunGameManeger.Instance.blue;
+
         GunGameManeger.Instance.animator.Rebind();
         GunGameManeger.Instance.animator.Play(GunGameManeger.Instance.animationName);
         yield return new WaitForSeconds(0.6f);
@@ -38,12 +45,16 @@ public class ReloadManager : MonoBehaviour
         GunGameManeger.Instance.isReloading = false;
         GunGameManeger.Instance.isReloaded = true;
         Debug.Log("Animation is complete.");
+        GunGameManeger.Instance.mat.GetComponent<Renderer>().material = GunGameManeger.Instance.green;
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (string.Compare(other.gameObject.name, "Pistol") == 0)
         {
+            GunGameManeger.Instance.mat.GetComponent<Renderer>().material = GunGameManeger.Instance.yellow;
+
             GunGameManeger.Instance.isReloaded = false;
             GunGameManeger.Instance.isReloading = true;
             Debug.Log("Target entered collision area." + other.gameObject.name);
@@ -58,6 +69,8 @@ public class ReloadManager : MonoBehaviour
             //PistolGameManeger.Instance.isReloaded = true;
             GunGameManeger.Instance.isReloading = false;
             Debug.Log("Target exited collision area." + other.gameObject.name);
+            GunGameManeger.Instance.mat.GetComponent<Renderer>().material = GunGameManeger.Instance.black;
+
         }
     }
 }

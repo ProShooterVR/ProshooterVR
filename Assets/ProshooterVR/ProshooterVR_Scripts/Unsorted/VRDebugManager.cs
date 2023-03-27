@@ -9,7 +9,11 @@ public class VRDebugManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        DontDestroyOnLoad(Instance);
     }
     public TextMeshProUGUI DebugLog;
     // Start is called before the first frame update
@@ -24,11 +28,6 @@ public class VRDebugManager : MonoBehaviour
         
     }
 
-    public void AddLog(string log)
-    {
-        DebugLog.text = DebugLog.text + "<br>" + log;
-        
-    }
-
+    
 
 }
