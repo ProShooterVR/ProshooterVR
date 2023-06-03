@@ -22,7 +22,17 @@ public class HUB_UIManager : MonoBehaviour
     public GameObject[] Leaders;
     public GameObject LeaderN;
     public Sprite leaderH;
-   
+
+    [SerializeField]
+    private GameObject helpScr1, helpScr2, helpScr3;
+    [SerializeField]
+    private GameObject helpPopUp;
+
+    [SerializeField]
+    private GameObject prvBtn,nxtBtn;
+    int nxtCount, prvCount;
+
+    public GameObject aggMnu, mainMnu;
 
     void Awake()
     {
@@ -34,14 +44,32 @@ public class HUB_UIManager : MonoBehaviour
 
     private void Start()
     {
-        
+        nxtCount = prvCount = 0;
+        prvBtn.SetActive(false);
         gameModePopup.SetActive(false);
-        LocalUserDataManager.Instance.levelSelected = LocalUserDataManager.gamerLevel.Amateur;
-        LocalUserDataManager.Instance.modeSelected = LocalUserDataManager.gameMode.AirPistol10M;
+        helpPopUp.SetActive(false);
+        LocalUserDataManager.Instance.selectedGameMode = GameModes.AirPistol10m;
+        LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.Amateur;
         Debug.Log("" + DateTime.Now.ToString());
+
+        if(LocalUserDataManager.Instance.isAggrDone == false)
+        {
+            aggMnu.SetActive(true);
+            mainMnu.SetActive(false);
+        }
+        else
+        {
+            aggMnu.SetActive(false);
+            mainMnu.SetActive(true);
+        }
     }
 
-    
+    public void closeAggrMenu()
+    {
+        aggMnu.SetActive(false);
+        mainMnu.SetActive(true);
+        LocalUserDataManager.Instance.isAggrDone = true;
+    }
     
     // 10m Air Pistol Scenes ----------------------------------------------------Start
 
@@ -89,38 +117,40 @@ public class HUB_UIManager : MonoBehaviour
     // Practice Modes ----------------------
     private void load10mRifleAmatuerPractice()
     {
-
-        SceneManager.LoadSceneAsync("10m_Rifle_Amateur_Practice");
+        SceneManager.LoadSceneAsync("10m_AirRifle_Amateur_Practice");
     }
     private void load10mRifleSemProPractice()
     {
-        SceneManager.LoadSceneAsync("10m_Rifle_SemPro_Practice");
+        SceneManager.LoadSceneAsync("10m_AirRifle_SemPro_Practice");
     }
     private void load10mRifleProPractice()
     {
-        SceneManager.LoadSceneAsync("10m_Rifle_Pro_Practice");
+        SceneManager.LoadSceneAsync("10m_AirRifle_Pro_Practice");
     }
     // Macth  Modes ----------------------
     private void load10mRifleAmatuerMatch()
     {
         LocalUserDataManager.Instance.selectedGameMode = GameModes.AirRifle10m;
         LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.Amateur;
-        SceneManager.LoadSceneAsync("10m_Rifle_Amateur_MatchMode");
+        SceneManager.LoadSceneAsync("10m_AirRifle_Amateur_Match");
     }
     private void load10mRifleSemProMatch()
     {
         LocalUserDataManager.Instance.selectedGameMode = GameModes.AirRifle10m;
         LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.SemiPro;
-        SceneManager.LoadSceneAsync("10m_Rifle_SemPro_MatchMode");
+        SceneManager.LoadSceneAsync("10m_AirRifle_SemPro_Match");
     }
     private void load10mRifleProMatch()
     {
         LocalUserDataManager.Instance.selectedGameMode = GameModes.AirRifle10m;
         LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.Pro;
-        SceneManager.LoadSceneAsync("10m_Rifle_Pro_MatchMode");
+        SceneManager.LoadSceneAsync("10m_AirRifle_Pro_Match");
     }
 
-
+    public void loadTest(string url)
+    {
+        SceneManager.LoadSceneAsync(url);
+    }
     //10m Air Rifle Scenes -------------------------------------------------------End
 
     public void setLevel(int no)
@@ -130,19 +160,19 @@ public class HUB_UIManager : MonoBehaviour
             case 0:
                 LocalUserDataManager.Instance.levelSelected = LocalUserDataManager.gamerLevel.Amateur;
                 LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.Amateur;
-                LiveUserDataManager.Instance.sortLeaderBoard();
+                //LiveUserDataManager.Instance.sortLeaderBoard();
 
                 break;
             case 1:
                 LocalUserDataManager.Instance.levelSelected = LocalUserDataManager.gamerLevel.SemiPro;
                 LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.SemiPro;
-                LiveUserDataManager.Instance.sortLeaderBoard();
+               // LiveUserDataManager.Instance.sortLeaderBoard();
 
                 break;
             case 2:
                 LocalUserDataManager.Instance.levelSelected = LocalUserDataManager.gamerLevel.Pro;
                 LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.Pro;
-                LiveUserDataManager.Instance.sortLeaderBoard();
+                //LiveUserDataManager.Instance.sortLeaderBoard();
 
                 break;
         }
@@ -154,15 +184,17 @@ public class HUB_UIManager : MonoBehaviour
             case 0:
                 LocalUserDataManager.Instance.modeSelected = LocalUserDataManager.gameMode.AirPistol10M;
                 LocalUserDataManager.Instance.selectedGameMode = GameModes.AirPistol10m;
-                LiveUserDataManager.Instance.sortLeaderBoard();
+               // LiveUserDataManager.Instance.sortLeaderBoard();
                 break;
             case 1:
                 LocalUserDataManager.Instance.modeSelected = LocalUserDataManager.gameMode.rapidFire25m;
-                LiveUserDataManager.Instance.sortLeaderBoard();
+              //  LiveUserDataManager.Instance.sortLeaderBoard();
                 break;
             case 2:
                 LocalUserDataManager.Instance.modeSelected = LocalUserDataManager.gameMode.airRifle10m;
-                LiveUserDataManager.Instance.sortLeaderBoard();
+                LocalUserDataManager.Instance.selectedGameMode = GameModes.AirRifle10m;
+
+                //   LiveUserDataManager.Instance.sortLeaderBoard();
                 break;
         }
        
@@ -177,6 +209,83 @@ public class HUB_UIManager : MonoBehaviour
     {
         gameModePopup.SetActive(false);
     }
+
+    public void HelpPopupCloseButton()
+    {
+        helpPopUp.SetActive(false);
+    }
+    public void HelpButtonClick()
+    {
+        helpPopUp.SetActive(true);
+        helpScr1.SetActive(true);
+        helpScr2.SetActive(false);
+        helpScr3.SetActive(false);
+    }
+
+    public void NxtBtnClick()
+    {
+        nxtCount++;
+        if (nxtCount < 3)
+        {
+            if (nxtCount == 0)
+            {
+                helpScr1.SetActive(true);
+                helpScr2.SetActive(false);
+                helpScr3.SetActive(false);
+            }
+            else if (nxtCount == 1)
+            {
+
+                helpScr1.SetActive(false);
+                helpScr2.SetActive(true);
+                helpScr3.SetActive(false);
+                prvBtn.SetActive(true);
+            }
+            else if (nxtCount == 2)
+            {
+                helpScr1.SetActive(false);
+                helpScr2.SetActive(false);
+                helpScr3.SetActive(true);
+                prvBtn.SetActive(true);
+            }
+        }
+        else
+        {
+            nxtCount = 2;
+        }
+
+    }
+    public void PrvBtnClick()
+    {
+        nxtCount--;
+        if (nxtCount >= 0)
+        {
+            if (nxtCount == 0)
+            {
+                helpScr1.SetActive(true);
+                helpScr2.SetActive(false);
+                helpScr3.SetActive(false);
+                prvBtn.SetActive(false);
+            }
+            else if (nxtCount == 1)
+            {
+                helpScr1.SetActive(false);
+                helpScr2.SetActive(true);
+                helpScr3.SetActive(false);
+            }
+            else if (nxtCount == 2)
+            {
+                helpScr1.SetActive(false);
+                helpScr2.SetActive(true);
+                helpScr3.SetActive(false);
+            }
+        }
+        else
+        {
+            nxtCount = 0;
+        }
+    }
+
 
     public void loadPracticeMode()
     {
@@ -272,7 +381,7 @@ public class HUB_UIManager : MonoBehaviour
 
     public void leaderboardUIFill()
     {
-        LiveUserDataManager.Instance.sortLeaderBoard();
+        //LiveUserDataManager.Instance.sortLeaderBoard();
         
 
         

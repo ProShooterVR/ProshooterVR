@@ -8,7 +8,8 @@ public static class releaseDatabase
 {
     public static readonly string alpha = "PSVR_Alpha";
     public static readonly string prod = "PSVR_Prod";
-    
+    public static readonly string dev = "Development";
+
 }
 public class OculusProdState : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class OculusProdState : MonoBehaviour
 
     private void Start()
     {
-        LiveUserDataManager.Instance.dbName = releaseDatabase.alpha;
+        LiveUserDataManager.Instance.dbName = releaseDatabase.prod;
     }
 
 }

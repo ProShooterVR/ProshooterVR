@@ -727,18 +727,24 @@ MonoBehaviour:
   isRankedMode: 0
   pistolObj: {fileID: 1560068138}
   noOfShotsFired: 0
+  noShotMissed: 0
+  noShotsHit: 0
+  shotsFired: 0
   timeRemaining: 15
-  timerValue: {fileID: 1302812116}
+  Totaltime: 900
   scorePanels:
   - {fileID: 537229856}
   - {fileID: 14615460}
   - {fileID: 1231964718}
-  sc1ten: 0
-  sc2ten: 0
-  sc3ten: 0
+  series1Score: 0
+  series2Score: 0
+  series3Score: 0
   sco1ten: 0
   sco2ten: 0
   sco3ten: 0
+  gameTotalScore: 0
+  Totalscore: 0
+  matchTotalScore: 0
   isScoreUpdated: 0
   isReloaded: 0
   isReloading: 0
@@ -748,6 +754,19 @@ MonoBehaviour:
   pistol:
   - {fileID: 8300000, guid: 343a1fd21602d3947947164600aef4dd, type: 3}
   - {fileID: 8300000, guid: ce7a0536220f36f44989e3e8661d0379, type: 3}
+  avgScore: 0
+  innerTno: 0
+  timeSpent: 0
+  shotsCount: 0
+  isGamePause: 0
+  isMatchDataUpdated: 0
+  tempScore: {fileID: 0}
+  totalGameTime: 0
+  yellow: {fileID: 0}
+  blue: {fileID: 0}
+  green: {fileID: 0}
+  black: {fileID: 0}
+  mat: {fileID: 0}
 --- !u!1 &17296169
 GameObject:
   m_ObjectHideFlags: 0
@@ -27564,16 +27583,38 @@ MonoBehaviour:
   shotScore: 0
   shotRoundScore: 0
   finalScore: 
-  totalTScore: 0
-  Totalscore: 0
   totalScoreTxt: {fileID: 1603254954}
+  totalGameScoreTxt: {fileID: 0}
+  series1Text: {fileID: 0}
+  series2text: {fileID: 0}
+  series3Text: {fileID: 0}
+  currentShotScore: {fileID: 0}
+  seriesNoTitle: {fileID: 0}
+  instructionText: {fileID: 0}
+  shotsHitText: {fileID: 0}
+  shotsMissText: {fileID: 0}
+  scorePanelData: {fileID: 0}
+  timerValue: {fileID: 0}
   ScreenobjectToPlace: {fileID: 8899113539049405640, guid: 86c3696c2c6b819468e8b6efb694cffe,
     type: 3}
   resetShotPos: {fileID: 2124704037}
   resetParent: {fileID: 1374809806}
+  gamePopUp: {fileID: 0}
+  startBtn: {fileID: 0}
+  resumeBtn: {fileID: 0}
+  scoreScreen: {fileID: 0}
+  screenScores: []
   screen: {fileID: 1374809806}
   screenCenter: {fileID: 1567156072}
   screenEnd: {fileID: 1358839455}
+  endMatchPopUp: {fileID: 0}
+  settingPopUp: {fileID: 0}
+  leaderPopUp: {fileID: 0}
+  setSwitch: 0
+  Leaders: []
+  LeaderN: {fileID: 0}
+  leaderH: {fileID: 0}
+  title: {fileID: 0}
 --- !u!4 &1621909502
 Transform:
   m_ObjectHideFlags: 0

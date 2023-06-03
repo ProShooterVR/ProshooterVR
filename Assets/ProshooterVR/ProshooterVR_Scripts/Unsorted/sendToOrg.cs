@@ -18,6 +18,7 @@ public class sendToOrg : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("" + collision.gameObject.name);
         collision.gameObject.GetComponent<myorgPos>().resetPos();
     } 
 }

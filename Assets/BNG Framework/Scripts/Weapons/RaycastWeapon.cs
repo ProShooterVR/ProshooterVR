@@ -281,7 +281,24 @@ namespace BNG {
             // Fire gun if possible
             if (readyToShoot && triggerValue >= 0.45f)
             {
+                /// Rapid Fire //
+                /// 
 
+                /////
+                ///
+                //if (RapidFireGunManager.Instance.isRapidFireMode == true)
+                //{
+                //    //Shoot();
+                //    RapidFireGunManager.Instance.noOfShotsFired++;
+                //    readyToShoot = FiringMethod == FiringType.Automatic;
+
+                //}
+                //else
+                //{
+                //    //Shoot();
+
+                //    //readyToShoot = FiringMethod == FiringType.Automatic;
+                //}
                 if (GunGameManeger.Instance.isPistolMode == true)
                 {
                     if (GunGameManeger.Instance.isRankedMode == true)
@@ -294,6 +311,13 @@ namespace BNG {
                                 GunGameManeger.Instance.mat.GetComponent<Renderer>().material = GunGameManeger.Instance.yellow;
 
                                 GunGameManeger.Instance.isReloaded = false;
+                                GunGameManeger.Instance.isPallatPlaced = false;
+                                GunGameManeger.Instance.currentPallet = Instantiate(GunGameManeger.Instance.palletSpawn, GunGameManeger.Instance.palletPos, GunGameManeger.Instance.palletObj.transform.rotation);
+                                GunGameManeger.Instance.currentPallet.GetComponent<Grabbable>().enabled = false;
+                                GunGameManeger.Instance.touchReloader.SetActive(true);
+                                GunGameManeger.Instance.relodePt.SetActive(true);
+
+
                             }
                             // Immediately ready to keep firing if 
                             readyToShoot = FiringMethod == FiringType.Automatic;
@@ -310,6 +334,13 @@ namespace BNG {
                                 GunGameManeger.Instance.mat.GetComponent<Renderer>().material = GunGameManeger.Instance.yellow;
 
                                 GunGameManeger.Instance.isReloaded = false;
+                                GunGameManeger.Instance.isPallatPlaced = false;
+                                GunGameManeger.Instance.currentPallet = Instantiate(GunGameManeger.Instance.palletSpawn, GunGameManeger.Instance.palletPos, GunGameManeger.Instance.palletObj.transform.rotation);
+                                GunGameManeger.Instance.currentPallet.GetComponent<Grabbable>().enabled = false;
+                                GunGameManeger.Instance.touchReloader.SetActive(true);
+                                GunGameManeger.Instance.relodePt.SetActive(true);
+
+
                             }
                             // Immediately ready to keep firing if 
                             readyToShoot = FiringMethod == FiringType.Automatic;
@@ -324,9 +355,20 @@ namespace BNG {
                     {
                         if (GunGameManeger.Instance.timeRemaining > 0 && GunGameManeger.Instance.noOfShotsFired < 30)
                         {
+                            if (GunGameManeger.Instance.isReloaded == true)
+                            {
                                 Shoot();
+                               // GunGameManeger.Instance.mat.GetComponent<Renderer>().material = GunGameManeger.Instance.yellow;
 
                                 GunGameManeger.Instance.isReloaded = false;
+                                GunGameManeger.Instance.isPallatPlaced = false;
+                                GunGameManeger.Instance.currentPallet = Instantiate(GunGameManeger.Instance.palletSpawn, GunGameManeger.Instance.palletPos, GunGameManeger.Instance.palletObj.transform.rotation);
+                                GunGameManeger.Instance.currentPallet.GetComponent<Grabbable>().enabled = false;
+                                GunGameManeger.Instance.touchReloader.SetActive(true);
+                                GunGameManeger.Instance.relodePt.SetActive(true);
+
+
+                            }
                             // Immediately ready to keep firing if 
                             readyToShoot = FiringMethod == FiringType.Automatic;
                         }
@@ -334,11 +376,28 @@ namespace BNG {
 
                     if (GunGameManeger.Instance.isPracticeMode == true)
                     {
-                            Shoot();
-                        // Immediately ready to keep firing if 
-                        readyToShoot = FiringMethod == FiringType.Automatic;
+                        if (GunGameManeger.Instance.noOfShotsFired < 30)
+                        {
+                            if (GunGameManeger.Instance.isReloaded == true)
+                            {
+                                Shoot();
+                               // GunGameManeger.Instance.mat.GetComponent<Renderer>().material = GunGameManeger.Instance.yellow;
+
+                                GunGameManeger.Instance.isReloaded = false;
+                                GunGameManeger.Instance.isPallatPlaced = false;
+                                GunGameManeger.Instance.currentPallet = Instantiate(GunGameManeger.Instance.palletSpawn, GunGameManeger.Instance.palletPos, GunGameManeger.Instance.palletObj.transform.rotation);
+                                GunGameManeger.Instance.currentPallet.GetComponent<Grabbable>().enabled = false;
+                                GunGameManeger.Instance.touchReloader.SetActive(true);
+                                GunGameManeger.Instance.relodePt.SetActive(true);
+
+
+                            }
+                            // Immediately ready to keep firing if 
+                            readyToShoot = FiringMethod == FiringType.Automatic;
+                        }
                     }
                 }
+
 
                 if (GunGameManeger.Instance.isRapidFireMode == true)
                 {

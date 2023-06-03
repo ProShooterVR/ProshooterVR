@@ -141,7 +141,7 @@ namespace BNG {
             Vector3 currentRotation = transform.localEulerAngles;
             float angle = Mathf.Round(currentRotation.x);
             angle = (angle > 180) ? angle - 360 : angle;
-
+          //  Debug.Log(">>>>>>> "+ angle);
             // Set percentage of level position
             LeverPercentage = GetAnglePercentage(angle);
 

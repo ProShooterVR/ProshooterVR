@@ -16,26 +16,39 @@ public class GunDataManager : MonoBehaviour
     /// Data required to send to backend and save to UI fieldss
     /// </summary>
 
-    public int[] Scores;
+    public int[] ScoresPistol;
     public int totalShotsAllowed;
     public string gameMode;
 
     public int noOfSeries;
     public int currentShotScore;
-    public int totalGameScore;
-    public int sr1Score, sr2Score, sr3Score;
+    public int totalGameScorePistol;
+    public int sr1ScorePistol, sr2ScorePistol, sr3ScorePistol;
     public int noOfShotsOnTarget, noOfShotsMissed;
-    public int avgSrScore;
+    public int avgSrScorePistol;
     public int noOfInnerTens;
     public string totalTimeSpent;
-    public int personalAmaBest, personalSemiProBest, personalProBest;
-    public int personalGameBest;
+    public int personalAmaBestPistol, personalSemiProBestPistol, personalProBestPistol;
+    public int personalGameBestPistol;
 
+    //Rifle variable change 
+    public float[] ScoresRifle;
+
+    public float sr1ScoreRifle, sr2ScoreRifle, sr3ScoreRifle;
+    public float totalGameScoreRifle;
+
+    public float avgSrScoreRifle;
+    public float personalAmaBestRifle, personalSemiProBestRifle, personalProBestRifle;
+    public float personalGameBestRifle;
+    public float series1ScoreRifle, series2ScoreRifle, series3ScoreRifle;
+    public float TotalScoreRifle, gameTotalScoreRifle;
+    public float matchTotalScoreRifle;
 
     // Start is called before the first frame update
     void Start()
     {
-        Scores = new int[totalShotsAllowed];
+        ScoresPistol = new int[totalShotsAllowed];
+        ScoresRifle= new float[totalShotsAllowed];
         noOfSeries = 3;
         noOfShotsMissed = 0;
         noOfShotsOnTarget = 0;

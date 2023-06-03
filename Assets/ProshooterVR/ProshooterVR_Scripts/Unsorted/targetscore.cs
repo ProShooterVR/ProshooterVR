@@ -12,7 +12,7 @@ public class targetscore : MonoBehaviour
     public GameObject targetend;
     public GameObject targetcenter, target;
     float Score;
-
+ 
    
     float targetscoreOff;
 
@@ -42,7 +42,10 @@ public class targetscore : MonoBehaviour
             float newDist = Vector3.Distance(targetcenter.transform.localPosition, newobjet.transform.localPosition);
             Debug.Log("Dist :: " + newDist);
 
+             
             float Score = ((newDist / targetscoreOff) / 10) - 10.9f;
+            
+           
             Vector3 direction = (Vector2)targetcenter.transform.position - (Vector2)newobjet.transform.position;
 
             float angle = Vector2.Angle(Vector2.right, direction);
@@ -56,8 +59,7 @@ public class targetscore : MonoBehaviour
 
             Score = -Score;
              
-            PistolUIManager.Instance.updateShotScreen(newobjet.transform.localPosition, Score, angle);
-            GunGameManeger.Instance.shotFired();
+            GunGameManeger.Instance.shotFired(newobjet.transform.localPosition, Score, angle);
             
 
             Debug.Log("score :: " + Score);

@@ -30,7 +30,7 @@ public class RifleScopeAnim : MonoBehaviour
         if (string.Compare(other.gameObject.name, "Head") == 0)
         {
             Debug.Log("In");
-            StartCoroutine(playAnim());
+           // StartCoroutine(playAnim());
             scope1.SetActive(false);
             scope2.SetActive(true);
             
@@ -42,7 +42,7 @@ public class RifleScopeAnim : MonoBehaviour
     {
         if (string.Compare(other.gameObject.name, "Head") == 0)
         {
-            StartCoroutine(playAnim());
+            //StartCoroutine(playAnim());
             scope1.SetActive(true);
             scope2.SetActive(false);
             Debug.Log("out");

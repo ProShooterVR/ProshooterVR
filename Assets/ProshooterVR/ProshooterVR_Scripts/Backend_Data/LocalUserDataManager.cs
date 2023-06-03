@@ -26,12 +26,19 @@ public class LocalUserDataManager : MonoBehaviour
     /// </summary>
     public string userID, userName;
 
+    public bool isAggrDone;
+
     public float totalTime; // Total time spent by user
     private DateTime startTime;
 
     public string selectedGameMode, SelectedGameLevel;
-    public int totalScore,totalInnerTens,personalAmaBest,personalSemiProBest, personalProBest;
+    public int totalScorePistol,totalInnerTens,personalAmaBestPistol,personalSemiProBestPistol, personalProBestPistol;
     public List<Dictionary<string, object>> Leaders;
+
+    //Rifle Data
+
+    public float totalScoreRifle, personalAmaBestRifle, personalSemiProBestRifle, personalProBestRifle;
+
 
     public enum gamerLevel
     {
@@ -54,15 +61,15 @@ public class LocalUserDataManager : MonoBehaviour
     void Start()
     {
         startTime = DateTime.Now;
+        isAggrDone = false;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        TimeSpan elapsedTime = DateTime.Now - startTime;
-        totalTime = (float)elapsedTime.TotalSeconds;
-
+        totalTime += Time.deltaTime;
+        
     }
 
     
