@@ -1955,7 +1955,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 238314625}
         m_TargetAssemblyTypeName: PistolUIManager, Assembly-CSharp
-        m_MethodName: NxtBtnClick
+        m_MethodName: nextButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3298,6 +3298,7 @@ MonoBehaviour:
   helpScr2: {fileID: 338306641}
   helpScr3: {fileID: 1442262852}
   helpPopUp: {fileID: 304941894}
+  btnCnt: 0
   upperLeft: {fileID: 0}
   lowerRight: {fileID: 0}
 --- !u!4 &238314626
@@ -3567,7 +3568,6 @@ Transform:
   - {fileID: 1994887571}
   - {fileID: 1428977968}
   - {fileID: 1136713610}
-  - {fileID: 812829784}
   - {fileID: 591185131}
   - {fileID: 7597927798971909203}
   m_Father: {fileID: 0}
@@ -7018,7 +7018,7 @@ RectTransform:
   m_Children:
   - {fileID: 1618668788}
   m_Father: {fileID: 262350636}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9306,13 +9306,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812829783}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 4.072919, y: 0.8501, z: 5.88582}
-  m_LocalScale: {x: 0.04223545, y: 0.034176603, z: 0.0017857103}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: -0.5}
+  m_LocalPosition: {x: 0.03582001, y: 0.0071, z: -0.002918724}
+  m_LocalScale: {x: 0.042235456, y: 0.034176603, z: 0.0017857106}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 262350636}
-  m_RootOrder: 8
+  m_Father: {fileID: 1979866279}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &812829785
 BoxCollider:
@@ -13220,7 +13220,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 238314625}
         m_TargetAssemblyTypeName: PistolUIManager, Assembly-CSharp
-        m_MethodName: PrvBtnClick
+        m_MethodName: PrvButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23928,7 +23928,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 05308b132de27dd4b95b1ed809e75e54,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8428
+      value: 0.8134
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05308b132de27dd4b95b1ed809e75e54,
         type: 3}
@@ -23997,6 +23997,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5645153773202990641, guid: 05308b132de27dd4b95b1ed809e75e54, type: 3}
+--- !u!4 &1979866279 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 05308b132de27dd4b95b1ed809e75e54,
+    type: 3}
+  m_PrefabInstance: {fileID: 1979866276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1985138518
 GameObject:
   m_ObjectHideFlags: 0
@@ -26814,26 +26820,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 191862967765269386, guid: d39479ff10bf3ba46882b4b4a757e0bb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 191862967765269390, guid: d39479ff10bf3ba46882b4b4a757e0bb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 207581991549318708, guid: d39479ff10bf3ba46882b4b4a757e0bb,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 211149258870299354, guid: d39479ff10bf3ba46882b4b4a757e0bb,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39479ff10bf3ba46882b4b4a757e0bb, type: 3}
 --- !u!1 &2852188222326171551 stripped
@@ -26857,7 +26843,7 @@ PrefabInstance:
     - target: {fileID: 6667757392204128079, guid: cfa06e0270501e042ab680d3bcab0a85,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6667757392204128079, guid: cfa06e0270501e042ab680d3bcab0a85,
         type: 3}
@@ -26867,7 +26853,7 @@ PrefabInstance:
     - target: {fileID: 6667757392204128079, guid: cfa06e0270501e042ab680d3bcab0a85,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8669
+      value: 0.833
       objectReference: {fileID: 0}
     - target: {fileID: 6667757392204128079, guid: cfa06e0270501e042ab680d3bcab0a85,
         type: 3}

@@ -71,8 +71,9 @@ public class PistolUIManager : MonoBehaviour
     private GameObject helpScr1, helpScr2, helpScr3;
     [SerializeField]
     private GameObject helpPopUp;
-    
 
+    public int btnCnt;
+    
     [SerializeField]
     private GameObject upperLeft, lowerRight;
     private void Awake()
@@ -83,7 +84,7 @@ public class PistolUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        btnCnt = 0;
         screenScores = new List<GameObject>();
         screenscoreOff = Vector3.Distance(screenCenter.transform.localPosition, screenEnd.transform.localPosition)/100;
         PistolUIManager.Instance.currentShotScore.text = "";
@@ -228,7 +229,58 @@ public class PistolUIManager : MonoBehaviour
         setSwitch = false;
 
     }
-
+    public void nextButtonClick()
+    {
+        btnCnt++;
+        if(btnCnt > 2)
+        {
+            btnCnt = 2;
+        }
+        switch (btnCnt)
+        {
+            case 0:
+                helpScr1.SetActive(true);
+                helpScr2.SetActive(false);
+                helpScr3.SetActive(false);
+                break;
+            case 1:
+                helpScr1.SetActive(false);
+                helpScr2.SetActive(true);
+                helpScr3.SetActive(false);
+                break;
+            case 2:
+                helpScr1.SetActive(false);
+                helpScr2.SetActive(false);
+                helpScr3.SetActive(true);
+                break;
+        }
+    }
+    public void PrvButtonClick()
+    {
+        btnCnt--;
+        if (btnCnt < 0)
+        {
+            btnCnt = 0;
+        }
+        switch (btnCnt)
+        {
+            case 0:
+                helpScr1.SetActive(true);
+                helpScr2.SetActive(false);
+                helpScr3.SetActive(false);
+                break;
+            case 1:
+                helpScr1.SetActive(false);
+                helpScr2.SetActive(true);
+                helpScr3.SetActive(false);
+                break;
+            case 2:
+                helpScr1.SetActive(false);
+                helpScr2.SetActive(false);
+                helpScr3.SetActive(true);
+                break;
+        }
+    }
 
     public void clearShotScreen()
     {
