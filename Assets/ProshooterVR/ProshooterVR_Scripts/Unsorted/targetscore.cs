@@ -4,7 +4,7 @@ using System;
 
 public class targetscore : MonoBehaviour
 {
-   
+
     public TextMeshProUGUI debug;
     public GameObject newobjet;
     float scoreOff;
@@ -12,24 +12,25 @@ public class targetscore : MonoBehaviour
     public GameObject targetend;
     public GameObject targetcenter, target;
     float Score;
- 
-   
+
+
     float targetscoreOff;
 
+    public int scoreMx, DistMx, minScore;
 
 
 
     private void Start()
     {
-        targetscoreOff = Vector3.Distance(targetcenter.transform.localPosition, targetend.transform.localPosition) / 100;
-        
+        targetscoreOff = Vector3.Distance(targetcenter.transform.localPosition, targetend.transform.localPosition) / DistMx;
+
         Debug.Log("TargetOff :: " + targetscoreOff);
     }
 
     void OnCollisionEnter(Collision collision)
     {
-         if((collision.gameObject.name.Contains("BulletHole") == true))
-         {
+        if ((collision.gameObject.name.Contains("BulletHole") == true))
+        {
 
             newobjet = collision.gameObject;
             newobjet.transform.parent = target.transform;
@@ -42,10 +43,10 @@ public class targetscore : MonoBehaviour
             float newDist = Vector3.Distance(targetcenter.transform.localPosition, newobjet.transform.localPosition);
             Debug.Log("Dist :: " + newDist);
 
-             
-            float Score = ((newDist / targetscoreOff) / 10) - 10.9f;
-            
-           
+
+            float Score = ((newDist / targetscoreOff) / scoreMx) - 10.9f;
+
+
             Vector3 direction = (Vector2)targetcenter.transform.position - (Vector2)newobjet.transform.position;
 
             float angle = Vector2.Angle(Vector2.right, direction);
@@ -58,19 +59,26 @@ public class targetscore : MonoBehaviour
             Debug.Log(" angleeeee :: " + angle);
 
             Score = -Score;
-             
-            GunGameManeger.Instance.shotFired(newobjet.transform.localPosition, Score, angle);
-            
 
-            Debug.Log("score :: " + Score);
+            Debug.Log("Pre score :: " + Score);
+
+            if (Score < minScore)
+            {
+                Score = 0;
+            }
+            Debug.Log("Post score :: " + Score);
+            GunGameManeger.Instance.shotFired(newobjet.transform.localPosition, Score, angle);
+
+
+
 
 
             // Calculate the angle of the direction
-            
 
-            
 
-        } 
+
+
+        }
     }
 }
 

@@ -102,7 +102,7 @@ public class PistolUIManager : MonoBehaviour
         Debug.Log(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         instructionText.text = "";
 
-        //PistolUIManager.Instance.startBtnClick();
+        PistolUIManager.Instance.startBtnClick();
 
 
 
@@ -299,6 +299,7 @@ public class PistolUIManager : MonoBehaviour
             shotScore = 0;
             shotRoundScore = 0;
             finalScore = "0";
+            shotRoundScoreRifle = 0;
             GunGameManeger.Instance.noShotMissed++;
             shotsMissText.text = GunGameManeger.Instance.noShotMissed.ToString();
         }
@@ -443,9 +444,14 @@ public class PistolUIManager : MonoBehaviour
                // Debug.Log("" + placedObject.transform.localPosition.x + placedObject.transform.localScale.x / 2 + " :: " + upperLeft.transform.localPosition.x);
             }
         }
+        if (GunGameManeger.Instance.isPistolMode == true || GunGameManeger.Instance.isRifleMode == true)
+        {
+            if (scoreVal == 0)
+            { placedObject.SetActive(false); }
+        }
 
 
-       screenScores.Add(placedObject);
+            screenScores.Add(placedObject);
         
     }
 }

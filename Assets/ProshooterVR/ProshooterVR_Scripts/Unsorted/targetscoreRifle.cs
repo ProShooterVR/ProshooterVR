@@ -16,12 +16,12 @@ public class targetscoreRifle : MonoBehaviour
    
     float targetscoreOff;
 
-
+    public int scoreMx, DistMx, minScore;
 
 
     private void Start()
     {
-        targetscoreOff = Vector3.Distance(targetcenter.transform.localPosition, targetend.transform.localPosition) / 100;
+        targetscoreOff = Vector3.Distance(targetcenter.transform.localPosition, targetend.transform.localPosition) / DistMx;
         
         Debug.Log("TargetOff :: " + targetscoreOff);
     }
@@ -43,7 +43,7 @@ public class targetscoreRifle : MonoBehaviour
             Debug.Log("Dist :: " + newDist);
 
              
-            float Score = ((newDist / targetscoreOff) / 10) - 10.9f;
+            float Score = ((newDist / targetscoreOff) / scoreMx) - 10.9f;
             
            
             Vector3 direction = (Vector2)targetcenter.transform.position - (Vector2)newobjet.transform.position;
@@ -58,11 +58,18 @@ public class targetscoreRifle : MonoBehaviour
             Debug.Log(" angleeeee :: " + angle);
 
             Score = -Score;
-             
+
+            Debug.Log("Pre score :: " + Score);
+
+            if (Score < minScore)
+            {
+                Score = 0;
+            }
+            Debug.Log("Post score :: " + Score);
             GunGameManeger.Instance.shotFired(newobjet.transform.localPosition, Score, angle);
             
 
-            Debug.Log("score :: " + Score);
+           // Debug.Log("score :: " + Score);
 
 
             // Calculate the angle of the direction

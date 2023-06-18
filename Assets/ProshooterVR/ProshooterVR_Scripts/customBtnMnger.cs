@@ -62,23 +62,25 @@ public class customBtnMnger : MonoBehaviour
 
     public void b1en()
     {
-        b1.GetComponent<Image>().sprite = hover;
-
-
+        if (b1c == false)
+        {
+            b1.GetComponent<Image>().sprite = hover;
+        }
     }
     public void b2en()
     {
-
-        b2.GetComponent<Image>().sprite = hover;
-
+        if (b2c == false)
+        {
+            b2.GetComponent<Image>().sprite = hover;
+        }
 
     }
     public void b3en()
     {
-
-
-
-        b3.GetComponent<Image>().sprite = hover;
+        if (b3c == false)
+        {
+            b3.GetComponent<Image>().sprite = hover;
+        }
     }
 
     public void b1ex()
@@ -87,15 +89,12 @@ public class customBtnMnger : MonoBehaviour
         {
             b1.GetComponent<Image>().sprite = normal;
         }
-
-
     }
     public void b2ex()
     {
         if (b2c == false)
         {
             b2.GetComponent<Image>().sprite = normal;
-
         }
     }
     public void b3ex()

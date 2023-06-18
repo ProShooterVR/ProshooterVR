@@ -5,12 +5,14 @@ using UnityEngine;
 public class RifleScopeAnim : MonoBehaviour
 {
 
-    public GameObject scope1, scope2, fadeAnim;
+    public GameObject scope1, scope2;
+    public GameObject sight1, sight2;
+    public GameObject fade;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        fade.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,9 +22,9 @@ public class RifleScopeAnim : MonoBehaviour
     }
     IEnumerator playAnim()
     {
-        fadeAnim.SetActive(true);
+        
         yield return new WaitForSeconds(0.5f);
-        fadeAnim.SetActive(false);
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,7 +35,10 @@ public class RifleScopeAnim : MonoBehaviour
            // StartCoroutine(playAnim());
             scope1.SetActive(false);
             scope2.SetActive(true);
-            
+            fade.SetActive(true);
+            sight1.SetActive(false);
+            sight2.SetActive(true);
+
         }
 
     }
@@ -45,6 +50,10 @@ public class RifleScopeAnim : MonoBehaviour
             //StartCoroutine(playAnim());
             scope1.SetActive(true);
             scope2.SetActive(false);
+            fade.SetActive(false);
+
+            sight1.SetActive(true);
+            sight2.SetActive(false);
             Debug.Log("out");
         }
     }
