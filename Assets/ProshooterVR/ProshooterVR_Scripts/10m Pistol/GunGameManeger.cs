@@ -234,7 +234,7 @@ public class GunGameManeger : MonoBehaviour
     {
         //PistolUIManager.Instance.leaderPopUp.SetActive(true);
 
-       
+        
        
 
         if (isPistolMode == true)
@@ -560,7 +560,11 @@ public class GunGameManeger : MonoBehaviour
 
                         PistolUIManager.Instance.currentShotScore.text = PistolUIManager.Instance.finalScore;
                         PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.GetComponent<Image>().enabled = true;
-                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.transform.Rotate(0, 0, PistolUIManager.Instance.angle);
+                        Vector3 eulerRotation = new Vector3(0f, 0f, PistolUIManager.Instance.angle); // Example euler rotation values
+                        Quaternion quaternionRotation = Quaternion.Euler(eulerRotation);
+                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.transform.localRotation = quaternionRotation;
+
+
 
                         GunDataManager.Instance.ScoresRifle[noOfShotsFired] = PistolUIManager.Instance.shotRoundScoreRifle;
 
@@ -633,7 +637,9 @@ public class GunGameManeger : MonoBehaviour
 
                         PistolUIManager.Instance.currentShotScore.text = PistolUIManager.Instance.finalScore;
                         PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.GetComponent<Image>().enabled = true;
-                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.transform.Rotate(0, 0, PistolUIManager.Instance.angle);
+                        Vector3 eulerRotation = new Vector3(0f, 0f, PistolUIManager.Instance.angle); // Example euler rotation values
+                        Quaternion quaternionRotation = Quaternion.Euler(eulerRotation);
+                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.transform.localRotation = quaternionRotation;
 
                         GunDataManager.Instance.ScoresRifle[noOfShotsFired] = PistolUIManager.Instance.shotRoundScoreRifle;
 

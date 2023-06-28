@@ -7,24 +7,23 @@ public class RifleScopeAnim : MonoBehaviour
 
     public GameObject scope1, scope2;
     public GameObject sight1, sight2;
-    public GameObject fade;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        fade.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     IEnumerator playAnim()
     {
-        
+
         yield return new WaitForSeconds(0.5f);
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,10 +31,9 @@ public class RifleScopeAnim : MonoBehaviour
         if (string.Compare(other.gameObject.name, "Head") == 0)
         {
             Debug.Log("In");
-           // StartCoroutine(playAnim());
+            // StartCoroutine(playAnim());
             scope1.SetActive(false);
             scope2.SetActive(true);
-            fade.SetActive(true);
             sight1.SetActive(false);
             sight2.SetActive(true);
 
@@ -50,7 +48,6 @@ public class RifleScopeAnim : MonoBehaviour
             //StartCoroutine(playAnim());
             scope1.SetActive(true);
             scope2.SetActive(false);
-            fade.SetActive(false);
 
             sight1.SetActive(true);
             sight2.SetActive(false);

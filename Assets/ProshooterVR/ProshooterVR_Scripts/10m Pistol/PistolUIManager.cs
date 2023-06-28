@@ -76,6 +76,8 @@ public class PistolUIManager : MonoBehaviour
     
     [SerializeField]
     private GameObject upperLeft, lowerRight;
+
+    public GameObject prevPlaced;
     private void Awake()
     {
         Instance = this;
@@ -291,6 +293,7 @@ public class PistolUIManager : MonoBehaviour
                 Destroy(screenScores[i]);
             }
         }
+        prevPlaced = null;
     }
     public void updateShotScreen(Vector3 pos, float scoreVal, float direction)
     {
@@ -415,6 +418,15 @@ public class PistolUIManager : MonoBehaviour
         Vector3 scle = screenCenter.transform.localScale;
         Debug.Log(scle);
 
+        if (prevPlaced == null)
+        {
+            prevPlaced = placedObject;
+        }
+        else
+        {
+            prevPlaced.GetComponent<Renderer>().material.color = Color.green;
+            prevPlaced = placedObject;
+        }
 
         placedObject.transform.localScale = screenCenter.transform.localScale;
 

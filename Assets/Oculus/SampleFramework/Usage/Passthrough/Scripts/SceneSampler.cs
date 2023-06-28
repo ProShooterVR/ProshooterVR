@@ -10,14 +10,14 @@ public class SceneSampler : MonoBehaviour
 
     void Awake()
     {
-        //DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this.gameObject);
     }
 
     void Update()
     {
         bool controllersActive = OVRInput.GetActiveController() == OVRInput.Controller.Touch ||
-          OVRInput.GetActiveController() == OVRInput.Controller.LTouch ||
-          OVRInput.GetActiveController() == OVRInput.Controller.RTouch;
+                                 OVRInput.GetActiveController() == OVRInput.Controller.LTouch ||
+                                 OVRInput.GetActiveController() == OVRInput.Controller.RTouch;
 
         displayText.SetActive(controllersActive);
 

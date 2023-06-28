@@ -93,7 +93,8 @@ namespace BNG {
     public enum GrabButton {
         Grip,
         Trigger,
-        Inherit
+        Inherit, // Inherit from Grabber
+        GripOrTrigger // Either Grip or Trigger will work
     }
 
     public enum HoldType {
@@ -305,7 +306,6 @@ namespace BNG {
 
         public bool StartButton = false;
         public bool StartButtonDown = false;
-        public bool StartButtonUp = false;
         public bool BackButton = false;
         public bool BackButtonDown = false;
 
@@ -768,8 +768,6 @@ namespace BNG {
             prevBool = StartButton;
             StartButton = getFeatureUsage(primaryRightController, CommonUsages.menuButton);
             StartButtonDown = prevBool == false && StartButton == true;
-            StartButtonUp = prevBool == true && StartButton == false;
-
 
             prevBool = BackButton;
             BackButton = getFeatureUsage(primaryLeftController, CommonUsages.menuButton);
@@ -837,12 +835,9 @@ namespace BNG {
             YButtonDown = prevBool == false && YButton == true;
             YButtonUp = prevBool == true && YButton == false;
 
-
             prevBool = StartButton;
             StartButton = correctValue(startButton.ReadValue<float>()) > 0;
             StartButtonDown = prevBool == false && StartButton == true;
-            StartButtonUp = prevBool == true && StartButton == false;
-
 
             prevBool = BackButton;
             BackButton = correctValue(backButton.ReadValue<float>()) > 0;
