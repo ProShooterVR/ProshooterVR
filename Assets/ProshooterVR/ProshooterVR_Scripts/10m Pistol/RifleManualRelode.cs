@@ -31,6 +31,8 @@ public class RifleManualRelode : MonoBehaviour
 
             if (isDown == true)
             {
+                GunGameManeger.Instance.tempPallet.SetActive(true);
+
                 isDown = false;
                 isUP = true;
                 GunGameManeger.Instance.animator.Rebind();
@@ -40,8 +42,8 @@ public class RifleManualRelode : MonoBehaviour
                 GunGameManeger.Instance.isReloading = true;
                 GunGameManeger.Instance.audioSrc.PlayOneShot(GunGameManeger.Instance.pistol[0]);
                 GunGameManeger.Instance.touchReloader.SetActive(false);
+
                 GunGameManeger.Instance.pallatePt.SetActive(true);
-                GunGameManeger.Instance.currentPallet.GetComponent<Grabbable>().enabled = true;
 
 
 
@@ -63,6 +65,7 @@ public class RifleManualRelode : MonoBehaviour
                     GunGameManeger.Instance.isReloading = false;
                     GunGameManeger.Instance.audioSrc.PlayOneShot(GunGameManeger.Instance.pistol[1]);
                     GunGameManeger.Instance.touchReloader.SetActive(false);
+
                     GunGameManeger.Instance.relodePt.SetActive(false);
                     Debug.Log("UP");
                 }

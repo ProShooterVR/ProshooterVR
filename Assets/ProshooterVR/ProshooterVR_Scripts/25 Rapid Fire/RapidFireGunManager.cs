@@ -37,6 +37,18 @@ public class RapidFireGunManager : MonoBehaviour
 
     public bool resetData;
 
+    public AudioClip attention;
+    public AudioSource RFAudioSource;
+
+
+    public GameObject StartTimer;
+    public GameObject redLights, greenLights, noLights;
+    public bool startGame;
+
+    public int SeriesCounter;
+    public float BufferTime;
+    public bool countingScore;
+
 
     private void Awake()
     {
@@ -48,6 +60,13 @@ public class RapidFireGunManager : MonoBehaviour
     {
         timerValue = 8;
         resetData = true;
+        redLights.SetActive(false);
+        greenLights.SetActive(false);
+        noLights.SetActive(true);
+
+        StartCoroutine(StartTimerStart());
+        SeriesCounter = 0;
+        countingScore = false;
     }
 
     // Update is called once per frame
@@ -63,6 +82,29 @@ public class RapidFireGunManager : MonoBehaviour
                 //timerValTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
             }
+            if(startGame == true)
+            {
+             RapidFireGunManager.Instance.isReloaded = true;
+
+            if (SeriesCounter == 0)
+                {
+                    stage1Start();
+                    SeriesCounter++;
+                }
+                else if (SeriesCounter == 1)
+                {
+                    stage2Start();
+                    SeriesCounter++;
+
+                }
+                else if (SeriesCounter == 2)
+                {
+                    stage3Start();
+                    SeriesCounter++;
+                }
+            startGame = false;
+            }
+
             
         
     }
@@ -72,4 +114,69 @@ public class RapidFireGunManager : MonoBehaviour
         RapidFireUIManager.Instance.updateShotScreen(pos, scoreVal, direction,screenNo);
 
     }
+
+
+    IEnumerator StartTimerStart()
+    {
+        yield return new WaitForSeconds(3);
+        StartTimer.SetActive(true);
+
+    }
+
+    // return after timer value specified
+
+    public void stage1Start()
+    {
+        startSeries01();
+    }
+
+    public void stage2Start()
+    {
+        startSeries02();
+    }
+
+    public void stage3Start()
+    {
+        startSeries03();
+    }
+    public void startSeries01()
+    {
+        StartCoroutine(series(8.2f));
+    }
+
+    public void startSeries02()
+    {
+        StartCoroutine(series(6.2f));
+    }
+
+    public void startSeries03()
+    {
+        StartCoroutine(series(4.2f));
+    }
+
+    IEnumerator series(float timeVal)
+    {
+        redLights.SetActive(true);
+        greenLights.SetActive(false);
+        noLights.SetActive(false);
+        yield return new WaitForSeconds(7f);
+
+        countingScore = true;
+        redLights.SetActive(false);
+        greenLights.SetActive(true);
+        noLights.SetActive(false);
+        yield return new WaitForSeconds(timeVal);
+
+        countingScore = false;
+
+        redLights.SetActive(false);
+        greenLights.SetActive(false);
+        noLights.SetActive(true);
+
+        yield return new WaitForSeconds(BufferTime);
+        StartTimer.SetActive(true);
+    }
+
+
 }
+    

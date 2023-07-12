@@ -288,24 +288,14 @@ namespace BNG
             // Fire gun if possible
             if (readyToShoot && triggerValue >= 0.45f)
             {
-                /// Rapid Fire //
-                /// 
+        //// ----------------- 25m Rapid Fire Mode Calls ------------------------- ////////////
 
-                /////
-                ///
-                //if (RapidFireGunManager.Instance.isRapidFireMode == true)
-                //{
-                //    //Shoot();
-                //    RapidFireGunManager.Instance.noOfShotsFired++;
-                //    readyToShoot = FiringMethod == FiringType.Automatic;
 
-                //}
-                //else
-                //{
-                //    //Shoot();
+                
 
-                //    //readyToShoot = FiringMethod == FiringType.Automatic;
-                //}
+
+                
+         //// ----------------- Air Pistol Mode Calls ------------------------- ////////////
                 if (GunGameManeger.Instance.isPistolMode == true)
                 {
                     if (GunGameManeger.Instance.isRankedMode == true)
@@ -314,13 +304,13 @@ namespace BNG
                         {
                             if (GunGameManeger.Instance.isReloaded == true)
                             {
+                                GunGameManeger.Instance.spawnBullet = true;
+
                                 Shoot();
                                 GunGameManeger.Instance.mat.GetComponent<Renderer>().material = GunGameManeger.Instance.yellow;
 
                                 GunGameManeger.Instance.isReloaded = false;
                                 GunGameManeger.Instance.isPallatPlaced = false;
-                                GunGameManeger.Instance.currentPallet = Instantiate(GunGameManeger.Instance.palletSpawn, GunGameManeger.Instance.palletPos, GunGameManeger.Instance.palletObj.transform.rotation);
-                                GunGameManeger.Instance.currentPallet.GetComponent<Grabbable>().enabled = false;
                                 GunGameManeger.Instance.touchReloader.SetActive(true);
                                 GunGameManeger.Instance.relodePt.SetActive(true);
 
@@ -337,13 +327,13 @@ namespace BNG
                         {
                             if (GunGameManeger.Instance.isReloaded == true)
                             {
+                                GunGameManeger.Instance.spawnBullet = true;
+
                                 Shoot();
                                 GunGameManeger.Instance.mat.GetComponent<Renderer>().material = GunGameManeger.Instance.yellow;
 
                                 GunGameManeger.Instance.isReloaded = false;
                                 GunGameManeger.Instance.isPallatPlaced = false;
-                                GunGameManeger.Instance.currentPallet = Instantiate(GunGameManeger.Instance.palletSpawn, GunGameManeger.Instance.palletPos, GunGameManeger.Instance.palletObj.transform.rotation);
-                                GunGameManeger.Instance.currentPallet.GetComponent<Grabbable>().enabled = false;
                                 GunGameManeger.Instance.touchReloader.SetActive(true);
                                 GunGameManeger.Instance.relodePt.SetActive(true);
 
@@ -354,8 +344,10 @@ namespace BNG
                         }
                     }
                 }
+        
 
 
+        //// ----------------- Air Rifle Mode Calls ------------------------- ////////////
                 if (GunGameManeger.Instance.isRifleMode == true)
                 {
                     if (GunGameManeger.Instance.isRankedMode == true)
@@ -364,13 +356,13 @@ namespace BNG
                         {
                             if (GunGameManeger.Instance.isReloaded == true)
                             {
+                                GunGameManeger.Instance.spawnBullet = true;
+
                                 Shoot();
                                 // GunGameManeger.Instance.mat.GetComponent<Renderer>().material = GunGameManeger.Instance.yellow;
 
                                 GunGameManeger.Instance.isReloaded = false;
                                 GunGameManeger.Instance.isPallatPlaced = false;
-                                GunGameManeger.Instance.currentPallet = Instantiate(GunGameManeger.Instance.palletSpawn, GunGameManeger.Instance.palletPos, GunGameManeger.Instance.palletObj.transform.rotation);
-                                GunGameManeger.Instance.currentPallet.GetComponent<Grabbable>().enabled = false;
                                 GunGameManeger.Instance.touchReloader.SetActive(true);
                                 GunGameManeger.Instance.relodePt.SetActive(true);
 
@@ -387,13 +379,13 @@ namespace BNG
                         {
                             if (GunGameManeger.Instance.isReloaded == true)
                             {
+                                GunGameManeger.Instance.spawnBullet = true;
+
                                 Shoot();
                                 // GunGameManeger.Instance.mat.GetComponent<Renderer>().material = GunGameManeger.Instance.yellow;
 
                                 GunGameManeger.Instance.isReloaded = false;
                                 GunGameManeger.Instance.isPallatPlaced = false;
-                                GunGameManeger.Instance.currentPallet = Instantiate(GunGameManeger.Instance.palletSpawn, GunGameManeger.Instance.palletPos, GunGameManeger.Instance.palletObj.transform.rotation);
-                                GunGameManeger.Instance.currentPallet.GetComponent<Grabbable>().enabled = false;
                                 GunGameManeger.Instance.touchReloader.SetActive(true);
                                 GunGameManeger.Instance.relodePt.SetActive(true);
 
@@ -406,11 +398,7 @@ namespace BNG
                 }
 
 
-                if (GunGameManeger.Instance.isRapidFireMode == true)
-                {
-                    Shoot();
-                    readyToShoot = FiringMethod == FiringType.Automatic;
-                }
+                
             }
 
             // These are here for convenience. Could be called through GrabbableUnityEvents instead
@@ -486,6 +474,10 @@ namespace BNG
 
         public virtual void Shoot()
         {
+            // new chages for smart pickup ProshooterVR Internal
+
+            // new chages end here
+
 
 
 

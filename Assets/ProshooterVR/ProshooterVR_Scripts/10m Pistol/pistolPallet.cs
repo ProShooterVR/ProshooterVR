@@ -26,10 +26,10 @@ public class pistolPallet : MonoBehaviour
             {
                 GunGameManeger.Instance.isPallatPlaced = true;
                 GunGameManeger.Instance.touchReloader.SetActive(true);
+
                 GunGameManeger.Instance.pallatePt.SetActive(false);
 
-
-            Debug.Log("working");
+                Debug.Log("working");
                 other.gameObject.SetActive(false);
             }
         

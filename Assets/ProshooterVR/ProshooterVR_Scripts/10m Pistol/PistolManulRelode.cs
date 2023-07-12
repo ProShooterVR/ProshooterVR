@@ -30,6 +30,8 @@ public class PistolManulRelode : MonoBehaviour
 
             if (isDown == true)
             {
+                GunGameManeger.Instance.tempPallet.SetActive(true);
+
                 isDown = false;
                 isUP = true;
                 GunGameManeger.Instance.animator.Rebind();
@@ -40,7 +42,6 @@ public class PistolManulRelode : MonoBehaviour
                 GunGameManeger.Instance.audioSrc.PlayOneShot(GunGameManeger.Instance.pistol[0]);
                 GunGameManeger.Instance.touchReloader.SetActive(false);
                 GunGameManeger.Instance.pallatePt.SetActive(true);
-                GunGameManeger.Instance.currentPallet.GetComponent<Grabbable>().enabled = true;
 
 
 

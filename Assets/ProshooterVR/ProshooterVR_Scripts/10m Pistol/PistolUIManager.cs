@@ -104,7 +104,7 @@ public class PistolUIManager : MonoBehaviour
         Debug.Log(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         instructionText.text = "";
 
-        PistolUIManager.Instance.startBtnClick();
+        //PistolUIManager.Instance.startBtnClick();
 
 
 
@@ -133,9 +133,12 @@ public class PistolUIManager : MonoBehaviour
             
 
         }
-        
 
-        if (InputBridge.Instance.YButtonDown == true)
+        //if (InputBridge.Instance.LeftTriggerDown == true)
+        //{
+        //    Debug.Log("calleed click");
+        //}
+            if (InputBridge.Instance.YButtonDown == true)
         {
             helpPopUp.SetActive(true);
             settingPopUp.SetActive(false);
@@ -202,14 +205,10 @@ public class PistolUIManager : MonoBehaviour
         settingPopUp.SetActive(false);
         GunGameManeger.Instance.touchReloader.SetActive(true);
         GunGameManeger.Instance.relodePt.SetActive(true);
+        GunGameManeger.Instance.spawnBullet = true;
 
         Debug.Log("Why god why");
-       // GunGameManeger.Instance.relodeHinge.SetActive(true);
-        ///GunGameManeger.Instance.relodePin.SetActive(false);
-
-       // Instantiate(GunGameManeger.Instance.palletSpawn, GunGameManeger.Instance.palletPos, GunGameManeger.Instance.palletObj.transform.rotation);
-
-
+       
     }
     public void resumeBtnClick()
     {

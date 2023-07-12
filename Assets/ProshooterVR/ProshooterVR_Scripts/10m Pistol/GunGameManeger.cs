@@ -72,6 +72,8 @@ public class GunGameManeger : MonoBehaviour
     public GameObject touchReloader;
     public GameObject relodePt, pallatePt;
 
+    public GameObject palletPrefab,tempPallet, palletHoldPos,palletParent;
+    public bool spawnBullet;
 
     void Awake()
     {
@@ -83,9 +85,11 @@ public class GunGameManeger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        spawnBullet = false;
         isGamePause = true;
         palletPos = palletObj.transform.position;
+        GunGameManeger.Instance.tempPallet.SetActive(false);
+
 
         if (isPistolMode == true)
         {
