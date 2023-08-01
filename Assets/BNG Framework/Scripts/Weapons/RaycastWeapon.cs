@@ -40,7 +40,7 @@ namespace BNG
         /// Ex : 0.2 = 5 Shots per second
         /// </summary>
         [Tooltip("Ex : 0.2 = 5 Shots per second")]
-        public float FiringRate = 0.2f;
+        public float FiringRate = 1;
         float lastShotTime;
 
         [Tooltip("Amount of force to apply to a Rigidbody once damaged")]
@@ -288,14 +288,25 @@ namespace BNG
             // Fire gun if possible
             if (readyToShoot && triggerValue >= 0.45f)
             {
-        //// ----------------- 25m Rapid Fire Mode Calls ------------------------- ////////////
+                //// ----------------- 25m Rapid Fire Mode Calls ------------------------- ////////////
+
+                if (RapidFireGunManager.Instance.isRapidFireMode == true)
+                {
+                    if(RapidFireGunManager.Instance.isReloaded == true)
+                    {
+                        Shoot();
+                        readyToShoot = FiringMethod == FiringType.Semi;
+                        if (RapidFireGunManager.Instance.countingScore == false)
+                        {
+                            InstructionManager.Instance.audioSource.PlayOneShot(InstructionManager.Instance.buzzer);
+                        }
+                    }
+                }
 
 
-                
 
 
-                
-         //// ----------------- Air Pistol Mode Calls ------------------------- ////////////
+                    //// ----------------- Air Pistol Mode Calls ------------------------- ////////////
                 if (GunGameManeger.Instance.isPistolMode == true)
                 {
                     if (GunGameManeger.Instance.isRankedMode == true)

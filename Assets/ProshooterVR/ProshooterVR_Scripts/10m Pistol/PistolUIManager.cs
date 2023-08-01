@@ -59,7 +59,7 @@ public class PistolUIManager : MonoBehaviour
     public GameObject screen, screenCenter, screenEnd;
 
     float targetscoreOff, screenscoreOff;
-    public GameObject endMatchPopUp,settingPopUp,leaderPopUp;
+    public GameObject endMatchPopUp,settingPopUp,leaderPopUp,standSettingPopup;
     public bool setSwitch;
 
     public GameObject[] Leaders;
@@ -78,6 +78,8 @@ public class PistolUIManager : MonoBehaviour
     private GameObject upperLeft, lowerRight;
 
     public GameObject prevPlaced;
+
+    public bool rfStandMove;
     private void Awake()
     {
         Instance = this;
@@ -133,12 +135,22 @@ public class PistolUIManager : MonoBehaviour
             
 
         }
-
+        if (GunGameManeger.Instance.isRifleMode == true)
+        {
+            if (InputBridge.Instance.BButtonDown == true)
+            {
+                GunGameManeger.Instance.rfStandMoveable.transform.Rotate(0, 10f, 0);
+            }
+            if (InputBridge.Instance.AButtonDown == true)
+            {
+                GunGameManeger.Instance.rfStandMoveable.transform.Rotate(0, -10f, 0);
+            }
+        }
         //if (InputBridge.Instance.LeftTriggerDown == true)
         //{
         //    Debug.Log("calleed click");
         //}
-            if (InputBridge.Instance.YButtonDown == true)
+        if (InputBridge.Instance.YButtonDown == true)
         {
             helpPopUp.SetActive(true);
             settingPopUp.SetActive(false);
@@ -193,7 +205,23 @@ public class PistolUIManager : MonoBehaviour
         helpScr3.SetActive(false);
     }
 
-   
+    public void StandSettingButtonClick()
+    {
+        settingPopUp.SetActive(false);
+        standSettingPopup.SetActive(true);
+        StandBehavour.Instance.enableMovement();
+      
+    }
+    public void SaveStandSettingButtonClick()
+    {
+        settingPopUp.SetActive(true);
+        standSettingPopup.SetActive(false);
+        StandBehavour.Instance.disableMovement();
+
+
+    }
+
+
 
     public void startBtnClick()
     {

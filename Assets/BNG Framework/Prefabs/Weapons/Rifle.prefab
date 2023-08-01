@@ -268,7 +268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027311241835106229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0002, z: 0.2677}
+  m_LocalPosition: {x: -0.0058, y: 0.1044, z: 0.5373}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2642,6 +2642,7 @@ GameObject:
   - component: {fileID: 3594841392878154761}
   - component: {fileID: 1628981071965224111}
   - component: {fileID: 3524209059921980624}
+  - component: {fileID: 6377687587993295058}
   m_Layer: 10
   m_Name: Rifle
   m_TagString: Untagged
@@ -2687,9 +2688,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3594841392878154760}
   serializedVersion: 4
-  m_Mass: 1000
-  m_Drag: 10
-  m_AngularDrag: 100
+  m_Mass: 100
+  m_Drag: 1
+  m_AngularDrag: 10
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -2745,7 +2746,7 @@ MonoBehaviour:
   SecondaryGrabBehavior: 2
   TwoHandedPosition: 1
   TwoHandedPostionLerpAmount: 0
-  TwoHandedRotation: 2
+  TwoHandedRotation: 3
   TwoHandedRotationLerpAmount: 0.5
   TwoHandedDropBehavior: 0
   TwoHandedLookVector: 1
@@ -2901,7 +2902,7 @@ MonoBehaviour:
   ShotForce: 20
   BulletCasingForce: 3
   RecoilForce: {x: 0, y: 0, z: 0}
-  RecoilDuration: 0.3
+  RecoilDuration: 0
   ValidLayers:
     serializedVersion: 2
     m_Bits: 1281
@@ -3126,6 +3127,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.049678326, y: 0.075115204, z: 0.4436965}
   m_Center: {x: -0.0051094294, y: 0.010147691, z: 0.02097249}
+--- !u!114 &6377687587993295058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3594841392878154760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e324afda874d45c4e9990a3ab7ee9c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3594841392909505739
 GameObject:
   m_ObjectHideFlags: 0
@@ -3843,7 +3856,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3594841393174454913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0058, y: 0.1044, z: 0.5373}
+  m_LocalPosition: {x: -0.0058, y: 0.1044, z: -0.2354}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -13,56 +13,22 @@ public class RapidFireUIManager : MonoBehaviour
     public int shotRoundScore;
     public float shotRoundScoreRifle;
     public string finalScore;
-
-
-    //public TextMeshProUGUI totalScoreTxt, totalGameScoreTxt;
-    //public TextMeshProUGUI series1Text, series2text, series3Text;
-    //public TextMeshProUGUI currentShotScore;
-    //public TextMeshProUGUI seriesNoTitle;
-    //public TextMeshProUGUI instructionText;
-    //public TextMeshProUGUI shotsHitText;
-    //public TextMeshProUGUI shotsMissText;
-    //public GameObject scorePanelData;
-
-    //public TextMeshProUGUI timerValue;
-
+    
     public GameObject ScreenobjectToPlace;
 
 
     GameObject resetShotPos, resetParent, rifleOffObj;
-    //public GameObject gamePopUp;
-    //public GameObject startBtn, resumeBtn;
-    //public GameObject scoreScreen;
-    //public List<GameObject> screenScores;
-    ///// <summary>
-    ///// ----- Screen calc -----
-    ///// </summary>
+   
 
     GameObject screenCenter, screenEnd;
 
     public GameObject[] screens;
     public int screenNo;
     public TextMeshProUGUI sr1Score, sr2Score, sr3Score; // Reference to the UI Text component
+    public GameObject[] scoresDisp;
+    public string[] instructions;
+    public TextMeshProUGUI instructionTxt;
 
-    //float targetscoreOff, screenscoreOff;
-    //public GameObject endMatchPopUp, settingPopUp, leaderPopUp;
-    //public bool setSwitch;
-
-    //public GameObject[] Leaders;
-    //public GameObject LeaderN;
-    //public Sprite leaderH;
-    //public TextMeshProUGUI title;
-
-    //[SerializeField]
-    //private GameObject helpScr1, helpScr2, helpScr3;
-    //[SerializeField]
-    //private GameObject helpPopUp;
-    //int nxtCount, prvCount;
-    //[SerializeField]
-    //private GameObject prvBtn, nxtBtn;
-
-    //[SerializeField]
-    //private GameObject upperLeft, lowerRight;
 
     public static RapidFireUIManager Instance;
     private void Awake()
@@ -87,7 +53,20 @@ public class RapidFireUIManager : MonoBehaviour
 
     public void clearScreen()
     {
+        for (int i = 0; i < 5; i++)
+        {
+            screens[i].transform.GetChild(3).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+        }
+    }
 
+    public void foulSeries()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            screens[i].transform.GetChild(3).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = "0";
+            scoresDisp[RapidFireGunManager.Instance.SeriesCounter].transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = shotScore.ToString();
+
+        }
     }
     public void updateShotScreen(Vector3 pos, float scoreVal, float direction,int ShotScreenNo)
     {
@@ -147,19 +126,22 @@ public class RapidFireUIManager : MonoBehaviour
             shotScore = 0;
         }
 
+        if(RapidFireGunManager.Instance.seriesFoul == true)
+        {
+            foulSeries();
+        }
 
         if(RapidFireGunManager.Instance.SeriesCounter == 1)
         {
-            sr1Score.text = sr1Score.text + "    |   " + shotScore.ToString();
+            scoresDisp[0].transform.GetChild(screenNo).GetComponent<TextMeshProUGUI>().text = shotScore.ToString();
         }
         else if (RapidFireGunManager.Instance.SeriesCounter == 2)
         {
-            sr2Score.text = sr2Score.text + "    |   " + shotScore.ToString();
-
+            scoresDisp[1].transform.GetChild(screenNo).GetComponent<TextMeshProUGUI>().text = shotScore.ToString();
         }
         else if (RapidFireGunManager.Instance.SeriesCounter == 3)
         {
-            sr3Score.text = sr3Score.text + "    |   " + shotScore.ToString();
+            scoresDisp[2].transform.GetChild(screenNo).GetComponent<TextMeshProUGUI>().text = shotScore.ToString();
         }
 
 

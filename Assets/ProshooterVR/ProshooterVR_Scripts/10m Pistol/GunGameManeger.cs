@@ -75,6 +75,7 @@ public class GunGameManeger : MonoBehaviour
     public GameObject palletPrefab,tempPallet, palletHoldPos,palletParent;
     public bool spawnBullet;
 
+    public GameObject rfStandMoveable;
     void Awake()
     {
         Instance = this;
@@ -188,9 +189,6 @@ public class GunGameManeger : MonoBehaviour
 
                     float minutes = Mathf.FloorToInt(timeRemaining / 60);
                     float seconds = Mathf.FloorToInt(timeRemaining % 60);
-
-                   
-
 
                     PistolUIManager.Instance.timerValue.text = string.Format("{0:00}:{1:00}", minutes, seconds);
                     

@@ -18,9 +18,8 @@ public class RapidFireGunManager : MonoBehaviour
 
     public int noOfShotsFired;
 
-     float timeRemaining;
+    float timeRemaining;
 
-    public TextMeshProUGUI timerValTxt;
 
 
     public bool isScoreUpdated;
@@ -28,37 +27,54 @@ public class RapidFireGunManager : MonoBehaviour
 
     public bool isReloaded, isReloading;
 
-    public Animator animator;
-    public string animationName;
 
-    public AudioSource audioSrc;
-    public AudioClip[] pistol;
     public int timerValue;
 
     public bool resetData;
 
-    public AudioClip attention;
-    public AudioSource RFAudioSource;
 
 
     public GameObject StartTimer;
     public GameObject redLights, greenLights, noLights;
-    public bool startGame;
+    public bool startGame, startSeries;
 
     public int SeriesCounter;
     public float BufferTime;
     public bool countingScore;
 
+    public float currentTimerValue;
+    public GameObject readyPosObj;
+    public bool seriesFoul,foulTimer;
+
+    public int stageCounter;
+    public bool stageChanged;
+    public bool seriesStarted;
+
+    public enum gamestate
+    {
+        load,
+        attention,
+        sr1,
+        sr2,
+        sr3,
+        end
+    }
+
+    public gamestate state;
 
     private void Awake()
     {
         Instance = this;
+        currentTimerValue = 10f;
+
 
     }
     // Start is called before the first frame update
     void Start()
     {
+        
         timerValue = 8;
+        currentTimerValue = 10f;
         resetData = true;
         redLights.SetActive(false);
         greenLights.SetActive(false);
@@ -66,7 +82,18 @@ public class RapidFireGunManager : MonoBehaviour
 
         StartCoroutine(StartTimerStart());
         SeriesCounter = 0;
+        stageCounter = 0;
         countingScore = false;
+        stageChanged = false;
+        seriesStarted = false;
+        resetStage();
+    }
+
+    public void resetStage()
+    {
+        state = gamestate.load;
+        SeriesCounter = 0;
+
     }
 
     // Update is called once per frame
@@ -82,31 +109,37 @@ public class RapidFireGunManager : MonoBehaviour
                 //timerValTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
             }
-            if(startGame == true)
-            {
-             RapidFireGunManager.Instance.isReloaded = true;
-
-            if (SeriesCounter == 0)
-                {
-                    stage1Start();
-                    SeriesCounter++;
-                }
-                else if (SeriesCounter == 1)
-                {
-                    stage2Start();
-                    SeriesCounter++;
-
-                }
-                else if (SeriesCounter == 2)
-                {
-                    stage3Start();
-                    SeriesCounter++;
-                }
-            startGame = false;
-            }
+        
 
             
         
+    }
+
+
+    public void callGameState()
+    {
+        switch (state)
+        {
+            case gamestate.load:
+                currentTimerValue = 10f;
+                    StartCoroutine(weaponPrepareCall());
+                break;
+            case gamestate.attention:
+                    StartCoroutine(attentionCall());
+                break;
+            case gamestate.sr1:
+                    series1Start();
+                break;
+            case gamestate.sr2:
+                     series2Start();
+                break;
+            case gamestate.sr3:
+                     series3Start();
+                break;
+            case gamestate.end:
+                break;
+
+        }
     }
 
     public void shotFired(Vector3 pos, float scoreVal, float direction,int screenNo)
@@ -115,7 +148,42 @@ public class RapidFireGunManager : MonoBehaviour
 
     }
 
+   
 
+    IEnumerator weaponPrepareCall()
+    {
+        state = gamestate.attention;
+        startSeries = true;
+        float timeVal = InstructionManager.Instance.playInstruction(0);
+        RapidFireUIManager.Instance.instructionTxt.text = RapidFireUIManager.Instance.instructions[0];
+
+        yield return new WaitForSeconds(timeVal);
+
+        yield return new WaitForSeconds(5f);
+
+        timeVal = InstructionManager.Instance.playInstruction(1);
+
+        RapidFireUIManager.Instance.instructionTxt.text = RapidFireUIManager.Instance.instructions[1];
+
+        yield return new WaitForSeconds(timeVal);
+        currentTimerValue = 10f;
+        StartTimer.SetActive(true);
+
+        RapidFireUIManager.Instance.instructionTxt.text = "";
+
+    }
+
+    public IEnumerator attentionCall()
+    {
+
+        float timeVal = InstructionManager.Instance.playInstruction(2);
+        RapidFireUIManager.Instance.instructionTxt.text = RapidFireUIManager.Instance.instructions[2];
+        yield return new WaitForSeconds(timeVal);
+        readyPosObj.SetActive(true);
+        RapidFireGunManager.Instance.isReloaded = true;
+
+
+    }
     IEnumerator StartTimerStart()
     {
         yield return new WaitForSeconds(3);
@@ -125,19 +193,38 @@ public class RapidFireGunManager : MonoBehaviour
 
     // return after timer value specified
 
-    public void stage1Start()
+    public void series1Start()
     {
+        
         startSeries01();
+        SeriesCounter++;
+        Debug.Log("Series 01");
+
     }
 
-    public void stage2Start()
+    public void series2Start()
     {
         startSeries02();
+        SeriesCounter++;
+        Debug.Log("Series 02");
+
+
     }
 
-    public void stage3Start()
+    public void series3Start()
     {
         startSeries03();
+        SeriesCounter++;
+        stageCounter++;
+        if (stageCounter > 2)
+        {
+            state = gamestate.end;
+        }
+        else
+        {
+            resetStage();
+        }
+
     }
     public void startSeries01()
     {
@@ -156,25 +243,37 @@ public class RapidFireGunManager : MonoBehaviour
 
     IEnumerator series(float timeVal)
     {
+        RapidFireUIManager.Instance.clearScreen();
+
         redLights.SetActive(true);
         greenLights.SetActive(false);
         noLights.SetActive(false);
         yield return new WaitForSeconds(7f);
+        readyPosObj.SetActive(false);
+        RapidFireGunManager.Instance.foulTimer = false;
+        RapidFireGunManager.Instance.seriesFoul = false;
 
         countingScore = true;
         redLights.SetActive(false);
         greenLights.SetActive(true);
         noLights.SetActive(false);
         yield return new WaitForSeconds(timeVal);
-
         countingScore = false;
 
         redLights.SetActive(false);
         greenLights.SetActive(false);
         noLights.SetActive(true);
 
-        yield return new WaitForSeconds(BufferTime);
+        float val = InstructionManager.Instance.playInstruction(3);
+        RapidFireUIManager.Instance.instructionTxt.text = RapidFireUIManager.Instance.instructions[3];
+        Debug.Log("okay okay count");
+        
+        currentTimerValue = 30f;
+        state = gamestate.load;
+        RapidFireGunManager.Instance.seriesStarted = false;
+        RapidFireGunManager.Instance.isReloaded = false;
         StartTimer.SetActive(true);
+        
     }
 
 
