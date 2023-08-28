@@ -9,9 +9,9 @@ public class UiDeviceInspector : MonoBehaviour
     [SerializeField] private OVRInput.Handedness m_handedness = OVRInput.Handedness.LeftHanded;
 
     [Header("Left Column Components")]
-    [SerializeField] private TextMeshProUGUI m_title;
+    [SerializeField] private TextMeshPro m_title;
 
-    [SerializeField] private TextMeshProUGUI m_status;
+    [SerializeField] private TextMeshPro m_status;
 
     [SerializeField] private UiBoolInspector m_thumbRestTouch;
     [SerializeField] private UiAxis1dInspector m_thumbRestForce;

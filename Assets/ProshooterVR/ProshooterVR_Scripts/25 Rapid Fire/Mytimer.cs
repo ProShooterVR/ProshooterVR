@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Mytimer : MonoBehaviour
 {
-    public float totalTime = 10f; // Total time for the countdown
+    public float totalTime; // Total time for the countdown
     public float currentTime; // Current time remaining
-    public TextMeshProUGUI countdownText; // Reference to the UI Text component
+    public TextMeshPro countdownText; // Reference to the UI Text component
     bool isReady;
     private void awake()
     {
@@ -38,7 +38,8 @@ public class Mytimer : MonoBehaviour
             currentTime = 0f;
             isReady = true;
             RapidFireGunManager.Instance.callGameState();
-            this.gameObject.SetActive(false);
+            endTimer();
+            this.gameObject.GetComponent<Mytimer>().enabled = false;
 
             // Do something when the countdown reaches zero (e.g., game over)
         }
@@ -56,5 +57,10 @@ public class Mytimer : MonoBehaviour
         {
             countdownText.color = Color.white;
         }
+    }
+
+    public void endTimer()
+    {
+        countdownText.text = "-- : --";
     }
 }

@@ -5,7 +5,7 @@ using System;
 public class target_25M_scoredata : MonoBehaviour
 {
 
-    public TextMeshProUGUI debug;
+    public TextMeshPro debug;
     public GameObject newobjet;
     float scoreOff;
 
@@ -66,6 +66,8 @@ public class target_25M_scoredata : MonoBehaviour
 
 
             Debug.Log("score :: " + Score);
+            Debug.Log("Position :: " + newobjet.transform.localPosition);
+
 
 
             // Calculate the angle of the direction

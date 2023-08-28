@@ -34,7 +34,7 @@ namespace Oculus.Interaction.PoseDetection.Debug
         private RectTransform _connectingLine;
 
         [SerializeField]
-        private TextMeshProUGUI _label;
+        private TextMeshPro _label;
 
         [SerializeField]
         private Image _activeImage;

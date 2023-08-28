@@ -3,13 +3,13 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Nova;
 
 public class GunGameManeger : MonoBehaviour
 {
+    
 
     public static GunGameManeger Instance;
-
-    public bool isRifleMode, isPistolMode,isRapidFireMode;
 
     public bool isPracticeMode, isRankedMode;
 
@@ -53,7 +53,7 @@ public class GunGameManeger : MonoBehaviour
 
     int seriesCount = 0;
 
-    public TextMeshProUGUI tempScore;
+    public TextMeshPro tempScore;
 
     public float totalGameTime; // Total time spent by user
     private DateTime startTime;
@@ -92,7 +92,7 @@ public class GunGameManeger : MonoBehaviour
         GunGameManeger.Instance.tempPallet.SetActive(false);
 
 
-        if (isPistolMode == true)
+        if (weaponManager.Instance.isPistolMode == true)
         {
             if (isPracticeMode == true)
             {
@@ -114,14 +114,14 @@ public class GunGameManeger : MonoBehaviour
                 shotsFired = 0;
                 timeRemaining = 900f;
                 PistolUIManager.Instance.timerValue.gameObject.SetActive(true);
-                PistolUIManager.Instance.totalScoreTxt.gameObject.SetActive(true);
+                PistolUIManager.Instance.currentSeriesScoreTxt.gameObject.SetActive(true);
                 Debug.Log("Rankded mode");
                 GunDataManager.Instance.gameMode = "10m Air Pistol Match Mode - " + LocalUserDataManager.Instance.SelectedGameLevel;
 
 
             }
         }
-        if (isRifleMode == true)
+        if (weaponManager.Instance.isRifleMode == true)
         {
             if (isPracticeMode == true)
             {
@@ -143,7 +143,7 @@ public class GunGameManeger : MonoBehaviour
                 shotsFired = 0;
                 timeRemaining = 900f;
                 PistolUIManager.Instance.timerValue.gameObject.SetActive(true);
-                PistolUIManager.Instance.totalScoreTxt.gameObject.SetActive(true);
+                PistolUIManager.Instance.currentSeriesScoreTxt.gameObject.SetActive(true);
                 Debug.Log("Rankded mode");
                 GunDataManager.Instance.gameMode = "10m Air Rifle Match Mode - " + LocalUserDataManager.Instance.SelectedGameLevel;
 
@@ -197,6 +197,7 @@ public class GunGameManeger : MonoBehaviour
                 {
                     if (isMatchDataUpdated == false)
                     {
+                        Debug.Log("calling the end session");
                         UpdateMatchData();
                         isMatchDataUpdated = true;
                     }
@@ -217,6 +218,8 @@ public class GunGameManeger : MonoBehaviour
                 {
                     if (isMatchDataUpdated == false)
                     {
+                        Debug.Log("calling the end session");
+
                         UpdateMatchData();
                         isMatchDataUpdated = true;
                     }
@@ -234,56 +237,32 @@ public class GunGameManeger : MonoBehaviour
     // update all the Game History Here
     void UpdateMatchData()
     {
-        //PistolUIManager.Instance.leaderPopUp.SetActive(true);
+        Debug.Log("Updating the end session");
 
-        
-       
+        PistolUIManager.Instance.endSessionPopup.SetActive(true);
+        pistolPopUPUIManager.Instance.enableTargetScores();
 
-        if (isPistolMode == true)
+        if (weaponManager.Instance.isPistolMode == true)
         { 
             //calculate avg series score
             int avgScore = (series1Score + series2Score + series3Score) / 3;
-            LiveUserDataManager.Instance.getUserBestScore();
+           // LiveUserDataManager.Instance.getUserBestScore();
             //Display data on UI
             PistolUIManager.Instance.endMatchPopUp.SetActive(true);
 
             pistolPopUPUIManager.Instance.userNameTxt.text = LocalUserDataManager.Instance.userName;
-            pistolPopUPUIManager.Instance.srs1ScoreTxt.text = series1Score.ToString();
-            pistolPopUPUIManager.Instance.srs2ScoreTxt.text = series2Score.ToString();
-            pistolPopUPUIManager.Instance.srs3ScoreTxt.text = series3Score.ToString();
-            pistolPopUPUIManager.Instance.gameTotalScoreTxt.text = gameTotalScore.ToString();
-            pistolPopUPUIManager.Instance.avgScoreTxt.text = avgScore.ToString();
-            pistolPopUPUIManager.Instance.innerTText.text = innerTno.ToString();
+            pistolPopUPUIManager.Instance.srs1ScoreTxt.text = series1Score.ToString("F1");
+            pistolPopUPUIManager.Instance.srs2ScoreTxt.text = series2Score.ToString("F1");
+            pistolPopUPUIManager.Instance.srs3ScoreTxt.text = series3Score.ToString("F1");
+            pistolPopUPUIManager.Instance.gameTotalScoreTxt.text = gameTotalScore.ToString("F1");
+            pistolPopUPUIManager.Instance.avgScoreTxt.text = avgScore.ToString("F1");
+            pistolPopUPUIManager.Instance.innerTText.text = innerTno.ToString("F1");
 
-            pistolPopUPUIManager.Instance.shotsHitMisTxt.text = "" + noShotsHit + "/" + noShotMissed;
-            pistolPopUPUIManager.Instance.timeSpentTxt.text = totalGameTime.ToString();
+            pistolPopUPUIManager.Instance.shotsHitTxt.text = noShotsHit.ToString("F1");
+            pistolPopUPUIManager.Instance.shotsmissTxt.text = noShotMissed.ToString("F1"); 
+            pistolPopUPUIManager.Instance.timeSpentTxt.text = totalGameTime.ToString("F1");
 
-            if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.Amateur)
-            {
-                if (GunDataManager.Instance.personalAmaBestPistol < gameTotalScore)
-                {
-                    GunDataManager.Instance.personalAmaBestPistol = gameTotalScore;
-                    GunDataManager.Instance.personalGameBestPistol = gameTotalScore;
-                }
-            }
-            else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.SemiPro)
-            {
-                if (GunDataManager.Instance.personalSemiProBestPistol < gameTotalScore)
-                {
-                    GunDataManager.Instance.personalSemiProBestPistol = gameTotalScore;
-                    GunDataManager.Instance.personalGameBestPistol = gameTotalScore;
-
-                }
-            }
-            else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.Pro)
-            {
-                if (GunDataManager.Instance.personalProBestPistol < gameTotalScore)
-                {
-                    GunDataManager.Instance.personalProBestPistol = gameTotalScore;
-                    GunDataManager.Instance.personalGameBestPistol = gameTotalScore;
-
-                }
-            }
+           
 
 
             // Add data to Data manager
@@ -302,7 +281,7 @@ public class GunGameManeger : MonoBehaviour
             float seconds = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime % 60);
             GunDataManager.Instance.totalTimeSpent = string.Format("{0:00}:{1:00}", minutes, seconds);
             //upload data to the backend
-            LiveUserDataManager.Instance.SavePistolGameDataToLiveDB();
+           // LiveUserDataManager.Instance.SavePistolGameDataToLiveDB();
 
             if (isRankedMode == true)
             {
@@ -311,24 +290,25 @@ public class GunGameManeger : MonoBehaviour
             }
         }
 
-        if (isRifleMode == true)
+        if (weaponManager.Instance.isRifleMode == true)
         {
             //calculate avg series score
             float avgScore = (series1ScoreRifle + series2ScoreRifle + series3ScoreRifle) / 3;
-            LiveUserDataManager.Instance.getUserBestScore();
+           // LiveUserDataManager.Instance.getUserBestScore();
             //Display data on UI
             PistolUIManager.Instance.endMatchPopUp.SetActive(true);
 
             pistolPopUPUIManager.Instance.userNameTxt.text = LocalUserDataManager.Instance.userName;
-            pistolPopUPUIManager.Instance.srs1ScoreTxt.text = series1ScoreRifle.ToString();
-            pistolPopUPUIManager.Instance.srs2ScoreTxt.text = series2ScoreRifle.ToString();
-            pistolPopUPUIManager.Instance.srs3ScoreTxt.text = series3ScoreRifle.ToString();
-            pistolPopUPUIManager.Instance.gameTotalScoreTxt.text = gameTotalScoreRifle.ToString();
-            pistolPopUPUIManager.Instance.avgScoreTxt.text = avgScore.ToString();
-            pistolPopUPUIManager.Instance.innerTText.text = innerTno.ToString();
+            pistolPopUPUIManager.Instance.srs1ScoreTxt.text = series1ScoreRifle.ToString("F1");
+            pistolPopUPUIManager.Instance.srs2ScoreTxt.text = series2ScoreRifle.ToString("F1");
+            pistolPopUPUIManager.Instance.srs3ScoreTxt.text = series3ScoreRifle.ToString("F1");
+            pistolPopUPUIManager.Instance.gameTotalScoreTxt.text = gameTotalScoreRifle.ToString("F1");
+            pistolPopUPUIManager.Instance.avgScoreTxt.text = avgScore.ToString("F1");
+            pistolPopUPUIManager.Instance.innerTText.text = innerTno.ToString("F1");
 
-            pistolPopUPUIManager.Instance.shotsHitMisTxt.text = "" + noShotsHit + "/" + noShotMissed;
-            pistolPopUPUIManager.Instance.timeSpentTxt.text = totalGameTime.ToString();
+            pistolPopUPUIManager.Instance.shotsHitTxt.text = noShotsHit.ToString("F1");
+            pistolPopUPUIManager.Instance.shotsmissTxt.text = noShotMissed.ToString("F1");
+            pistolPopUPUIManager.Instance.timeSpentTxt.text = totalGameTime.ToString("F1");
 
             if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.Amateur)
             {
@@ -374,7 +354,7 @@ public class GunGameManeger : MonoBehaviour
             float seconds = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime % 60);
             GunDataManager.Instance.totalTimeSpent = string.Format("{0:00}:{1:00}", minutes, seconds);
             //upload data to the backend
-            LiveUserDataManager.Instance.SaveRifleGameDataToLiveDB();
+           // LiveUserDataManager.Instance.SaveRifleGameDataToLiveDB();
 
             if (isRankedMode == true)
             {
@@ -390,16 +370,17 @@ public class GunGameManeger : MonoBehaviour
     {
         for(int i = 0; i < 10; i++)
         {
-            PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(i).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = "";
-            PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(i).GetChild(2).gameObject.GetComponent<Image>().enabled = false;
+            PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(i).GetChild(1).gameObject.GetComponent<TextMeshPro>().text = "";
+            PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(i).GetChild(2).gameObject.SetActive(false);
             PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(i).GetChild(2).gameObject.transform.rotation = Quaternion.identity;
         }
         PistolUIManager.Instance.clearShotScreen();
+        Debug.Log("called Screen clear");
     }
     public void shotFired(Vector3 pos, float scoreVal, float direction)
     {
 
-        if (isPistolMode == true)
+        if (weaponManager.Instance.isPistolMode == true)
         {
             if (isRankedMode == true)
             {
@@ -413,11 +394,13 @@ public class GunGameManeger : MonoBehaviour
                         }
 
                         PistolUIManager.Instance.updateShotScreen(pos, scoreVal, direction);
+                        pistolPopUPUIManager.Instance.updateShotEndScreen(pos, scoreVal, direction);
 
-                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = PistolUIManager.Instance.finalScore;
+
+                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(1).gameObject.GetComponent<TextMeshPro>().text = PistolUIManager.Instance.finalScore;
 
                         PistolUIManager.Instance.currentShotScore.text = PistolUIManager.Instance.finalScore;
-                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.GetComponent<Image>().enabled = true;
+                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.SetActive(true);
                         PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.transform.Rotate(0, 0, PistolUIManager.Instance.angle);
 
                         GunDataManager.Instance.ScoresPistol[noOfShotsFired] = PistolUIManager.Instance.shotRoundScore;
@@ -425,8 +408,7 @@ public class GunGameManeger : MonoBehaviour
                         Totalscore = Totalscore + PistolUIManager.Instance.shotRoundScore;
                         matchTotalScore = matchTotalScore + PistolUIManager.Instance.shotRoundScore;
 
-                        PistolUIManager.Instance.totalScoreTxt.text = "SERIES SCORE : " + Totalscore.ToString();
-                        PistolUIManager.Instance.totalGameScoreTxt.text = "TOTAL SCORE : " + matchTotalScore.ToString();
+                        PistolUIManager.Instance.totalGameScoreTxt.text = matchTotalScore.ToString();
 
                         noOfShotsFired++;
                         shotsFired++;
@@ -434,19 +416,25 @@ public class GunGameManeger : MonoBehaviour
                         {
                             PistolUIManager.Instance.seriesNoTitle.text = "SERIES " + (seriesCount + 1).ToString();
                             series1Score = series1Score + PistolUIManager.Instance.shotRoundScore;
-                            PistolUIManager.Instance.series1Text.text = series1Score.ToString();
+                            PistolUIManager.Instance.series1Text.text = series1Score.ToString("F1");
+                            PistolUIManager.Instance.currentSeriesScoreTxt.text = "SERIES SCORE : " + series1Score.ToString("F1");
+
                         }
                         else if (seriesCount == 1)
                         {
                             PistolUIManager.Instance.seriesNoTitle.text = "SERIES " + (seriesCount + 1).ToString();
                             series2Score = series2Score + PistolUIManager.Instance.shotRoundScore;
-                            PistolUIManager.Instance.series2text.text = series2Score.ToString();
+                            PistolUIManager.Instance.series2text.text = series2Score.ToString("F1");
+                            PistolUIManager.Instance.currentSeriesScoreTxt.text = "SERIES SCORE : " + series2Score.ToString("F1");
+
                         }
                         else if (seriesCount == 2)
                         {
                             PistolUIManager.Instance.seriesNoTitle.text = "SERIES " + (seriesCount + 1).ToString();
                             series3Score = series3Score + PistolUIManager.Instance.shotRoundScore;
-                            PistolUIManager.Instance.series3Text.text = series3Score.ToString();
+                            PistolUIManager.Instance.series3Text.text = series3Score.ToString("F1");
+                            PistolUIManager.Instance.currentSeriesScoreTxt.text = "SERIES SCORE : " + series3Score.ToString("F1");
+
                         }
                         else
                         {
@@ -482,11 +470,13 @@ public class GunGameManeger : MonoBehaviour
                         }
 
                         PistolUIManager.Instance.updateShotScreen(pos, scoreVal, direction);
+                        pistolPopUPUIManager.Instance.updateShotEndScreen(pos, scoreVal, direction);
 
-                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = PistolUIManager.Instance.finalScore;
+
+                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(1).gameObject.GetComponent<TextMeshPro>().text = PistolUIManager.Instance.finalScore;
 
                         PistolUIManager.Instance.currentShotScore.text = PistolUIManager.Instance.finalScore;
-                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.GetComponent<Image>().enabled = true;
+                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.SetActive(true);
                         PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.transform.Rotate(0, 0, PistolUIManager.Instance.angle);
 
                         GunDataManager.Instance.ScoresPistol[noOfShotsFired] = PistolUIManager.Instance.shotRoundScore;
@@ -494,8 +484,7 @@ public class GunGameManeger : MonoBehaviour
                         Totalscore = Totalscore + PistolUIManager.Instance.shotRoundScore;
                         matchTotalScore = matchTotalScore + PistolUIManager.Instance.shotRoundScore;
 
-                        PistolUIManager.Instance.totalScoreTxt.text = "SERIES SCORE : " + Totalscore.ToString();
-                        PistolUIManager.Instance.totalGameScoreTxt.text = "TOTAL SCORE : " + matchTotalScore.ToString();
+                        PistolUIManager.Instance.totalGameScoreTxt.text = matchTotalScore.ToString();
 
                         noOfShotsFired++;
                         shotsFired++;
@@ -503,19 +492,25 @@ public class GunGameManeger : MonoBehaviour
                         {
                             PistolUIManager.Instance.seriesNoTitle.text = "SERIES " + (seriesCount + 1).ToString();
                             series1Score = series1Score + PistolUIManager.Instance.shotRoundScore;
-                            PistolUIManager.Instance.series1Text.text = series1Score.ToString();
+                            PistolUIManager.Instance.series1Text.text = series1Score.ToString("F1");
+                            PistolUIManager.Instance.currentSeriesScoreTxt.text = "SERIES SCORE : " + series1Score.ToString("F1");
+
                         }
                         else if (seriesCount == 1)
                         {
                             PistolUIManager.Instance.seriesNoTitle.text = "SERIES " + (seriesCount + 1).ToString();
                             series2Score = series2Score + PistolUIManager.Instance.shotRoundScore;
-                            PistolUIManager.Instance.series2text.text = series2Score.ToString();
+                            PistolUIManager.Instance.series2text.text = series2Score.ToString("F1");
+                            PistolUIManager.Instance.currentSeriesScoreTxt.text = "SERIES SCORE : " + series2Score.ToString("F1");
+
                         }
                         else if (seriesCount == 2)
                         {
                             PistolUIManager.Instance.seriesNoTitle.text = "SERIES " + (seriesCount + 1).ToString();
                             series3Score = series3Score + PistolUIManager.Instance.shotRoundScore;
-                            PistolUIManager.Instance.series3Text.text = series3Score.ToString();
+                            PistolUIManager.Instance.series3Text.text = series3Score.ToString("F1");
+                            PistolUIManager.Instance.currentSeriesScoreTxt.text = "SERIES SCORE : " + series3Score.ToString("F1");
+
                         }
                         else
                         {
@@ -542,7 +537,7 @@ public class GunGameManeger : MonoBehaviour
         }
 
 
-        if (isRifleMode == true)
+        if (weaponManager.Instance.isRifleMode == true)
         {
 
             if (isRankedMode == true)
@@ -557,11 +552,13 @@ public class GunGameManeger : MonoBehaviour
                         }
 
                         PistolUIManager.Instance.updateShotScreen(pos, scoreVal, direction);
+                        pistolPopUPUIManager.Instance.updateShotEndScreen(pos, scoreVal, direction);
 
-                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = PistolUIManager.Instance.finalScore;
+
+                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(1).gameObject.GetComponent<TextMeshPro>().text = PistolUIManager.Instance.finalScore;
 
                         PistolUIManager.Instance.currentShotScore.text = PistolUIManager.Instance.finalScore;
-                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.GetComponent<Image>().enabled = true;
+                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.SetActive(true);
                         Vector3 eulerRotation = new Vector3(0f, 0f, PistolUIManager.Instance.angle); // Example euler rotation values
                         Quaternion quaternionRotation = Quaternion.Euler(eulerRotation);
                         PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.transform.localRotation = quaternionRotation;
@@ -576,8 +573,7 @@ public class GunGameManeger : MonoBehaviour
                         TotalScoreRifle = Mathf.Round(TotalScoreRifle * 100f) / 100f;
                         matchTotalScoreRifle = Mathf.Round(matchTotalScoreRifle * 100f) / 100f;
 
-                        PistolUIManager.Instance.totalScoreTxt.text = "SERIES SCORE : " + TotalScoreRifle.ToString("F1");
-                        PistolUIManager.Instance.totalGameScoreTxt.text = "TOTAL SCORE : " + matchTotalScoreRifle.ToString("F1");
+                        PistolUIManager.Instance.totalGameScoreTxt.text = matchTotalScoreRifle.ToString("F1");
 
                         noOfShotsFired++;
                         shotsFired++;
@@ -585,19 +581,25 @@ public class GunGameManeger : MonoBehaviour
                         {
                             PistolUIManager.Instance.seriesNoTitle.text = "SERIES " + (seriesCount + 1).ToString();
                             series1ScoreRifle = series1ScoreRifle + PistolUIManager.Instance.shotRoundScoreRifle;
-                            PistolUIManager.Instance.series1Text.text = series1ScoreRifle.ToString();
+                            PistolUIManager.Instance.series1Text.text = series1ScoreRifle.ToString("F1");
+                            PistolUIManager.Instance.currentSeriesScoreTxt.text = "SERIES SCORE : " + series1ScoreRifle.ToString("F1");
+
                         }
                         else if (seriesCount == 1)
                         {
                             PistolUIManager.Instance.seriesNoTitle.text = "SERIES " + (seriesCount + 1).ToString();
                             series2ScoreRifle = series2ScoreRifle + PistolUIManager.Instance.shotRoundScoreRifle;
-                            PistolUIManager.Instance.series2text.text = series2ScoreRifle.ToString();
+                            PistolUIManager.Instance.series2text.text = series2ScoreRifle.ToString("F1");
+                            PistolUIManager.Instance.currentSeriesScoreTxt.text = "SERIES SCORE : " + series2ScoreRifle.ToString("F1");
+
                         }
                         else if (seriesCount == 2)
                         {
                             PistolUIManager.Instance.seriesNoTitle.text = "SERIES " + (seriesCount + 1).ToString();
                             series3ScoreRifle = series3ScoreRifle + PistolUIManager.Instance.shotRoundScoreRifle;
-                            PistolUIManager.Instance.series3Text.text = series3ScoreRifle.ToString();
+                            PistolUIManager.Instance.series3Text.text = series3ScoreRifle.ToString("F1");
+                            PistolUIManager.Instance.currentSeriesScoreTxt.text = "SERIES SCORE : " + series3ScoreRifle.ToString("F1");
+
                         }
                         else
                         {
@@ -634,11 +636,13 @@ public class GunGameManeger : MonoBehaviour
                         }
 
                         PistolUIManager.Instance.updateShotScreen(pos, scoreVal, direction);
+                        pistolPopUPUIManager.Instance.updateShotEndScreen(pos, scoreVal, direction);
 
-                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = PistolUIManager.Instance.finalScore;
+
+                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(1).gameObject.GetComponent<TextMeshPro>().text = PistolUIManager.Instance.finalScore;
 
                         PistolUIManager.Instance.currentShotScore.text = PistolUIManager.Instance.finalScore;
-                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.GetComponent<Image>().enabled = true;
+                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.SetActive(true);
                         Vector3 eulerRotation = new Vector3(0f, 0f, PistolUIManager.Instance.angle); // Example euler rotation values
                         Quaternion quaternionRotation = Quaternion.Euler(eulerRotation);
                         PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.transform.localRotation = quaternionRotation;
@@ -651,8 +655,7 @@ public class GunGameManeger : MonoBehaviour
                         TotalScoreRifle = Mathf.Round(TotalScoreRifle * 100f) / 100f;
                         matchTotalScoreRifle = Mathf.Round(matchTotalScoreRifle * 100f) / 100f;
 
-                        PistolUIManager.Instance.totalScoreTxt.text = "SERIES SCORE : " + TotalScoreRifle.ToString("F1");
-                        PistolUIManager.Instance.totalGameScoreTxt.text = "TOTAL SCORE : " + matchTotalScoreRifle.ToString("F1");
+                        PistolUIManager.Instance.totalGameScoreTxt.text = matchTotalScoreRifle.ToString("F1");
 
                         noOfShotsFired++;
                         shotsFired++;
@@ -661,18 +664,24 @@ public class GunGameManeger : MonoBehaviour
                             PistolUIManager.Instance.seriesNoTitle.text = "SERIES " + (seriesCount + 1).ToString();
                             series1ScoreRifle = series1ScoreRifle + PistolUIManager.Instance.shotRoundScoreRifle;
                             PistolUIManager.Instance.series1Text.text = series1ScoreRifle.ToString();
+                            PistolUIManager.Instance.currentSeriesScoreTxt.text = "SERIES SCORE : " + series1ScoreRifle.ToString("F1");
+
                         }
                         else if (seriesCount == 1)
                         {
                             PistolUIManager.Instance.seriesNoTitle.text = "SERIES " + (seriesCount + 1).ToString();
                             series2ScoreRifle = series2ScoreRifle + PistolUIManager.Instance.shotRoundScoreRifle;
-                            PistolUIManager.Instance.series2text.text = series2ScoreRifle.ToString();
+                            PistolUIManager.Instance.series2text.text = series2ScoreRifle.ToString("F1");
+                            PistolUIManager.Instance.currentSeriesScoreTxt.text = "SERIES SCORE : " + series2ScoreRifle.ToString("F1");
+
                         }
                         else if (seriesCount == 2)
                         {
                             PistolUIManager.Instance.seriesNoTitle.text = "SERIES " + (seriesCount + 1).ToString();
                             series3ScoreRifle = series3ScoreRifle + PistolUIManager.Instance.shotRoundScoreRifle;
-                            PistolUIManager.Instance.series3Text.text = series3ScoreRifle.ToString();
+                            PistolUIManager.Instance.series3Text.text = series3ScoreRifle.ToString("F1");
+                            PistolUIManager.Instance.currentSeriesScoreTxt.text = "SERIES SCORE : " + series3ScoreRifle.ToString("F1");
+
                         }
                         else
                         {

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class UiBoolInspector : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private TextMeshProUGUI m_nameLabel = null;
+    [SerializeField] private TextMeshPro m_nameLabel = null;
 
     [SerializeField] private Toggle m_toggle = null;
 

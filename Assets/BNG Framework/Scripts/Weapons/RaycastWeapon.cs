@@ -290,7 +290,7 @@ namespace BNG
             {
                 //// ----------------- 25m Rapid Fire Mode Calls ------------------------- ////////////
 
-                if (RapidFireGunManager.Instance.isRapidFireMode == true)
+                if (weaponManager.Instance.isRapidFireMode == true)
                 {
                     if(RapidFireGunManager.Instance.isReloaded == true)
                     {
@@ -307,7 +307,7 @@ namespace BNG
 
 
                     //// ----------------- Air Pistol Mode Calls ------------------------- ////////////
-                if (GunGameManeger.Instance.isPistolMode == true)
+                if (weaponManager.Instance.isPistolMode == true)
                 {
                     if (GunGameManeger.Instance.isRankedMode == true)
                     {
@@ -359,7 +359,7 @@ namespace BNG
 
 
         //// ----------------- Air Rifle Mode Calls ------------------------- ////////////
-                if (GunGameManeger.Instance.isRifleMode == true)
+                if (weaponManager.Instance.isRifleMode == true)
                 {
                     if (GunGameManeger.Instance.isRankedMode == true)
                     {

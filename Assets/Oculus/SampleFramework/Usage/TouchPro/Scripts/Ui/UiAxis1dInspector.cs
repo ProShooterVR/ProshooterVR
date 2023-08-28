@@ -12,9 +12,9 @@ public class UiAxis1dInspector : MonoBehaviour
     [SerializeField] private float m_maxExtent = 1;
 
     [Header("Components")]
-    [SerializeField] private TextMeshProUGUI m_nameLabel = null;
+    [SerializeField] private TextMeshPro m_nameLabel = null;
 
-    [SerializeField] private TextMeshProUGUI m_valueLabel = null;
+    [SerializeField] private TextMeshPro m_valueLabel = null;
     [SerializeField] private Slider m_slider = null;
 
     public void SetExtents(float minExtent, float maxExtent)

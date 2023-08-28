@@ -36,7 +36,7 @@ namespace Oculus.Interaction.Body.Samples
         private UnityEvent _timeUp = new UnityEvent();
 
         [SerializeField]
-        private TextMeshProUGUI _countdownText;
+        private TextMeshPro _countdownText;
 
         [SerializeField]
         private string _poseText = "Capture Pose";

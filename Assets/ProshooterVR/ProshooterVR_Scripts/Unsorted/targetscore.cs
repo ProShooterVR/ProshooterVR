@@ -5,7 +5,7 @@ using System;
 public class targetscore : MonoBehaviour
 {
 
-    public TextMeshProUGUI debug;
+    public TextMeshPro debug;
     public GameObject newobjet;
     float scoreOff;
 

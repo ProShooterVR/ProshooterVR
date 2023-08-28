@@ -31,7 +31,7 @@ public class Anchor : MonoBehaviour
     private bool _isHovered;
 
     [SerializeField, FormerlySerializedAs("anchorName_")]
-    private TextMeshProUGUI _anchorName;
+    private TextMeshPro _anchorName;
 
     [SerializeField, FormerlySerializedAs("saveIcon_")]
     private GameObject _saveIcon;

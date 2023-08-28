@@ -401,7 +401,6 @@ public class LiveUserDataManager : MonoBehaviour
 
 
 
-        HUB_UIManager.Instance.title.text = LocalUserDataManager.Instance.selectedGameMode + " - " + LocalUserDataManager.Instance.SelectedGameLevel;
 
         for (int i = 0; i < 5; i++)
         {
@@ -412,17 +411,12 @@ public class LiveUserDataManager : MonoBehaviour
             string bestscore = document["BestScore"].ToString();
             string innerTens = document["InnerTens"].ToString();
 
-            HUB_UIManager.Instance.Leaders[i].gameObject.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = name;
-            HUB_UIManager.Instance.Leaders[i].gameObject.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = bestscore;
-            HUB_UIManager.Instance.Leaders[i].gameObject.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = innerTens;
-            HUB_UIManager.Instance.Leaders[i].gameObject.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>().text = totalscore;
-
+          
 
         }
        
         if(newLoc < 5)
         {
-            HUB_UIManager.Instance.Leaders[newLoc].GetComponent<Image>().sprite = HUB_UIManager.Instance.leaderH;
         }
         else
         {
@@ -432,14 +426,6 @@ public class LiveUserDataManager : MonoBehaviour
             string name = document["Name"].ToString();
             string bestscore = document["BestScore"].ToString();
             string innerTens = document["InnerTens"].ToString();
-            HUB_UIManager.Instance.LeaderN.SetActive(true);
-
-            HUB_UIManager.Instance.LeaderN.gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = (newLoc+1).ToString();
-
-            HUB_UIManager.Instance.LeaderN.gameObject.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = name;
-            HUB_UIManager.Instance.LeaderN.gameObject.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = bestscore;
-            HUB_UIManager.Instance.LeaderN.gameObject.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = innerTens;
-            HUB_UIManager.Instance.LeaderN.gameObject.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>().text = totalscore;
 
         }
     }
@@ -482,7 +468,7 @@ public class LiveUserDataManager : MonoBehaviour
 
 
 
-        PistolUIManager.Instance.title.text = LocalUserDataManager.Instance.selectedGameMode + " - " + LocalUserDataManager.Instance.SelectedGameLevel;
+       // PistolUIManager.Instance.title.text = LocalUserDataManager.Instance.selectedGameMode + " - " + LocalUserDataManager.Instance.SelectedGameLevel;
         Debug.Log("------ " + LocalUserDataManager.Instance.selectedGameMode);
 
         for (int i = 0; i < 3; i++)
@@ -494,17 +480,11 @@ public class LiveUserDataManager : MonoBehaviour
             string bestscore = document["BestScore"].ToString();
             string innerTens = document["InnerTens"].ToString();
 
-            PistolUIManager.Instance.Leaders[i].gameObject.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = name;
-            PistolUIManager.Instance.Leaders[i].gameObject.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = bestscore;
-            PistolUIManager.Instance.Leaders[i].gameObject.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = innerTens;
-            PistolUIManager.Instance.Leaders[i].gameObject.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>().text = totalscore;
-
-
+            
         }
 
         if (newLoc < 3)
         {
-            PistolUIManager.Instance.Leaders[newLoc].GetComponent<Image>().sprite = PistolUIManager.Instance.leaderH;
         }
         else
         {
@@ -514,15 +494,7 @@ public class LiveUserDataManager : MonoBehaviour
             string name = document["Name"].ToString();
             string bestscore = document["BestScore"].ToString();
             string innerTens = document["InnerTens"].ToString();
-            PistolUIManager.Instance.LeaderN.SetActive(true);
-
-            PistolUIManager.Instance.LeaderN.gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = (newLoc + 1).ToString();
-
-            PistolUIManager.Instance.LeaderN.gameObject.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = name;
-            PistolUIManager.Instance.LeaderN.gameObject.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = bestscore;
-            PistolUIManager.Instance.LeaderN.gameObject.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = innerTens;
-            PistolUIManager.Instance.LeaderN.gameObject.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>().text = totalscore;
-
+           
         }
     }
 

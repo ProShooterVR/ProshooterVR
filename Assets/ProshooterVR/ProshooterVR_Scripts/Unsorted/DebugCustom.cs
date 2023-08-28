@@ -7,7 +7,7 @@ public class DebugCustom : MonoBehaviour
 {
     public static DebugCustom Inst;
 
-    public TextMeshProUGUI debug;
+    public TextMeshPro debug;
 
     private void Awake()
     {

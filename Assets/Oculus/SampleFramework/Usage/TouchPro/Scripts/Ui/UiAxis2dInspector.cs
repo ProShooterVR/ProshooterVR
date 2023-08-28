@@ -12,9 +12,9 @@ public class UiAxis2dInspector : MonoBehaviour
     [SerializeField] private Vector2 m_yExtent = new Vector2(-1, +1);
 
     [Header("Components")]
-    [SerializeField] private TextMeshProUGUI m_nameLabel = null;
+    [SerializeField] private TextMeshPro m_nameLabel = null;
 
-    [SerializeField] private TextMeshProUGUI m_valueLabel = null;
+    [SerializeField] private TextMeshPro m_valueLabel = null;
     [SerializeField] private Image m_handle = null;
 
     public void SetExtents(Vector2 xExtent, Vector2 yExtent)

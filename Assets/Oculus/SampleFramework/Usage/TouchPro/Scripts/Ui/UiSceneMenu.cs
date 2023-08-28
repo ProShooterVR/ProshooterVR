@@ -11,7 +11,7 @@ public class UiSceneMenu : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private VerticalLayoutGroup m_layoutGroup = null;
 
-    [SerializeField] private TextMeshProUGUI m_labelPf = null;
+    [SerializeField] private TextMeshPro m_labelPf = null;
 
     private static Vector2 s_lastThumbstickL;
     private static Vector2 s_lastThumbstickR;
@@ -106,7 +106,7 @@ public class UiSceneMenu : MonoBehaviour
         }
 
         // Create and set the label
-        TextMeshProUGUI label = GameObject.Instantiate(m_labelPf);
+        TextMeshPro label = GameObject.Instantiate(m_labelPf);
         label.SetText($"{sceneIndex + 1}. {sceneName}");
         label.transform.SetParent(m_layoutGroup.transform, false);
     }

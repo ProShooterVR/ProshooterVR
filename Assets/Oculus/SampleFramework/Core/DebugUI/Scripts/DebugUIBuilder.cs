@@ -342,7 +342,7 @@ public class DebugUIBuilder : MonoBehaviour
 
         if (highResolutionText)
         {
-            ((TextMeshProUGUI)(buttonRT.GetComponentsInChildren(typeof(TextMeshProUGUI), true)[0])).text = label;
+            ((TextMeshPro)(buttonRT.GetComponentsInChildren(typeof(TextMeshPro), true)[0])).text = label;
         }
         else
         {

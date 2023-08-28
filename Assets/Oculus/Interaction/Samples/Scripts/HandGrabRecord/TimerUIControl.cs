@@ -26,7 +26,7 @@ namespace Oculus.Interaction.HandGrab.Recorder
     public class TimerUIControl : MonoBehaviour
     {
         [SerializeField]
-        private TMPro.TextMeshProUGUI _timerLabel;
+        private TMPro.TextMeshPro _timerLabel;
 
         [SerializeField]
         private int _delaySeconds = 3;

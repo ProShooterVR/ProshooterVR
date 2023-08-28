@@ -15,7 +15,7 @@ public class VRDebugManager : MonoBehaviour
         }
         DontDestroyOnLoad(Instance);
     }
-    public TextMeshProUGUI DebugLog;
+    public TextMeshPro DebugLog;
     // Start is called before the first frame update
     void Start()
     {

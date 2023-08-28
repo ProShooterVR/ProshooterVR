@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class DebugLogToTextField : MonoBehaviour
 {
-    public TextMeshProUGUI debugTextField; // Reference to the Text field that will display the Debug.Log messages
+    public TextMeshPro debugTextField; // Reference to the Text field that will display the Debug.Log messages
 
 
     public static DebugLogToTextField Instance;

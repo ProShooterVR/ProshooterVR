@@ -12,27 +12,20 @@ public class HUB_UIManager : MonoBehaviour
 
     //Making it static to access all over layers
     public static HUB_UIManager Instance;
-    [SerializeField]
-    private GameObject gameModePopup;
 
-    [SerializeField]
-    public TextMeshProUGUI title;
+    public GameObject gameModeUI;
+    public GameObject levelUI;
 
-    [SerializeField]
-    public GameObject[] Leaders;
-    public GameObject LeaderN;
-    public Sprite leaderH;
+    public GameObject settingUI;
+    public GameObject playBtn;
 
-    [SerializeField]
-    private GameObject helpScr1, helpScr2, helpScr3;
-    [SerializeField]
-    private GameObject helpPopUp;
+    public enum gameType
+    {
+        match,
+        practice
+    }
 
-    [SerializeField]
-    private GameObject prvBtn,nxtBtn;
-    int nxtCount, prvCount;
-
-    public GameObject aggMnu, mainMnu;
+    gameType myGameType;
 
     void Awake()
     {
@@ -44,30 +37,39 @@ public class HUB_UIManager : MonoBehaviour
 
     private void Start()
     {
-        nxtCount = prvCount = 0;
-        prvBtn.SetActive(false);
-        gameModePopup.SetActive(false);
-        helpPopUp.SetActive(false);
-        LocalUserDataManager.Instance.selectedGameMode = GameModes.AirPistol10m;
-        LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.Amateur;
-        Debug.Log("" + DateTime.Now.ToString());
+        gameModeUI.SetActive(false);
+        levelUI.SetActive(true);
+        playBtn.SetActive(false);
+        levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
 
-        if(LocalUserDataManager.Instance.isAggrDone == false)
-        {
-            aggMnu.SetActive(true);
-            mainMnu.SetActive(false);
-        }
-        else
-        {
-            aggMnu.SetActive(false);
-            mainMnu.SetActive(true);
-        }
+    }
+
+    public void singlePlayerBtnClicked()
+    {
+        gameModeUI.SetActive(true);
+        myGameType = gameType.match;
+    }
+
+    public void PracticeBtnClicked()
+    {
+        gameModeUI.SetActive(true);
+        myGameType = gameType.practice;
+
+    }
+
+    public void setingsBtnClicked()
+    {
+        settingUI.SetActive(true);
+        gameModeUI.SetActive(false);
+    }
+
+    public void tutorialBtnClicked()
+    {
+
     }
 
     public void closeAggrMenu()
     {
-        aggMnu.SetActive(false);
-        mainMnu.SetActive(true);
         LocalUserDataManager.Instance.isAggrDone = true;
     }
     
@@ -147,10 +149,19 @@ public class HUB_UIManager : MonoBehaviour
         SceneManager.LoadSceneAsync("10m_AirRifle_Pro_Match");
     }
 
-    public void loadTest(string url)
+    private void load25mRFPro()
     {
-        SceneManager.LoadSceneAsync(url);
+        SceneManager.LoadSceneAsync("ProShooterVR_25mRF_Pro");
     }
+    private void load25mRFSemPro()
+    {
+        SceneManager.LoadSceneAsync("ProShooterVR_25mRF_SemiPro");
+    }
+    private void load25mRFAmateur()
+    {
+        SceneManager.LoadSceneAsync("ProShooterVR_25mRF_Amateur");
+    }
+
     //10m Air Rifle Scenes -------------------------------------------------------End
 
     public void setLevel(int no)
@@ -179,6 +190,7 @@ public class HUB_UIManager : MonoBehaviour
     }
     public void setMode(int no)
     {
+        playBtn.SetActive(true);
         switch (no)
         {
             case 0:
@@ -202,92 +214,23 @@ public class HUB_UIManager : MonoBehaviour
 
     public void PlayButtonClick()
     {
-        gameModePopup.SetActive(true);
-    }
-
-    public void gameModePopupCloseButton()
-    {
-        gameModePopup.SetActive(false);
-    }
-
-    public void HelpPopupCloseButton()
-    {
-        helpPopUp.SetActive(false);
-    }
-    public void HelpButtonClick()
-    {
-        helpPopUp.SetActive(true);
-        helpScr1.SetActive(true);
-        helpScr2.SetActive(false);
-        helpScr3.SetActive(false);
-    }
-
-    public void NxtBtnClick()
-    {
-        nxtCount++;
-        if (nxtCount < 3)
+        if(myGameType == gameType.match)
         {
-            if (nxtCount == 0)
-            {
-                helpScr1.SetActive(true);
-                helpScr2.SetActive(false);
-                helpScr3.SetActive(false);
-            }
-            else if (nxtCount == 1)
-            {
-
-                helpScr1.SetActive(false);
-                helpScr2.SetActive(true);
-                helpScr3.SetActive(false);
-                prvBtn.SetActive(true);
-            }
-            else if (nxtCount == 2)
-            {
-                helpScr1.SetActive(false);
-                helpScr2.SetActive(false);
-                helpScr3.SetActive(true);
-                prvBtn.SetActive(true);
-            }
-        }
-        else
-        {
-            nxtCount = 2;
+            loadMatchMode();
         }
 
-    }
-    public void PrvBtnClick()
-    {
-        nxtCount--;
-        if (nxtCount >= 0)
+        if (myGameType == gameType.practice)
         {
-            if (nxtCount == 0)
-            {
-                helpScr1.SetActive(true);
-                helpScr2.SetActive(false);
-                helpScr3.SetActive(false);
-                prvBtn.SetActive(false);
-            }
-            else if (nxtCount == 1)
-            {
-                helpScr1.SetActive(false);
-                helpScr2.SetActive(true);
-                helpScr3.SetActive(false);
-            }
-            else if (nxtCount == 2)
-            {
-                helpScr1.SetActive(false);
-                helpScr2.SetActive(true);
-                helpScr3.SetActive(false);
-            }
-        }
-        else
-        {
-            nxtCount = 0;
+            loadPracticeMode();
         }
     }
 
+    
 
-    public void loadPracticeMode()
+    
+    
+
+    void loadPracticeMode()
     {
         switch (LocalUserDataManager.Instance.modeSelected)
         {
@@ -309,10 +252,13 @@ public class HUB_UIManager : MonoBehaviour
                 switch (LocalUserDataManager.Instance.levelSelected)
                 {
                     case LocalUserDataManager.gamerLevel.Amateur:
+                        load25mRFAmateur();
                         break;
                     case LocalUserDataManager.gamerLevel.SemiPro:
+                        load25mRFSemPro();
                         break;
                     case LocalUserDataManager.gamerLevel.Pro:
+                        load25mRFPro();
                         break;
                 }
                 break;
@@ -332,7 +278,7 @@ public class HUB_UIManager : MonoBehaviour
                 break;
         }
     }
-    public void loadMatchMode()
+    void loadMatchMode()
     {
         switch (LocalUserDataManager.Instance.modeSelected)
         {
@@ -354,10 +300,16 @@ public class HUB_UIManager : MonoBehaviour
                 switch (LocalUserDataManager.Instance.levelSelected)
                 {
                     case LocalUserDataManager.gamerLevel.Amateur:
+                        load25mRFAmateur();
+
                         break;
                     case LocalUserDataManager.gamerLevel.SemiPro:
+                        load25mRFSemPro();
+
                         break;
                     case LocalUserDataManager.gamerLevel.Pro:
+                        load25mRFPro();
+
                         break;
                 }
                 break;

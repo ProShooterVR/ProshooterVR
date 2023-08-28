@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using BNG;
 using System;
-
+using NovaSamples.Inventory;
 public static class Instructions
 {
     public static readonly string Notbad = "NOT BAD";
@@ -22,8 +22,6 @@ public class PistolUIManager : MonoBehaviour
 {
     public static PistolUIManager Instance;
 
-    
-
     public GameObject shotParent;
 
     public float angle;
@@ -33,22 +31,22 @@ public class PistolUIManager : MonoBehaviour
     public string finalScore;
     
 
-    public TextMeshProUGUI totalScoreTxt,totalGameScoreTxt;
-    public TextMeshProUGUI series1Text,series2text,series3Text;
-    public TextMeshProUGUI currentShotScore;
-    public TextMeshProUGUI seriesNoTitle;
-    public TextMeshProUGUI instructionText;
-    public TextMeshProUGUI shotsHitText;
-    public TextMeshProUGUI shotsMissText;
+    public TextMeshPro currentSeriesScoreTxt,totalGameScoreTxt;
+    public TextMeshPro series1Text,series2text,series3Text;
+    public TextMeshPro currentShotScore;
+    public TextMeshPro seriesNoTitle;
+    public TextMeshPro instructionText;
+    public TextMeshPro shotsHitText;
+    public TextMeshPro shotsMissText;
     public GameObject scorePanelData;
 
-    public TextMeshProUGUI timerValue;
+    public TextMeshPro timerValue;
 
     public GameObject ScreenobjectToPlace;
 
 
     public GameObject resetShotPos,resetParent,rifleOffObj;
-    public GameObject gamePopUp;
+    public GameObject menuPanel;
     public GameObject startBtn, resumeBtn;
     public GameObject scoreScreen;
     public List<GameObject> screenScores;
@@ -59,13 +57,9 @@ public class PistolUIManager : MonoBehaviour
     public GameObject screen, screenCenter, screenEnd;
 
     float targetscoreOff, screenscoreOff;
-    public GameObject endMatchPopUp,settingPopUp,leaderPopUp,standSettingPopup;
+    public GameObject endMatchPopUp,settingPopUp,endSessionPopup,standSettingPopup;
     public bool setSwitch;
 
-    public GameObject[] Leaders;
-    public GameObject LeaderN;
-    public Sprite leaderH;
-    public TextMeshProUGUI title;
 
     [SerializeField]
     private GameObject helpScr1, helpScr2, helpScr3;
@@ -80,6 +74,8 @@ public class PistolUIManager : MonoBehaviour
     public GameObject prevPlaced;
 
     public bool rfStandMove;
+    public bool isReyOn;
+
     private void Awake()
     {
         Instance = this;
@@ -97,16 +93,15 @@ public class PistolUIManager : MonoBehaviour
         PistolUIManager.Instance.shotsMissText.text = "0";
         setSwitch = false;
        // settingPopUp.SetActive(false);
-        gamePopUp.SetActive(true);
+        menuPanel.SetActive(true);
         startBtn.SetActive(true);
         resumeBtn.SetActive(false);
         scoreScreen.SetActive(false);
-        leaderPopUp.SetActive(false);
+        endSessionPopup.SetActive(false);
         //startBtnClick();
         Debug.Log(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         instructionText.text = "";
-
-        //PistolUIManager.Instance.startBtnClick();
+        
 
 
 
@@ -121,13 +116,15 @@ public class PistolUIManager : MonoBehaviour
 
         // Debug.Log("Score : " +score + " | Dist :"+ (((score + 4.2f) + 10.9) * 95.9) / 10000);
 
-        if (InputBridge.Instance.StartButtonDown == true || InputBridge.Instance.BackButton == true)
+        if (InputBridge.Instance.StartButtonDown == true || InputBridge.Instance.BackButton == true || Input.GetKeyDown("space"))
         {
            if(setSwitch == false)
             {
                 settingPopUp.SetActive(true);
-                leaderPopUp.SetActive(false);
+                endSessionPopup.SetActive(false);
                 endMatchPopUp.SetActive(false);
+                menuPanel.SetActive(true);
+                RayManager.Instance.EnableRey();
 
                 GunGameManeger.Instance.isGamePause = true;
                 setSwitch = true;
@@ -135,7 +132,7 @@ public class PistolUIManager : MonoBehaviour
             
 
         }
-        if (GunGameManeger.Instance.isRifleMode == true)
+        if (weaponManager.Instance.isRifleMode == true)
         {
             if (InputBridge.Instance.BButtonDown == true)
             {
@@ -154,7 +151,7 @@ public class PistolUIManager : MonoBehaviour
         {
             helpPopUp.SetActive(true);
             settingPopUp.SetActive(false);
-            leaderPopUp.SetActive(false);
+            endSessionPopup.SetActive(false);
             endMatchPopUp.SetActive(false);
             GunGameManeger.Instance.isGamePause = true;
         }
@@ -167,7 +164,7 @@ public class PistolUIManager : MonoBehaviour
     {
         LiveUserDataManager.Instance.SavePistolGameDataToLiveDB();
     }   
-    public void backBtnClick()
+    public void exitBtnCliked()
     {
         SceneManager.LoadScene("ProShooterVR_Hub", LoadSceneMode.Single);
     }
@@ -176,15 +173,16 @@ public class PistolUIManager : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex, LoadSceneMode.Single);
         setSwitch = false;
+        RayManager.Instance.EnableRey();
     }
 
     public void leaderBoardClick()
     {
-        leaderPopUp.SetActive(true);
+        endSessionPopup.SetActive(true);
         endMatchPopUp.SetActive(false);
         // LiveUserDataManager.Instance.sortGameLeaderBoard();
         scoreScreen.SetActive(false);
-        gamePopUp.SetActive(false);
+        menuPanel.SetActive(false);
 
     }
 
@@ -229,12 +227,12 @@ public class PistolUIManager : MonoBehaviour
         resumeBtn.SetActive(true);
         GunGameManeger.Instance.isGamePause = false;
         scoreScreen.SetActive(true);
-        gamePopUp.SetActive(false);
+        menuPanel.SetActive(false);
         settingPopUp.SetActive(false);
         GunGameManeger.Instance.touchReloader.SetActive(true);
         GunGameManeger.Instance.relodePt.SetActive(true);
         GunGameManeger.Instance.spawnBullet = true;
-
+        RayManager.Instance.DisableRey();
         Debug.Log("Why god why");
        
     }
@@ -243,11 +241,13 @@ public class PistolUIManager : MonoBehaviour
         GunGameManeger.Instance.isGamePause = false;
         setSwitch = false;
         settingPopUp.SetActive(false);
+        RayManager.Instance.DisableRey();
+
     }
 
     public void backToRange()
     {
-        leaderPopUp.SetActive(false);
+        endSessionPopup.SetActive(false);
         endMatchPopUp.SetActive(true);
         setSwitch = false;
 
@@ -341,7 +341,7 @@ public class PistolUIManager : MonoBehaviour
 
             shotScore = Mathf.Round(scoreVal * 100f) / 100f;
 
-            if (GunGameManeger.Instance.isPistolMode == true)
+            if (weaponManager.Instance.isPistolMode == true)
             {
 
                 if (shotScore < 10.4f)
@@ -359,7 +359,7 @@ public class PistolUIManager : MonoBehaviour
                 else { }
                 shotScore = Mathf.Floor(shotScore);
             }
-            if (GunGameManeger.Instance.isRifleMode == true)
+            if (weaponManager.Instance.isRifleMode == true)
             {
 
                 if (shotScore < 10.2f)
@@ -393,7 +393,7 @@ public class PistolUIManager : MonoBehaviour
        
         Debug.Log("shotScore : " + shotScore + " || shotRoundScore : " + shotRoundScoreRifle);
 
-        if (GunGameManeger.Instance.isPistolMode == true)
+        if (weaponManager.Instance.isPistolMode == true)
         {
             if (shotScore == 0)
             {
@@ -416,7 +416,7 @@ public class PistolUIManager : MonoBehaviour
                 instructionText.text = Instructions.Perfect10;
             }
         }
-        if (GunGameManeger.Instance.isRifleMode == true)
+        if (weaponManager.Instance.isRifleMode == true)
         {
             if (shotRoundScoreRifle == 0)
             {
@@ -470,20 +470,21 @@ public class PistolUIManager : MonoBehaviour
        
         placedObject.transform.localPosition = new Vector3(placedObject.transform.localPosition.x, placedObject.transform.localPosition.y, resetShotPos.transform.localPosition.z);
 
-        if (GunGameManeger.Instance.isRifleMode == true)
+        if (weaponManager.Instance.isRifleMode == true)
         {
-            if ((placedObject.transform.localPosition.x + placedObject.transform.localScale.x / 2) < upperLeft.transform.localPosition.x && (placedObject.transform.localPosition.y + placedObject.transform.localScale.y / 2) > upperLeft.transform.localPosition.y && (placedObject.transform.localPosition.x) > lowerRight.transform.localPosition.x + placedObject.transform.localScale.x / 2 && (placedObject.transform.localPosition.y) < lowerRight.transform.localPosition.y + placedObject.transform.localScale.y / 2)
-            {
-                placedObject.SetActive(true);
-            }
-            else
-            {
-                placedObject.SetActive(false);
+            placedObject.SetActive(true);
+            //if ((placedObject.transform.localPosition.x + placedObject.transform.localScale.x / 2) < upperLeft.transform.localPosition.x && (placedObject.transform.localPosition.y + placedObject.transform.localScale.y / 2) > upperLeft.transform.localPosition.y && (placedObject.transform.localPosition.x) > lowerRight.transform.localPosition.x + placedObject.transform.localScale.x / 2 && (placedObject.transform.localPosition.y) < lowerRight.transform.localPosition.y + placedObject.transform.localScale.y / 2)
+            //{
+            //    placedObject.SetActive(true);
+            //}
+            //else
+            //{
+            //    placedObject.SetActive(false);
 
-               // Debug.Log("" + placedObject.transform.localPosition.x + placedObject.transform.localScale.x / 2 + " :: " + upperLeft.transform.localPosition.x);
-            }
+            //   // Debug.Log("" + placedObject.transform.localPosition.x + placedObject.transform.localScale.x / 2 + " :: " + upperLeft.transform.localPosition.x);
+            //}
         }
-        if (GunGameManeger.Instance.isPistolMode == true || GunGameManeger.Instance.isRifleMode == true)
+        if (weaponManager.Instance.isPistolMode == true || weaponManager.Instance.isRifleMode == true)
         {
             if (scoreVal == 0)
             { placedObject.SetActive(false); }
@@ -491,6 +492,9 @@ public class PistolUIManager : MonoBehaviour
 
 
             screenScores.Add(placedObject);
-        
+
+       
+
+
     }
 }
