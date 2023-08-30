@@ -331,13 +331,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameModeUI: {fileID: 3335180814585084408}
-  tutorailUI: {fileID: 1067587041}
+  tutorailUI: {fileID: 216654139}
   levelUI: {fileID: 4076183527245263114}
   settingUI: {fileID: 2947565004565768120}
   playBtn: {fileID: 1947004411486497940}
   airPistolTut: {fileID: 155768329}
   airRifleTut: {fileID: 634402871}
   rapidRifeTUt: {fileID: 155768329}
+  musicPlayer: {fileID: 3249472483055677317}
 --- !u!1 &216654139
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &216654140
 Transform:
   m_ObjectHideFlags: 0
@@ -570,7 +571,7 @@ MonoBehaviour:
     ReceiveShadows: 1
   PreviewSize: {x: 1, y: 1, z: 0}
   visuals:
-    Color: {r: 0, g: 0, b: 0, a: 0.6}
+    Color: {r: 0, g: 0, b: 0, a: 0.5}
     CornerRadius:
       Raw: 0.14
       Type: 0
@@ -4062,12 +4063,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34c25ae459c628a428a04352d837d47c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1067587041 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6320903219575553187, guid: e5632662e0d4dc8498be211c003ddead,
-    type: 3}
-  m_PrefabInstance: {fileID: 1226793160}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1079807331
 GameObject:
   m_ObjectHideFlags: 0
@@ -14907,7 +14902,7 @@ MonoBehaviour:
     ReceiveShadows: 1
   PreviewSize: {x: 4.985, y: 2.3000002, z: 0}
   visuals:
-    Color: {r: 0, g: 0, b: 0, a: 0}
+    Color: {r: 0, g: 0, b: 0, a: 0.6}
     CornerRadius:
       Raw: 0.14
       Type: 0
@@ -23822,7 +23817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &3343595393527333469
 GameObject:
   m_ObjectHideFlags: 0
@@ -39175,7 +39170,7 @@ MonoBehaviour:
     ReceiveShadows: 1
   PreviewSize: {x: 1, y: 1, z: 0}
   visuals:
-    Color: {r: 0, g: 0, b: 0, a: 0.6}
+    Color: {r: 0, g: 0, b: 0, a: 0.5}
     CornerRadius:
       Raw: 0.14
       Type: 0
@@ -40973,7 +40968,7 @@ MonoBehaviour:
     ReceiveShadows: 1
   PreviewSize: {x: 1, y: 1, z: 0}
   visuals:
-    Color: {r: 0, g: 0, b: 0, a: 0.8}
+    Color: {r: 0, g: 0, b: 0, a: 0.6}
     CornerRadius:
       Raw: 0.14
       Type: 0

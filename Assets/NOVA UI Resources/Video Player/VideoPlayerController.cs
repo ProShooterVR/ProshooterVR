@@ -41,6 +41,7 @@ public class VideoPlayerController : MonoBehaviour
         playButton.SetActive(true);
         pauseButton.SetActive(false);
 
+        HUB_UIManager.Instance.musicPlayer.SetActive(false);
         // Get the AudioSource component from the music GameObject
         //musicAudioSource = musicGameObject.GetComponent<AudioSource>();
 
@@ -118,6 +119,8 @@ public class VideoPlayerController : MonoBehaviour
         MusicControlBar.SetActive(true);
         slider.value = 0f;
         UpdateStartTimeText(0f);
+        HUB_UIManager.Instance.musicPlayer.SetActive(true);
+
     }
 
     // Use this function to set the title of the video

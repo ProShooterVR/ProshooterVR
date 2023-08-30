@@ -19,6 +19,7 @@ public class HUB_UIManager : MonoBehaviour
     public GameObject settingUI;
     public GameObject playBtn;
     public GameObject airPistolTut, airRifleTut, rapidRifeTUt;
+    public GameObject musicPlayer;
 
     public enum gameType
     {
@@ -45,6 +46,7 @@ public class HUB_UIManager : MonoBehaviour
         levelUI.SetActive(true);
         playBtn.SetActive(false);
         levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
+        HUB_UIManager.Instance.musicPlayer.SetActive(true);
 
     }
 
