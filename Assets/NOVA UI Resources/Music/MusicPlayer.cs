@@ -6,7 +6,6 @@ using TMPro;
 public class MusicPlayer : MonoBehaviour
 {
     public List<AudioClip> playlist;
-    [SerializeField]
     public AudioSource audioSource;
     private int currentIndex = 0;
     private bool isPaused = false;
