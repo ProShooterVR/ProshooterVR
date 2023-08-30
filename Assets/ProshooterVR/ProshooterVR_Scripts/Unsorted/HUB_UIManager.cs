@@ -13,11 +13,12 @@ public class HUB_UIManager : MonoBehaviour
     //Making it static to access all over layers
     public static HUB_UIManager Instance;
 
-    public GameObject gameModeUI;
+    public GameObject gameModeUI, tutorailUI;
     public GameObject levelUI;
 
     public GameObject settingUI;
     public GameObject playBtn;
+    public GameObject airPistolTut, airRifleTut, rapidRifeTUt;
 
     public enum gameType
     {
@@ -38,6 +39,9 @@ public class HUB_UIManager : MonoBehaviour
     private void Start()
     {
         gameModeUI.SetActive(false);
+        tutorailUI.SetActive(false);
+        settingUI.SetActive(false);
+
         levelUI.SetActive(true);
         playBtn.SetActive(false);
         levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
@@ -61,11 +65,36 @@ public class HUB_UIManager : MonoBehaviour
     {
         settingUI.SetActive(true);
         gameModeUI.SetActive(false);
+        tutorailUI.SetActive(false);
+
     }
 
     public void tutorialBtnClicked()
     {
+        gameModeUI.SetActive(false);
+        tutorailUI.SetActive(true);
+        settingUI.SetActive(false);
 
+    }
+
+    public void airPistolTutorial()
+    {
+        airPistolTut.SetActive(true);
+        airRifleTut.SetActive(false);
+       // rapidRifeTUt.SetActive(false);
+    }
+    public void airRifleTutorial()
+    {
+        airPistolTut.SetActive(false);
+        airRifleTut.SetActive(true);
+      //  rapidRifeTUt.SetActive(false);
+
+    }
+    public void RapidFireTutorial()
+    {
+        airPistolTut.SetActive(false);
+        airRifleTut.SetActive(false);
+       // rapidRifeTUt.SetActive(true);
     }
 
     public void closeAggrMenu()

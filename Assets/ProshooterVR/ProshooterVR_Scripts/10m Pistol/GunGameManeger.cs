@@ -366,7 +366,7 @@ public class GunGameManeger : MonoBehaviour
     }
 
 
-    void clearScorePanel()
+    public void clearScorePanel()
     {
         for(int i = 0; i < 10; i++)
         {

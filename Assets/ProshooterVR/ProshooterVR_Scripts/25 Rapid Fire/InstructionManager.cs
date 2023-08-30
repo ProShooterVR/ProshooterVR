@@ -11,6 +11,7 @@ public class InstructionManager : MonoBehaviour
     }
     public AudioSource audioSource;
     public AudioClip[] instuctionsAudioList;
+    public AudioClip[] gameInstruction;
     public AudioClip buzzer;
 
     // Start is called before the first frame update
@@ -30,6 +31,11 @@ public class InstructionManager : MonoBehaviour
         audioSource.PlayOneShot(instuctionsAudioList[no]);
         return instuctionsAudioList[no].length;
     }
+    public float playInGameSounds(int no)
+    {
+        audioSource.PlayOneShot(gameInstruction[no]);
+        return instuctionsAudioList[no].length;
+    }
 
-   
+
 }

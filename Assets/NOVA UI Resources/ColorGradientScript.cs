@@ -5,13 +5,13 @@ public class ColorGradientScript : MonoBehaviour
 {
     public Gradient gradient;
     public GradientMode gradientMode = GradientMode.Horizontal;
-    public TextMeshPro textMeshPro;
+    public TextMeshProUGUI textMeshPro;
 
     private void Start()
     {
         if (textMeshPro == null)
         {
-            textMeshPro = GetComponent<TextMeshPro>();
+            textMeshPro = GetComponent<TextMeshProUGUI>();
         }
 
         ApplyGradient();
@@ -83,7 +83,7 @@ public class ColorGradientScript : MonoBehaviour
         }
     }
 
-    private void ModifyCharacterVertexColors(TextMeshPro textMeshPro, int vertexIndex, Color32 color)
+    private void ModifyCharacterVertexColors(TextMeshProUGUI textMeshPro, int vertexIndex, Color32 color)
     {
         TMP_TextInfo textInfo = textMeshPro.textInfo;
         int materialIndex = textInfo.characterInfo[vertexIndex].materialReferenceIndex;

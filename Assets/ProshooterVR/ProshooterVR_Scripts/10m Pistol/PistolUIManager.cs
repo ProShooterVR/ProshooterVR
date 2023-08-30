@@ -234,7 +234,10 @@ public class PistolUIManager : MonoBehaviour
         GunGameManeger.Instance.spawnBullet = true;
         RayManager.Instance.DisableRey();
         Debug.Log("Why god why");
-       
+
+        clearUIScreen();
+        GunGameManeger.Instance.clearScorePanel();
+
     }
     public void resumeBtnClick()
     {
@@ -309,6 +312,17 @@ public class PistolUIManager : MonoBehaviour
                 helpScr3.SetActive(true);
                 break;
         }
+    }
+
+    public void clearUIScreen()
+    {
+        currentSeriesScoreTxt.text = "";
+        totalGameScoreTxt.text = "";
+        series1Text.text = "";
+        series2text.text = "";
+        series3Text.text = "";
+        currentShotScore.text = "";
+        instructionText.text = "";
     }
 
     public void clearShotScreen()

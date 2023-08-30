@@ -56,7 +56,7 @@ public class RapidFireGunManager : MonoBehaviour
     public int totalGameScore;
 
     public int shotsOnTarget, shotsMissed;
-
+    public bool callInGameSounds;
     public enum gamestate
     {
         load,
@@ -100,11 +100,13 @@ public class RapidFireGunManager : MonoBehaviour
         round1Score = 0;
         round2Score = 0;
         totalGameScore = 0;
+        callInGameSounds = false;
     }
 
     public void resetStage()
     {
         state = gamestate.load;
+       
         SeriesCounter = 0;
         if (stageCounter == 0)
         {
@@ -142,6 +144,23 @@ public class RapidFireGunManager : MonoBehaviour
         
     }
 
+
+    public void callIngamesounds(int round)
+    {
+        switch (round)
+        {
+            case 0:
+                InstructionManager.Instance.playInGameSounds(0);
+                break;
+            case 1:
+                InstructionManager.Instance.playInGameSounds(1);
+                break;
+            case 3:
+                InstructionManager.Instance.playInGameSounds(2);
+                break;
+            
+        }
+    }
 
     public void callGameState()
     {
@@ -313,8 +332,7 @@ public class RapidFireGunManager : MonoBehaviour
         state = gamestate.load;
         RapidFireGunManager.Instance.seriesStarted = false;
         RapidFireGunManager.Instance.isReloaded = false;
-        
-
+        callInGameSounds = true;
         if (SeriesCounter == 3)
         {
             Debug.Log("Next Stage");

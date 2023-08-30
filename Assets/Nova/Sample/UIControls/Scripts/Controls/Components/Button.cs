@@ -46,5 +46,7 @@ namespace NovaSamples.UIControls
         /// <param name="evt">The click event data.</param>
         /// <param name="visuals">The buttons visuals which received the click.</param>
         private void HandleClicked(Gesture.OnClick evt, ButtonVisuals visuals) => OnClicked?.Invoke();
+
+       
     }
 }

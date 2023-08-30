@@ -305,6 +305,7 @@ public class RapidFireUIManager : MonoBehaviour
         settingPopUp.SetActive(false);
         StartCoroutine(RapidFireGunManager.Instance.StartTimerStart());
         RayManager.Instance.DisableRey();
+        RapidFireGunManager.Instance.callInGameSounds = true;
 
 
     }

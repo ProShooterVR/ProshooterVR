@@ -9,6 +9,8 @@ public class Mytimer : MonoBehaviour
     public float currentTime; // Current time remaining
     public TextMeshPro countdownText; // Reference to the UI Text component
     bool isReady;
+
+    bool isCalled;
     private void awake()
     {
        
@@ -17,12 +19,15 @@ public class Mytimer : MonoBehaviour
     {
         currentTime = totalTime;
         isReady = false;
+        isCalled = false;
     }
     private void OnEnable()
     {
         if (isReady == true)
         {
             currentTime = RapidFireGunManager.Instance.currentTimerValue;
+            totalTime = RapidFireGunManager.Instance.currentTimerValue;
+         
         }
     }
     private void Update()
@@ -31,9 +36,15 @@ public class Mytimer : MonoBehaviour
         
         // Update the countdown timer
         currentTime -= Time.deltaTime;
-        
-        // Check if the countdown has reached zero
-        if (currentTime <= 0f)
+        if (currentTime <= totalTime / 2)
+        {
+            if (RapidFireGunManager.Instance.callInGameSounds == true) { 
+                RapidFireGunManager.Instance.callIngamesounds(RapidFireGunManager.Instance.SeriesCounter);
+                RapidFireGunManager.Instance.callInGameSounds = false;
+            }
+        }
+            // Check if the countdown has reached zero
+            if (currentTime <= 0f)
         {
             currentTime = 0f;
             isReady = true;
