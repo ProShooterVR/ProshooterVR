@@ -9249,7 +9249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &958941364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16769,9 +16769,9 @@ MonoBehaviour:
   endSessionPopup: {fileID: 110614373}
   standSettingPopup: {fileID: 168480769}
   setSwitch: 0
-  helpScr1: {fileID: 0}
-  helpScr2: {fileID: 0}
-  helpScr3: {fileID: 0}
+  helpScr1: {fileID: 6833838190064443232}
+  helpScr2: {fileID: 5843888772108582482}
+  helpScr3: {fileID: 1879807181887920786}
   helpPopUp: {fileID: 958941363}
   btnCnt: 0
   upperLeft: {fileID: 464916575}
@@ -24104,7 +24104,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnClicked:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1803150872}
+        m_TargetAssemblyTypeName: PistolUIManager, Assembly-CSharp
+        m_MethodName: CloseHelpPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5070150678014901729
 GameObject:
   m_ObjectHideFlags: 0
@@ -24768,7 +24780,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnClicked:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1803150872}
+        m_TargetAssemblyTypeName: PistolUIManager, Assembly-CSharp
+        m_MethodName: nextButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5843888772108582482
 GameObject:
   m_ObjectHideFlags: 0
@@ -26495,7 +26519,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnClicked:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1803150872}
+        m_TargetAssemblyTypeName: PistolUIManager, Assembly-CSharp
+        m_MethodName: PrvButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &8009580571257776521
 Transform:
   m_ObjectHideFlags: 0
