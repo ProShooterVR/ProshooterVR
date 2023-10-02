@@ -57,7 +57,7 @@ namespace NovaSamples.Inventory
 
                     GameObject hitObject = hit.collider.gameObject;
                     lineRenderer.SetPosition(1, hit.point);
-                    Debug.Log("" + hitObject.name);
+                    //Debug.Log("" + hitObject.name);
                     // Do something with the hit object (e.g., interact, highlight, etc.)
                     // ...
                 }

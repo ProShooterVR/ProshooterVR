@@ -30,7 +30,7 @@ public class OculusProdState : MonoBehaviour
 
     private void Start()
     {
-        LiveUserDataManager.Instance.dbName = releaseDatabase.prod;
+      //  LiveUserDataManager.Instance.dbName = releaseDatabase.prod;
     }
 
 }

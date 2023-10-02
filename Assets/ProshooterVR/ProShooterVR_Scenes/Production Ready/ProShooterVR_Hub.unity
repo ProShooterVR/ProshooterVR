@@ -337,7 +337,7 @@ MonoBehaviour:
   playBtn: {fileID: 1947004411486497940}
   airPistolTut: {fileID: 155768329}
   airRifleTut: {fileID: 634402871}
-  rapidRifeTUt: {fileID: 155768329}
+  rapidRifeTUt: {fileID: 1278645740}
   musicPlayer: {fileID: 3249472483055677317}
 --- !u!1 &216654139
 GameObject:
@@ -1018,6 +1018,37 @@ MonoBehaviour:
   levelSelected: 0
   modeSelected: 0
   temp: 0
+--- !u!1 &421953241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 421953242}
+  m_Layer: 0
+  m_Name: 10m Air Rifle Tutorial Thumbnail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &421953242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421953241}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &470431326
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,6 +3386,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 156633351}
+        m_TargetAssemblyTypeName: HUB_UIManager, Assembly-CSharp
+        m_MethodName: RapidFireTutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &970085625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4063,6 +4106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34c25ae459c628a428a04352d837d47c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newPath: 
 --- !u!1 &1079807331
 GameObject:
   m_ObjectHideFlags: 0
@@ -5492,11 +5536,6 @@ PrefabInstance:
       propertyPath: musicGameObject
       value: 
       objectReference: {fileID: 3249472483055677317}
-    - target: {fileID: 2825135645758854450, guid: e5632662e0d4dc8498be211c003ddead,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4563985695156633002, guid: e5632662e0d4dc8498be211c003ddead,
         type: 3}
       propertyPath: MusicControlBar
@@ -5507,25 +5546,20 @@ PrefabInstance:
       propertyPath: musicGameObject
       value: 
       objectReference: {fileID: 3249472483055677317}
-    - target: {fileID: 4837931882550307098, guid: e5632662e0d4dc8498be211c003ddead,
+    - target: {fileID: 6218263822868618795, guid: e5632662e0d4dc8498be211c003ddead,
         type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5824808459389629342, guid: e5632662e0d4dc8498be211c003ddead,
+      propertyPath: MusicControlBar
+      value: 
+      objectReference: {fileID: 3249472483055677317}
+    - target: {fileID: 6218263822868618795, guid: e5632662e0d4dc8498be211c003ddead,
         type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: musicGameObject
+      value: 
+      objectReference: {fileID: 3249472483055677317}
     - target: {fileID: 6320903219575553187, guid: e5632662e0d4dc8498be211c003ddead,
         type: 3}
       propertyPath: m_Name
       value: Tutorial Video Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6320903219575553187, guid: e5632662e0d4dc8498be211c003ddead,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7455486131517451970, guid: e5632662e0d4dc8498be211c003ddead,
         type: 3}
@@ -5643,6 +5677,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myBg: {fileID: 1633371343370770201}
+--- !u!1 &1278645740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2401491937275861159, guid: e5632662e0d4dc8498be211c003ddead,
+    type: 3}
+  m_PrefabInstance: {fileID: 1226793160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1313643946
 GameObject:
   m_ObjectHideFlags: 0
@@ -23522,6 +23562,7 @@ GameObject:
   - component: {fileID: 5073239180011308349}
   - component: {fileID: 2465660370629649447}
   - component: {fileID: 6982439865852895842}
+  - component: {fileID: 6982439865852895843}
   m_Layer: 5
   m_Name: Music Control Bar
   m_TagString: Untagged
@@ -37348,7 +37389,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a39a482ca589364489164fa798562772, type: 3}
   - {fileID: 8300000, guid: 2d24c7f8b7c3582429e824ac2c542e4e, type: 3}
   - {fileID: 8300000, guid: e5aebdd3037f0b24794c14de2d246441, type: 3}
-  audioSource: {fileID: 1320559860}
+  audioSource: {fileID: 6982439865852895843}
   songNameTextMeshPro: {fileID: 2981925010230123937}
   playButton: {fileID: 469898198100170976}
   pauseButton: {fileID: 4194216896423189808}
@@ -37364,6 +37405,102 @@ MonoBehaviour:
   songButton5: {fileID: 0}
   PlayListOnButton: {fileID: 1084642700887476043}
   PlayListOffButton: {fileID: 5756240984780206191}
+--- !u!82 &6982439865852895843
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3249472483055677317}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &7010694524758500754
 Transform:
   m_ObjectHideFlags: 0
@@ -42363,6 +42500,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 721850316273444013, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5411428133926526783, guid: 979b1d6e2beb0504facf24c0323bf114,
         type: 3}
       propertyPath: m_Name

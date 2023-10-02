@@ -53,12 +53,16 @@ public class HUB_UIManager : MonoBehaviour
     public void singlePlayerBtnClicked()
     {
         gameModeUI.SetActive(true);
+        tutorailUI.SetActive(false);
+
         myGameType = gameType.match;
     }
 
     public void PracticeBtnClicked()
     {
         gameModeUI.SetActive(true);
+        tutorailUI.SetActive(false);
+
         myGameType = gameType.practice;
 
     }
@@ -83,20 +87,28 @@ public class HUB_UIManager : MonoBehaviour
     {
         airPistolTut.SetActive(true);
         airRifleTut.SetActive(false);
-       // rapidRifeTUt.SetActive(false);
+        rapidRifeTUt.SetActive(false);
+        musicPlayer.SetActive(false);
+        VideoPlayerController.Instance.BigPlayButton.SetActive(true);
+        HUB_UIManager.Instance.musicPlayer.GetComponent<MusicPlayer>().audioSource.enabled = false;
     }
     public void airRifleTutorial()
     {
         airPistolTut.SetActive(false);
         airRifleTut.SetActive(true);
-      //  rapidRifeTUt.SetActive(false);
-
+        rapidRifeTUt.SetActive(false);
+        musicPlayer.SetActive(false);
+        VideoPlayerController.Instance.BigPlayButton.SetActive(true);
+        HUB_UIManager.Instance.musicPlayer.GetComponent<MusicPlayer>().audioSource.enabled = false;
     }
     public void RapidFireTutorial()
     {
         airPistolTut.SetActive(false);
         airRifleTut.SetActive(false);
-       // rapidRifeTUt.SetActive(true);
+        rapidRifeTUt.SetActive(true);
+        musicPlayer.SetActive(false);
+        VideoPlayerController.Instance.BigPlayButton.SetActive(true);
+        HUB_UIManager.Instance.musicPlayer.GetComponent<MusicPlayer>().audioSource.enabled = false;
     }
 
     public void closeAggrMenu()

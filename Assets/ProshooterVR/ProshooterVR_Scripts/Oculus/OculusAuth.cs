@@ -54,7 +54,7 @@ public class OculusAuth : MonoBehaviour
         else
         {
             userId = msg.Data.ID.ToString(); // do not use msg.Data.OculusID;
-            
+            Debug.Log("URL=="+msg.Data.SmallImageUrl);
             LocalUserDataManager.Instance.userID = userId;
             LocalUserDataManager.Instance.userName = msg.Data.OculusID;
             Debug.Log("ID : " + LocalUserDataManager.Instance.userID + " | Name : " + LocalUserDataManager.Instance.userName);

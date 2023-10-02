@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using NovaSamples.Inventory;
 
 
 public class RapidFireGunManager : MonoBehaviour
@@ -197,26 +198,30 @@ public class RapidFireGunManager : MonoBehaviour
 
    public void updateMatchData()
     {
+        RayManager.Instance.EnableRey();
+
         RapidFireUIManager.Instance.endSessionScreen.SetActive(true);
         RapidFireEndSessionManager.Instance.enableTargetScores();
 
         RapidFireEndSessionManager.Instance.userNameTxt.text = "";
-        RapidFireEndSessionManager.Instance.srs1ScoreTxt.text = series1Score.ToString("F1");
-        RapidFireEndSessionManager.Instance.srs2ScoreTxt.text = series2Score.ToString("F1");
-        RapidFireEndSessionManager.Instance.srs3ScoreTxt.text = series3Score.ToString("F1");
-        RapidFireEndSessionManager.Instance.srs4ScoreTxt.text = series4Score.ToString("F1");
-        RapidFireEndSessionManager.Instance.srs5ScoreTxt.text = series5Score.ToString("F1");
-        RapidFireEndSessionManager.Instance.srs6ScoreTxt.text = series6Score.ToString("F1");
+        RapidFireEndSessionManager.Instance.srs1ScoreTxt.text = series1Score.ToString();
+        RapidFireEndSessionManager.Instance.srs2ScoreTxt.text = series2Score.ToString();
+        RapidFireEndSessionManager.Instance.srs3ScoreTxt.text = series3Score.ToString();
+        RapidFireEndSessionManager.Instance.srs4ScoreTxt.text = series4Score.ToString();
+        RapidFireEndSessionManager.Instance.srs5ScoreTxt.text = series5Score.ToString();
+        RapidFireEndSessionManager.Instance.srs6ScoreTxt.text = series6Score.ToString();
 
-        int avgScore = (series1Score + series2Score + series3Score + series4Score + series5Score + series6Score) / 100;
-        RapidFireEndSessionManager.Instance.avgScoreTxt.text = avgScore.ToString("F1");
+        int avgScore = (series1Score + series2Score + series3Score + series4Score + series5Score + series6Score) / 6;
+        RapidFireEndSessionManager.Instance.avgScoreTxt.text = avgScore.ToString();
         RapidFireEndSessionManager.Instance.round1ScoreTxt.text = round1Score.ToString();
         RapidFireEndSessionManager.Instance.round2ScoreTxt.text = round2Score.ToString();
 
         //   RapidFireEndSessionManager.Instance.innerTText.text = innerTno.ToString("F1");
 
-        RapidFireEndSessionManager.Instance.shotsHitTxt.text = shotsMissed.ToString("F1");
-        RapidFireEndSessionManager.Instance.shotsmissTxt.text = shotsMissed.ToString("F1");
+        RapidFireEndSessionManager.Instance.shotsHitTxt.text = shotsOnTarget.ToString();
+        RapidFireEndSessionManager.Instance.shotsmissTxt.text = shotsMissed.ToString();
+        RapidFireEndSessionManager.Instance.totalgameScoretxt.text = totalGameScore.ToString();
+
         //RapidFireEndSessionManager.Instance.timeSpentTxt.text = totalGameTime.ToString("F1");
     }
 
@@ -347,12 +352,15 @@ public class RapidFireGunManager : MonoBehaviour
                 yield return new WaitForSeconds(10f);
 
                 StartTimer.GetComponent<Mytimer>().enabled = true;
+                RapidFireUIManager.Instance.instructionTxt.text = "";
+
                 resetStage();
             }
         }
         else
         {
             StartTimer.GetComponent<Mytimer>().enabled = true;
+            RapidFireUIManager.Instance.instructionTxt.text = "";
         }
         yield return new WaitForSeconds(2f);
         Debug.Log("END OF SERIESSSS");

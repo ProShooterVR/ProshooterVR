@@ -73,8 +73,8 @@ public class LiveUserDataManager : MonoBehaviour
         isauth = false;
         isUserExist = false;
         isMetaUserDataUp = false;
-        firestoreDB = FirebaseFirestore.DefaultInstance;
-        LocalUserDataManager.Instance.userID = "  5760684067392845";
+       // firestoreDB = FirebaseFirestore.DefaultInstance;
+        LocalUserDataManager.Instance.userID = "5760684067392848";
       //  LiveUserDataManager.Instance.sortLeaderBoard();
 
     }
@@ -86,7 +86,7 @@ public class LiveUserDataManager : MonoBehaviour
     }
 
 
-   
+
 
 
     public void SaveUserDataToLiveDB()
@@ -216,38 +216,38 @@ public class LiveUserDataManager : MonoBehaviour
 
 
 
-    private void OnApplicationQuit()
-    {
+    //private void OnApplicationQuit()
+    //{
 
 
-        string database = dbName;
+    //    string database = dbName;
 
-        database += "_MetaUsers";
+    //    database += "_MetaUsers";
 
-        usersCollection = firestoreDB.Collection(database);
+    //    usersCollection = firestoreDB.Collection(database);
 
-            // Create a user data object
-            UserProfileData userData = new UserProfileData(LocalUserDataManager.Instance.totalTime);
+    //        // Create a user data object
+    //        UserProfileData userData = new UserProfileData(LocalUserDataManager.Instance.totalTime);
 
-            // Convert user data object to a dictionary
-            Dictionary<string, object> userDataDict = userData.ToDictionary();
+    //        // Convert user data object to a dictionary
+    //        Dictionary<string, object> userDataDict = userData.ToDictionary();
 
-            usersCollection.Document(LocalUserDataManager.Instance.userID).Collection("UserData").Document("TimeSpent").SetAsync(userDataDict)
-                .ContinueWithOnMainThread(task =>
-                {
-                    if (task.IsCanceled || task.IsFaulted)
-                    {
-                        Debug.LogError("Failed to save game data: " + task.Exception);
-                        return;
-                    }
+    //        usersCollection.Document(LocalUserDataManager.Instance.userID).Collection("UserData").Document("TimeSpent").SetAsync(userDataDict)
+    //            .ContinueWithOnMainThread(task =>
+    //            {
+    //                if (task.IsCanceled || task.IsFaulted)
+    //                {
+    //                    Debug.LogError("Failed to save game data: " + task.Exception);
+    //                    return;
+    //                }
 
-                    Debug.Log("User data saved successfully!");
-                });
+    //                Debug.Log("User data saved successfully!");
+    //            });
 
 
            
         
-    }
+    //}
 
 
     public async void getUserBestScore()

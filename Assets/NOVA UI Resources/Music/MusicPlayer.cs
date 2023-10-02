@@ -34,6 +34,8 @@ public class MusicPlayer : MonoBehaviour
     public GameObject PlayListOnButton;
     public GameObject PlayListOffButton;
 
+    
+
     void Start()
     {
         PlayCurrentSong();
@@ -47,6 +49,8 @@ public class MusicPlayer : MonoBehaviour
         shuffleOffButton.gameObject.SetActive(!isShuffled);
         loopOnButton.gameObject.SetActive(isLooping);
         loopOffButton.gameObject.SetActive(!isLooping);
+
+
     }
 
     void Update()
