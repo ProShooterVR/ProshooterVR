@@ -59,7 +59,6 @@ public class OculusAuth : MonoBehaviour
             LocalUserDataManager.Instance.userName = msg.Data.OculusID;
             Debug.Log("ID : " + LocalUserDataManager.Instance.userID + " | Name : " + LocalUserDataManager.Instance.userName);
 
-            LiveUserDataManager.Instance.CheckIfDocumentExists();
             GetUserProof();
           
         }

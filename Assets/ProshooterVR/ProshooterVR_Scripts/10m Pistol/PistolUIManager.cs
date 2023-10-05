@@ -360,7 +360,7 @@ public class PistolUIManager : MonoBehaviour
 
                 if (shotScore < 10.4f)
                 {
-                    shotRoundScore = (int)shotScore;
+                    shotRoundScore = (int)shotScore ;
 
                     finalScore = shotRoundScore.ToString();
                 }
@@ -372,6 +372,9 @@ public class PistolUIManager : MonoBehaviour
                 }
                 else { }
                 shotScore = Mathf.Floor(shotScore);
+
+                ////// Precision zone multiplayer
+                
             }
             if (weaponManager.Instance.isRifleMode == true)
             {
@@ -454,6 +457,46 @@ public class PistolUIManager : MonoBehaviour
             }
         }
 
+
+
+
+
+        ////------------------------------------------------------------------------------//
+
+        if(weaponManager.Instance.isPistolMode == true)
+        {
+            if(shotScore >= 10.4 && shotScore < 10.9)
+            {
+                shotScore = shotScore * LiveUserDataManager.Instance.zoneAMulti;
+            }else if(shotScore >= 7 && shotScore < 10.4)
+            {
+                shotScore = shotScore * LiveUserDataManager.Instance.zoneBMulti;
+
+            }
+            else if (shotScore >= 1 && shotScore < 7)
+            {
+                shotScore = shotScore * LiveUserDataManager.Instance.zoneCMulti;
+
+            }
+        }
+        if (weaponManager.Instance.isRifleMode == true)
+        {
+            if (shotRoundScoreRifle >= 10.4 && shotScore < 10.9)
+            {
+                shotRoundScoreRifle = shotRoundScoreRifle * LiveUserDataManager.Instance.zoneAMulti;
+            }
+            else if (shotRoundScoreRifle >= 7 && shotRoundScoreRifle < 10.4)
+            {
+                shotRoundScoreRifle = shotRoundScoreRifle * LiveUserDataManager.Instance.zoneBMulti;
+
+            }
+            else if (shotRoundScoreRifle >= 1 && shotRoundScoreRifle < 7)
+            {
+                shotRoundScoreRifle = shotRoundScoreRifle * LiveUserDataManager.Instance.zoneCMulti;
+
+            }
+        }
+        //--------------------------------------------------------------------------------//
         GameObject placedObject = Instantiate(ScreenobjectToPlace, screenCenter.transform.position, Quaternion.identity, screen.transform);
 
         Vector3 scle = screenCenter.transform.localScale;

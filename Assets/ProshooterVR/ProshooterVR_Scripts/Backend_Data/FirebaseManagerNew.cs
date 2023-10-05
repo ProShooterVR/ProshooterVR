@@ -22,11 +22,12 @@ public class FirebaseManagerNew : MonoBehaviour
     {
         firebaseDB = FirebaseDatabase.GetInstance("https://proshootervr-d82e9-default-rtdb.asia-southeast1.firebasedatabase.app");
         databaseReference = firebaseDB.RootReference;
-        LiveUserDataManagerRealtime.Instance.univerdal_databaseReference = databaseReference;
+        LiveUserDataManagerRealtime.Instance.universal_databaseReference = databaseReference;
         isUserPresent = false;
         isUDUpdated = false;
         FetchGameDataFromFirebase();
         getCurrent_uniqueIDs();
+        LiveUserDataManager.Instance.FetchRulesData();
         // Initialize Firestore
         //firestoreDB = FirebaseFirestore.DefaultInstance;
     }
@@ -45,6 +46,7 @@ public class FirebaseManagerNew : MonoBehaviour
         {
             DataSnapshot snapshot = test.Result;
             currentUID = int.Parse(snapshot.Value.ToString());
+            LiveUserDataManager.Instance.currentUID = currentUID;
         }
     }
 
@@ -57,6 +59,8 @@ public class FirebaseManagerNew : MonoBehaviour
         {
             DataSnapshot snapshot = test.Result;
             currentGID = int.Parse(snapshot.Value.ToString());
+            LiveUserDataManager.Instance.currentUID = currentGID;
+
         }
     }
 
@@ -115,6 +119,7 @@ public class FirebaseManagerNew : MonoBehaviour
             {
                 Debug.Log("User is present.");
                 isUserPresent = true;
+                LiveUserDataManager.Instance.currentUserUID = uid;
             }
 
             // Call the callback function and pass the result
@@ -170,7 +175,11 @@ public class FirebaseManagerNew : MonoBehaviour
             Dictionary<string, object> metaData = new Dictionary<string, object>
             {
                 { "meta_id", metaID },
-                { "meta_name", metaName }
+                { "meta_name", metaName },
+                { "games_played", "0" },
+                { "totalPlayerScore", "0" },
+                { "accuracy", "0" },
+                  
             };
 
             // Push the data to a new child node under "user_meta"

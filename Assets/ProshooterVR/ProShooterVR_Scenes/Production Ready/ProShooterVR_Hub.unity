@@ -4106,7 +4106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34c25ae459c628a428a04352d837d47c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newPath: 
+  isUserPresent: 0
+  isUDUpdated: 0
+  currentUID: 0
+  currentGID: 0
 --- !u!1 &1079807331
 GameObject:
   m_ObjectHideFlags: 0
@@ -10048,6 +10051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2110099429}
   - component: {fileID: 2110099430}
+  - component: {fileID: 2110099431}
   m_Layer: 0
   m_Name: LiveUserDataManager
   m_TagString: Untagged
@@ -10085,6 +10089,27 @@ MonoBehaviour:
   project_id: 
   userName: 
   dbName: 
+  currentUID: 0
+  currentGID: 0
+  zoneAMulti: 0
+  zoneBMulti: 0
+  zoneCMulti: 0
+  difficulty_muliti: 0
+  amateurValue: 0
+  proValue: 0
+  semiProValue: 0
+--- !u!114 &2110099431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110099428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa84fafc4ffc7ac4f954f34b5d710af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6354609097325382
 GameObject:
   m_ObjectHideFlags: 0

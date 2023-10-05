@@ -10,6 +10,8 @@ using System;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine.UI;
+using Newtonsoft.Json;
+using Firebase.Database;
 
 public class LiveUserDataManager : MonoBehaviour
 {
@@ -32,7 +34,7 @@ public class LiveUserDataManager : MonoBehaviour
     private string metaUserId;
 
     public string userName;
-  
+
 
     private string metaUserName;
 
@@ -52,6 +54,11 @@ public class LiveUserDataManager : MonoBehaviour
 
     public string dbName;
 
+    public int currentUID, currentGID;
+
+    public float zoneAMulti, zoneBMulti, zoneCMulti, difficulty_muliti;
+    public float amateurValue, proValue, semiProValue;
+    public string currentUserUID;
     // :: Meta Users Data required for the Game :: END ::
 
     private void Awake()
@@ -73,9 +80,6 @@ public class LiveUserDataManager : MonoBehaviour
         isauth = false;
         isUserExist = false;
         isMetaUserDataUp = false;
-       // firestoreDB = FirebaseFirestore.DefaultInstance;
-        LocalUserDataManager.Instance.userID = "5760684067392848";
-      //  LiveUserDataManager.Instance.sortLeaderBoard();
 
     }
 
@@ -87,57 +91,30 @@ public class LiveUserDataManager : MonoBehaviour
 
 
 
-
-
-    public void SaveUserDataToLiveDB()
+    public void FetchRulesData()
     {
-        string database = dbName;
+        DatabaseReference databaseReference = LiveUserDataManagerRealtime.Instance.universal_databaseReference;
+        databaseReference.Child("rule_engine_master").GetValueAsync().ContinueWith(task => {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Failed to fetch data from Firebase: " + task.Exception);
+                return;
+            }
 
-        database += "_MetaUsers";
+            DataSnapshot snapshot = task.Result;
+            DataSnapshot ruleSnapshot = snapshot.Child("R001"); // Assuming we're fetching data for R001
 
-        usersCollection = firestoreDB.Collection(database);
-
-        if (isUserExist == true)
-        {  // Create a user data object
-            UserProfileData userData = new UserProfileData(LocalUserDataManager.Instance.userID, LocalUserDataManager.Instance.userName);
-
-            // Convert user data object to a dictionary
-            Dictionary<string, object> userDataDict = userData.ToDictionary();
-            // Add the user data to Firestore
-            usersCollection.Document(LocalUserDataManager.Instance.userID).Collection("UserData").Document("ProfileData").SetAsync(userDataDict)
-                .ContinueWithOnMainThread(task =>
-                {
-                    if (task.IsCanceled || task.IsFaulted)
-                    {
-                        Debug.Log("Failed to save user data: " + task.Exception);
-                        return;
-                    }
-
-                    Debug.Log("User data saved successfully!");
-                });
-        }
-
-        if (isUserExist == false)
-        {  // Create a user data object
-            UserProfileData userData = new UserProfileData(LocalUserDataManager.Instance.userID, LocalUserDataManager.Instance.userName,0,0,0);
-
-            // Convert user data object to a dictionary
-            Dictionary<string, object> userDataDict = userData.ToDictionary();
-            // Add the user data to Firestore
-            usersCollection.Document(LocalUserDataManager.Instance.userID).Collection("UserData").Document("ProfileData").SetAsync(userDataDict)
-                .ContinueWithOnMainThread(task =>
-                {
-                    if (task.IsCanceled || task.IsFaulted)
-                    {
-                        Debug.Log("Failed to save user data: " + task.Exception);
-                        return;
-                    }
-
-                    Debug.Log("User data saved successfully!");
-                });
-        }
-
+            // Parse data and save to local variables
+            amateurValue = float.Parse(ruleSnapshot.Child("Amateur").Value.ToString());
+            zoneAMulti = float.Parse(ruleSnapshot.Child("Precision Zone A Multiplier").Value.ToString());
+            zoneBMulti = float.Parse(ruleSnapshot.Child("Precision Zone B Multiplier").Value.ToString());
+            zoneCMulti = float.Parse(ruleSnapshot.Child("Precision Zone C Multiplier").Value.ToString());
+            proValue = float.Parse(ruleSnapshot.Child("Pro").Value.ToString());
+            semiProValue = float.Parse(ruleSnapshot.Child("Semi Pro").Value.ToString());
+        });
     }
+
+
 
 
     public void SavePistolGameDataToLiveDB()
@@ -147,36 +124,61 @@ public class LiveUserDataManager : MonoBehaviour
 
         GunDataManager.Instance.gameMode += dt;
 
-        string database = dbName;
-
-        database += "_MetaUsers";
-
-        usersCollection = firestoreDB.Collection(database);
-
-        
         // Create a user data object
         GameHistoryDataPistol GameData = new GameHistoryDataPistol(LocalUserDataManager.Instance.userID, LocalUserDataManager.Instance.userName,
                                                        GunDataManager.Instance.gameMode, GunDataManager.Instance.ScoresPistol, GunDataManager.Instance.sr1ScorePistol,
                                                        GunDataManager.Instance.sr2ScorePistol, GunDataManager.Instance.sr3ScorePistol, GunDataManager.Instance.totalGameScorePistol,
                                                        GunDataManager.Instance.noOfShotsOnTarget, GunDataManager.Instance.noOfShotsMissed, GunDataManager.Instance.avgSrScorePistol,
-                                                       GunDataManager.Instance.noOfInnerTens, GunDataManager.Instance.totalTimeSpent, GunDataManager.Instance.personalGameBestPistol);
+                                                       GunDataManager.Instance.noOfInnerTens, GunDataManager.Instance.totalTimeSpent, GunDataManager.Instance.personalGameBestPistol,
+                                                       GunDataManager.Instance.zoneA_mult, GunDataManager.Instance.zoneB_mult, GunDataManager.Instance.zoneC_mult, GunDataManager.Instance.diffculty_mult);
 
-        // Convert user data object to a dictionary
-        Dictionary<string, object> gameDataDict = GameData.ToDictionary();
-        // Add the user data to Firestore
-        usersCollection.Document(LocalUserDataManager.Instance.userID).Collection("UserData").Document("GameHistory").Collection("GameHistoryData").Document(GunDataManager.Instance.gameMode).SetAsync(gameDataDict)
-            .ContinueWithOnMainThread(task =>
-            {
-                if (task.IsCanceled || task.IsFaulted)
-                {
-                    Debug.LogError("Failed to save game data: " + task.Exception);
-                    return;
-                }
+        string pistolGameData = JsonConvert.SerializeObject(GameData);
 
-                Debug.Log("User data saved successfully!");
-            });
+        PushDataToFirebase(pistolGameData);
+
     }
 
+    async void PushDataToFirebase(string jsonData)
+    {
+        try
+        {
+            // Push the JSON data to Firebase
+            await LiveUserDataManagerRealtime.Instance.universal_databaseReference.Child("game_history").Child("GH" + currentGID).SetRawJsonValueAsync(jsonData);
+            Debug.Log("Data successfully sent to Firebase.");
+            currentGID++;
+            UpdateGIDValue(currentUID.ToString());
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Failed to send data to Firebase: " + e.Message);
+        }
+    }
+
+    public void UpdateGIDValue(string newValue)
+    {
+        DatabaseReference databaseReference = LiveUserDataManagerRealtime.Instance.universal_databaseReference;
+
+        if (databaseReference != null)
+        {
+            // Update the value at the specified node path
+            databaseReference.Child("tableUID_mst").Child("gh_GID").SetValueAsync(newValue)
+                .ContinueWith(task =>
+                {
+                    if (task.IsCompleted)
+                    {
+                        Debug.Log("Update completed successfully.");
+                    }
+                    else if (task.IsFaulted)
+                    {
+                        Debug.LogError("Update failed. Error: " + task.Exception.ToString());
+                    }
+                });
+        }
+        else
+        {
+            Debug.LogError("Firebase Database reference is not initialized.");
+        }
+    }
     public void SaveRifleGameDataToLiveDB()
     {
 
@@ -184,320 +186,67 @@ public class LiveUserDataManager : MonoBehaviour
 
         GunDataManager.Instance.gameMode += dt;
 
-        string database = dbName;
-
-        database += "_MetaUsers";
-
-        usersCollection = firestoreDB.Collection(database);
-
-
         // Create a user data object
         GameHistoryDataRifle GameData = new GameHistoryDataRifle(LocalUserDataManager.Instance.userID, LocalUserDataManager.Instance.userName,
-                                                       GunDataManager.Instance.gameMode, GunDataManager.Instance.ScoresRifle, GunDataManager.Instance.sr1ScoreRifle,
-                                                       GunDataManager.Instance.sr2ScoreRifle, GunDataManager.Instance.sr3ScoreRifle, GunDataManager.Instance.totalGameScorePistol,
-                                                       GunDataManager.Instance.noOfShotsOnTarget, GunDataManager.Instance.noOfShotsMissed, GunDataManager.Instance.avgSrScoreRifle,
-                                                       GunDataManager.Instance.noOfInnerTens, GunDataManager.Instance.totalTimeSpent, GunDataManager.Instance.personalGameBestRifle);
+                                                       GunDataManager.Instance.gameMode, GunDataManager.Instance.ScoresPistol, GunDataManager.Instance.sr1ScorePistol,
+                                                       GunDataManager.Instance.sr2ScorePistol, GunDataManager.Instance.sr3ScorePistol, GunDataManager.Instance.totalGameScoreRifle,
+                                                       GunDataManager.Instance.noOfShotsOnTarget, GunDataManager.Instance.noOfShotsMissed, GunDataManager.Instance.avgSrScorePistol,
+                                                       GunDataManager.Instance.noOfInnerTens, GunDataManager.Instance.totalTimeSpent, GunDataManager.Instance.personalGameBestPistol,
+                                                       GunDataManager.Instance.zoneA_mult, GunDataManager.Instance.zoneB_mult, GunDataManager.Instance.zoneC_mult, GunDataManager.Instance.diffculty_mult);
 
-        // Convert user data object to a dictionary
-        Dictionary<string, object> gameDataDict = GameData.ToDictionary();
-        // Add the user data to Firestore
-        usersCollection.Document(LocalUserDataManager.Instance.userID).Collection("UserData").Document("GameHistory").Collection("GameHistoryData").Document(GunDataManager.Instance.gameMode).SetAsync(gameDataDict)
-            .ContinueWithOnMainThread(task =>
-            {
-                if (task.IsCanceled || task.IsFaulted)
+        string rifleGameData = JsonConvert.SerializeObject(GameData);
+
+        PushDataToFirebase(rifleGameData);
+    }
+
+
+
+
+
+
+
+    public void UpdateUserTableData(string newValue, string key)
+    {
+        DatabaseReference databaseReference = LiveUserDataManagerRealtime.Instance.universal_databaseReference;
+
+        if (databaseReference != null)
+        {
+            // Update the value at the specified node path
+            databaseReference.Child("user_master").Child(LiveUserDataManager.Instance.currentUserUID).Child(key).SetValueAsync(newValue)
+                .ContinueWith(task =>
                 {
-                    Debug.LogError("Failed to save game data: " + task.Exception);
-                    return;
-                }
-
-                Debug.Log("User data saved successfully!");
-            });
-    }
-
-
-
-    //private void OnApplicationQuit()
-    //{
-
-
-    //    string database = dbName;
-
-    //    database += "_MetaUsers";
-
-    //    usersCollection = firestoreDB.Collection(database);
-
-    //        // Create a user data object
-    //        UserProfileData userData = new UserProfileData(LocalUserDataManager.Instance.totalTime);
-
-    //        // Convert user data object to a dictionary
-    //        Dictionary<string, object> userDataDict = userData.ToDictionary();
-
-    //        usersCollection.Document(LocalUserDataManager.Instance.userID).Collection("UserData").Document("TimeSpent").SetAsync(userDataDict)
-    //            .ContinueWithOnMainThread(task =>
-    //            {
-    //                if (task.IsCanceled || task.IsFaulted)
-    //                {
-    //                    Debug.LogError("Failed to save game data: " + task.Exception);
-    //                    return;
-    //                }
-
-    //                Debug.Log("User data saved successfully!");
-    //            });
-
-
-           
-        
-    //}
-
-
-    public async void getUserBestScore()
-    {
-        string projectId = project_id;
-
-        String database = dbName;
-
-        database += "_MetaUsers";
-
-
-        DocumentReference docRef = firestoreDB.Collection(database).Document(LocalUserDataManager.Instance.userID).Collection("UserData").Document("ProfileData");
-        DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
-
-        if (snapshot.Exists)
-        {
-            GunDataManager.Instance.personalAmaBestPistol = snapshot.GetValue<int>("UserAmatureBest");
-            GunDataManager.Instance.personalSemiProBestPistol = snapshot.GetValue<int>("UserSemiProBest");
-            GunDataManager.Instance.personalProBestPistol = snapshot.GetValue<int>("UserProBest");
-
+                    if (task.IsCompleted)
+                    {
+                        Debug.Log("Update completed successfully.");
+                    }
+                    else if (task.IsFaulted)
+                    {
+                        Debug.LogError("Update failed. Error: " + task.Exception.ToString());
+                    }
+                });
         }
         else
         {
+            Debug.LogError("Firebase Database reference is not initialized.");
         }
     }
-   
 
-    public async void CheckIfDocumentExists()
+    public void saveMainLeaderBoardDataAirPistol()
     {
-        string database = dbName;
-
-        database += "_MetaUsers";
-
-
-        DocumentReference docRef = firestoreDB.Collection(database).Document(LocalUserDataManager.Instance.userID);
-        DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
-
-        if (snapshot.Exists)
-        {
-            Debug.Log("Document  exists in collection .");
-            isUserExist = true;
-        }
-        else
-        {
-            Debug.Log("Document  does not exist in collection .");
-            isUserExist = false;
-            
-
-        }
-        LiveUserDataManager.Instance.SaveUserDataToLiveDB();
 
     }
-
-
-
-
-    // Leaderboard 
-    public void saveLeaderBoardData()
+    public void saveProLeaderBoardDataAirPistol()
     {
-    
-        String database = dbName;
 
-        database += "_LeaderBoardData";
-
-        usersCollection = firestoreDB.Collection(database);
-
-        // Create a user data object
-        LeaderboardData leaderData = new LeaderboardData(LocalUserDataManager.Instance.userName, LocalUserDataManager.Instance.totalScorePistol, GunDataManager.Instance.noOfInnerTens,GunDataManager.Instance.personalGameBestPistol);
-
-        // Convert user data object to a dictionary
-        Dictionary<string, object> userDataDict = leaderData.ToDictionary();
-        // Add the user data to Firestore
-        usersCollection.Document(LocalUserDataManager.Instance.selectedGameMode).Collection(LocalUserDataManager.Instance.SelectedGameLevel).Document(LocalUserDataManager.Instance.userID).SetAsync(userDataDict)
-            .ContinueWithOnMainThread(task =>
-            {
-                if (task.IsCanceled || task.IsFaulted)
-                {
-                    Debug.LogError("Failed to save user data: " + task.Exception);
-                    return;
-                }
-
-                Debug.Log("User data saved successfully!");
-            });
     }
-
-
-
-
-
-    public async void getUserLeaderBoardData()
+    public void saveAmateurLeaderBoardDataAirPistol()
     {
-        String database = dbName;
 
-        database += "_LeaderBoardData";
-
-
-        DocumentReference docRef = firestoreDB.Collection(database).Document(LocalUserDataManager.Instance.selectedGameMode).Collection(LocalUserDataManager.Instance.SelectedGameLevel).Document(LocalUserDataManager.Instance.userID);
-        DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
-
-        if (snapshot.Exists)
-        {
-          LocalUserDataManager.Instance.totalScorePistol = snapshot.GetValue<int>("TotalScore");
-          LocalUserDataManager.Instance.personalAmaBestPistol = snapshot.GetValue<int>("BestScore");
-          LocalUserDataManager.Instance.totalInnerTens = snapshot.GetValue<int>("InnerTens");
-
-        }
-        else
-        {
-            LocalUserDataManager.Instance.totalScorePistol = 0;
-            LocalUserDataManager.Instance.personalAmaBestPistol = 0;
-            LocalUserDataManager.Instance.totalInnerTens = 0;
-
-        }
     }
-
-
-    public async void sortLeaderBoard()
+    public void saveSemiProLeaderBoardDataAirPistol()
     {
-        String database = dbName;
-        LocalUserDataManager.Instance.userID = "24nfNSoFTykVgfGqcKkp";
 
-        database += "_LeaderBoardData";
-
-        Debug.Log("" + database + " | " + LocalUserDataManager.Instance.selectedGameMode + " | " + LocalUserDataManager.Instance.SelectedGameLevel + " | ");
-        QuerySnapshot snapshot = await firestoreDB.Collection(database).Document(LocalUserDataManager.Instance.selectedGameMode).Collection(LocalUserDataManager.Instance.SelectedGameLevel).OrderByDescending("TotalScore").GetSnapshotAsync();
-
-        LocalUserDataManager.Instance.Leaders = new List<Dictionary<string, object>>();
-
-
-        pos = 0;
-
-        foreach (DocumentSnapshot document in snapshot.Documents)
-        {
-            LocalUserDataManager.Instance.Leaders.Add(document.ToDictionary());
-
-            if(String.Compare(LocalUserDataManager.Instance.userID, document.Id) == 0)
-            {
-                Debug.Log("found at"+pos);
-                newLoc = pos;
-                pos++;
-            }
-            else
-            {
-                Debug.Log("Not found at" + pos);
-                pos++;
-
-            }
-           
-           Debug.Log(document.Id);
-        }
-
-
-
-
-        for (int i = 0; i < 5; i++)
-        {
-            Dictionary<string, object> document = LocalUserDataManager.Instance.Leaders[i];
-         
-            string totalscore = document["TotalScore"].ToString();
-            string name = document["Name"].ToString();
-            string bestscore = document["BestScore"].ToString();
-            string innerTens = document["InnerTens"].ToString();
-
-          
-
-        }
-       
-        if(newLoc < 5)
-        {
-        }
-        else
-        {
-            Dictionary<string, object> document = LocalUserDataManager.Instance.Leaders[newLoc];
-
-            string totalscore = document["TotalScore"].ToString();
-            string name = document["Name"].ToString();
-            string bestscore = document["BestScore"].ToString();
-            string innerTens = document["InnerTens"].ToString();
-
-        }
     }
-
-
-
-    public async void sortGameLeaderBoard()
-    {
-        String database = dbName;
-
-        database += "_LeaderBoardData";
-
-
-        QuerySnapshot snapshot = await firestoreDB.Collection(database).Document(LocalUserDataManager.Instance.selectedGameMode).Collection(LocalUserDataManager.Instance.SelectedGameLevel).OrderByDescending("TotalScore").GetSnapshotAsync();
-
-        LocalUserDataManager.Instance.Leaders = new List<Dictionary<string, object>>();
-
-
-        pos = 0;
-
-        foreach (DocumentSnapshot document in snapshot.Documents)
-        {
-            LocalUserDataManager.Instance.Leaders.Add(document.ToDictionary());
-
-            if (String.Compare(LocalUserDataManager.Instance.userID, document.Id) == 0)
-            {
-                Debug.Log("found at" + pos);
-                newLoc = pos;
-                pos++;
-            }
-            else
-            {
-                // Debug.Log("Not found at" + pos);
-                pos++;
-
-            }
-
-            //  Debug.Log(document.Id);
-        }
-
-
-
-       // PistolUIManager.Instance.title.text = LocalUserDataManager.Instance.selectedGameMode + " - " + LocalUserDataManager.Instance.SelectedGameLevel;
-        Debug.Log("------ " + LocalUserDataManager.Instance.selectedGameMode);
-
-        for (int i = 0; i < 3; i++)
-        {
-            Dictionary<string, object> document = LocalUserDataManager.Instance.Leaders[i];
-
-            string totalscore = document["TotalScore"].ToString();
-            string name = document["Name"].ToString();
-            string bestscore = document["BestScore"].ToString();
-            string innerTens = document["InnerTens"].ToString();
-
-            
-        }
-
-        if (newLoc < 3)
-        {
-        }
-        else
-        {
-            Dictionary<string, object> document = LocalUserDataManager.Instance.Leaders[newLoc];
-
-            string totalscore = document["TotalScore"].ToString();
-            string name = document["Name"].ToString();
-            string bestscore = document["BestScore"].ToString();
-            string innerTens = document["InnerTens"].ToString();
-           
-        }
-    }
-
 }
 
 

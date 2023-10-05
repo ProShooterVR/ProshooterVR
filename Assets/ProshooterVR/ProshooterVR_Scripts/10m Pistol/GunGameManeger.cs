@@ -280,8 +280,29 @@ public class GunGameManeger : MonoBehaviour
             float minutes = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime / 60);
             float seconds = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime % 60);
             GunDataManager.Instance.totalTimeSpent = string.Format("{0:00}:{1:00}", minutes, seconds);
+           
+            
+            //// Modify score to send to backend ////
+            
+            if(LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.Amateur)
+            {
+                GunDataManager.Instance.totalGameScorePistol = GunDataManager.Instance.totalGameScorePistol * LiveUserDataManager.Instance.amateurValue;
+            }
+            else if(LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.SemiPro)
+            {
+                GunDataManager.Instance.totalGameScorePistol = GunDataManager.Instance.totalGameScorePistol * LiveUserDataManager.Instance.semiProValue;
+
+            }
+            else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.Pro)
+            {
+                GunDataManager.Instance.totalGameScorePistol = GunDataManager.Instance.totalGameScorePistol * LiveUserDataManager.Instance.proValue;
+
+            }
+
+            ////
+
             //upload data to the backend
-           // LiveUserDataManager.Instance.SavePistolGameDataToLiveDB();
+            LiveUserDataManager.Instance.SavePistolGameDataToLiveDB();
 
             if (isRankedMode == true)
             {
@@ -353,13 +374,33 @@ public class GunGameManeger : MonoBehaviour
             float minutes = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime / 60);
             float seconds = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime % 60);
             GunDataManager.Instance.totalTimeSpent = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+            //// Modify score to send to backend ////
+
+            if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.Amateur)
+            {
+                GunDataManager.Instance.totalGameScoreRifle = GunDataManager.Instance.totalGameScoreRifle * LiveUserDataManager.Instance.amateurValue;
+            }
+            else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.SemiPro)
+            {
+                GunDataManager.Instance.totalGameScoreRifle = GunDataManager.Instance.totalGameScoreRifle * LiveUserDataManager.Instance.semiProValue;
+
+            }
+            else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.Pro)
+            {
+                GunDataManager.Instance.totalGameScoreRifle = GunDataManager.Instance.totalGameScoreRifle * LiveUserDataManager.Instance.proValue;
+
+            }
+
+            ////
+
             //upload data to the backend
-           // LiveUserDataManager.Instance.SaveRifleGameDataToLiveDB();
+             LiveUserDataManager.Instance.SaveRifleGameDataToLiveDB();
 
             if (isRankedMode == true)
             {
                 LocalUserDataManager.Instance.totalScoreRifle = LocalUserDataManager.Instance.totalScoreRifle + gameTotalScoreRifle;
-                // LiveUserDataManager.Instance.saveLeaderBoardData();
+               // LiveUserDataManager.Instance.saveLeaderBoardData();
             }
         }
 

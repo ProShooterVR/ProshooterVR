@@ -15,7 +15,15 @@ using Firebase.Database;
 public class LiveUserDataManagerRealtime : MonoBehaviour
 {
     public static LiveUserDataManagerRealtime Instance;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        DontDestroyOnLoad(Instance);
+    }
 
-    public DatabaseReference univerdal_databaseReference;
+    public DatabaseReference universal_databaseReference;
 
 }

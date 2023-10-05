@@ -22,7 +22,7 @@ public class GunDataManager : MonoBehaviour
 
     public int noOfSeries;
     public int currentShotScore;
-    public int totalGameScorePistol;
+    public float totalGameScorePistol;
     public int sr1ScorePistol, sr2ScorePistol, sr3ScorePistol;
     public int noOfShotsOnTarget, noOfShotsMissed;
     public int avgSrScorePistol;
@@ -31,6 +31,10 @@ public class GunDataManager : MonoBehaviour
     public int personalAmaBestPistol, personalSemiProBestPistol, personalProBestPistol;
     public int personalGameBestPistol;
 
+    public float zoneA_mult;
+    public float zoneB_mult;
+    public float zoneC_mult;
+    public float diffculty_mult;
     //Rifle variable change 
     public float[] ScoresRifle;
 

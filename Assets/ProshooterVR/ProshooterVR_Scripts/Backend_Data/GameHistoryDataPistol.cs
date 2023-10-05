@@ -2,21 +2,24 @@ using System.Collections.Generic;
 
 public class GameHistoryDataPistol
 {
-    public string metaUserId;
-    public string metaUserName;
-    public float timeSpent;
-
-    public string gameMode;
-    public int[] shotScores;
-    public int sr1ScorePistol, sr2ScorePistol, sr3ScorePistol;
-    public int totalGameScorePistol;
-    public int avgSeriesScorePistol;
-
-    public int ShotsOnTarget,ShotsMissed;
-    public int InnerTensCount;
-    public string totalTimeSpentInGameMode;
-    public int PersonalBestPistol;
-
+    public string meta_id;
+    public string meta_username;
+    public string game_mode;
+    public float zoneA_mult;
+    public float zoneB_mult;
+    public float zoneC_mult;
+    public float diffculty_mult;
+    public int[] shots;
+    public float avg_score;
+    public float no_InTens;
+    public float no_shots_target;
+    public float no_shots_missed;
+    public float personal_best;
+    public float sr1Score;
+    public float sr2Score;
+    public float sr3Score;
+    public float total_game_score;
+    public string total_timespent;
 
     /// <summary>
     /// Rifle variable Changes
@@ -35,27 +38,31 @@ public class GameHistoryDataPistol
     /// <param name="ghInnerTens"></param>
     /// <param name="ghTimeSpent"></param>
     /// <param name="ghPersonalBest"></param>
-   
+
 
     public GameHistoryDataPistol(string ghUserid, string ghUserName,string ghGameMode,int[] ghShotScores,
-                           int ghSR1Score, int ghSR2Score, int ghSR3Score,int ghTotalScore,int ghShotsOnTarget,
-                           int ghShotsMissed,int ghAvgSRScore,int ghInnerTens,string ghTimeSpent,int ghPersonalBest )
+                           int ghSR1Score, int ghSR2Score, int ghSR3Score,float ghTotalScore,int ghShotsOnTarget,
+                           int ghShotsMissed,int ghAvgSRScore,int ghInnerTens, string ghTimeSpent,int ghPersonalBest,float ghzoneAmult,
+                            float ghzoneBmult,float ghzoneCmult, float diffcult_mult)
     {
-        this.metaUserId = ghUserid;
-        this.metaUserName = ghUserName;
-        this.gameMode = ghGameMode;
-
-        this.shotScores = ghShotScores;
-        this.sr1ScorePistol = ghSR1Score;
-        this.sr2ScorePistol = ghSR2Score;
-        this.sr3ScorePistol = ghSR3Score;
-        this.totalGameScorePistol = ghTotalScore;
-        this.avgSeriesScorePistol = ghAvgSRScore;
-        this.ShotsOnTarget = ghShotsOnTarget;
-        this.ShotsMissed = ghShotsMissed;
-        this.InnerTensCount = ghInnerTens;
-        this.totalTimeSpentInGameMode = ghTimeSpent;
-        this.PersonalBestPistol = ghPersonalBest;
+        this.meta_id = ghUserid;
+        this.meta_username = ghUserName;
+        this.game_mode = ghGameMode;
+        this.zoneA_mult = ghzoneAmult;
+        this.zoneB_mult = ghzoneBmult;
+        this.zoneC_mult = ghzoneCmult;
+        this.diffculty_mult = diffcult_mult;
+        this.shots = ghShotScores;
+        this.sr1Score = ghSR1Score;
+        this.sr2Score = ghSR2Score;
+        this.sr3Score = ghSR3Score;
+        this.total_game_score = ghTotalScore;
+        this.avg_score = ghAvgSRScore;
+        this.no_shots_target = ghShotsOnTarget;
+        this.no_shots_missed = ghShotsMissed;
+        this.no_InTens = ghInnerTens;
+        this.total_timespent = ghTimeSpent;
+        this.personal_best = ghPersonalBest;
 
 
 
@@ -63,27 +70,7 @@ public class GameHistoryDataPistol
 
    
 
-    public Dictionary<string, object> ToDictionary()
-    {
-        Dictionary<string, object> result = new Dictionary<string, object>();
-        result["MetaUserID"] = metaUserId;
-        result["MetaUserName"] = metaUserName;
-
-        //all the game history as required
-        result["GameMode"] = gameMode;
-        result["AllShotsScore"] = shotScores;
-        result["Series1Score"] = sr1ScorePistol;
-        result["Series2Score"] = sr2ScorePistol;
-        result["Series3Score"] = sr3ScorePistol;
-        result["TotalGameScore"] = totalGameScorePistol;
-        result["AvrageSeriesScore"] = avgSeriesScorePistol;
-        result["NoOfShotsMissed"] = ShotsMissed;
-        result["NoOfShotsHitOnTarget"] = ShotsOnTarget;
-        result["NoOfInnerTensInMatch"] = InnerTensCount;
-        result["TotalTimeSpentinThisGameMode"] = totalTimeSpentInGameMode;
-        result["PersonalGameBest"] = PersonalBestPistol;
-        return result;
-    }
+    
 
     
 }
