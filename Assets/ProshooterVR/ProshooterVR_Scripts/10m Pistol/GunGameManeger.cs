@@ -307,7 +307,7 @@ public class GunGameManeger : MonoBehaviour
             if (isRankedMode == true)
             {
                 LocalUserDataManager.Instance.totalScorePistol = LocalUserDataManager.Instance.totalScorePistol + gameTotalScore;
-                // LiveUserDataManager.Instance.saveLeaderBoardData();
+                LiveUserDataManager.Instance.saveMainLeaderBoardDataAirPistolAsync();
             }
         }
 

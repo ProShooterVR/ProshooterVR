@@ -20,6 +20,21 @@ public class HUB_UIManager : MonoBehaviour
     public GameObject playBtn;
     public GameObject airPistolTut, airRifleTut, rapidRifeTUt;
     public GameObject musicPlayer;
+    public GameObject userProfileUI,mainUI,playerProfileMainUIBtn;
+    public TextMeshPro userNameTxtMainMenu;
+
+    /// <summary>
+    /// User Profile data local save
+    /// </summary>
+    ///
+
+    public TextMeshPro userNameTxt;
+    public TextMeshPro totalScoreTxt,matchesPlayedTxt,accuracyTxt;
+    public TextMeshPro pbest_10mAirP_AmaTxt, pbest_10mAirP_SemPTxt, pbest_10mAirP_ProTxt;
+    public TextMeshPro pbest_10mAirR_AmaTxt, pbest_10mAirR_SemPTxt, pbest_10mAirR_ProTxt;
+    public TextMeshPro pbest_25mRF_AmaTxt, pbest_25mRF_SemPTxt, pbest_25mRF_ProTxt;
+
+    ////
 
     public enum gameType
     {
@@ -47,6 +62,7 @@ public class HUB_UIManager : MonoBehaviour
         playBtn.SetActive(false);
         levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
         HUB_UIManager.Instance.musicPlayer.SetActive(true);
+       // playerProfileMainUIBtn.SetActive(false);
 
     }
 
@@ -54,6 +70,7 @@ public class HUB_UIManager : MonoBehaviour
     {
         gameModeUI.SetActive(true);
         tutorailUI.SetActive(false);
+        userProfileUI.SetActive(false);
 
         myGameType = gameType.match;
     }
@@ -72,7 +89,41 @@ public class HUB_UIManager : MonoBehaviour
         settingUI.SetActive(true);
         gameModeUI.SetActive(false);
         tutorailUI.SetActive(false);
+        userProfileUI.SetActive(false);
 
+    }
+    public void profileBtnClicked()
+    {
+        mainUI.SetActive(false);
+        userProfileUI.SetActive(true);
+
+    }
+
+    public void update_playerProfileData()
+    {
+       
+        userNameTxt.text = LocalUserDataManager.Instance.userNameTxt;
+        totalScoreTxt.text = LocalUserDataManager.Instance.totalScoreTxt;
+        matchesPlayedTxt.text = LocalUserDataManager.Instance.matchesPlayedTxt;
+        accuracyTxt.text = LocalUserDataManager.Instance.accuracyTxt;
+
+        pbest_10mAirP_AmaTxt.text = LocalUserDataManager.Instance.pbest_10mAirP_AmaTxt;
+        pbest_10mAirP_SemPTxt.text = LocalUserDataManager.Instance.pbest_10mAirP_SemPTxt;
+        pbest_10mAirP_ProTxt.text = LocalUserDataManager.Instance.pbest_10mAirP_ProTxt;
+
+        pbest_10mAirR_AmaTxt.text = LocalUserDataManager.Instance.pbest_10mAirR_AmaTxt;
+        pbest_10mAirR_SemPTxt.text = LocalUserDataManager.Instance.pbest_10mAirR_SemPTxt;
+        pbest_10mAirR_ProTxt.text = LocalUserDataManager.Instance.pbest_10mAirR_ProTxt;
+
+        pbest_25mRF_AmaTxt.text = LocalUserDataManager.Instance.pbest_25mRF_AmaTxt;
+        pbest_25mRF_SemPTxt.text = LocalUserDataManager.Instance.pbest_25mRF_SemPTxt;
+        pbest_25mRF_ProTxt.text = LocalUserDataManager.Instance.pbest_25mRF_ProTxt;
+    }
+
+    public void closeUserProfile()
+    {
+        userProfileUI.SetActive(false);
+        mainUI.SetActive(true);
     }
 
     public void tutorialBtnClicked()
@@ -80,6 +131,7 @@ public class HUB_UIManager : MonoBehaviour
         gameModeUI.SetActive(false);
         tutorailUI.SetActive(true);
         settingUI.SetActive(false);
+        userProfileUI.SetActive(false);
 
     }
 
@@ -383,4 +435,5 @@ public class HUB_UIManager : MonoBehaviour
     }
 
 }
+
 

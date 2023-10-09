@@ -34,10 +34,9 @@ public class MusicPlayer : MonoBehaviour
     public GameObject PlayListOnButton;
     public GameObject PlayListOffButton;
 
-    
-
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         PlayCurrentSong();
 
         // Set the initial state of the play and pause buttons based on whether the music is playing or paused.
@@ -49,8 +48,6 @@ public class MusicPlayer : MonoBehaviour
         shuffleOffButton.gameObject.SetActive(!isShuffled);
         loopOnButton.gameObject.SetActive(isLooping);
         loopOffButton.gameObject.SetActive(!isLooping);
-
-
     }
 
     void Update()

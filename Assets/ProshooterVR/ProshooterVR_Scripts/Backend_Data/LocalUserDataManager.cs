@@ -38,6 +38,15 @@ public class LocalUserDataManager : MonoBehaviour
     //Rifle Data
 
     public float totalScoreRifle, personalAmaBestRifle, personalSemiProBestRifle, personalProBestRifle;
+    public int noOfGamesAirPistol, noOfGamesAirRifle, noOfGamesRapidFire;
+
+
+    //user profile data
+    public string userNameTxt;
+    public string totalScoreTxt, matchesPlayedTxt, accuracyTxt;
+    public string pbest_10mAirP_AmaTxt, pbest_10mAirP_SemPTxt, pbest_10mAirP_ProTxt;
+    public string pbest_10mAirR_AmaTxt, pbest_10mAirR_SemPTxt, pbest_10mAirR_ProTxt;
+    public string pbest_25mRF_AmaTxt, pbest_25mRF_SemPTxt, pbest_25mRF_ProTxt;
 
 
     public enum gamerLevel

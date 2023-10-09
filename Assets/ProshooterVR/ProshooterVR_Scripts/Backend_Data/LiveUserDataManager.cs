@@ -24,6 +24,8 @@ public class LiveUserDataManager : MonoBehaviour
     int newLoc;
     [SerializeField]
     string project_id;
+    public bool isLBUpdated;
+
 
     // :: Meta Users Data required for the Game :: START ::
     public string userID
@@ -59,6 +61,10 @@ public class LiveUserDataManager : MonoBehaviour
     public float zoneAMulti, zoneBMulti, zoneCMulti, difficulty_muliti;
     public float amateurValue, proValue, semiProValue;
     public string currentUserUID;
+    public int tempID;
+
+    public int lb_ID_airpistol, lb_ID_airRifle, lb_ID_rapidFire;
+    public int noOfGamePlayed_airpistol, noOfGamePlayed_airRifle, noOfGamePlayed_rapidFire;
     // :: Meta Users Data required for the Game :: END ::
 
     private void Awake()
@@ -80,7 +86,7 @@ public class LiveUserDataManager : MonoBehaviour
         isauth = false;
         isUserExist = false;
         isMetaUserDataUp = false;
-
+        userID = "2234";
     }
 
 
@@ -89,12 +95,96 @@ public class LiveUserDataManager : MonoBehaviour
 
     }
 
+    public IEnumerator lb_ID_airpistolData()
+    {
+        DatabaseReference databaseReference = LiveUserDataManagerRealtime.Instance.universal_databaseReference;
+
+
+        var test = databaseReference.Child("tableUID_mst").Child("Leaderboard_table").Child("10mAirPistol").Child("ovl_ID").GetValueAsync();
+        yield return new WaitUntil(predicate: () => test.IsCompleted);
+
+        if (test != null)
+        {
+            DataSnapshot snapshot = test.Result;
+            lb_ID_airpistol = int.Parse(snapshot.Value.ToString());
+        }
+    }
+
+    public IEnumerator lb_ID_airRifleData()
+    {
+        DatabaseReference databaseReference = LiveUserDataManagerRealtime.Instance.universal_databaseReference;
+
+        var test = databaseReference.Child("tableUID_mst").Child("Leaderboard_table").Child("10mAirRifle").Child("ovl_ID").GetValueAsync();
+        yield return new WaitUntil(predicate: () => test.IsCompleted);
+
+        if (test != null)
+        {
+            DataSnapshot snapshot = test.Result;
+            lb_ID_airRifle = int.Parse(snapshot.Value.ToString());
+        }
+    }
+    public IEnumerator lb_ID_rapidFireData()
+    {
+        DatabaseReference databaseReference = LiveUserDataManagerRealtime.Instance.universal_databaseReference;
+
+        var test = databaseReference.Child("tableUID_mst").Child("Leaderboard_table").Child("25Rapid_fire").Child("ovl_ID").GetValueAsync();
+        yield return new WaitUntil(predicate: () => test.IsCompleted);
+
+        if (test != null)
+        {
+            DataSnapshot snapshot = test.Result;
+        }
+    }
+
+    public IEnumerator fetchNoOfGamesPlayedAirRifle()
+    {
+        DatabaseReference databaseReference = LiveUserDataManagerRealtime.Instance.universal_databaseReference;
+
+        var test = databaseReference.Child("tableUID_mst").Child("Leaderboard_table").Child("25Rapid_fire").Child("ovl_ID").GetValueAsync();
+        yield return new WaitUntil(predicate: () => test.IsCompleted);
+
+        if (test != null)
+        {
+            DataSnapshot snapshot = test.Result;
+            noOfGamePlayed_airRifle = int.Parse(snapshot.Value.ToString());
+        }
+    }
+
+    public IEnumerator fetchNoOfGamesPlayedAirPistol()
+    {
+        DatabaseReference databaseReference = LiveUserDataManagerRealtime.Instance.universal_databaseReference;
+
+        var test = databaseReference.Child("tableUID_mst").Child("Leaderboard_table").Child("25Rapid_fire").Child("ovl_ID").GetValueAsync();
+        yield return new WaitUntil(predicate: () => test.IsCompleted);
+
+        if (test != null)
+        {
+            DataSnapshot snapshot = test.Result;
+            noOfGamePlayed_airpistol = int.Parse(snapshot.Value.ToString());
+        }
+    }
+
+    public IEnumerator fetchNoOfGamesPlayedRapidFire()
+    {
+        DatabaseReference databaseReference = LiveUserDataManagerRealtime.Instance.universal_databaseReference;
+
+        var test = databaseReference.Child("tableUID_mst").Child("Leaderboard_table").Child("25Rapid_fire").Child("ovl_ID").GetValueAsync();
+        yield return new WaitUntil(predicate: () => test.IsCompleted);
+
+        if (test != null)
+        {
+            DataSnapshot snapshot = test.Result;
+            noOfGamePlayed_rapidFire = int.Parse(snapshot.Value.ToString());
+        }
+    }
+
 
 
     public void FetchRulesData()
     {
         DatabaseReference databaseReference = LiveUserDataManagerRealtime.Instance.universal_databaseReference;
-        databaseReference.Child("rule_engine_master").GetValueAsync().ContinueWith(task => {
+        databaseReference.Child("rule_engine_master").GetValueAsync().ContinueWith(task =>
+        {
             if (task.IsFaulted)
             {
                 Debug.LogError("Failed to fetch data from Firebase: " + task.Exception);
@@ -137,6 +227,13 @@ public class LiveUserDataManager : MonoBehaviour
         PushDataToFirebase(pistolGameData);
 
     }
+    
+
+
+
+
+
+
 
     async void PushDataToFirebase(string jsonData)
     {
@@ -199,12 +296,6 @@ public class LiveUserDataManager : MonoBehaviour
         PushDataToFirebase(rifleGameData);
     }
 
-
-
-
-
-
-
     public void UpdateUserTableData(string newValue, string key)
     {
         DatabaseReference databaseReference = LiveUserDataManagerRealtime.Instance.universal_databaseReference;
@@ -231,22 +322,128 @@ public class LiveUserDataManager : MonoBehaviour
         }
     }
 
-    public void saveMainLeaderBoardDataAirPistol()
+    public async Task saveMainLeaderBoardDataAirPistolAsync()
+    {
+        
+        bool isMetaIdPresent = await CheckIfIDPresent(LocalUserDataManager.Instance.userID);
+
+
+        if (isMetaIdPresent == false)
+        {
+            string dt = DateTime.Now.ToString(" | yyyy-MM-dd HH:mm:ss");
+
+            GunDataManager.Instance.gameMode += dt;
+            // Create a user data object
+            mainLeaderboardDataAirPistol GameData = new mainLeaderboardDataAirPistol(LocalUserDataManager.Instance.userName,
+                                                        LocalUserDataManager.Instance.noOfGamesAirPistol, LocalUserDataManager.Instance.totalScorePistol);
+
+            string rifleGameData = JsonConvert.SerializeObject(GameData);
+
+            PushAirPistolLeaderBoardDataToFirebase(rifleGameData);
+        }
+    }
+
+    /// <summary>
+    /// 
+    async void PushAirPistolLeaderBoardDataToFirebase(string jsonData)
+    {
+        try
+        {
+            // Push the JSON data to Firebase
+            await LiveUserDataManagerRealtime.Instance.universal_databaseReference.Child("leaderboard_mst").Child("10mAirPistol").Child(LocalUserDataManager.Instance.userID).SetRawJsonValueAsync(jsonData);
+            Debug.Log("Data successfully sent to Firebase.");
+            lb_ID_airpistol++;
+            UpdateAirPistolLIDValue(lb_ID_airpistol.ToString());
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Failed to send data to Firebase: " + e.Message);
+        }
+    }
+
+    public void UpdateAirPistolLIDValue(string newValue)
+    {
+        DatabaseReference databaseReference = LiveUserDataManagerRealtime.Instance.universal_databaseReference;
+
+        if (databaseReference != null)
+        {
+            // Update the value at the specified node path
+            databaseReference.Child("tableUID_mst").Child("Leaderboard_table").Child("10mAirPistol").Child("ovl_ID").SetValueAsync(newValue)
+                .ContinueWith(task =>
+                {
+                    if (task.IsCompleted)
+                    {
+                        Debug.Log("Update completed successfully.");
+                    }
+                    else if (task.IsFaulted)
+                    {
+                        Debug.LogError("Update failed. Error: " + task.Exception.ToString());
+                    }
+                });
+        }
+        else
+        {
+            Debug.LogError("Firebase Database reference is not initialized.");
+        }
+    }
+
+    /// </summary>
+    /// <param name="jsonData"></param>
+
+    public async void saveMainLeaderBoardDataAirRifle()
+    {
+        bool isPresent = await CheckIfIDPresent("88844");
+        Debug.Log("" + isPresent);
+    }
+    public void saveMainLeaderBoardDataRapidFire()
     {
 
     }
-    public void saveProLeaderBoardDataAirPistol()
-    {
 
-    }
-    public void saveAmateurLeaderBoardDataAirPistol()
-    {
 
-    }
-    public void saveSemiProLeaderBoardDataAirPistol()
-    {
 
+
+
+    ////
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="callback"></param>
+    /// <returns></returns>
+
+
+
+
+    public async Task<bool> CheckIfIDPresent(string metaID)
+    {
+        try
+        {
+            DataSnapshot snapshot = await LiveUserDataManagerRealtime.Instance.universal_databaseReference
+                .Child("leaderboard_mst").Child("10mAirPistol").GetValueAsync();
+
+            if (snapshot.Exists && snapshot.Child(metaID).Exists)
+            {
+                Debug.Log("ID is present in leaderboard.");
+                return true;
+            }
+            else
+            {
+                Debug.Log("ID is not present.");
+                return false;
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Failed to fetch data from Firebase: " + ex.Message);
+            return false;
+        }
     }
+
+
+    ////
+    ///
+
 }
 
 
