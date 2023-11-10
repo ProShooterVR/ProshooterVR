@@ -24,6 +24,8 @@ public class HUB_UIManager : MonoBehaviour
     public GameObject musicPlayer;
     public GameObject userProfileUI,mainUI,playerProfileMainUIBtn;
     public TextMeshPro userNameTxtMainMenu;
+
+    public GameObject gameModeSubMenu, arcadeSubMenu;
     /// <summary>
     /// User Profile data local save
     /// </summary>
@@ -63,11 +65,12 @@ public class HUB_UIManager : MonoBehaviour
         gameModeUI.SetActive(false);
         tutorailUI.SetActive(false);
         settingUI.SetActive(false);
-
-        levelUI.SetActive(true);
+        levelUI.SetActive(false);
         playBtn.SetActive(false);
         levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
         HUB_UIManager.Instance.musicPlayer.SetActive(true);
+        arcadeSubMenu.SetActive(false);
+        gameModeSubMenu.SetActive(false);
        // playerProfileMainUIBtn.SetActive(false);
 
     }
@@ -77,16 +80,32 @@ public class HUB_UIManager : MonoBehaviour
         gameModeUI.SetActive(true);
         tutorailUI.SetActive(false);
         userProfileUI.SetActive(false);
+        gameModeSubMenu.SetActive(true);
+        arcadeSubMenu.SetActive(false);
+        levelUI.SetActive(true);
 
         myGameType = gameType.match;
     }
 
     public void PracticeBtnClicked()
     {
+        levelUI.SetActive(true);
+
         gameModeUI.SetActive(true);
         tutorailUI.SetActive(false);
-
+        gameModeSubMenu.SetActive(true);
+        arcadeSubMenu.SetActive(false);
         myGameType = gameType.practice;
+
+    }
+    public void AracadeBtnClicked()
+    {
+        levelUI.SetActive(false);
+
+        gameModeUI.SetActive(false);
+        tutorailUI.SetActive(false);
+        gameModeSubMenu.SetActive(false);
+        arcadeSubMenu.SetActive(true);
 
     }
 
@@ -108,7 +127,6 @@ public class HUB_UIManager : MonoBehaviour
 
     public void update_playerProfileData()
     {
-       
         userNameTxt.text = LocalUserDataManager.Instance.userNameTxt;
         totalScoreTxt.text = LocalUserDataManager.Instance.totalScoreTxt;
         matchesPlayedTxt.text = LocalUserDataManager.Instance.matchesPlayedTxt;
@@ -187,6 +205,9 @@ public class HUB_UIManager : MonoBehaviour
         tutorailUI.SetActive(true);
         settingUI.SetActive(false);
         userProfileUI.SetActive(false);
+        arcadeSubMenu.SetActive(false);
+        levelUI.SetActive(false);
+
 
     }
 
@@ -244,7 +265,7 @@ public class HUB_UIManager : MonoBehaviour
     public void loadArcadeMode()
     {
 
-        SceneManager.LoadSceneAsync("RF Arcade");
+        SceneManager.LoadSceneAsync("ProShooterVR_ArcadeMode");
     }
 
     // Macth  Modes ----------------------

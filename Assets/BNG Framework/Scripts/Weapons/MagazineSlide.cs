@@ -109,6 +109,7 @@ namespace BNG {
                 // Stop aligning clip with slide if we exceed this distance
                 else if(MagazineDistance >= ClipUnsnapDistance && !recentlyEjected()) {
                     detachMagazine();
+                    
                 }
             }
         }
@@ -207,6 +208,10 @@ namespace BNG {
                     if (fj) {
                         fj.connectedBody = null;
                         Destroy(fj);
+                        HeldMagazine.gameObject.SetActive(false);
+                        Destroy(HeldMagazine.gameObject);
+                        Instantiate(ArcadeGameManager.instance.prefabToInstantiate, ArcadeGameManager.instance.spawnClipOrg.transform.position, ArcadeGameManager.instance.spawnClipOrg.transform.rotation);
+
                     }
                 }
             }

@@ -313,6 +313,7 @@ namespace Nova
         private Texture texture = null;
         [SerializeField]
         private Sprite sprite = null;
+        public object onValueChanged;
 
         ref Internal.UIBlock2DData IRenderBlock<Internal.UIBlock2DData>.RenderData
         {

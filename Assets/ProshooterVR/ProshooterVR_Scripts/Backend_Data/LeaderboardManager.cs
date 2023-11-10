@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LeaderboardManager : MonoBehaviour
+public class ArcadeLeaderboard_Manager : MonoBehaviour
 {
    
 

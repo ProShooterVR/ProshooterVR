@@ -6,7 +6,7 @@ public class weaponManager : MonoBehaviour
 {
     public static weaponManager Instance;
 
-    public bool isRifleMode, isPistolMode, isRapidFireMode;
+    public bool isRifleMode, isPistolMode, isRapidFireMode,isArcadeMode;
     // Start is called before the first frame update
     void Start()
     {

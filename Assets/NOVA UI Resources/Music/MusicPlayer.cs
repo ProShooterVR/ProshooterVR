@@ -5,6 +5,8 @@ using TMPro;
 
 public class MusicPlayer : MonoBehaviour
 {
+   
+
     public List<AudioClip> playlist;
     public AudioSource audioSource;
     private int currentIndex = 0;
@@ -36,7 +38,6 @@ public class MusicPlayer : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         PlayCurrentSong();
 
         // Set the initial state of the play and pause buttons based on whether the music is playing or paused.

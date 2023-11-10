@@ -306,7 +306,27 @@ namespace BNG
 
 
 
-                    //// ----------------- Air Pistol Mode Calls ------------------------- ////////////
+                //// ----------------- Air Pistol Mode Calls ------------------------- ////////////
+                ///
+                //// ----------------- 25m Rapid Fire Mode Calls ------------------------- ////////////
+
+                if (weaponManager.Instance.isArcadeMode == true)
+                {
+                    if (ArcadeGameManager.instance.isReloaded == true)
+                    {
+                        Shoot();
+                        readyToShoot = FiringMethod == FiringType.Semi;
+                        if (RapidFireGunManager.Instance.countingScore == false)
+                        {
+                            InstructionManager.Instance.audioSource.PlayOneShot(InstructionManager.Instance.buzzer);
+                        }
+                    }
+                }
+
+
+
+
+                //// ----------------- Air Pistol Mode Calls ------------------------- ////////////
                 if (weaponManager.Instance.isPistolMode == true)
                 {
                     if (GunGameManeger.Instance.isRankedMode == true)

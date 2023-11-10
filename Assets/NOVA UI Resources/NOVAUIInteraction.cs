@@ -2,6 +2,7 @@ using UnityEngine;
 using BNG;
 using UnityEngine.InputSystem.XR;
 using Nova;
+using UnityEngine.SceneManagement;
 
 public class NOVAUIInteraction : MonoBehaviour
 {
@@ -9,18 +10,7 @@ public class NOVAUIInteraction : MonoBehaviour
 
     public void Start()
     {
-        MainUIPanel.SetActive(false);
-        MainUIButton.SetActive(true);
-        MainUIBorder.SetActive(false);
-        airpistolUIPanel.SetActive(false);
-        airpistolUIButton.SetActive(true);
-        airpistolUIBorder.SetActive(false);
-        rapidfireUIPanel.SetActive(false);
-        rapidfireUIButton.SetActive(true);
-        rapidfireUIBorder.SetActive(false);
-        SessionEndUIPanel.SetActive(false);
-        SessionEndUIButton.SetActive(true);
-        SessionEndUIBorder.SetActive(false);
+        
     }
 
     public void onMainMenuUIbuttonClick()
@@ -118,5 +108,10 @@ public class NOVAUIInteraction : MonoBehaviour
         SessionEndUIPanel.SetActive(false);
         SessionEndUIButton.SetActive(true);
         SessionEndUIBorder.SetActive(false);
+    }
+
+    public void onArcadeModeButtonClick()
+    {
+        SceneManager.LoadSceneAsync("ProShooterVR_ArcadeMode");
     }
 }

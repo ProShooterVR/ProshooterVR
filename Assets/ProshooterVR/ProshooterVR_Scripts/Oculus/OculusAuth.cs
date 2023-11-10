@@ -62,7 +62,7 @@ public class OculusAuth : MonoBehaviour
             LocalUserDataManager.Instance.metauser_profileImage_url = msg.Data.ImageURL;
 
             //Debug.Log("ID : " + LocalUserDataManager.Instance.metaID + " | Name : " + LocalUserDataManager.Instance.meta_username+"| URL"+ LocalUserDataManager.Instance.metauser_profileImage_url);
-
+            HUB_UIManager.Instance.userNameTxtMainMenu.text = msg.Data.OculusID;
             DBAPIManagerNew.Instance.Initialise_BackendDAta(); 
 
             GetUserProof();
