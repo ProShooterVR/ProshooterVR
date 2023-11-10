@@ -215,7 +215,7 @@ public class LiveUserDataManager : MonoBehaviour
         GunDataManager.Instance.gameMode += dt;
 
         // Create a user data object
-        GameHistoryDataPistol GameData = new GameHistoryDataPistol(LocalUserDataManager.Instance.userID, LocalUserDataManager.Instance.userName,
+        GameHistoryDataPistol GameData = new GameHistoryDataPistol(LocalUserDataManager.Instance.metaID, LocalUserDataManager.Instance.meta_username,
                                                        GunDataManager.Instance.gameMode, GunDataManager.Instance.ScoresPistol, GunDataManager.Instance.sr1ScorePistol,
                                                        GunDataManager.Instance.sr2ScorePistol, GunDataManager.Instance.sr3ScorePistol, GunDataManager.Instance.totalGameScorePistol,
                                                        GunDataManager.Instance.noOfShotsOnTarget, GunDataManager.Instance.noOfShotsMissed, GunDataManager.Instance.avgSrScorePistol,
@@ -284,7 +284,7 @@ public class LiveUserDataManager : MonoBehaviour
         GunDataManager.Instance.gameMode += dt;
 
         // Create a user data object
-        GameHistoryDataRifle GameData = new GameHistoryDataRifle(LocalUserDataManager.Instance.userID, LocalUserDataManager.Instance.userName,
+        GameHistoryDataRifle GameData = new GameHistoryDataRifle(LocalUserDataManager.Instance.metaID, LocalUserDataManager.Instance.meta_username,
                                                        GunDataManager.Instance.gameMode, GunDataManager.Instance.ScoresPistol, GunDataManager.Instance.sr1ScorePistol,
                                                        GunDataManager.Instance.sr2ScorePistol, GunDataManager.Instance.sr3ScorePistol, GunDataManager.Instance.totalGameScoreRifle,
                                                        GunDataManager.Instance.noOfShotsOnTarget, GunDataManager.Instance.noOfShotsMissed, GunDataManager.Instance.avgSrScorePistol,
@@ -325,7 +325,7 @@ public class LiveUserDataManager : MonoBehaviour
     public async Task saveMainLeaderBoardDataAirPistolAsync()
     {
         
-        bool isMetaIdPresent = await CheckIfIDPresent(LocalUserDataManager.Instance.userID);
+        bool isMetaIdPresent = await CheckIfIDPresent(LocalUserDataManager.Instance.metaID);
 
 
         if (isMetaIdPresent == false)
@@ -334,7 +334,7 @@ public class LiveUserDataManager : MonoBehaviour
 
             GunDataManager.Instance.gameMode += dt;
             // Create a user data object
-            mainLeaderboardDataAirPistol GameData = new mainLeaderboardDataAirPistol(LocalUserDataManager.Instance.userName,
+            mainLeaderboardDataAirPistol GameData = new mainLeaderboardDataAirPistol(LocalUserDataManager.Instance.meta_username,
                                                         LocalUserDataManager.Instance.noOfGamesAirPistol, LocalUserDataManager.Instance.totalScorePistol);
 
             string rifleGameData = JsonConvert.SerializeObject(GameData);
@@ -350,7 +350,7 @@ public class LiveUserDataManager : MonoBehaviour
         try
         {
             // Push the JSON data to Firebase
-            await LiveUserDataManagerRealtime.Instance.universal_databaseReference.Child("leaderboard_mst").Child("10mAirPistol").Child(LocalUserDataManager.Instance.userID).SetRawJsonValueAsync(jsonData);
+            await LiveUserDataManagerRealtime.Instance.universal_databaseReference.Child("leaderboard_mst").Child("10mAirPistol").Child(LocalUserDataManager.Instance.metaID).SetRawJsonValueAsync(jsonData);
             Debug.Log("Data successfully sent to Firebase.");
             lb_ID_airpistol++;
             UpdateAirPistolLIDValue(lb_ID_airpistol.ToString());

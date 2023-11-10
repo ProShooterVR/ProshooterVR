@@ -5,23 +5,40 @@ using UnityEngine;
 
 public class DebugCustom : MonoBehaviour
 {
-    public static DebugCustom Inst;
+    
 
-    public TextMeshPro debug;
+    public TextMeshPro logText;
 
-    private void Awake()
+
+    void OnEnable()
     {
-        Inst = this;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        Application.logMessageReceived += HandleLog;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDisable()
     {
-        
+        Application.logMessageReceived -= HandleLog;
+    }
+
+    void HandleLog(string logText, string stackTrace, LogType type)
+    {
+        // Display the log message in the Unity Text component
+        if (type == LogType.Log || type == LogType.Error)
+        {
+            // Display the log message in the Unity Text component
+            LogMessage(logText);
+        }
+    }
+
+    void LogMessage(string message)
+    {
+        if (logText != null)
+        {
+            logText.text += message + "\n";
+        }
+        else
+        {
+            Debug.LogWarning("Log Text component is not assigned!");
+        }
     }
 }

@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using ProshooterVR;
+using Nova;
 
 public class HUB_UIManager : MonoBehaviour
 {
@@ -22,17 +24,20 @@ public class HUB_UIManager : MonoBehaviour
     public GameObject musicPlayer;
     public GameObject userProfileUI,mainUI,playerProfileMainUIBtn;
     public TextMeshPro userNameTxtMainMenu;
-
     /// <summary>
     /// User Profile data local save
     /// </summary>
     ///
+    public UIBlock2D profileImg;
 
     public TextMeshPro userNameTxt;
     public TextMeshPro totalScoreTxt,matchesPlayedTxt,accuracyTxt;
     public TextMeshPro pbest_10mAirP_AmaTxt, pbest_10mAirP_SemPTxt, pbest_10mAirP_ProTxt;
     public TextMeshPro pbest_10mAirR_AmaTxt, pbest_10mAirR_SemPTxt, pbest_10mAirR_ProTxt;
     public TextMeshPro pbest_25mRF_AmaTxt, pbest_25mRF_SemPTxt, pbest_25mRF_ProTxt;
+
+    public TextMeshPro profilebuttonNameTxt;
+    public UIBlock2D profileBtnImg;
 
     ////
 
@@ -47,6 +52,7 @@ public class HUB_UIManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        
     }
 
     // Get panles
@@ -95,6 +101,7 @@ public class HUB_UIManager : MonoBehaviour
     public void profileBtnClicked()
     {
         mainUI.SetActive(false);
+        DBAPIManagerNew.Instance.getProfileData(LocalUserDataManager.Instance.metaID);
         userProfileUI.SetActive(true);
 
     }
@@ -118,6 +125,54 @@ public class HUB_UIManager : MonoBehaviour
         pbest_25mRF_AmaTxt.text = LocalUserDataManager.Instance.pbest_25mRF_AmaTxt;
         pbest_25mRF_SemPTxt.text = LocalUserDataManager.Instance.pbest_25mRF_SemPTxt;
         pbest_25mRF_ProTxt.text = LocalUserDataManager.Instance.pbest_25mRF_ProTxt;
+      
+       // StartCoroutine(LoadImageFromURL(LocalUserDataManager.Instance.metauser_profileImage_url));
+        
+
+    }
+
+    IEnumerator LoadImageFromURL(string url)
+    {
+        using (WWW www = new WWW(url))
+        {
+            yield return www;
+
+            if (www.error != null)
+            {
+                Debug.LogError("Error loading image: " + www.error);
+            }
+            else
+            {
+                Texture2D texture = www.texture;
+                profileImg.SetImage(texture);
+            }
+        }
+    }
+
+
+    public void UpdateProfileButton()
+    {
+        profilebuttonNameTxt.text = LocalUserDataManager.Instance.meta_username;
+       // StartCoroutine(LoadProfileBtnImgFromURL(LocalUserDataManager.Instance.metauser_profileImage_url));
+
+    }
+
+    IEnumerator LoadProfileBtnImgFromURL(string url)
+    {
+        using (WWW www = new WWW(url))
+        {
+            yield return www;
+
+            if (www.error != null)
+            {
+                Debug.LogError("Error loading image: " + www.error);
+            }
+            else
+            {
+                Texture2D texture = www.texture;
+                profileBtnImg.SetImage(texture);
+            }
+        }
     }
 
     public void closeUserProfile()
@@ -180,11 +235,18 @@ public class HUB_UIManager : MonoBehaviour
 
         SceneManager.LoadSceneAsync("10m_Pistol_SemPro_Practice");
     }
-    private void load10mPistolProPractice()
+    public void load10mPistolProPractice()
     {
 
         SceneManager.LoadSceneAsync("10m_Pistol_Pro_Practice");
     }
+
+    public void loadArcadeMode()
+    {
+
+        SceneManager.LoadSceneAsync("RF Arcade");
+    }
+
     // Macth  Modes ----------------------
     private void load10mPistolAmatuerMatch()
     {

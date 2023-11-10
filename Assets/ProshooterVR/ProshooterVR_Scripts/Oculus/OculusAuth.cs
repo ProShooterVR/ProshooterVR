@@ -1,7 +1,7 @@
 using UnityEngine;
 using Oculus.Platform;
 using Oculus.Platform.Models;
-
+using ProshooterVR;
 
 
 public class OculusAuth : MonoBehaviour
@@ -54,14 +54,16 @@ public class OculusAuth : MonoBehaviour
         else
         {
             userId = msg.Data.ID.ToString(); // do not use msg.Data.OculusID;
-            Debug.Log("URL=="+msg.Data.SmallImageUrl);
-
+            //Debug.Log("URL=="+msg.Data.SmallImageUrl);
            
-            LocalUserDataManager.Instance.userID = userId;
-            LocalUserDataManager.Instance.userName = msg.Data.OculusID;
-            Debug.Log("ID : " + LocalUserDataManager.Instance.userID + " | Name : " + LocalUserDataManager.Instance.userName);
+         
+            LocalUserDataManager.Instance.metaID = userId;
+            LocalUserDataManager.Instance.meta_username = msg.Data.OculusID;
+            LocalUserDataManager.Instance.metauser_profileImage_url = msg.Data.ImageURL;
 
-            FirebaseManagerNew.Instance.Initialise_BackendDAta();
+            //Debug.Log("ID : " + LocalUserDataManager.Instance.metaID + " | Name : " + LocalUserDataManager.Instance.meta_username+"| URL"+ LocalUserDataManager.Instance.metauser_profileImage_url);
+
+            DBAPIManagerNew.Instance.Initialise_BackendDAta(); 
 
             GetUserProof();
         }
