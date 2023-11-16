@@ -218,7 +218,7 @@ public class HUB_UIManager : MonoBehaviour
         rapidRifeTUt.SetActive(false);
         musicPlayer.SetActive(false);
         VideoPlayerController.Instance.BigPlayButton.SetActive(true);
-        HUB_UIManager.Instance.musicPlayer.GetComponent<MusicPlayer>().audioSource.enabled = false;
+        //HUB_UIManager.Instance.musicPlayer.GetComponent<MusicPlayer>().audioSource.enabled = false;
     }
     public void airRifleTutorial()
     {
@@ -227,7 +227,7 @@ public class HUB_UIManager : MonoBehaviour
         rapidRifeTUt.SetActive(false);
         musicPlayer.SetActive(false);
         VideoPlayerController.Instance.BigPlayButton.SetActive(true);
-        HUB_UIManager.Instance.musicPlayer.GetComponent<MusicPlayer>().audioSource.enabled = false;
+       // HUB_UIManager.Instance.musicPlayer.GetComponent<MusicPlayer>().audioSource.enabled = false;
     }
     public void RapidFireTutorial()
     {
@@ -236,7 +236,7 @@ public class HUB_UIManager : MonoBehaviour
         rapidRifeTUt.SetActive(true);
         musicPlayer.SetActive(false);
         VideoPlayerController.Instance.BigPlayButton.SetActive(true);
-        HUB_UIManager.Instance.musicPlayer.GetComponent<MusicPlayer>().audioSource.enabled = false;
+       // HUB_UIManager.Instance.musicPlayer.GetComponent<MusicPlayer>().audioSource.enabled = false;
     }
 
     public void closeAggrMenu()

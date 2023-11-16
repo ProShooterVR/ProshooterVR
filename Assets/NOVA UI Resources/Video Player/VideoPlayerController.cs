@@ -28,6 +28,7 @@ public class VideoPlayerController : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         // Get the Renderer component attached to this GameObject
         rend = GetComponent<Renderer>();
     }
@@ -41,7 +42,7 @@ public class VideoPlayerController : MonoBehaviour
         playButton.SetActive(true);
         pauseButton.SetActive(false);
 
-        HUB_UIManager.Instance.musicPlayer.SetActive(false);
+      //  HUB_UIManager.Instance.musicPlayer.SetActive(false);
         // Get the AudioSource component from the music GameObject
         //musicAudioSource = musicGameObject.GetComponent<AudioSource>();
 
