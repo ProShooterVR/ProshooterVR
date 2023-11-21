@@ -207,26 +207,7 @@ public class LiveUserDataManager : MonoBehaviour
 
 
 
-    public void SavePistolGameDataToLiveDB()
-    {
-
-        string dt = DateTime.Now.ToString(" | yyyy-MM-dd HH:mm:ss");
-
-        GunDataManager.Instance.gameMode += dt;
-
-        // Create a user data object
-        GameHistoryDataPistol GameData = new GameHistoryDataPistol(LocalUserDataManager.Instance.metaID, LocalUserDataManager.Instance.meta_username,
-                                                       GunDataManager.Instance.gameMode, GunDataManager.Instance.ScoresPistol, GunDataManager.Instance.sr1ScorePistol,
-                                                       GunDataManager.Instance.sr2ScorePistol, GunDataManager.Instance.sr3ScorePistol, GunDataManager.Instance.totalGameScorePistol,
-                                                       GunDataManager.Instance.noOfShotsOnTarget, GunDataManager.Instance.noOfShotsMissed, GunDataManager.Instance.avgSrScorePistol,
-                                                       GunDataManager.Instance.noOfInnerTens, GunDataManager.Instance.totalTimeSpent, GunDataManager.Instance.personalGameBestPistol,
-                                                       GunDataManager.Instance.zoneA_mult, GunDataManager.Instance.zoneB_mult, GunDataManager.Instance.zoneC_mult, GunDataManager.Instance.diffculty_mult);
-
-        string pistolGameData = JsonConvert.SerializeObject(GameData);
-
-        PushDataToFirebase(pistolGameData);
-
-    }
+  
     
 
 
@@ -276,26 +257,7 @@ public class LiveUserDataManager : MonoBehaviour
             Debug.LogError("Firebase Database reference is not initialized.");
         }
     }
-    public void SaveRifleGameDataToLiveDB()
-    {
-
-        string dt = DateTime.Now.ToString(" | yyyy-MM-dd HH:mm:ss");
-
-        GunDataManager.Instance.gameMode += dt;
-
-        // Create a user data object
-        GameHistoryDataRifle GameData = new GameHistoryDataRifle(LocalUserDataManager.Instance.metaID, LocalUserDataManager.Instance.meta_username,
-                                                       GunDataManager.Instance.gameMode, GunDataManager.Instance.ScoresPistol, GunDataManager.Instance.sr1ScorePistol,
-                                                       GunDataManager.Instance.sr2ScorePistol, GunDataManager.Instance.sr3ScorePistol, GunDataManager.Instance.totalGameScoreRifle,
-                                                       GunDataManager.Instance.noOfShotsOnTarget, GunDataManager.Instance.noOfShotsMissed, GunDataManager.Instance.avgSrScorePistol,
-                                                       GunDataManager.Instance.noOfInnerTens, GunDataManager.Instance.totalTimeSpent, GunDataManager.Instance.personalGameBestPistol,
-                                                       GunDataManager.Instance.zoneA_mult, GunDataManager.Instance.zoneB_mult, GunDataManager.Instance.zoneC_mult, GunDataManager.Instance.diffculty_mult);
-
-        string rifleGameData = JsonConvert.SerializeObject(GameData);
-
-        PushDataToFirebase(rifleGameData);
-    }
-
+   
     public void UpdateUserTableData(string newValue, string key)
     {
         DatabaseReference databaseReference = LiveUserDataManagerRealtime.Instance.universal_databaseReference;

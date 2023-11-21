@@ -175,6 +175,8 @@ namespace BNG {
                 // If attached to a Raycast weapon, let it know we attached something
                 if (parentWeapon) {
                     parentWeapon.OnAttachedAmmo();
+                    ArcadeGameManager.instance.SlideObject.SetActive(true);
+                    ArcadeGameManager.instance.shotCounter = 0;
                 }
             }
 
@@ -211,7 +213,7 @@ namespace BNG {
                         HeldMagazine.gameObject.SetActive(false);
                         Destroy(HeldMagazine.gameObject);
                         Instantiate(ArcadeGameManager.instance.prefabToInstantiate, ArcadeGameManager.instance.spawnClipOrg.transform.position, ArcadeGameManager.instance.spawnClipOrg.transform.rotation);
-
+                        ArcadeGameManager.instance.SlideObject.SetActive(false);
                     }
                 }
             }

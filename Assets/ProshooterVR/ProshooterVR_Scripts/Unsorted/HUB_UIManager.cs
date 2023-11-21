@@ -46,7 +46,8 @@ public class HUB_UIManager : MonoBehaviour
     public enum gameType
     {
         match,
-        practice
+        practice,
+        arcade,
     }
 
     gameType myGameType;
@@ -106,6 +107,7 @@ public class HUB_UIManager : MonoBehaviour
         tutorailUI.SetActive(false);
         gameModeSubMenu.SetActive(false);
         arcadeSubMenu.SetActive(true);
+        myGameType = gameType.arcade;
 
     }
 
@@ -272,20 +274,20 @@ public class HUB_UIManager : MonoBehaviour
     private void load10mPistolAmatuerMatch()
     {
         LocalUserDataManager.Instance.selectedGameMode = GameModes.AirPistol10m;
-        LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.Amateur;
+        LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.amateur;
 
         SceneManager.LoadSceneAsync("10m_Pistol_Amateur_MatchMode");
     }
     private void load10mPistolSemProMatch()
     {
         LocalUserDataManager.Instance.selectedGameMode = GameModes.AirPistol10m;
-        LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.SemiPro;
+        LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.semi_pro;
         SceneManager.LoadSceneAsync("10m_Pistol_SemPro_MatchMode");
     }
     private void load10mPistolProMatch()
     {
         LocalUserDataManager.Instance.selectedGameMode = GameModes.AirPistol10m;
-        LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.Pro;
+        LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.pro;
         SceneManager.LoadSceneAsync("10m_Pistol_Pro_MatchMode");
     }
 
@@ -311,19 +313,19 @@ public class HUB_UIManager : MonoBehaviour
     private void load10mRifleAmatuerMatch()
     {
         LocalUserDataManager.Instance.selectedGameMode = GameModes.AirRifle10m;
-        LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.Amateur;
+        LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.amateur;
         SceneManager.LoadSceneAsync("10m_AirRifle_Amateur_Match");
     }
     private void load10mRifleSemProMatch()
     {
         LocalUserDataManager.Instance.selectedGameMode = GameModes.AirRifle10m;
-        LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.SemiPro;
+        LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.semi_pro;
         SceneManager.LoadSceneAsync("10m_AirRifle_SemPro_Match");
     }
     private void load10mRifleProMatch()
     {
         LocalUserDataManager.Instance.selectedGameMode = GameModes.AirRifle10m;
-        LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.Pro;
+        LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.pro;
         SceneManager.LoadSceneAsync("10m_AirRifle_Pro_Match");
     }
 
@@ -348,23 +350,28 @@ public class HUB_UIManager : MonoBehaviour
         {
             case 0:
                 LocalUserDataManager.Instance.levelSelected = LocalUserDataManager.gamerLevel.Amateur;
-                LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.Amateur;
+                LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.amateur;
                 //LiveUserDataManager.Instance.sortLeaderBoard();
 
                 break;
             case 1:
                 LocalUserDataManager.Instance.levelSelected = LocalUserDataManager.gamerLevel.SemiPro;
-                LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.SemiPro;
+                LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.semi_pro;
                // LiveUserDataManager.Instance.sortLeaderBoard();
 
                 break;
             case 2:
                 LocalUserDataManager.Instance.levelSelected = LocalUserDataManager.gamerLevel.Pro;
-                LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.Pro;
+                LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.pro;
                 //LiveUserDataManager.Instance.sortLeaderBoard();
 
                 break;
         }
+    }
+
+    public void setArcade()
+    {
+        myGameType = gameType.arcade;
     }
     public void setMode(int no)
     {
@@ -400,6 +407,10 @@ public class HUB_UIManager : MonoBehaviour
         if (myGameType == gameType.practice)
         {
             loadPracticeMode();
+        }
+        if (myGameType == gameType.arcade)
+        {
+            loadArcadeMode();
         }
     }
 

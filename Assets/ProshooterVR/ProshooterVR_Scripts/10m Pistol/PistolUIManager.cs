@@ -160,10 +160,7 @@ public class PistolUIManager : MonoBehaviour
 
 
 
-    public void saveData()
-    {
-        LiveUserDataManager.Instance.SavePistolGameDataToLiveDB();
-    }   
+    
     public void exitBtnCliked()
     {
         SceneManager.LoadScene("ProShooterVR_Hub", LoadSceneMode.Single);
@@ -251,11 +248,8 @@ public class PistolUIManager : MonoBehaviour
     public void backToRange()
     {
         pistolPopUPUIManager.Instance.clearTargetScores();
-        RayManager.Instance.DisableRey();
-
-
         endSessionPopup.SetActive(false);
-        endMatchPopUp.SetActive(true);
+        endMatchPopUp.SetActive(false);
         setSwitch = false;
 
     }

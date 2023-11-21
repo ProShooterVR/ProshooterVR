@@ -71,8 +71,8 @@ public class LocalUserDataManager : MonoBehaviour
     {
         startTime = DateTime.Now;
         isAggrDone = false;
-        //metaID = "6889892497704835";
-        //meta_username = "Trickerion";
+        metaID = "6889892497704835";
+        meta_username = "Trickerion";
     }
 
     // Update is called once per frame
@@ -92,8 +92,8 @@ public static class GameModes
 }
 public static class GameLevel
 {
-    public static readonly string Amateur = "Amateur";
-    public static readonly string SemiPro = "SemiPro";
-    public static readonly string Pro = "Pro";
+    public static readonly string amateur = "amateur";
+    public static readonly string semi_pro = "semi_pro";
+    public static readonly string pro = "pro";
 
 }

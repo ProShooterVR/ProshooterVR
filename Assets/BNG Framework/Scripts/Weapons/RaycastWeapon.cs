@@ -314,11 +314,19 @@ namespace BNG
                 {
                     if (ArcadeGameManager.instance.isReloaded == true)
                     {
-                        Shoot();
-                        readyToShoot = FiringMethod == FiringType.Semi;
-                        if (RapidFireGunManager.Instance.countingScore == false)
+                        if (ArcadeGameManager.instance.shotCounter < 5)
                         {
-                            InstructionManager.Instance.audioSource.PlayOneShot(InstructionManager.Instance.buzzer);
+                            ArcadeGameManager.instance.shotCounter++;
+                            Shoot();
+                            readyToShoot = FiringMethod == FiringType.Semi;
+                            if (RapidFireGunManager.Instance.countingScore == false)
+                            {
+                                InstructionManager.Instance.audioSource.PlayOneShot(InstructionManager.Instance.buzzer);
+                            }
+                        }
+                        if(ArcadeGameManager.instance.shotCounter == 4)
+                        {
+                            ArcadeGameManager.instance.SlideObject.SetActive(false);
                         }
                     }
                 }

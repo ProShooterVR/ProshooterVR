@@ -30,8 +30,12 @@ namespace ProshooterVR
         /// All the required api list and the links START
         /// </summary>
         /// 
-        private string createUserAPI = "http://15.206.116.210/api/user/createuser";
-        private string fetchUserProfileInfo = "http://15.206.116.210/api/user/getuserinfobymetaid/";
+        private string createUserAPI = "http://54.201.154.149/api/user/createuser";
+        private string fetchUserProfileInfo = "http://54.201.154.149/api/user/getuserinfobymetaid/";
+        private string insertgamedata = "http://54.201.154.149/api/user/insertgamedata";
+       
+
+
         /// <summary>
         /// All the required api list and the links END
         /// 
@@ -91,36 +95,7 @@ namespace ProshooterVR
                     getProfileData(LocalUserDataManager.Instance.metaID);
                 }
             }
-            //Debug.Log("Into creating DB");
-            //// Create a UnityWebRequest with the desired HTTP method (POST in this case)
-            //UnityWebRequest request = UnityWebRequest.PostWwwForm(createUserAPI, "POST");
-            //Debug.Log("Sending creating DB");
-
-            //// Set the request headers
-            //request.SetRequestHeader("Content-Type", "application/json");
-
-            //// Convert the JSON data to bytes and set it as the request body
-            //byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(JSONdata);
-            //request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
-
-            //// Set the download handler to handle the response
-            //request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
-
-            //// Send the request and wait for the response
-            //yield return request.SendWebRequest();
-            //Debug.Log("Sending creating DB sent to server");
-
-            //// Check for errors
-            //if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
-            //{
-            //    Debug.LogError(request.error);
-            //}
-            //else
-            //{
-            //    // Request was successful, you can handle the response here
-            //    Debug.Log("API Response: " + request.downloadHandler.text);
-            //   // getProfileData(LocalUserDataManager.Instance.metaID);
-            //}
+           
         }
 
         /// <summary>
@@ -172,10 +147,10 @@ namespace ProshooterVR
                 PlayerData PlayerDataObj = JsonUtility.FromJson<PlayerData>(jsonString);
 
 
-                 LocalUserDataManager.Instance.userNameTxt = PlayerDataObj.meta_quest_username;
+                LocalUserDataManager.Instance.userNameTxt = PlayerDataObj.meta_quest_username;
                 LocalUserDataManager.Instance.totalScoreTxt = PlayerDataObj.total_player_score.ToString();
-                 LocalUserDataManager.Instance.matchesPlayedTxt = PlayerDataObj.matches_played.ToString();
-                 LocalUserDataManager.Instance.accuracyTxt = PlayerDataObj.accuracy.ToString();
+                LocalUserDataManager.Instance.matchesPlayedTxt = PlayerDataObj.matches_played.ToString();
+                LocalUserDataManager.Instance.accuracyTxt = PlayerDataObj.accuracy.ToString();
 
                 LocalUserDataManager.Instance.pbest_10mAirP_AmaTxt = PlayerDataObj.p_best_10m_airp_ama.ToString();
                 LocalUserDataManager.Instance.pbest_10mAirP_SemPTxt = PlayerDataObj.p_best_10m_airp_semp.ToString();
@@ -205,6 +180,107 @@ namespace ProshooterVR
         /// <returns></returns>
 
 
+
+      
+
+        /// <summary>
+        /// Create USER API                        START-----------------------------------------------------------------
+        /// Create User IN DB 
+        /// If user is not present it will create the New user with default values 
+        /// If user is already present it will return the data.
+        /// </summary>
+        /// <param name="metaID"></param>
+        /// <param name="metaName"></param>
+        /// 
+        
+        public void SaveGameDataPistol(int gameMode)
+        {
+            // Create a new dictionary to store meta_id and meta_name
+            Dictionary<int, float> ScoresPistol = ConvertArrayToDictionary(GunDataManager.Instance.ScoresPistol);
+
+            Dictionary<string, object> metaData = new Dictionary<string, object>
+            {
+                { "meta_unique_id", LocalUserDataManager.Instance.metaID },
+                { "game_mode",  gameMode},
+                { "difficulty_level", LocalUserDataManager.Instance.SelectedGameLevel },
+                { "30_shots_score", ScoresPistol},
+                { "average_score",GunDataManager.Instance.avgSrScorePistol },
+                { "no_of_inner_shots",GunDataManager.Instance.noOfInnerTens },
+                { "no_of_shots_on_target",GunDataManager.Instance.noOfShotsOnTarget },
+                { "no_of_shots_missed",GunDataManager.Instance.noOfShotsMissed },
+                { "personal_best",GunDataManager.Instance.personalGameBestPistol },
+                { "series_1_score",GunDataManager.Instance.sr1ScorePistol },
+                { "series_2_score",GunDataManager.Instance.sr2ScorePistol },
+                { "series_3_score",GunDataManager.Instance.sr3ScorePistol },
+                { "total_game_score",GunDataManager.Instance.totalGameScorePistol },
+                { "total_time_spent",GunDataManager.Instance.totalTimeSpent },
+            };
+
+            string data = JsonConvert.SerializeObject(metaData);
+            Debug.Log("coverted data is ||  " + data);
+            StartCoroutine(SaveGameDataUserDB(data));
+
+        }
+        Dictionary<int, float> ConvertArrayToDictionary(float[] array)
+        {
+            Dictionary<int, float> dictionary = new Dictionary<int, float>();
+
+            // Assuming the array length is the same as the number of keys you want
+            for (int i = 0; i < array.Length; i++)
+            {
+                // You can assign a value to each key based on your requirements
+                dictionary.Add(i,array[i]);
+            }
+
+            return dictionary;
+        }
+        public void SaveGameDataRifle(int gameMode)
+        {
+
+            Dictionary<int, float> ScoresRifle = ConvertArrayToDictionary(GunDataManager.Instance.ScoresRifle);
+            // Create a new dictionary to store meta_id and meta_name
+            Dictionary<string, object> metaData = new Dictionary<string, object>
+            {
+                { "meta_unique_id", LocalUserDataManager.Instance.metaID },
+                { "gamemode",  gameMode},
+                { "difficulty_level", LocalUserDataManager.Instance.SelectedGameLevel },
+                { "30_shots_score", ScoresRifle},
+                { "average_score",GunDataManager.Instance.avgSrScoreRifle },
+                { "no_of_inner_shots",GunDataManager.Instance.noOfInnerTens },
+                { "no_of_shots_on_target",GunDataManager.Instance.noOfShotsOnTarget },
+                { "no_of_shots_missed",GunDataManager.Instance.noOfShotsMissed },
+                { "personal_best",GunDataManager.Instance.personalGameBestRifle },
+                { "series_1_score",GunDataManager.Instance.series1ScoreRifle },
+                { "series_2_score",GunDataManager.Instance.series2ScoreRifle },
+                { "series_3_score",GunDataManager.Instance.series3ScoreRifle },
+                { "total_game_score",GunDataManager.Instance.TotalScoreRifle },
+                { "total_time_spent",GunDataManager.Instance.totalTimeSpent },
+            };
+
+            string data = JsonConvert.SerializeObject(metaData);
+            Debug.Log("coverted data is ||  " + data);
+            StartCoroutine(SaveGameDataUserDB(data));
+
+        }
+        IEnumerator SaveGameDataUserDB(string JSONdata)
+        {
+
+            using (UnityWebRequest www = UnityWebRequest.Post(insertgamedata, JSONdata, "application/json"))
+            {
+                yield return www.SendWebRequest();
+
+                if (www.result != UnityWebRequest.Result.Success)
+                {
+                    Debug.Log(www.error);
+                }
+                else
+                {
+                    Debug.Log("Form upload complete!");
+                    getProfileData(LocalUserDataManager.Instance.metaID);
+                }
+            }
+
+        }
 
     }
 

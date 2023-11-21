@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Nova;
 using NovaSamples.Inventory;
+using ProshooterVR;
 
 public class GunGameManeger : MonoBehaviour
 {
@@ -286,30 +287,30 @@ public class GunGameManeger : MonoBehaviour
             
             //// Modify score to send to backend ////
             
-            if(LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.Amateur)
-            {
-                GunDataManager.Instance.totalGameScorePistol = GunDataManager.Instance.totalGameScorePistol * LiveUserDataManager.Instance.amateurValue;
-            }
-            else if(LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.SemiPro)
-            {
-                GunDataManager.Instance.totalGameScorePistol = GunDataManager.Instance.totalGameScorePistol * LiveUserDataManager.Instance.semiProValue;
+            //if(LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.amateur)
+            //{
+            //    GunDataManager.Instance.totalGameScorePistol = GunDataManager.Instance.totalGameScorePistol * LiveUserDataManager.Instance.amateurValue;
+            //}
+            //else if(LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.semi_pro)
+            //{
+            //    GunDataManager.Instance.totalGameScorePistol = GunDataManager.Instance.totalGameScorePistol * LiveUserDataManager.Instance.semiProValue;
 
-            }
-            else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.Pro)
-            {
-                GunDataManager.Instance.totalGameScorePistol = GunDataManager.Instance.totalGameScorePistol * LiveUserDataManager.Instance.proValue;
+            //}
+            //else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.pro)
+            //{
+            //    GunDataManager.Instance.totalGameScorePistol = GunDataManager.Instance.totalGameScorePistol * LiveUserDataManager.Instance.proValue;
 
-            }
-
-            ////
-
-            //upload data to the backend
-            LiveUserDataManager.Instance.SavePistolGameDataToLiveDB();
+            //}
 
             if (isRankedMode == true)
             {
                 LocalUserDataManager.Instance.totalScorePistol = LocalUserDataManager.Instance.totalScorePistol + gameTotalScore;
-                LiveUserDataManager.Instance.saveMainLeaderBoardDataAirPistolAsync();
+
+                //upload data to the backend
+                // 1 : AirPistol ,2 : Air Rifle , 3: Rapid Fire
+                DBAPIManagerNew.Instance.SaveGameDataPistol(1);
+
+
             }
         }
 
@@ -333,7 +334,7 @@ public class GunGameManeger : MonoBehaviour
             pistolPopUPUIManager.Instance.shotsmissTxt.text = noShotMissed.ToString("F1");
             pistolPopUPUIManager.Instance.timeSpentTxt.text = totalGameTime.ToString("F1");
 
-            if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.Amateur)
+            if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.amateur)
             {
                 if (GunDataManager.Instance.personalAmaBestPistol < gameTotalScore)
                 {
@@ -341,7 +342,7 @@ public class GunGameManeger : MonoBehaviour
                     GunDataManager.Instance.personalGameBestRifle = gameTotalScoreRifle;
                 }
             }
-            else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.SemiPro)
+            else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.semi_pro)
             {
                 if (GunDataManager.Instance.personalSemiProBestPistol < gameTotalScore)
                 {
@@ -350,7 +351,7 @@ public class GunGameManeger : MonoBehaviour
 
                 }
             }
-            else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.Pro)
+            else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.pro)
             {
                 if (GunDataManager.Instance.personalProBestPistol < gameTotalScore)
                 {
@@ -379,30 +380,30 @@ public class GunGameManeger : MonoBehaviour
 
             //// Modify score to send to backend ////
 
-            if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.Amateur)
-            {
-                GunDataManager.Instance.totalGameScoreRifle = GunDataManager.Instance.totalGameScoreRifle * LiveUserDataManager.Instance.amateurValue;
-            }
-            else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.SemiPro)
-            {
-                GunDataManager.Instance.totalGameScoreRifle = GunDataManager.Instance.totalGameScoreRifle * LiveUserDataManager.Instance.semiProValue;
+            //if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.amateur)
+            //{
+            //    GunDataManager.Instance.totalGameScoreRifle = GunDataManager.Instance.totalGameScoreRifle * LiveUserDataManager.Instance.amateurValue;
+            //}
+            //else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.semi_pro)
+            //{
+            //    GunDataManager.Instance.totalGameScoreRifle = GunDataManager.Instance.totalGameScoreRifle * LiveUserDataManager.Instance.semiProValue;
 
-            }
-            else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.Pro)
-            {
-                GunDataManager.Instance.totalGameScoreRifle = GunDataManager.Instance.totalGameScoreRifle * LiveUserDataManager.Instance.proValue;
+            //}
+            //else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.pro)
+            //{
+            //    GunDataManager.Instance.totalGameScoreRifle = GunDataManager.Instance.totalGameScoreRifle * LiveUserDataManager.Instance.proValue;
 
-            }
+            //}
 
             ////
 
-            //upload data to the backend
-             LiveUserDataManager.Instance.SaveRifleGameDataToLiveDB();
-
+           
             if (isRankedMode == true)
             {
                 LocalUserDataManager.Instance.totalScoreRifle = LocalUserDataManager.Instance.totalScoreRifle + gameTotalScoreRifle;
-               // LiveUserDataManager.Instance.saveLeaderBoardData();
+                //upload data to the backend
+                // 1 : AirPistol ,2 : Air Rifle , 3: Rapid Fire
+                DBAPIManagerNew.Instance.SaveGameDataRifle(2);
             }
         }
 

@@ -2903,7 +2903,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164124233}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -11362,6 +11362,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controllerNode: 0
+  hapticDuration: 0.2
+  hapticAmplitude: 0.5
 --- !u!114 &671338073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11374,6 +11377,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 0}
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1001 &674075372
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22356,6 +22363,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controllerNode: 0
+  hapticDuration: 0.2
+  hapticAmplitude: 0.5
 --- !u!114 &1293929403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22368,6 +22378,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 0}
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &1293929404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22380,6 +22394,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controllerNode: 0
+  hapticDuration: 0.2
+  hapticAmplitude: 0.5
 --- !u!114 &1293929405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22392,6 +22409,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 0}
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &1293929406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22404,6 +22425,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controllerNode: 0
+  hapticDuration: 0.2
+  hapticAmplitude: 0.5
 --- !u!114 &1293929407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22416,6 +22440,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 0}
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &1306013799
 GameObject:
   m_ObjectHideFlags: 0
@@ -30245,6 +30273,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controllerNode: 0
+  hapticDuration: 0.2
+  hapticAmplitude: 0.5
 --- !u!114 &1770478058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30257,6 +30288,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 0}
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &1784367475
 GameObject:
   m_ObjectHideFlags: 0
@@ -34799,6 +34834,7 @@ MonoBehaviour:
   isRifleMode: 0
   isPistolMode: 1
   isRapidFireMode: 0
+  isArcadeMode: 0
 --- !u!4 &2038666779
 Transform:
   m_ObjectHideFlags: 0

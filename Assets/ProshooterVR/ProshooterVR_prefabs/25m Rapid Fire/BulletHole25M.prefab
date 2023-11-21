@@ -5175,14 +5175,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3768349101318047668}
   - component: {fileID: 612169815233484890}
-  - component: {fileID: 6641123134848990771}
+  - component: {fileID: 890037722723494803}
   m_Layer: 0
   m_Name: BulletHole25M
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3768349101318047668
 Transform:
   m_ObjectHideFlags: 0
@@ -5192,13 +5192,13 @@ Transform:
   m_GameObject: {fileID: 6115266998615064276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7047068572305668893}
   - {fileID: 2564936921345299221}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &612169815233484890
 MonoBehaviour:
@@ -5216,8 +5216,8 @@ MonoBehaviour:
   MinScale: 0.07
   RandomYRotation: 0
   DestroyTime: 30
---- !u!136 &6641123134848990771
-CapsuleCollider:
+--- !u!135 &890037722723494803
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5231,11 +5231,9 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 3
+  m_Radius: 0.052953154
   m_Center: {x: 0, y: 0, z: 0}

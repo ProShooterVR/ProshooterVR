@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 5551091499708601569}
   - component: {fileID: 3742447995539948569}
   - component: {fileID: 806580493428539677}
+  - component: {fileID: 4490937767711587067}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -713,7 +714,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PistolUIManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: RapidFireUIManager, Assembly-CSharp
         m_MethodName: exitBtnCliked
         m_Mode: 1
         m_Arguments:
@@ -794,6 +795,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6828681, y: 0.3677145, z: 0.1}
   m_Center: {x: -0.0042152405, y: -0.0042152903, z: -0.08430482}
+--- !u!114 &4490937767711587067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083657391392350963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerNode: 0
+  hapticDuration: 0.2
+  hapticAmplitude: 0.5
 --- !u!1 &1530500736302813967
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,9 +835,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530500736302813967}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 300, y: 300, z: 300}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 251925797433693442}
@@ -830,7 +846,7 @@ Transform:
   - {fileID: 7525659063789396307}
   - {fileID: 7065348129084726432}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &5392039606094537540
 MonoBehaviour:
@@ -871,13 +887,13 @@ MonoBehaviour:
         Type: 0
     Position:
       X:
-        Raw: -496
+        Raw: 0.95
         Type: 0
       Y:
-        Raw: 628
+        Raw: 1.84
         Type: 0
       Z:
-        Raw: -1.78
+        Raw: -1.69
         Type: 0
     Padding:
       Left:
@@ -2201,6 +2217,7 @@ GameObject:
   - component: {fileID: 2665085240161044087}
   - component: {fileID: 7634223726904248610}
   - component: {fileID: 8122054838982032833}
+  - component: {fileID: 1009068018029939003}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -2534,7 +2551,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PistolUIManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: RapidFireUIManager, Assembly-CSharp
         m_MethodName: RestartBtnClick
         m_Mode: 1
         m_Arguments:
@@ -2615,6 +2632,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6828681, y: 0.3677145, z: 0.1}
   m_Center: {x: -0.0042152405, y: -0.0042152903, z: 0}
+--- !u!114 &1009068018029939003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5465589757043895849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerNode: 0
+  hapticDuration: 0.2
+  hapticAmplitude: 0.5
 --- !u!1 &5605546942906565316
 GameObject:
   m_ObjectHideFlags: 0
@@ -2630,6 +2662,7 @@ GameObject:
   - component: {fileID: 4274166959320574827}
   - component: {fileID: 146611729622783244}
   - component: {fileID: 8201154905410523049}
+  - component: {fileID: 5522628898713239002}
   m_Layer: 5
   m_Name: RESUME
   m_TagString: Untagged
@@ -2963,7 +2996,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PistolUIManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: RapidFireUIManager, Assembly-CSharp
         m_MethodName: resumeBtnClick
         m_Mode: 1
         m_Arguments:
@@ -3044,6 +3077,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6828681, y: 0.3677145, z: 0.1}
   m_Center: {x: -0.0042152405, y: -0.0042152903, z: 0}
+--- !u!114 &5522628898713239002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5605546942906565316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerNode: 0
+  hapticDuration: 0.2
+  hapticAmplitude: 0.5
 --- !u!1 &7468059814648892393
 GameObject:
   m_ObjectHideFlags: 0
@@ -3059,6 +3107,7 @@ GameObject:
   - component: {fileID: 6784742319167593867}
   - component: {fileID: 7473467273279435920}
   - component: {fileID: 5117052802995512845}
+  - component: {fileID: 4562969102373050646}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -3392,8 +3441,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PistolUIManager, Assembly-CSharp
-        m_MethodName: startBtnClick
+        m_TargetAssemblyTypeName: RapidFireUIManager, Assembly-CSharp
+        m_MethodName: StartButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3473,6 +3522,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6828681, y: 0.3677145, z: 0.1}
   m_Center: {x: -0.0042152405, y: -0.0042152903, z: 0}
+--- !u!114 &4562969102373050646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7468059814648892393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerNode: 0
+  hapticDuration: 0.2
+  hapticAmplitude: 0.5
 --- !u!1 &7773110904725087975
 GameObject:
   m_ObjectHideFlags: 0
@@ -3853,6 +3917,7 @@ GameObject:
   - component: {fileID: 3648448171205655982}
   - component: {fileID: 2827915719863701328}
   - component: {fileID: 5492760996812912566}
+  - component: {fileID: 5631325854017174580}
   m_Layer: 5
   m_Name: HELP
   m_TagString: Untagged
@@ -4186,7 +4251,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PistolUIManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: RapidFireUIManager, Assembly-CSharp
         m_MethodName: HelpButtonClick
         m_Mode: 1
         m_Arguments:
@@ -4267,3 +4332,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6828681, y: 0.3677145, z: 0.1}
   m_Center: {x: -0.0042152405, y: -0.0042152903, z: 0}
+--- !u!114 &5631325854017174580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8136755137630546414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerNode: 0
+  hapticDuration: 0.2
+  hapticAmplitude: 0.5

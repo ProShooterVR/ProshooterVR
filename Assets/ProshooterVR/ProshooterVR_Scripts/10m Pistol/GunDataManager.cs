@@ -16,7 +16,7 @@ public class GunDataManager : MonoBehaviour
     /// Data required to send to backend and save to UI fieldss
     /// </summary>
 
-    public int[] ScoresPistol;
+    public float[] ScoresPistol;
     public int totalShotsAllowed;
     public string gameMode;
 
@@ -51,7 +51,7 @@ public class GunDataManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ScoresPistol = new int[totalShotsAllowed];
+        ScoresPistol = new float[totalShotsAllowed];
         ScoresRifle= new float[totalShotsAllowed];
         noOfSeries = 3;
         noOfShotsMissed = 0;
