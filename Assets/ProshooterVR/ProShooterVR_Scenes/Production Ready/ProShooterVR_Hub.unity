@@ -175,8 +175,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noOfButtons:
   - {fileID: 427275376}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &89361424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2684,6 +2682,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 89361423}
+        m_TargetAssemblyTypeName: CustomButtonNavigator, Assembly-CSharp
+        m_MethodName: onButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &427275383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2705,7 +2715,7 @@ MonoBehaviour:
       type: {class: ButtonVisuals, ns: NovaSamples.UIControls, asm: Nova.UIControls}
       data:
         TransitionType: 1
-        transitionTarget: {fileID: 1723186805}
+        transitionTarget: {fileID: 427275384}
         DefaultColor: {r: 0, g: 0, b: 0, a: 1}
         HoveredColor: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
         PressedColor: {r: 0, g: 0, b: 0, a: 1}
@@ -66750,7 +66760,7 @@ MonoBehaviour:
   Button: {fileID: 3799815069794372646}
   hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
   clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 6982439865852895843}
 --- !u!114 &6325332022835164195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77455,7 +77465,7 @@ MonoBehaviour:
   Button: {fileID: 2841484415581917950}
   hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
   clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 6982439865852895843}
 --- !u!114 &7634361424697492399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77521,7 +77531,7 @@ MonoBehaviour:
   Button: {fileID: 5816745519581111240}
   hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
   clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 6982439865852895843}
 --- !u!114 &7641440041228817330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80195,7 +80205,7 @@ MonoBehaviour:
   Button: {fileID: 6230954033090855167}
   hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
   clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 6982439865852895843}
 --- !u!114 &7825522905269200568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82538,7 +82548,7 @@ PrefabInstance:
     - target: {fileID: 7315850766301464768, guid: 979b1d6e2beb0504facf24c0323bf114,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.04
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7315850766301464768, guid: 979b1d6e2beb0504facf24c0323bf114,
         type: 3}
@@ -84506,7 +84516,7 @@ MonoBehaviour:
   Button: {fileID: 453493855815660108}
   hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
   clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 6982439865852895843}
 --- !u!114 &8429462688780484500
 MonoBehaviour:
   m_ObjectHideFlags: 10
@@ -85097,7 +85107,7 @@ MonoBehaviour:
   Button: {fileID: 7163407667079358235}
   hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
   clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 6982439865852895843}
 --- !u!114 &8569310690228937545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90158,7 +90168,7 @@ MonoBehaviour:
   Button: {fileID: 9135046696002890129}
   hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
   clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 6982439865852895843}
 --- !u!114 &9190457815658132885
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,11 +8,17 @@ using TMPro;
 
 public class ArcadeLeaderboardManager : MonoBehaviour
 {
+    //test
+   // private string insertArcadeGameDataAPI = "http://54.201.154.149/api/user/insertarcadegamedata";
+   // private string fetchArcadeLeaderboardAPI = "http://54.201.154.149/api/user/getarcadeleaderboard/";
+
+    //prod
     private string insertArcadeGameDataAPI = "http://15.206.116.210/api/user/insertarcadegamedata";
     private string fetchArcadeLeaderboardAPI = "http://15.206.116.210/api/user/getarcadeleaderboard/";
 
 
     public static ArcadeLeaderboardManager Instance;
+    string accessToken = "PROSHOOTERVR @$#PRO#$@";
 
     private void Awake()
     {
@@ -50,6 +56,8 @@ public class ArcadeLeaderboardManager : MonoBehaviour
 
         using (UnityWebRequest www = UnityWebRequest.Post(insertArcadeGameDataAPI, JSONdata, "application/json"))
         {
+            www.SetRequestHeader("authorization", accessToken);
+
             yield return www.SendWebRequest();
 
             if (www.result != UnityWebRequest.Result.Success)
@@ -83,6 +91,8 @@ public class ArcadeLeaderboardManager : MonoBehaviour
 
         // Set the download handler to handle the response
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+
+        request.SetRequestHeader("authorization", accessToken);
 
         // Send the request and wait for the response
         yield return request.SendWebRequest();

@@ -9,7 +9,7 @@ public class ArcadeGameManager : MonoBehaviour
     public int totalscore;
     public TextMeshPro TotalScoreText;
 
-    public int hitCounter,shotCounter;
+    public int hitCounter;
 
     public bool Hit, isReloaded;
 
@@ -36,7 +36,6 @@ public class ArcadeGameManager : MonoBehaviour
         targetDeployer.SetActive(false);
         gunObj.SetActive(false);
         initCLipObj.SetActive(false);
-        shotCounter = 0;
 
         x2MultiplierEffect.SetActive(false);
         x3MultiplierEffect.SetActive(false);

@@ -29,13 +29,17 @@ namespace ProshooterVR
         /// <summary>
         /// All the required api list and the links START
         /// </summary>
-        /// 
-        private string createUserAPI = "http://54.201.154.149/api/user/createuser";
-        private string fetchUserProfileInfo = "http://54.201.154.149/api/user/getuserinfobymetaid/";
-        private string insertgamedata = "http://54.201.154.149/api/user/insertgamedata";
-       
+        /// Test API
+       // private string createUserAPI = "http://54.201.154.149/api/user/createuser";
+       // private string fetchUserProfileInfo = "http://54.201.154.149/api/user/getuserinfobymetaid/";
+       // private string insertgamedata = "http://54.201.154.149/api/user/insertgamedata";
 
+        // prod API
+          private string createUserAPI = "http://15.206.116.210/api/user/createuser";
+          private string fetchUserProfileInfo = "http://15.206.116.210/api/user/getuserinfobymetaid/";
+          private string insertgamedata = "http://15.206.116.210/api/user/insertgamedata";
 
+        string accessToken = "PROSHOOTERVR @$#PRO#$@";
         /// <summary>
         /// All the required api list and the links END
         /// 
@@ -83,6 +87,10 @@ namespace ProshooterVR
 
             using (UnityWebRequest www = UnityWebRequest.Post(createUserAPI, JSONdata, "application/json"))
             {
+                // Set the Authorization header
+              
+                www.SetRequestHeader("authorization", accessToken);
+
                 yield return www.SendWebRequest();
 
                 if (www.result != UnityWebRequest.Result.Success)
@@ -128,6 +136,8 @@ namespace ProshooterVR
 
             // Set the download handler to handle the response
             request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+
+            request.SetRequestHeader("authorization", accessToken);
 
             // Send the request and wait for the response
             yield return request.SendWebRequest();
@@ -267,6 +277,8 @@ namespace ProshooterVR
 
             using (UnityWebRequest www = UnityWebRequest.Post(insertgamedata, JSONdata, "application/json"))
             {
+                www.SetRequestHeader("authorization", accessToken);
+
                 yield return www.SendWebRequest();
 
                 if (www.result != UnityWebRequest.Result.Success)
