@@ -6,9 +6,9 @@ public class LerpToTarget : MonoBehaviour
 {
     public GameObject originalObject;   // The object to move and reset rotation
     public GameObject targetObject;     // The target GameObject to move towards
-    public float lerpPositionSpeed = 5.0f;  // The speed of the position interpolation
-    public float lerpRotationSpeed = 2.0f;  // The speed of the rotation interpolation
-    public float stoppingSpeed = 1.0f;     // The speed at which the object stops
+    private float lerpPositionSpeed = 10f;  // The speed of the position interpolation
+    private float lerpRotationSpeed = 10f;  // The speed of the rotation interpolation
+    private float stoppingSpeed = 5f;     // The speed at which the object stops
 
     private Vector3 initialPosition;
     private Vector3 targetPosition;

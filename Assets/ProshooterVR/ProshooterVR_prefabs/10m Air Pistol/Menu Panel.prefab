@@ -766,7 +766,7 @@ Transform:
   - {fileID: 7754496306880395695}
   - {fileID: 4467049396744959084}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &8590767274837197353
 MonoBehaviour:
@@ -1319,7 +1319,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: EXIT TO HUB
+  m_text: ' MAIN MENU'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 91746cd754d5ed84188242f1f1a519ed, type: 2}
   m_sharedMaterial: {fileID: -4190258476315376023, guid: 91746cd754d5ed84188242f1f1a519ed,
@@ -1407,6 +1407,7 @@ GameObject:
   - component: {fileID: 6033727546279573880}
   - component: {fileID: 484345250036509234}
   - component: {fileID: 2463375962750065513}
+  - component: {fileID: 1391688529833221596}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -1821,6 +1822,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6828681, y: 0.3677145, z: 0.1}
   m_Center: {x: -0.0042152405, y: -0.0042152903, z: 0}
+--- !u!114 &1391688529833221596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142064732982539226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerNode: 0
+  hapticDuration: 0.2
+  hapticAmplitude: 0.5
 --- !u!1 &3343796276783164974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,6 +1852,7 @@ GameObject:
   - component: {fileID: 35049639785927608}
   - component: {fileID: 624285334299759167}
   - component: {fileID: 2152737577304394340}
+  - component: {fileID: 3115876737402872492}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -2250,6 +2267,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6828681, y: 0.3677145, z: 0.1}
   m_Center: {x: -0.0042152405, y: -0.0042152903, z: 0}
+--- !u!114 &3115876737402872492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3343796276783164974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerNode: 0
+  hapticDuration: 0.2
+  hapticAmplitude: 0.5
 --- !u!1 &3666947027196809037
 GameObject:
   m_ObjectHideFlags: 0
@@ -2995,6 +3027,7 @@ GameObject:
   - component: {fileID: 3408502300908316163}
   - component: {fileID: 1732440893741176090}
   - component: {fileID: 8326610512285960791}
+  - component: {fileID: 2081139963886047414}
   m_Layer: 5
   m_Name: HELP
   m_TagString: Untagged
@@ -3409,6 +3442,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6828681, y: 0.3677145, z: 0.1}
   m_Center: {x: -0.0042152405, y: -0.0042152903, z: 0}
+--- !u!114 &2081139963886047414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5303831987033581549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerNode: 0
+  hapticDuration: 0.2
+  hapticAmplitude: 0.5
 --- !u!1 &6685402381170086454
 GameObject:
   m_ObjectHideFlags: 0
@@ -3424,6 +3472,7 @@ GameObject:
   - component: {fileID: 3348795077172254184}
   - component: {fileID: 2476407423634037357}
   - component: {fileID: 6376329014344491585}
+  - component: {fileID: 4803059326083964855}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -3838,6 +3887,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6828681, y: 0.3677145, z: 0.1}
   m_Center: {x: -0.0042152405, y: -0.0042152903, z: -0.08430482}
+--- !u!114 &4803059326083964855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685402381170086454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerNode: 0
+  hapticDuration: 0.2
+  hapticAmplitude: 0.5
 --- !u!1 &8111755004194187437
 GameObject:
   m_ObjectHideFlags: 0
@@ -3853,6 +3917,7 @@ GameObject:
   - component: {fileID: 4495349135438977179}
   - component: {fileID: 7580698008893195582}
   - component: {fileID: 2730346140312101051}
+  - component: {fileID: 8257507975172925503}
   m_Layer: 5
   m_Name: RESUME
   m_TagString: Untagged
@@ -4267,3 +4332,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6828681, y: 0.3677145, z: 0.1}
   m_Center: {x: -0.0042152405, y: -0.0042152903, z: 0}
+--- !u!114 &8257507975172925503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8111755004194187437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerNode: 0
+  hapticDuration: 0.2
+  hapticAmplitude: 0.5
