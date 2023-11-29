@@ -18,7 +18,7 @@ public class LerpToTarget : MonoBehaviour
     public GameObject gunObj;
 
     public bool isLerp;
-
+    public bool isUXCalled;
     private void Start()
     {
         if (originalObject != null && targetObject != null)
@@ -29,6 +29,7 @@ public class LerpToTarget : MonoBehaviour
             targetRotation = targetObject.transform.rotation;
         }
         isLerp = false;
+        isUXCalled = false;
         originalObject.SetActive(false);
     }
     private void Update()
@@ -44,6 +45,11 @@ public class LerpToTarget : MonoBehaviour
         if (gunObj.GetComponent<Grabbable>().BeingHeld == true)
         {
             isLerp = true;
+            if(isUXCalled == false)
+            {
+                UXManagerAirPistol.Instance.UXEvents(1);
+                isUXCalled = true;
+            }
         }
 
     }

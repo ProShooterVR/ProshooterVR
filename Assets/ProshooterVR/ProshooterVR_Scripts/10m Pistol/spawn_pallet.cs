@@ -30,7 +30,7 @@ public class spawn_pallet : MonoBehaviour
                     GameObject pallet = Instantiate(GunGameManeger.Instance.palletSpawn);
                     pallet.transform.parent = GunGameManeger.Instance.palletParent.transform;
                     pallet.transform.position = GunGameManeger.Instance.palletHoldPos.transform.position;
-
+                    UXManagerAirPistol.Instance.UXEvents(3);
                     GunGameManeger.Instance.spawnBullet = false;
                 }
             }

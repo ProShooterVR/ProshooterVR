@@ -43,6 +43,7 @@ public class PistolManulRelode : MonoBehaviour
                 GunGameManeger.Instance.touchReloader.SetActive(false);
                 GunGameManeger.Instance.pallatePt.SetActive(true);
 
+                UXManagerAirPistol.Instance.UXEvents(2);
 
 
 
@@ -64,6 +65,7 @@ public class PistolManulRelode : MonoBehaviour
                     GunGameManeger.Instance.audioSrc.PlayOneShot(GunGameManeger.Instance.pistol[1]);
                     GunGameManeger.Instance.touchReloader.SetActive(false);
                     GunGameManeger.Instance.relodePt.SetActive(false);
+                    UXManagerAirPistol.Instance.UXEvents(5);
 
                     Debug.Log("UP");
                 }

@@ -28,7 +28,8 @@ public class pistolPallet : MonoBehaviour
                 GunGameManeger.Instance.touchReloader.SetActive(true);
 
                 GunGameManeger.Instance.pallatePt.SetActive(false);
-
+                
+                UXManagerAirPistol.Instance.UXEvents(4);
                 Debug.Log("working");
                 other.gameObject.SetActive(false);
             }

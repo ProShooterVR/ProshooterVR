@@ -50,6 +50,9 @@ public class PistolUIManager : MonoBehaviour
     public GameObject startBtn, resumeBtn;
     public GameObject scoreScreen;
     public List<GameObject> screenScores;
+
+    public TextMeshProUGUI fadeScore;
+    public GameObject fadeScorObj;
     /// <summary>
     /// ----- Screen calc -----
     /// </summary>
@@ -230,10 +233,15 @@ public class PistolUIManager : MonoBehaviour
         GunGameManeger.Instance.relodePt.SetActive(true);
         GunGameManeger.Instance.spawnBullet = true;
         RayManager.Instance.DisableRey();
-        Debug.Log("Why god why");
+       
 
         clearUIScreen();
         GunGameManeger.Instance.clearScorePanel();
+
+
+        GunGameManeger.Instance.isUXON = true;
+
+        UXManagerAirPistol.Instance.UXEvents(0);
 
     }
     public void resumeBtnClick()
@@ -455,10 +463,10 @@ public class PistolUIManager : MonoBehaviour
             }
         }
 
+     
+        fadeScore.text = finalScore;
 
-
-
-
+        StartCoroutine(playAnim());
         ////------------------------------------------------------------------------------//
 
         //if(weaponManager.Instance.isPistolMode == true)
@@ -551,5 +559,12 @@ public class PistolUIManager : MonoBehaviour
        
 
 
+    }
+
+    IEnumerator playAnim()
+    {
+        fadeScorObj.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        fadeScorObj.SetActive(false);
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LineDrawer : MonoBehaviour
 {
-    public GameObject endPoint;
+    public GameObject startPoint, endPoint;
     private LineRenderer lineRenderer;
 
     void Start()
@@ -12,14 +12,14 @@ public class LineDrawer : MonoBehaviour
         lineRenderer.positionCount = 2;
 
         // Set initial positions
-        lineRenderer.SetPosition(0, this.transform.position);
+        lineRenderer.SetPosition(0, startPoint.transform.position);
         lineRenderer.SetPosition(1, endPoint.transform.position);
     }
 
     void Update()
     {
         // Update line positions in case the connected GameObjects move
-        lineRenderer.SetPosition(0, this.transform.position);
+        lineRenderer.SetPosition(0, startPoint.transform.position);
         lineRenderer.SetPosition(1, endPoint.transform.position);
     }
 }

@@ -78,6 +78,8 @@ public class GunGameManeger : MonoBehaviour
     public bool spawnBullet;
 
     public GameObject rfStandMoveable;
+    internal bool isUXON;
+
     void Awake()
     {
         Instance = this;
@@ -423,6 +425,7 @@ public class GunGameManeger : MonoBehaviour
     }
     public void shotFired(Vector3 pos, float scoreVal, float direction)
     {
+        UXManagerAirPistol.Instance.UXEvents(6);
 
         if (weaponManager.Instance.isPistolMode == true)
         {
