@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8473389133793406183
+--- !u!114 &-9136005830623744201
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/UISFX/2Hits
+  m_Name: event:/Main_Player/Weapons/10MRifle/10MRifle_Open
   m_EditorClassIdentifier: 
-  Path: event:/UISFX/2Hits
+  Path: event:/Main_Player/Weapons/10MRifle/10MRifle_Open
   Guid:
-    Data1: 652531124
-    Data2: 1339892188
-    Data3: -528674422
-    Data4: -1253577152
+    Data1: 972258324
+    Data2: 1200765840
+    Data3: 1986113674
+    Data4: 1702534327
   Banks:
-  - {fileID: 5615561434039973153}
+  - {fileID: 4684954805898425717}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1083
---- !u!114 &-7411815781355869555
+  Length: 109
+--- !u!114 &-9019934504321684185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,51 +37,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Main_Player/Weapons/Pistol_Fire
+  m_Name: event:/UISFX/10m/Error
   m_EditorClassIdentifier: 
-  Path: event:/Main_Player/Weapons/Pistol_Fire
+  Path: event:/UISFX/10m/Error
   Guid:
-    Data1: -1666788370
-    Data2: 1331646454
-    Data3: -569683302
-    Data4: -857355980
+    Data1: 282780504
+    Data2: 1260161522
+    Data3: 2136245149
+    Data4: -714496994
   Banks:
-  - {fileID: 5615561434039973153}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 562
---- !u!114 &-6929774746856059110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/UISFX/Round ends
-  m_EditorClassIdentifier: 
-  Path: event:/UISFX/Round ends
-  Guid:
-    Data1: 1866869669
-    Data2: 1118173984
-    Data3: 1417736085
-    Data4: 1233540084
-  Banks:
-  - {fileID: 5615561434039973153}
+  - {fileID: 4684954805898425717}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 4000
---- !u!114 &-6454377440392891844
+  Length: 201
+--- !u!114 &-5875559376812613062
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,16 +64,124 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/UISFX/5hits
+  m_Name: event:/Music/Main Menu
   m_EditorClassIdentifier: 
-  Path: event:/UISFX/5hits
+  Path: event:/Music/Main Menu
   Guid:
-    Data1: 111484233
-    Data2: 1323160162
-    Data3: -1228332158
-    Data4: 1728591554
+    Data1: 1301683007
+    Data2: 1169004821
+    Data3: 1838421165
+    Data4: 1044593589
   Banks:
-  - {fileID: 5615561434039973153}
+  - {fileID: 4684954805898425717}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5764647714217399407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UISFX/Bad_Shot
+  m_EditorClassIdentifier: 
+  Path: event:/UISFX/Bad_Shot
+  Guid:
+    Data1: -1581102826
+    Data2: 1102700904
+    Data3: 787225247
+    Data4: 18254064
+  Banks:
+  - {fileID: 4684954805898425717}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
+--- !u!114 &-5253251434012248622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Main_Player/Weapons/10MRifle/10MRifle_reload_close
+  m_EditorClassIdentifier: 
+  Path: event:/Main_Player/Weapons/10MRifle/10MRifle_reload_close
+  Guid:
+    Data1: 815322751
+    Data2: 1305137966
+    Data3: -1931795836
+    Data4: 1211698548
+  Banks:
+  - {fileID: 4684954805898425717}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 148
+--- !u!114 &-4001851066931164150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Loading Screen
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Loading Screen
+  Guid:
+    Data1: 726777336
+    Data2: 1126198312
+    Data3: -908617848
+    Data4: -979080178
+  Banks:
+  - {fileID: 4684954805898425717}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3658761646735638359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UISFX/Arcade/3Hits
+  m_EditorClassIdentifier: 
+  Path: event:/UISFX/Arcade/3Hits
+  Guid:
+    Data1: 501363654
+    Data2: 1219963047
+    Data3: 983905415
+    Data4: -192506602
+  Banks:
+  - {fileID: 4684954805898425717}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -108,7 +189,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1250
---- !u!114 &-5944110858728319609
+--- !u!114 &-3608855883111889503
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,24 +199,238 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/Ingame
+  m_Name: event:/Main_Player/Weapons/Arcade/Pistol_Fire
   m_EditorClassIdentifier: 
-  Path: event:/Music/Ingame
+  Path: event:/Main_Player/Weapons/Arcade/Pistol_Fire
   Guid:
-    Data1: -1297761758
-    Data2: 1080959408
-    Data3: -1941492824
-    Data4: -1130160265
+    Data1: -1666788370
+    Data2: 1331646454
+    Data3: -569683302
+    Data4: -857355980
   Banks:
-  - {fileID: 5615561434039973153}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
+  - {fileID: 4684954805898425717}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 36015
---- !u!114 &-5706567267943016574
+  Length: 562
+--- !u!114 &-3541464603376086163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Main_Player/Weapons/10M Pistol/10M_Pistol_Reload_open
+  m_EditorClassIdentifier: 
+  Path: event:/Main_Player/Weapons/10M Pistol/10M_Pistol_Reload_open
+  Guid:
+    Data1: 842265668
+    Data2: 1224537299
+    Data3: -1152479817
+    Data4: -561764644
+  Banks:
+  - {fileID: 4684954805898425717}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 126
+--- !u!114 &-2306842412949016275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Main_Player/Weapons/10M Pistol/10M_PistolFire
+  m_EditorClassIdentifier: 
+  Path: event:/Main_Player/Weapons/10M Pistol/10M_PistolFire
+  Guid:
+    Data1: 1105297814
+    Data2: 1117425842
+    Data3: 1362709670
+    Data4: 903199285
+  Banks:
+  - {fileID: 4684954805898425717}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 448
+--- !u!114 &-1644902112764029299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UISFX/Arcade/2Hits
+  m_EditorClassIdentifier: 
+  Path: event:/UISFX/Arcade/2Hits
+  Guid:
+    Data1: 652531124
+    Data2: 1339892188
+    Data3: -528674422
+    Data4: -1253577152
+  Banks:
+  - {fileID: 4684954805898425717}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1083
+--- !u!114 &-986513055747077081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UISFX/Epic_Shot
+  m_EditorClassIdentifier: 
+  Path: event:/UISFX/Epic_Shot
+  Guid:
+    Data1: -1611537619
+    Data2: 1093007171
+    Data3: 1445460133
+    Data4: 106456069
+  Banks:
+  - {fileID: 4684954805898425717}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1714
+--- !u!114 &-249057248187860239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Main_Player/Weapons/10MRifle/10MRifle_Fire
+  m_EditorClassIdentifier: 
+  Path: event:/Main_Player/Weapons/10MRifle/10MRifle_Fire
+  Guid:
+    Data1: 916717708
+    Data2: 1089089969
+    Data3: -778920031
+    Data4: 390329373
+  Banks:
+  - {fileID: 4684954805898425717}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 540
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 4408769828220700422}
+  - {fileID: 4684954805898425717}
+  EditorEvents:
+  - {fileID: -9136005830623744201}
+  - {fileID: 7565066074681279317}
+  - {fileID: 3709541601824771938}
+  - {fileID: 564456390418328148}
+  - {fileID: -3541464603376086163}
+  - {fileID: 210156137978441083}
+  - {fileID: 920436995527517215}
+  - {fileID: 648174561678150620}
+  - {fileID: 5339130276192742779}
+  - {fileID: 8138331084934645759}
+  - {fileID: -5253251434012248622}
+  - {fileID: -249057248187860239}
+  - {fileID: -2306842412949016275}
+  - {fileID: 4207588144764090286}
+  - {fileID: 2302337148989302901}
+  - {fileID: 7091002947845792994}
+  - {fileID: -1644902112764029299}
+  - {fileID: -3658761646735638359}
+  - {fileID: 2082120671032420820}
+  - {fileID: -3608855883111889503}
+  - {fileID: 3885543800496752521}
+  - {fileID: -5764647714217399407}
+  - {fileID: -986513055747077081}
+  - {fileID: -5875559376812613062}
+  - {fileID: -9019934504321684185}
+  - {fileID: 1339479767271352362}
+  - {fileID: 7774116561920652183}
+  - {fileID: 3398625786510084076}
+  - {fileID: -4001851066931164150}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 4684954805898425717}
+  StringsBanks:
+  - {fileID: 4408769828220700422}
+  cacheTime: 638368712944206296
+  cacheVersion: 131609
+--- !u!114 &210156137978441083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UISFX/Arcade/4hits
+  m_EditorClassIdentifier: 
+  Path: event:/UISFX/Arcade/4hits
+  Guid:
+    Data1: 1993596229
+    Data2: 1147103573
+    Data3: 2058782348
+    Data4: -646129185
+  Banks:
+  - {fileID: 4684954805898425717}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1612
+--- !u!114 &564456390418328148
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,7 +449,7 @@ MonoBehaviour:
     Data3: -312873052
     Data4: 1097049481
   Banks:
-  - {fileID: 5615561434039973153}
+  - {fileID: 4684954805898425717}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -162,7 +457,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2820
---- !u!114 &-5203603227316136746
+--- !u!114 &648174561678150620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,24 +467,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/UISFX/Round begins
+  m_Name: event:/Main_Player/Weapons/10M Pistol/10M_Pistol_Reload_close
   m_EditorClassIdentifier: 
-  Path: event:/UISFX/Round begins
+  Path: event:/Main_Player/Weapons/10M Pistol/10M_Pistol_Reload_close
   Guid:
-    Data1: -1772585363
-    Data2: 1177852486
-    Data3: 1396214425
-    Data4: 1383772382
+    Data1: 280020306
+    Data2: 1129241009
+    Data3: 291852723
+    Data4: -126719863
   Banks:
-  - {fileID: 5615561434039973153}
+  - {fileID: 4684954805898425717}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 4753
---- !u!114 &-3554815572127096746
+  Length: 51
+--- !u!114 &920436995527517215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,24 +494,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Main_Player/Weapons/Shells
+  m_Name: event:/UISFX/Arcade/5hits
   m_EditorClassIdentifier: 
-  Path: event:/Main_Player/Weapons/Shells
+  Path: event:/UISFX/Arcade/5hits
   Guid:
-    Data1: -1833106832
-    Data2: 1160967710
-    Data3: 1496999570
-    Data4: 1700585953
+    Data1: 111484233
+    Data2: 1323160162
+    Data3: -1228332158
+    Data4: 1728591554
   Banks:
-  - {fileID: 5615561434039973153}
+  - {fileID: 4684954805898425717}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 437
---- !u!114 &-358048588842897308
+  Length: 1250
+--- !u!114 &1339479767271352362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,24 +521,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/EndMusic
+  m_Name: event:/UISFX/10m/Info
   m_EditorClassIdentifier: 
-  Path: event:/Music/EndMusic
+  Path: event:/UISFX/10m/Info
   Guid:
-    Data1: -1767717403
-    Data2: 1299704455
-    Data3: -1976233590
-    Data4: 1026270347
+    Data1: 1876786292
+    Data2: 1124877511
+    Data3: 594097584
+    Data4: -1371229894
   Banks:
-  - {fileID: 5615561434039973153}
-  IsStream: 1
+  - {fileID: 4684954805898425717}
+  IsStream: 0
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 15360
---- !u!114 &-314422865107887999
+  Length: 79
+--- !u!114 &2082120671032420820
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,7 +557,7 @@ MonoBehaviour:
     Data3: -1806511682
     Data4: -381073249
   Banks:
-  - {fileID: 5615561434039973153}
+  - {fileID: 4684954805898425717}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -270,7 +565,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 506
---- !u!114 &-272903558472689505
+--- !u!114 &2302337148989302901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -280,24 +575,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/AMB
+  m_Name: event:/Main_Player/Weapons/10M Pistol/Gun_Pickup
   m_EditorClassIdentifier: 
-  Path: event:/AMB
+  Path: event:/Main_Player/Weapons/10M Pistol/Gun_Pickup
   Guid:
-    Data1: 1747644957
-    Data2: 1176609402
-    Data3: 903443590
-    Data4: -464069421
+    Data1: -117502042
+    Data2: 1253283904
+    Data3: 70918528
+    Data4: -570600849
   Banks:
-  - {fileID: 5615561434039973153}
-  IsStream: 1
+  - {fileID: 4684954805898425717}
+  IsStream: 0
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 13639
---- !u!114 &11400000
+  Length: 110
+--- !u!114 &3398625786510084076
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -306,35 +601,106 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UISFX/Decent_Shot
   m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: 974735893332582659}
-  - {fileID: 5615561434039973153}
-  EditorEvents:
-  - {fileID: -272903558472689505}
-  - {fileID: -5944110858728319609}
-  - {fileID: -5706567267943016574}
-  - {fileID: 8956258285982885880}
-  - {fileID: -6454377440392891844}
-  - {fileID: -5203603227316136746}
-  - {fileID: -3554815572127096746}
-  - {fileID: -6929774746856059110}
-  - {fileID: 8537143641508343566}
-  - {fileID: -8473389133793406183}
-  - {fileID: 4253356955115946098}
-  - {fileID: -358048588842897308}
-  - {fileID: -314422865107887999}
-  - {fileID: -7411815781355869555}
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: 5615561434039973153}
-  StringsBanks:
-  - {fileID: 974735893332582659}
-  cacheTime: 638352211504168971
-  cacheVersion: 131609
---- !u!114 &974735893332582659
+  Path: event:/UISFX/Decent_Shot
+  Guid:
+    Data1: -367571760
+    Data2: 1106898469
+    Data3: -860806014
+    Data4: -1664470095
+  Banks:
+  - {fileID: 4684954805898425717}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1714
+--- !u!114 &3709541601824771938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Ingame
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Ingame
+  Guid:
+    Data1: -1297761758
+    Data2: 1080959408
+    Data3: -1941492824
+    Data4: -1130160265
+  Banks:
+  - {fileID: 4684954805898425717}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 36000
+--- !u!114 &3885543800496752521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Scoreboard
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Scoreboard
+  Guid:
+    Data1: -1050381317
+    Data2: 1125286676
+    Data3: -972515173
+    Data4: 512170375
+  Banks:
+  - {fileID: 4684954805898425717}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5624
+--- !u!114 &4207588144764090286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UISFX/Arcade/Round ends
+  m_EditorClassIdentifier: 
+  Path: event:/UISFX/Arcade/Round ends
+  Guid:
+    Data1: 1866869669
+    Data2: 1118173984
+    Data3: 1417736085
+    Data4: 1233540084
+  Banks:
+  - {fileID: 4684954805898425717}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4000
+--- !u!114 &4408769828220700422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -346,42 +712,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: ../../ProShooter VR/Pro Shooter FMOD 1.3/Pro Shooter1.3/Build/Desktop/Master.strings.bank
+  Path: C:/Users/ayodh_r2xv5sq/Downloads/Pro Shooter1.5-20231129T083257Z-001/Pro
+    Shooter1.5/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638352211504168971
+  lastModified: 638368712944206296
   FileSizes:
   - Name: Desktop
-    Value: 1496
+    Value: 2234
   Exists: 1
---- !u!114 &4253356955115946098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/UISFX/3Hits
-  m_EditorClassIdentifier: 
-  Path: event:/UISFX/3Hits
-  Guid:
-    Data1: 501363654
-    Data2: 1219963047
-    Data3: 983905415
-    Data4: -192506602
-  Banks:
-  - {fileID: 5615561434039973153}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1250
---- !u!114 &5615561434039973153
+--- !u!114 &4684954805898425717
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -393,15 +733,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
-  Path: ../../ProShooter VR/Pro Shooter FMOD 1.3/Pro Shooter1.3/Build/Desktop/Master.bank
+  Path: C:/Users/ayodh_r2xv5sq/Downloads/Pro Shooter1.5-20231129T083257Z-001/Pro
+    Shooter1.5/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638352211504158979
+  lastModified: 638368712944166426
   FileSizes:
   - Name: Desktop
-    Value: 1871136
+    Value: 1852832
   Exists: 1
---- !u!114 &8537143641508343566
+--- !u!114 &5339130276192742779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UISFX/Arcade/Round begins
+  m_EditorClassIdentifier: 
+  Path: event:/UISFX/Arcade/Round begins
+  Guid:
+    Data1: -1772585363
+    Data2: 1177852486
+    Data3: 1396214425
+    Data4: 1383772382
+  Banks:
+  - {fileID: 4684954805898425717}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4753
+--- !u!114 &7091002947845792994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -420,7 +788,7 @@ MonoBehaviour:
     Data3: 637338496
     Data4: -914743934
   Banks:
-  - {fileID: 5615561434039973153}
+  - {fileID: 4684954805898425717}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -428,7 +796,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 25
   Length: 895
---- !u!114 &8956258285982885880
+--- !u!114 &7565066074681279317
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -438,20 +806,74 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/UISFX/4hits
+  m_Name: event:/AMB
   m_EditorClassIdentifier: 
-  Path: event:/UISFX/4hits
+  Path: event:/AMB
   Guid:
-    Data1: 1993596229
-    Data2: 1147103573
-    Data3: 2058782348
-    Data4: -646129185
+    Data1: 1747644957
+    Data2: 1176609402
+    Data3: 903443590
+    Data4: -464069421
   Banks:
-  - {fileID: 5615561434039973153}
+  - {fileID: 4684954805898425717}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 13639
+--- !u!114 &7774116561920652183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UISFX/good_Shot
+  m_EditorClassIdentifier: 
+  Path: event:/UISFX/good_Shot
+  Guid:
+    Data1: 1202321045
+    Data2: 1148110599
+    Data3: -1052927300
+    Data4: -1895079676
+  Banks:
+  - {fileID: 4684954805898425717}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1612
+  Length: 1714
+--- !u!114 &8138331084934645759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Main_Player/Weapons/Arcade/Shells
+  m_EditorClassIdentifier: 
+  Path: event:/Main_Player/Weapons/Arcade/Shells
+  Guid:
+    Data1: -1833106832
+    Data2: 1160967710
+    Data3: 1496999570
+    Data4: 1700585953
+  Banks:
+  - {fileID: 4684954805898425717}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 437

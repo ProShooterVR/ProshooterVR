@@ -9,11 +9,15 @@ public class PistolManulRelode : MonoBehaviour
 
     bool isUP, isDown;
 
+    public GameObject ReloadOpen, ReloadClose;
+
     void Start()
     {
         isUP = false;
         isDown = true;
 
+        ReloadOpen.SetActive(false);
+        ReloadClose.SetActive(false);
 
     }
 
@@ -39,7 +43,9 @@ public class PistolManulRelode : MonoBehaviour
 
                 GunGameManeger.Instance.isReloaded = false;
                 GunGameManeger.Instance.isReloading = true;
-                GunGameManeger.Instance.audioSrc.PlayOneShot(GunGameManeger.Instance.pistol[0]);
+                //GunGameManeger.Instance.audioSrc.PlayOneShot(GunGameManeger.Instance.pistol[0]);
+                FmodSetup.Instance.ReloadOpenEvent();
+                //ReloadOpen.SetActive(true);
                 GunGameManeger.Instance.touchReloader.SetActive(false);
                 GunGameManeger.Instance.pallatePt.SetActive(true);
 
@@ -62,7 +68,9 @@ public class PistolManulRelode : MonoBehaviour
 
                     GunGameManeger.Instance.isReloaded = true;
                     GunGameManeger.Instance.isReloading = false;
-                    GunGameManeger.Instance.audioSrc.PlayOneShot(GunGameManeger.Instance.pistol[1]);
+                    //GunGameManeger.Instance.audioSrc.PlayOneShot(GunGameManeger.Instance.pistol[1]);
+                    FmodSetup.Instance.ReloadCloseEvent();
+                    //ReloadClose.SetActive(true);
                     GunGameManeger.Instance.touchReloader.SetActive(false);
                     GunGameManeger.Instance.relodePt.SetActive(false);
                     UXManagerAirPistol.Instance.UXEvents(5);
