@@ -45,6 +45,7 @@ public class RifleManualRelode : MonoBehaviour
 
                 GunGameManeger.Instance.pallatePt.SetActive(true);
 
+                UXManagerAirPistol.Instance.UXEvents(2);
 
 
 
@@ -68,6 +69,8 @@ public class RifleManualRelode : MonoBehaviour
 
                     GunGameManeger.Instance.relodePt.SetActive(false);
                     Debug.Log("UP");
+                    UXManagerAirPistol.Instance.UXEvents(5);
+
                 }
             }
         }

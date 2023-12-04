@@ -49,6 +49,7 @@ public class PistolUIManager : MonoBehaviour
     public GameObject menuPanel;
     public GameObject startBtn, resumeBtn;
     public GameObject scoreScreen;
+    public GameObject uxPanel;
     public List<GameObject> screenScores;
 
     public TextMeshProUGUI fadeScore;
@@ -163,7 +164,20 @@ public class PistolUIManager : MonoBehaviour
 
 
 
-    
+    public void DisbaleUXBtnClick()
+    {
+        uxPanel.SetActive(false);
+        UXManagerAirPistol.Instance.resetUXData();
+        RayManager.Instance.DisableRey();
+        GunGameManeger.Instance.isUXON = false;
+    }
+    public void ensbaleUXBtnClick()
+    {
+        uxPanel.SetActive(false);
+        UXManagerAirPistol.Instance.resetUXData();
+        RayManager.Instance.DisableRey();
+        GunGameManeger.Instance.isUXON = true;
+    }
     public void exitBtnCliked()
     {
         SceneManager.LoadScene("ProShooterVR_Hub", LoadSceneMode.Single);
@@ -367,13 +381,14 @@ public class PistolUIManager : MonoBehaviour
                 if (shotScore < 10.4f)
                 {
                     shotRoundScore = (int)shotScore ;
-
                     finalScore = shotRoundScore.ToString();
+
                 }
                 else if (shotScore >= 10.4f)
                 {
                     finalScore = "10x";
-                    shotRoundScore = 10;
+                    fadeScore.color = Color.blue;
+
                     GunGameManeger.Instance.innerTno++;
                 }
                 else { }
@@ -421,22 +436,31 @@ public class PistolUIManager : MonoBehaviour
             if (shotScore == 0)
             {
                 instructionText.text = Instructions.Poorshot;
+                fadeScore.color = Color.red;
+                fadeScore.text = "MISS";
             }
             else if (shotScore >= 1 && shotScore < 7)
             {
                 instructionText.text = Instructions.Notbad;
+                fadeScore.color = Color.yellow;
             }
             else if (shotScore >= 7 && shotScore < 9)
             {
                 instructionText.text = Instructions.Goodshot;
+                fadeScore.color = Color.green;
+
             }
             else if (shotScore == 9)
             {
                 instructionText.text = Instructions.Almostthere;
+                fadeScore.color = Color.green;
+
             }
             else if (shotScore >= 10)
             {
                 instructionText.text = Instructions.Perfect10;
+                fadeScore.color = Color.blue;
+
             }
         }
         if (weaponManager.Instance.isRifleMode == true)
@@ -444,21 +468,28 @@ public class PistolUIManager : MonoBehaviour
             if (shotRoundScoreRifle == 0)
             {
                 instructionText.text = Instructions.Poorshot;
+                fadeScore.color = Color.red;
+                fadeScore.text = "MISS";
+
             }
             else if (shotRoundScoreRifle >= 1 && shotRoundScoreRifle < 7)
             {
+                fadeScore.color = Color.yellow;
                 instructionText.text = Instructions.Notbad;
             }
             else if (shotRoundScoreRifle >= 7 && shotRoundScoreRifle < 9)
             {
+                fadeScore.color = Color.green;
                 instructionText.text = Instructions.Goodshot;
             }
             else if (shotRoundScoreRifle == 9)
             {
+                fadeScore.color = Color.green;
                 instructionText.text = Instructions.Almostthere;
             }
             else if (shotRoundScoreRifle >= 10)
             {
+                fadeScore.color = Color.blue;
                 instructionText.text = Instructions.Perfect10;
             }
         }
@@ -467,42 +498,7 @@ public class PistolUIManager : MonoBehaviour
         fadeScore.text = finalScore;
 
         StartCoroutine(playAnim());
-        ////------------------------------------------------------------------------------//
 
-        //if(weaponManager.Instance.isPistolMode == true)
-        //{
-        //    if(shotScore >= 10.4 && shotScore < 10.9)
-        //    {
-        //        shotScore = shotScore * LiveUserDataManager.Instance.zoneAMulti;
-        //    }else if(shotScore >= 7 && shotScore < 10.4)
-        //    {
-        //        shotScore = shotScore * LiveUserDataManager.Instance.zoneBMulti;
-
-        //    }
-        //    else if (shotScore >= 1 && shotScore < 7)
-        //    {
-        //        shotScore = shotScore * LiveUserDataManager.Instance.zoneCMulti;
-
-        //    }
-        //}
-        //if (weaponManager.Instance.isRifleMode == true)
-        //{
-        //    if (shotRoundScoreRifle >= 10.4 && shotScore < 10.9)
-        //    {
-        //        shotRoundScoreRifle = shotRoundScoreRifle * LiveUserDataManager.Instance.zoneAMulti;
-        //    }
-        //    else if (shotRoundScoreRifle >= 7 && shotRoundScoreRifle < 10.4)
-        //    {
-        //        shotRoundScoreRifle = shotRoundScoreRifle * LiveUserDataManager.Instance.zoneBMulti;
-
-        //    }
-        //    else if (shotRoundScoreRifle >= 1 && shotRoundScoreRifle < 7)
-        //    {
-        //        shotRoundScoreRifle = shotRoundScoreRifle * LiveUserDataManager.Instance.zoneCMulti;
-
-        //    }
-        //}
-        ////--------------------------------------------------------------------------------//
         GameObject placedObject = Instantiate(ScreenobjectToPlace, screenCenter.transform.position, Quaternion.identity, screen.transform);
 
         Vector3 scle = screenCenter.transform.localScale;
@@ -556,15 +552,26 @@ public class PistolUIManager : MonoBehaviour
 
             screenScores.Add(placedObject);
 
-       
-
-
     }
 
+    public void missedShots()
+    {
+        fadeScore.color = Color.red;
+        fadeScore.text = "X";
+
+        StartCoroutine(playAnim());
+
+    }
     IEnumerator playAnim()
     {
         fadeScorObj.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         fadeScorObj.SetActive(false);
+        yield return new WaitForSeconds(1f);
+
+        if (GunGameManeger.Instance.isUXON == true)
+        {
+            UXManagerAirPistol.Instance.Lables[1].SetActive(true);
+        }
     }
 }

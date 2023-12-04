@@ -9,15 +9,12 @@ public class PistolManulRelode : MonoBehaviour
 
     bool isUP, isDown;
 
-    public GameObject ReloadOpen, ReloadClose;
 
     void Start()
     {
         isUP = false;
         isDown = true;
 
-        ReloadOpen.SetActive(false);
-        ReloadClose.SetActive(false);
 
     }
 

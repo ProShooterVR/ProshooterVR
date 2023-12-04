@@ -40,6 +40,11 @@ public class LerpToTarget : MonoBehaviour
             {
                 StartLerping();
                 isLerp = false;
+                if (isUXCalled == true)
+                {
+                    UXManagerAirPistol.Instance.UXEvents(0);
+                    isUXCalled = false;
+                }
             }
         }
         if (gunObj.GetComponent<Grabbable>().BeingHeld == true)

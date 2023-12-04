@@ -138,11 +138,9 @@ public class GunGameManeger : MonoBehaviour
 
             if (isRankedMode == true)
             {
-                //noOfShotsFired = 0 ;
+              
                 pistolObj.GetComponent<RaycastWeapon>().ReloadMethod = ReloadType.InfiniteAmmo;
-                //pistolObj.GetComponent<RaycastWeapon>().InternalAmmo = 30;
-
-                // scorePanels = new GameObject[3];
+            
                 noOfShotsFired = 0;
                 shotsFired = 0;
                 timeRemaining = 900f;
@@ -286,24 +284,7 @@ public class GunGameManeger : MonoBehaviour
             float seconds = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime % 60);
             GunDataManager.Instance.totalTimeSpent = string.Format("{0:00}:{1:00}", minutes, seconds);
            
-            
-            //// Modify score to send to backend ////
-            
-            //if(LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.amateur)
-            //{
-            //    GunDataManager.Instance.totalGameScorePistol = GunDataManager.Instance.totalGameScorePistol * LiveUserDataManager.Instance.amateurValue;
-            //}
-            //else if(LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.semi_pro)
-            //{
-            //    GunDataManager.Instance.totalGameScorePistol = GunDataManager.Instance.totalGameScorePistol * LiveUserDataManager.Instance.semiProValue;
-
-            //}
-            //else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.pro)
-            //{
-            //    GunDataManager.Instance.totalGameScorePistol = GunDataManager.Instance.totalGameScorePistol * LiveUserDataManager.Instance.proValue;
-
-            //}
-
+         
             if (isRankedMode == true)
             {
                 LocalUserDataManager.Instance.totalScorePistol = LocalUserDataManager.Instance.totalScorePistol + gameTotalScore;
@@ -426,6 +407,7 @@ public class GunGameManeger : MonoBehaviour
     public void shotFired(Vector3 pos, float scoreVal, float direction)
     {
         UXManagerAirPistol.Instance.UXEvents(6);
+        
 
         if (weaponManager.Instance.isPistolMode == true)
         {

@@ -1,3 +1,4 @@
+using NovaSamples.Inventory;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,9 +25,11 @@ public class UXManagerAirPistol : MonoBehaviour
     {
         isUXSeen = false;
         resetUXData();
+        Highlights[2].SetActive(false);
+
     }
 
-    void resetUXData()
+    public void resetUXData()
     {
        for(int i = 0; i< Highlights.Length; i++)
         {
@@ -52,6 +55,7 @@ public class UXManagerAirPistol : MonoBehaviour
             switch (count)
             {
                 case 0:
+                    resetUXData();
                     Highlights[0].GetComponent<Outline>().enabled = true;
                     Lables[0].SetActive(true);
                     break;
@@ -76,13 +80,22 @@ public class UXManagerAirPistol : MonoBehaviour
                 case 5:
                     Lables[4].SetActive(false);
                     Lables[5].SetActive(true);
+                    Highlights[2].SetActive(true);
                     Highlights[2].GetComponent<Outline>().enabled = true;
                     break;
                 case 6:
+                    Highlights[2].SetActive(false);
                     Highlights[2].GetComponent<Outline>().enabled = false;
                     Lables[5].SetActive(false);
                     Lables[6].SetActive(true);
-                   
+
+                    if (GunGameManeger.Instance.noOfShotsFired == 2)
+                    {
+                        resetUXData();
+                        RayManager.Instance.EnableRey();
+                        PistolUIManager.Instance.settingPopUp.SetActive(true);
+                        PistolUIManager.Instance.uxPanel.SetActive(true);
+                    }
                     break;
             }
         }
