@@ -23,7 +23,16 @@ public class UXManagerAirPistol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isUXSeen = false;
+        if (LocalUserDataManager.Instance.isUXSaved == 1)
+        {
+            isUXSeen = true;
+
+        }
+        else
+        {
+            isUXSeen = false;
+        }
+       
         resetUXData();
         Highlights[2].SetActive(false);
 

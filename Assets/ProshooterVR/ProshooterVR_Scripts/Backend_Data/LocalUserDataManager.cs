@@ -48,6 +48,10 @@ public class LocalUserDataManager : MonoBehaviour
     public string pbest_10mAirR_AmaTxt, pbest_10mAirR_SemPTxt, pbest_10mAirR_ProTxt;
     public string pbest_25mRF_AmaTxt, pbest_25mRF_SemPTxt, pbest_25mRF_ProTxt;
 
+    //user settings data
+    public bool isGrabRotaionSaved;
+    public int isUXSaved;
+    public Quaternion grabRotationAirPistol;
 
     public enum gamerLevel
     {
@@ -71,8 +75,8 @@ public class LocalUserDataManager : MonoBehaviour
     {
         startTime = DateTime.Now;
         isAggrDone = false;
-        metaID = "6889892497704835";
-        meta_username = "Trickerion";
+       // metaID = "6889892497704835";
+       // meta_username = "Trickerion";
     }
 
     // Update is called once per frame

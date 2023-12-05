@@ -7,6 +7,7 @@ using System;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using UnityEngine.Networking;
+using SimpleJSON;
 
 namespace ProshooterVR
 {
@@ -30,14 +31,22 @@ namespace ProshooterVR
         /// All the required api list and the links START
         /// </summary>
         /// Test API
-       // private string createUserAPI = "http://54.201.154.149/api/user/createuser";
-       // private string fetchUserProfileInfo = "http://54.201.154.149/api/user/getuserinfobymetaid/";
-       // private string insertgamedata = "http://54.201.154.149/api/user/insertgamedata";
+        private string createUserAPI = "http://54.201.154.149/api/user/createuser";
+        private string fetchUserProfileInfo = "http://54.201.154.149/api/user/getuserinfobymetaid/";
+        private string insertgamedata = "http://54.201.154.149/api/user/insertgamedata";
+        private string fetchUserSettings = "http://54.201.154.149/api/user/getusersettings/";
+        private string updateusersettings = "http://54.201.154.149/api/user/updateusersettings/";
+
+
 
         // prod API
-          private string createUserAPI = "http://15.206.116.210/api/user/createuser";
-          private string fetchUserProfileInfo = "http://15.206.116.210/api/user/getuserinfobymetaid/";
-          private string insertgamedata = "http://15.206.116.210/api/user/insertgamedata";
+        // private string createUserAPI = "http://15.206.116.210/api/user/createuser";
+        /// private string fetchUserProfileInfo = "http://15.206.116.210/api/user/getuserinfobymetaid/";
+        /// private string insertgamedata = "http://15.206.116.210/api/user/insertgamedata";
+        //private string fetchUserSettings = "http://15.206.116.210/api/user/getusersettings/";
+        // private string updateusersettings = "http://15.206.116.210/api/user/updateusersettings/";
+        //
+        /// 
 
         string accessToken = "PROSHOOTERVR @$#PRO#$@";
         /// <summary>
@@ -46,14 +55,15 @@ namespace ProshooterVR
         /// </summary>
         private void Start()
         {
-            
-
+            getUserSettings(LocalUserDataManager.Instance.metaID);
         }
 
         public void Initialise_BackendDAta()
         {
 
             SaveMetaInfo(LocalUserDataManager.Instance.metaID, LocalUserDataManager.Instance.meta_username);
+            getUserSettings(LocalUserDataManager.Instance.metaID);
+
 
         }
 
@@ -294,6 +304,161 @@ namespace ProshooterVR
 
         }
 
+
+        /// <summary>
+        /// Fetch Profile data                                          Start ---------------------------------------------------
+        /// </summary>
+        /// <returns></returns>
+        public void getUserSettings(string metaID)
+        {
+            StartCoroutine(FetchUserSettings(metaID));
+        }
+
+        public IEnumerator FetchUserSettings(string metaid)
+        {
+
+
+
+            // Create a UnityWebRequest with the desired HTTP method (GET in this case)
+            UnityWebRequest request = UnityWebRequest.Get(fetchUserSettings + metaid);
+
+            // Set the request headers
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            // Set the download handler to handle the response
+            request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+
+            request.SetRequestHeader("authorization", accessToken);
+
+            // Send the request and wait for the response
+            yield return request.SendWebRequest();
+
+            // Check for errors
+            if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
+            {
+                Debug.LogError(request.error);
+            }
+            else
+            {
+                // Request was successful, map JSON directly to a class
+                string jsonString = request.downloadHandler.text;
+                Debug.Log(jsonString);
+
+                JSONNode data = JSON.Parse(jsonString);
+
+                LocalUserDataManager.Instance.grabRotationAirPistol.x = float.Parse(data["results"]["rotation_x"]);
+                LocalUserDataManager.Instance.grabRotationAirPistol.y = float.Parse(data["results"]["rotation_y"]);
+                LocalUserDataManager.Instance.grabRotationAirPistol.z = float.Parse(data["results"]["rotation_z"]);
+                LocalUserDataManager.Instance.grabRotationAirPistol.w = float.Parse(data["results"]["rotation_w"]);
+                LocalUserDataManager.Instance.isUXSaved = int.Parse(data["results"]["ux_help"]);
+
+                Debug.Log(data["results"]["ux_help"]);
+
+                // PlayerData PlayerDataObj = JsonUtility.FromJson<PlayerData>(jsonString);
+
+
+                // LocalUserDataManager.Instance.userNameTxt = PlayerDataObj.;
+
+
+
+                // Now you can access class fields directly
+                // Debug.Log(PlayerData.meta_unique_id);
+
+                // Add more lines as needed for other fields
+            }
+
+
+        }
+
+       public void saveGripAdjustmentSettings(Quaternion data)
+        {
+            StartCoroutine(saveGripAdjustment(data));
+        }
+
+        IEnumerator saveGripAdjustment(Quaternion data)
+        {
+           
+            // Create a new dictionary to store meta_id and meta_name
+            Dictionary<string, object> metaData = new Dictionary<string, object>
+            {
+                { "rotation_x", data.x},
+                { "rotation_y", data.y},
+                { "rotation_z", data.z},
+                { "rotation_w", data.w},
+            };
+
+            string JSONdata = JsonConvert.SerializeObject(metaData);
+
+
+            UnityWebRequest request = UnityWebRequest.Put(updateusersettings+LocalUserDataManager.Instance.metaID, JSONdata);
+            request.method = "PATCH";
+            request.SetRequestHeader("authorization", accessToken);
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            // Set the default download buffer
+            request.downloadHandler = new DownloadHandlerBuffer();
+
+            // Send the request itself
+            yield return request.SendWebRequest();
+           
+
+                if (request.isNetworkError || request.isHttpError)
+                {
+                    Debug.Log("EROORR :: " + request.error);
+                }
+                else
+                {
+                    Debug.Log("Form upload complete!");
+                }
+          
+        }
+
+
+        //////
+        ///
+
+        public void saveUXSettings(int val)
+        {
+            StartCoroutine(saveUXAdjustment(val));
+        }
+
+        IEnumerator saveUXAdjustment(int data)
+        {
+
+            // Create a new dictionary to store meta_id and meta_name
+            Dictionary<string, object> metaData = new Dictionary<string, object>
+            {
+                { "ux_help", data}
+            };
+
+            string JSONdata = JsonConvert.SerializeObject(metaData);
+
+
+            UnityWebRequest request = UnityWebRequest.Put(updateusersettings + LocalUserDataManager.Instance.metaID, JSONdata);
+            request.method = "PATCH";
+            request.SetRequestHeader("authorization", accessToken);
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            // Set the default download buffer
+            request.downloadHandler = new DownloadHandlerBuffer();
+
+            // Send the request itself
+            yield return request.SendWebRequest();
+
+
+            if (request.isNetworkError || request.isHttpError)
+            {
+                Debug.Log("EROORR :: " + request.error);
+            }
+            else
+            {
+                Debug.Log("Form upload complete!");
+            }
+
+        }
+
+        /////
+        //
     }
 
     public class PlayerData

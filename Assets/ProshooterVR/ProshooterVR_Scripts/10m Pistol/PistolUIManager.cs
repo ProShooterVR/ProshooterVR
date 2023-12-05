@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using BNG;
 using System;
 using NovaSamples.Inventory;
+using ProshooterVR;
 public static class Instructions
 {
     public static readonly string Notbad = "NOT BAD";
@@ -80,6 +81,8 @@ public class PistolUIManager : MonoBehaviour
     public bool rfStandMove;
     public bool isReyOn;
 
+    public GameObject rightHandController;
+
     private void Awake()
     {
         Instance = this;
@@ -105,8 +108,10 @@ public class PistolUIManager : MonoBehaviour
         //startBtnClick();
         Debug.Log(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         instructionText.text = "";
-        
 
+      //  
+
+        
 
 
     }
@@ -136,17 +141,7 @@ public class PistolUIManager : MonoBehaviour
             
 
         }
-        if (weaponManager.Instance.isRifleMode == true)
-        {
-            if (InputBridge.Instance.BButtonDown == true)
-            {
-                GunGameManeger.Instance.rfStandMoveable.transform.Rotate(0, 10f, 0);
-            }
-            if (InputBridge.Instance.AButtonDown == true)
-            {
-                GunGameManeger.Instance.rfStandMoveable.transform.Rotate(0, -10f, 0);
-            }
-        }
+        
         //if (InputBridge.Instance.LeftTriggerDown == true)
         //{
         //    Debug.Log("calleed click");
@@ -170,6 +165,7 @@ public class PistolUIManager : MonoBehaviour
         UXManagerAirPistol.Instance.resetUXData();
         RayManager.Instance.DisableRey();
         GunGameManeger.Instance.isUXON = false;
+        DBAPIManagerNew.Instance.saveUXSettings(1);
     }
     public void ensbaleUXBtnClick()
     {
@@ -200,6 +196,15 @@ public class PistolUIManager : MonoBehaviour
 
     }
 
+    public void gameSettingsButtonClicked()
+    {
+        rightHandController.GetComponent<HandRotation>().enabled = true;
+        rightHandController.GetComponent<HandRotation>().onEnter();
+        UXManagerAirPistol.Instance.resetUXData();
+        settingPopUp.SetActive(false);
+        RayManager.Instance.DisableRey();
+
+    }
     public void HelpPopupCloseButton()
     {
         helpPopUp.SetActive(false);

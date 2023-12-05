@@ -124,6 +124,21 @@ public class GunGameManeger : MonoBehaviour
 
 
             }
+
+            ////
+            if (LocalUserDataManager.Instance.grabRotationAirPistol.x == 0 &&
+          LocalUserDataManager.Instance.grabRotationAirPistol.y == 0 &&
+          LocalUserDataManager.Instance.grabRotationAirPistol.z == 0 &&
+          LocalUserDataManager.Instance.grabRotationAirPistol.w == 0)
+            {
+                Debug.Log("New settings");
+            }
+            else
+            {
+               
+                loadSavedRotation(LocalUserDataManager.Instance.grabRotationAirPistol);
+            }
+            ////
         }
         if (weaponManager.Instance.isRifleMode == true)
         {
@@ -175,6 +190,11 @@ public class GunGameManeger : MonoBehaviour
       //  PistolUIManager.Instance.startBtnClick();
 
 
+    }
+
+    void loadSavedRotation(Quaternion mySavedRotation )
+    {
+       PistolUIManager.Instance.rightHandController.transform.localRotation = mySavedRotation;
     }
 
     // Update is called once per frame
