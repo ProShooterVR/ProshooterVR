@@ -165,7 +165,7 @@ public class PistolUIManager : MonoBehaviour
         UXManagerAirPistol.Instance.resetUXData();
         RayManager.Instance.DisableRey();
         GunGameManeger.Instance.isUXON = false;
-        DBAPIManagerNew.Instance.saveUXSettings(1);
+        DBAPIManagerNew.Instance.saveUXSettings(false);
     }
     public void ensbaleUXBtnClick()
     {
@@ -258,7 +258,6 @@ public class PistolUIManager : MonoBehaviour
         GunGameManeger.Instance.clearScorePanel();
 
 
-        GunGameManeger.Instance.isUXON = true;
 
         UXManagerAirPistol.Instance.UXEvents(0);
 
@@ -391,6 +390,7 @@ public class PistolUIManager : MonoBehaviour
                 }
                 else if (shotScore >= 10.4f)
                 {
+                    shotRoundScore = (int)shotScore;
                     finalScore = "10x";
                     fadeScore.color = Color.blue;
 
@@ -433,7 +433,8 @@ public class PistolUIManager : MonoBehaviour
             Debug.Log("Final score : "+finalScore);
         }
 
-       
+        fadeScore.text = finalScore;
+
         Debug.Log("shotScore : " + shotScore + " || shotRoundScore : " + shotRoundScoreRifle);
 
         if (weaponManager.Instance.isPistolMode == true)
@@ -443,29 +444,32 @@ public class PistolUIManager : MonoBehaviour
                 instructionText.text = Instructions.Poorshot;
                 fadeScore.color = Color.red;
                 fadeScore.text = "MISS";
+                FmodSetup.Instance.BadShotEvent();
             }
             else if (shotScore >= 1 && shotScore < 7)
             {
                 instructionText.text = Instructions.Notbad;
                 fadeScore.color = Color.yellow;
+                FmodSetup.Instance.DecentShotEvent();
             }
             else if (shotScore >= 7 && shotScore < 9)
             {
                 instructionText.text = Instructions.Goodshot;
                 fadeScore.color = Color.green;
+                FmodSetup.Instance.GoodShotEvent();
 
             }
             else if (shotScore == 9)
             {
                 instructionText.text = Instructions.Almostthere;
                 fadeScore.color = Color.green;
-
+                FmodSetup.Instance.GoodShotEvent();
             }
             else if (shotScore >= 10)
             {
                 instructionText.text = Instructions.Perfect10;
                 fadeScore.color = Color.blue;
-
+                FmodSetup.Instance.EpicShotEvent();
             }
         }
         if (weaponManager.Instance.isRifleMode == true)
@@ -500,7 +504,6 @@ public class PistolUIManager : MonoBehaviour
         }
 
      
-        fadeScore.text = finalScore;
 
         StartCoroutine(playAnim());
 
@@ -569,6 +572,7 @@ public class PistolUIManager : MonoBehaviour
     }
     IEnumerator playAnim()
     {
+        yield return new WaitForSeconds(0.2f);
         fadeScorObj.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         fadeScorObj.SetActive(false);

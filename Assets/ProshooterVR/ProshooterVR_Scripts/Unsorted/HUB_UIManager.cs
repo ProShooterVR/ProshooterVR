@@ -26,6 +26,7 @@ public class HUB_UIManager : MonoBehaviour
     public TextMeshPro userNameTxtMainMenu;
 
     public GameObject gameModeSubMenu, arcadeSubMenu;
+    public GameObject assistedGudSubMenu;
     /// <summary>
     /// User Profile data local save
     /// </summary>
@@ -66,6 +67,8 @@ public class HUB_UIManager : MonoBehaviour
         gameModeUI.SetActive(false);
         tutorailUI.SetActive(false);
         settingUI.SetActive(false);
+        assistedGudSubMenu.SetActive(false);
+
         levelUI.SetActive(false);
         playBtn.SetActive(false);
         levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
@@ -82,8 +85,10 @@ public class HUB_UIManager : MonoBehaviour
         tutorailUI.SetActive(false);
         userProfileUI.SetActive(false);
         gameModeSubMenu.SetActive(true);
+        settingUI.SetActive(false);
         arcadeSubMenu.SetActive(false);
         levelUI.SetActive(true);
+        assistedGudSubMenu.SetActive(false);
 
         myGameType = gameType.match;
     }
@@ -91,7 +96,8 @@ public class HUB_UIManager : MonoBehaviour
     public void PracticeBtnClicked()
     {
         levelUI.SetActive(true);
-
+        assistedGudSubMenu.SetActive(false);
+        settingUI.SetActive(false);
         gameModeUI.SetActive(true);
         tutorailUI.SetActive(false);
         gameModeSubMenu.SetActive(true);
@@ -102,6 +108,7 @@ public class HUB_UIManager : MonoBehaviour
     public void AracadeBtnClicked()
     {
         levelUI.SetActive(false);
+        assistedGudSubMenu.SetActive(false);
 
         gameModeUI.SetActive(false);
         tutorailUI.SetActive(false);
@@ -117,6 +124,7 @@ public class HUB_UIManager : MonoBehaviour
         gameModeUI.SetActive(false);
         tutorailUI.SetActive(false);
         userProfileUI.SetActive(false);
+        arcadeSubMenu.SetActive(false);
 
     }
     public void profileBtnClicked()
@@ -126,7 +134,33 @@ public class HUB_UIManager : MonoBehaviour
         userProfileUI.SetActive(true);
 
     }
+    public void assistedBtnClicked()
+    {
+        assistedGudSubMenu.SetActive(true);
+        settingUI.SetActive(false);
+        if(LocalUserDataManager.Instance.isUXSaved == true)
+        {
+            assistedGudSubMenu.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
+        }
+        else
+        {
+            assistedGudSubMenu.GetComponent<CustomButtonNavigator>().onButtonClicked(1);
 
+        }
+    }
+
+    public void assistedGuidEnable()
+    {
+        DBAPIManagerNew.Instance.saveUXSettings(true);
+        LocalUserDataManager.Instance.isUXSaved = true;
+    }
+
+    public void assistedGuidDisable()
+    {
+        DBAPIManagerNew.Instance.saveUXSettings(false);
+        LocalUserDataManager.Instance.isUXSaved = false;
+
+    }
     public void update_playerProfileData()
     {
         userNameTxt.text = LocalUserDataManager.Instance.userNameTxt;
@@ -199,6 +233,13 @@ public class HUB_UIManager : MonoBehaviour
     {
         userProfileUI.SetActive(false);
         mainUI.SetActive(true);
+    }
+
+    public void closeAssistesGud()
+    {
+        assistedGudSubMenu.SetActive(false);
+        settingUI.SetActive(true);
+
     }
 
     public void tutorialBtnClicked()

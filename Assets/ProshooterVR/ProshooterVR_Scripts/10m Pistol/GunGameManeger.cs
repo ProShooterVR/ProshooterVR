@@ -78,7 +78,7 @@ public class GunGameManeger : MonoBehaviour
     public bool spawnBullet;
 
     public GameObject rfStandMoveable;
-    internal bool isUXON;
+    public bool isUXON;
 
     void Awake()
     {
@@ -94,7 +94,7 @@ public class GunGameManeger : MonoBehaviour
         isGamePause = true;
         palletPos = palletObj.transform.position;
         GunGameManeger.Instance.tempPallet.SetActive(false);
-
+        isUXON = LocalUserDataManager.Instance.isUXSaved;
 
         if (weaponManager.Instance.isPistolMode == true)
         {
@@ -103,7 +103,6 @@ public class GunGameManeger : MonoBehaviour
                 pistolObj.GetComponent<RaycastWeapon>().ReloadMethod = ReloadType.InfiniteAmmo;
                 PistolUIManager.Instance.timerValue.gameObject.SetActive(true);
                 PistolUIManager.Instance.timerValue.text = "-- : --";
-                GunDataManager.Instance.gameMode = "10m Air Pistol PracticeMode - " + LocalUserDataManager.Instance.SelectedGameLevel;
                 shotsFired = 0;
             }
 
@@ -120,7 +119,6 @@ public class GunGameManeger : MonoBehaviour
                 PistolUIManager.Instance.timerValue.gameObject.SetActive(true);
                 PistolUIManager.Instance.currentSeriesScoreTxt.gameObject.SetActive(true);
                 Debug.Log("Rankded mode");
-                GunDataManager.Instance.gameMode = "10m Air Pistol Match Mode - " + LocalUserDataManager.Instance.SelectedGameLevel;
 
 
             }
@@ -147,7 +145,6 @@ public class GunGameManeger : MonoBehaviour
                 pistolObj.GetComponent<RaycastWeapon>().ReloadMethod = ReloadType.InfiniteAmmo;
                 PistolUIManager.Instance.timerValue.gameObject.SetActive(true);
                 PistolUIManager.Instance.timerValue.text = "-- : --";
-                GunDataManager.Instance.gameMode = "10m Air Rifle PracticeMode - " + LocalUserDataManager.Instance.SelectedGameLevel;
                 shotsFired = 0;
             }
 
@@ -162,7 +159,6 @@ public class GunGameManeger : MonoBehaviour
                 PistolUIManager.Instance.timerValue.gameObject.SetActive(true);
                 PistolUIManager.Instance.currentSeriesScoreTxt.gameObject.SetActive(true);
                 Debug.Log("Rankded mode");
-                GunDataManager.Instance.gameMode = "10m Air Rifle Match Mode - " + LocalUserDataManager.Instance.SelectedGameLevel;
 
 
             }
@@ -491,7 +487,7 @@ public class GunGameManeger : MonoBehaviour
                         }
                         if (shotsFired == 10)
                         {
-                            gameTotalScore = gameTotalScore + Totalscore + innerTno;
+                            gameTotalScore = gameTotalScore + Totalscore;
 
                             seriesCount++;
                             shotsFired = 0;
@@ -568,7 +564,7 @@ public class GunGameManeger : MonoBehaviour
                         }
                         if (shotsFired == 10)
                         {
-                            gameTotalScore = gameTotalScore + Totalscore + innerTno;
+                            gameTotalScore = gameTotalScore + Totalscore;
 
                             seriesCount++;
                             shotsFired = 0;
@@ -739,7 +735,7 @@ public class GunGameManeger : MonoBehaviour
                         }
                         if (shotsFired == 10)
                         {
-                            gameTotalScoreRifle = gameTotalScoreRifle + TotalScoreRifle + innerTno;
+                            gameTotalScoreRifle = gameTotalScoreRifle + TotalScoreRifle ;
 
                             seriesCount++;
                             shotsFired = 0;

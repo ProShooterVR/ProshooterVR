@@ -222,7 +222,7 @@ namespace ProshooterVR
             {
                 { "meta_unique_id", LocalUserDataManager.Instance.metaID },
                 { "game_mode",  gameMode},
-                { "difficulty_level", LocalUserDataManager.Instance.SelectedGameLevel },
+                { "difficulty_level", LocalUserDataManager.Instance.SelectedGameLevel},
                 { "30_shots_score", ScoresPistol},
                 { "average_score",GunDataManager.Instance.avgSrScorePistol },
                 { "no_of_inner_shots",GunDataManager.Instance.noOfInnerTens },
@@ -350,7 +350,7 @@ namespace ProshooterVR
                 LocalUserDataManager.Instance.grabRotationAirPistol.y = float.Parse(data["results"]["rotation_y"]);
                 LocalUserDataManager.Instance.grabRotationAirPistol.z = float.Parse(data["results"]["rotation_z"]);
                 LocalUserDataManager.Instance.grabRotationAirPistol.w = float.Parse(data["results"]["rotation_w"]);
-                LocalUserDataManager.Instance.isUXSaved = int.Parse(data["results"]["ux_help"]);
+                LocalUserDataManager.Instance.isUXSaved = bool.Parse(data["results"]["ux_help"]);
 
                 Debug.Log(data["results"]["ux_help"]);
 
@@ -417,12 +417,12 @@ namespace ProshooterVR
         //////
         ///
 
-        public void saveUXSettings(int val)
+        public void saveUXSettings(bool val)
         {
             StartCoroutine(saveUXAdjustment(val));
         }
 
-        IEnumerator saveUXAdjustment(int data)
+        IEnumerator saveUXAdjustment(bool data)
         {
 
             // Create a new dictionary to store meta_id and meta_name
