@@ -80,7 +80,7 @@ public class PistolUIManager : MonoBehaviour
 
     public bool rfStandMove;
     public bool isReyOn;
-
+    public GameObject gripAdjustUI;
     public GameObject rightHandController;
 
     private void Awake()
@@ -91,6 +91,10 @@ public class PistolUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (weaponManager.Instance.isPistolMode == true)
+        {
+            gripAdjustUI.SetActive(false);
+        }
         btnCnt = 0;
         screenScores = new List<GameObject>();
         screenscoreOff = Vector3.Distance(screenCenter.transform.localPosition, screenEnd.transform.localPosition)/100;
@@ -198,11 +202,18 @@ public class PistolUIManager : MonoBehaviour
 
     public void gameSettingsButtonClicked()
     {
+        gripAdjustUI.SetActive(true);
+        menuPanel.SetActive(false);
+
+    }
+
+    public void gripAdjustBtnCLick()
+    {
         rightHandController.GetComponent<HandRotation>().enabled = true;
         rightHandController.GetComponent<HandRotation>().onEnter();
         UXManagerAirPistol.Instance.resetUXData();
-        settingPopUp.SetActive(false);
         RayManager.Instance.DisableRey();
+        gripAdjustUI.SetActive(false);
 
     }
     public void HelpPopupCloseButton()
