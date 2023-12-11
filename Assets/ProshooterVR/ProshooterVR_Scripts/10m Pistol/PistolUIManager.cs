@@ -81,6 +81,7 @@ public class PistolUIManager : MonoBehaviour
     public bool rfStandMove;
     public bool isReyOn;
     public GameObject gripAdjustUI;
+    public GameObject startMsgUI;
     public GameObject rightHandController;
 
     private void Awake()
@@ -95,6 +96,21 @@ public class PistolUIManager : MonoBehaviour
         {
             gripAdjustUI.SetActive(false);
         }
+        if(GunGameManeger.Instance.isRankedMode == true)
+        {
+            startMsgUI.SetActive(true);
+            menuPanel.SetActive(false);
+        }
+        if (GunGameManeger.Instance.isRankedMode == false)
+        {
+            startMsgUI.SetActive(false);
+            menuPanel.SetActive(true);
+            startBtn.SetActive(true);
+            resumeBtn.SetActive(false);
+            scoreScreen.SetActive(false);
+            endSessionPopup.SetActive(false);
+        }
+
         btnCnt = 0;
         screenScores = new List<GameObject>();
         screenscoreOff = Vector3.Distance(screenCenter.transform.localPosition, screenEnd.transform.localPosition)/100;
@@ -104,11 +120,8 @@ public class PistolUIManager : MonoBehaviour
         PistolUIManager.Instance.shotsMissText.text = "0";
         setSwitch = false;
        // settingPopUp.SetActive(false);
-        menuPanel.SetActive(true);
-        startBtn.SetActive(true);
-        resumeBtn.SetActive(false);
-        scoreScreen.SetActive(false);
-        endSessionPopup.SetActive(false);
+       // menuPanel.SetActive(true);
+       
         //startBtnClick();
         Debug.Log(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         instructionText.text = "";
@@ -162,7 +175,11 @@ public class PistolUIManager : MonoBehaviour
     }
 
 
-
+    public void okayStartBtnClick()
+    {
+        startMsgUI.SetActive(false);
+        menuPanel.SetActive(true);
+    }
     public void DisbaleUXBtnClick()
     {
         uxPanel.SetActive(false);
