@@ -507,27 +507,31 @@ public class PistolUIManager : MonoBehaviour
                 instructionText.text = Instructions.Poorshot;
                 fadeScore.color = Color.red;
                 fadeScore.text = "MISS";
-
+                FmodSetup.Instance.BadShotEvent();
             }
             else if (shotRoundScoreRifle >= 1 && shotRoundScoreRifle < 7)
             {
                 fadeScore.color = Color.yellow;
                 instructionText.text = Instructions.Notbad;
+                FmodSetup.Instance.DecentShotEvent();
             }
             else if (shotRoundScoreRifle >= 7 && shotRoundScoreRifle < 9)
             {
                 fadeScore.color = Color.green;
                 instructionText.text = Instructions.Goodshot;
+                FmodSetup.Instance.GoodShotEvent();
             }
             else if (shotRoundScoreRifle == 9)
             {
                 fadeScore.color = Color.green;
                 instructionText.text = Instructions.Almostthere;
+                FmodSetup.Instance.GoodShotEvent();
             }
             else if (shotRoundScoreRifle >= 10)
             {
                 fadeScore.color = Color.blue;
                 instructionText.text = Instructions.Perfect10;
+                FmodSetup.Instance.EpicShotEvent();
             }
         }
 

@@ -114,10 +114,7 @@ public class ArcadeGameUIManager : MonoBehaviour
                 ArcadeGameUIManager.Instance.userPosOnLeaderBoardData.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = leaderboardJson["leaderboardResults"][i]["ranks"];
                 ArcadeGameUIManager.Instance.userPosOnLeaderBoardData.transform.GetChild(3).gameObject.GetComponent<TextMeshPro>().text = leaderboardJson["leaderboardResults"][i]["meta_quest_username"];
                 ArcadeGameUIManager.Instance.userPosOnLeaderBoardData.transform.GetChild(4).gameObject.GetComponent<TextMeshPro>().text = leaderboardJson["leaderboardResults"][i]["total_game_score"];
-
-
             }
-
 
             Debug.Log(leaderboardJson["leaderboardResults"][i]["total_game_score"]);
         }
