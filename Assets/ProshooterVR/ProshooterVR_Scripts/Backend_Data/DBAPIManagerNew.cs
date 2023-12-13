@@ -56,6 +56,8 @@ namespace ProshooterVR
         private void Start()
         {
             getUserSettings(LocalUserDataManager.Instance.metaID);
+
+
         }
 
         public void Initialise_BackendDAta()

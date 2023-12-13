@@ -32,7 +32,7 @@ public class LocalUserDataManager : MonoBehaviour
     private DateTime startTime;
 
     public string selectedGameMode, SelectedGameLevel;
-    public int totalScorePistol,totalInnerTens,personalAmaBestPistol,personalSemiProBestPistol, personalProBestPistol;
+    public int totalScorePistol,totalInnerTens;
     public List<Dictionary<string, object>> Leaders;
 
     //Rifle Data
@@ -75,8 +75,8 @@ public class LocalUserDataManager : MonoBehaviour
     {
         startTime = DateTime.Now;
         isAggrDone = false;
-       // metaID = "6889892497704835";
-       //  meta_username = "Trickerion";
+        metaID = "6889892497704835";
+        meta_username = "Trickerion";
     }
 
     // Update is called once per frame

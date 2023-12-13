@@ -140,6 +140,8 @@ public class UXManagerAirPistol : MonoBehaviour
                         RayManager.Instance.EnableRey();
                         PistolUIManager.Instance.settingPopUp.SetActive(true);
                         PistolUIManager.Instance.uxPanel.SetActive(true);
+                        PistolUIManager.Instance.isOtherUIOpen = true;
+
                     }
                     break;
             }

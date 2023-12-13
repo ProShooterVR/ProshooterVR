@@ -7,6 +7,7 @@ using BNG;
 using System;
 using NovaSamples.Inventory;
 using ProshooterVR;
+using Nova;
 public static class Instructions
 {
     public static readonly string Notbad = "NOT BAD";
@@ -83,6 +84,9 @@ public class PistolUIManager : MonoBehaviour
     public GameObject gripAdjustUI;
     public GameObject startMsgUI;
     public GameObject rightHandController;
+    public GameObject progresBar;
+    public bool isOtherUIOpen;
+    public TextMeshPro shotsLeftTxt;
 
     private void Awake()
     {
@@ -92,6 +96,7 @@ public class PistolUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isOtherUIOpen = false;
         if (weaponManager.Instance.isPistolMode == true)
         {
             gripAdjustUI.SetActive(false);
@@ -100,6 +105,8 @@ public class PistolUIManager : MonoBehaviour
         {
             startMsgUI.SetActive(true);
             menuPanel.SetActive(false);
+            isOtherUIOpen = true;
+
         }
         if (GunGameManeger.Instance.isRankedMode == false)
         {
@@ -125,10 +132,10 @@ public class PistolUIManager : MonoBehaviour
         //startBtnClick();
         Debug.Log(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         instructionText.text = "";
-
+        shotsLeftTxt.text = "30";
       //  
 
-        
+
 
 
     }
@@ -144,34 +151,37 @@ public class PistolUIManager : MonoBehaviour
 
         if (InputBridge.Instance.StartButtonDown == true || InputBridge.Instance.BackButton == true || Input.GetKeyDown("space"))
         {
-           if(setSwitch == false)
+            if (isOtherUIOpen == false)
             {
-                settingPopUp.SetActive(true);
-                endSessionPopup.SetActive(false);
-                endMatchPopUp.SetActive(false);
-                menuPanel.SetActive(true);
-                RayManager.Instance.EnableRey();
+                if (setSwitch == false)
+                {
+                    settingPopUp.SetActive(true);
+                    endSessionPopup.SetActive(false);
+                    endMatchPopUp.SetActive(false);
+                    menuPanel.SetActive(true);
+                    RayManager.Instance.EnableRey();
 
-                GunGameManeger.Instance.isGamePause = true;
-                setSwitch = true;
+                    GunGameManeger.Instance.isGamePause = true;
+                    setSwitch = true;
+                }
             }
-            
+
+
+
+            //if (InputBridge.Instance.LeftTriggerDown == true)
+            //{
+            //    Debug.Log("calleed click");
+            //}
+            //if (InputBridge.Instance.YButtonDown == true)
+            //{
+            //    helpPopUp.SetActive(true);
+            //    settingPopUp.SetActive(false);
+            //    endSessionPopup.SetActive(false);
+            //    endMatchPopUp.SetActive(false);
+            //    GunGameManeger.Instance.isGamePause = true;
+            //}
 
         }
-        
-        //if (InputBridge.Instance.LeftTriggerDown == true)
-        //{
-        //    Debug.Log("calleed click");
-        //}
-        if (InputBridge.Instance.YButtonDown == true)
-        {
-            helpPopUp.SetActive(true);
-            settingPopUp.SetActive(false);
-            endSessionPopup.SetActive(false);
-            endMatchPopUp.SetActive(false);
-            GunGameManeger.Instance.isGamePause = true;
-        }
-
     }
 
 
@@ -185,15 +195,20 @@ public class PistolUIManager : MonoBehaviour
         uxPanel.SetActive(false);
         UXManagerAirPistol.Instance.resetUXData();
         RayManager.Instance.DisableRey();
-        GunGameManeger.Instance.isUXON = false;
-        DBAPIManagerNew.Instance.saveUXSettings(false);
+        GunGameManeger.Instance.isUXON = true;
+        PistolUIManager.Instance.isOtherUIOpen = false;
+
     }
     public void ensbaleUXBtnClick()
     {
         uxPanel.SetActive(false);
         UXManagerAirPistol.Instance.resetUXData();
         RayManager.Instance.DisableRey();
-        GunGameManeger.Instance.isUXON = true;
+        GunGameManeger.Instance.isUXON = false;
+        PistolUIManager.Instance.isOtherUIOpen = false;
+        DBAPIManagerNew.Instance.saveUXSettings(true);
+
+
     }
     public void exitBtnCliked()
     {
@@ -386,11 +401,36 @@ public class PistolUIManager : MonoBehaviour
                 Destroy(screenScores[i]);
             }
         }
+        
         prevPlaced = null;
+    }
+
+    public void clearProgressBar()
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            progresBar.transform.GetChild(i).GetComponent<UIBlock2D>().Color = HexToColor("#737171");
+
+        }
+    }
+    Color HexToColor(string hex)
+    {
+        Color color = Color.black;
+        if (ColorUtility.TryParseHtmlString(hex, out color))
+        {
+            return color;
+        }
+        else
+        {
+            Debug.LogError("Invalid hex color format: " + hex);
+            return Color.black; // Default color (black) in case of an error
+        }
     }
     public void updateShotScreen(Vector3 pos, float scoreVal, float direction)
     {
-        if(scoreVal < 1)
+        progresBar.transform.GetChild(GunGameManeger.Instance.noOfShotsFired).GetComponent<UIBlock2D>().Color = HexToColor("#FF9F0A");
+        shotsLeftTxt.text = (30 - GunGameManeger.Instance.noOfShotsFired).ToString();
+        if (scoreVal < 1)
         {
             shotScore = 0;
             shotRoundScore = 0;
@@ -558,9 +598,10 @@ public class PistolUIManager : MonoBehaviour
 
         placedObject.transform.localPosition = pos;
 
-       
 
-        angle = direction - 180;
+        Debug.Log(" before :: " + direction);
+
+        angle = direction - 45;
         Debug.Log(" Aft :: " + angle);
 
         placedObject.transform.parent = resetParent.transform;

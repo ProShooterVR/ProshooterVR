@@ -46,8 +46,8 @@ public class pistolPopUPUIManager : MonoBehaviour
 
         placedObject.transform.localPosition = pos;
 
-        float angle = direction - 180;
-        Debug.Log(" Aft :: " + angle);
+        float angle = direction - 135;
+        //Debug.Log(" Aft :: " + angle);
 
         placedObject.transform.parent = resetParent.transform;
         placedObject.transform.localScale = resetShotPos.transform.localScale;

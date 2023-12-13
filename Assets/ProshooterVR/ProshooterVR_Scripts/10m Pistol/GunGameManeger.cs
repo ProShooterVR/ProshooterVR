@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Nova;
 using NovaSamples.Inventory;
 using ProshooterVR;
+using System.Collections;
 
 public class GunGameManeger : MonoBehaviour
 {
@@ -77,7 +78,6 @@ public class GunGameManeger : MonoBehaviour
     public GameObject palletPrefab,tempPallet, palletHoldPos,palletParent;
     public bool spawnBullet;
 
-    public GameObject rfStandMoveable;
     public bool isUXON;
 
     void Awake()
@@ -133,7 +133,6 @@ public class GunGameManeger : MonoBehaviour
             }
             else
             {
-               
                 loadSavedRotation(LocalUserDataManager.Instance.grabRotationAirPistol);
             }
             ////
@@ -238,7 +237,8 @@ public class GunGameManeger : MonoBehaviour
                     {
                         Debug.Log("calling the end session");
 
-                        UpdateMatchData();
+                        // UpdateMatchData();
+                        StartCoroutine(upadateEndGamePopUP());
                         isMatchDataUpdated = true;
                     }
                 }
@@ -251,6 +251,12 @@ public class GunGameManeger : MonoBehaviour
 
     }
 
+    IEnumerator upadateEndGamePopUP() 
+    {
+        yield return new WaitForSeconds(2f);
+        UpdateMatchData();
+
+    }
 
     // update all the Game History Here
     void UpdateMatchData()
@@ -281,7 +287,49 @@ public class GunGameManeger : MonoBehaviour
             pistolPopUPUIManager.Instance.shotsmissTxt.text = noShotMissed.ToString("F1"); 
             pistolPopUPUIManager.Instance.timeSpentTxt.text = totalGameTime.ToString("F1");
 
-           
+            if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.amateur)
+            {
+                if (int.Parse(LocalUserDataManager.Instance.pbest_10mAirP_AmaTxt) < gameTotalScore)
+                {
+                    GunDataManager.Instance.personalAmaBestRifle = gameTotalScoreRifle;
+                    GunDataManager.Instance.personalGameBestRifle = gameTotalScoreRifle;
+                    pistolPopUPUIManager.Instance.pBestScoreTxt.text = gameTotalScoreRifle.ToString();
+
+                }
+                else
+                {
+                    pistolPopUPUIManager.Instance.pBestScoreTxt.text = LocalUserDataManager.Instance.pbest_10mAirP_AmaTxt;
+                }
+            }
+            else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.semi_pro)
+            {
+                if (int.Parse(LocalUserDataManager.Instance.pbest_10mAirP_SemPTxt) < gameTotalScore)
+                {
+                    GunDataManager.Instance.personalSemiProBestRifle = gameTotalScoreRifle;
+                    GunDataManager.Instance.personalGameBestRifle = gameTotalScoreRifle;
+                    pistolPopUPUIManager.Instance.pBestScoreTxt.text = gameTotalScoreRifle.ToString();
+
+                }
+                else
+                {
+                    pistolPopUPUIManager.Instance.pBestScoreTxt.text = LocalUserDataManager.Instance.pbest_10mAirP_SemPTxt.ToString();
+                }
+            }
+            else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.pro)
+            {
+                if (int.Parse(LocalUserDataManager.Instance.pbest_10mAirP_ProTxt) < gameTotalScore)
+                {
+                    GunDataManager.Instance.personalProBestRifle = gameTotalScoreRifle;
+                    GunDataManager.Instance.personalGameBestRifle = gameTotalScoreRifle;
+                    pistolPopUPUIManager.Instance.pBestScoreTxt.text = gameTotalScoreRifle.ToString();
+
+
+                }
+                else
+                {
+                    pistolPopUPUIManager.Instance.pBestScoreTxt.text = LocalUserDataManager.Instance.pbest_10mAirP_ProTxt.ToString();
+                }
+            }
 
 
             // Add data to Data manager
@@ -335,28 +383,45 @@ public class GunGameManeger : MonoBehaviour
 
             if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.amateur)
             {
-                if (GunDataManager.Instance.personalAmaBestPistol < gameTotalScore)
+                if (float.Parse(LocalUserDataManager.Instance.pbest_10mAirR_AmaTxt) < gameTotalScoreRifle)
                 {
                     GunDataManager.Instance.personalAmaBestRifle = gameTotalScoreRifle;
                     GunDataManager.Instance.personalGameBestRifle = gameTotalScoreRifle;
+                    pistolPopUPUIManager.Instance.pBestScoreTxt.text = gameTotalScoreRifle.ToString();
+
+                }
+                else
+                {
+                    pistolPopUPUIManager.Instance.pBestScoreTxt.text = LocalUserDataManager.Instance.pbest_10mAirR_AmaTxt.ToString();
                 }
             }
             else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.semi_pro)
             {
-                if (GunDataManager.Instance.personalSemiProBestPistol < gameTotalScore)
+                if (float.Parse(LocalUserDataManager.Instance.pbest_10mAirR_SemPTxt) < gameTotalScoreRifle)
                 {
                     GunDataManager.Instance.personalSemiProBestRifle = gameTotalScoreRifle;
                     GunDataManager.Instance.personalGameBestRifle = gameTotalScoreRifle;
+                    pistolPopUPUIManager.Instance.pBestScoreTxt.text = gameTotalScoreRifle.ToString();
 
+                }
+                else
+                {
+                    pistolPopUPUIManager.Instance.pBestScoreTxt.text = LocalUserDataManager.Instance.pbest_10mAirR_SemPTxt.ToString();
                 }
             }
             else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.pro)
             {
-                if (GunDataManager.Instance.personalProBestPistol < gameTotalScore)
+                if (float.Parse(LocalUserDataManager.Instance.pbest_10mAirR_ProTxt) < gameTotalScoreRifle)
                 {
                     GunDataManager.Instance.personalProBestRifle = gameTotalScoreRifle;
                     GunDataManager.Instance.personalGameBestRifle = gameTotalScoreRifle;
+                    pistolPopUPUIManager.Instance.pBestScoreTxt.text = gameTotalScoreRifle.ToString();
 
+
+                }
+                else
+                {
+                    pistolPopUPUIManager.Instance.pBestScoreTxt.text = LocalUserDataManager.Instance.pbest_10mAirR_ProTxt.ToString();
                 }
             }
 
@@ -377,24 +442,7 @@ public class GunGameManeger : MonoBehaviour
             float seconds = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime % 60);
             GunDataManager.Instance.totalTimeSpent = string.Format("{0:00}:{1:00}", minutes, seconds);
 
-            //// Modify score to send to backend ////
-
-            //if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.amateur)
-            //{
-            //    GunDataManager.Instance.totalGameScoreRifle = GunDataManager.Instance.totalGameScoreRifle * LiveUserDataManager.Instance.amateurValue;
-            //}
-            //else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.semi_pro)
-            //{
-            //    GunDataManager.Instance.totalGameScoreRifle = GunDataManager.Instance.totalGameScoreRifle * LiveUserDataManager.Instance.semiProValue;
-
-            //}
-            //else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.pro)
-            //{
-            //    GunDataManager.Instance.totalGameScoreRifle = GunDataManager.Instance.totalGameScoreRifle * LiveUserDataManager.Instance.proValue;
-
-            //}
-
-            ////
+          
 
            
             if (isRankedMode == true)
@@ -417,6 +465,7 @@ public class GunGameManeger : MonoBehaviour
             PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(i).GetChild(2).gameObject.SetActive(false);
             PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(i).GetChild(2).gameObject.transform.Rotate(0, 0, 0);
         }
+
         PistolUIManager.Instance.clearShotScreen();
         Debug.Log("called Screen clear");
     }
@@ -446,8 +495,8 @@ public class GunGameManeger : MonoBehaviour
 
                         PistolUIManager.Instance.currentShotScore.text = PistolUIManager.Instance.finalScore;
                         PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.SetActive(true);
-                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.transform.Rotate(1, 1, PistolUIManager.Instance.angle);
-
+                        PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.transform.Rotate(1, 1, -PistolUIManager.Instance.angle);
+                        Debug.Log("Rotation Z : "+PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(shotsFired).GetChild(2).gameObject.transform.rotation.z);
                         GunDataManager.Instance.ScoresPistol[noOfShotsFired] = PistolUIManager.Instance.shotRoundScore;
 
                         Totalscore = Totalscore + PistolUIManager.Instance.shotRoundScore;
@@ -487,7 +536,7 @@ public class GunGameManeger : MonoBehaviour
                         }
                         if (shotsFired == 10)
                         {
-                            gameTotalScore = gameTotalScore + Totalscore;
+                            gameTotalScore = matchTotalScore;
 
                             seriesCount++;
                             shotsFired = 0;
@@ -564,7 +613,7 @@ public class GunGameManeger : MonoBehaviour
                         }
                         if (shotsFired == 10)
                         {
-                            gameTotalScore = gameTotalScore + Totalscore;
+                            gameTotalScore = matchTotalScore;
 
                             seriesCount++;
                             shotsFired = 0;
@@ -653,7 +702,7 @@ public class GunGameManeger : MonoBehaviour
                         }
                         if (shotsFired == 10)
                         {
-                            gameTotalScoreRifle = gameTotalScoreRifle + TotalScoreRifle + innerTno;
+                            gameTotalScoreRifle = matchTotalScoreRifle;
 
                             seriesCount++;
                             shotsFired = 0;
@@ -735,7 +784,9 @@ public class GunGameManeger : MonoBehaviour
                         }
                         if (shotsFired == 10)
                         {
-                            gameTotalScoreRifle = gameTotalScoreRifle + TotalScoreRifle ;
+                            //gameTotalScoreRifle = gameTotalScoreRifle + TotalScoreRifle ;
+                            gameTotalScoreRifle = matchTotalScoreRifle;
+
 
                             seriesCount++;
                             shotsFired = 0;

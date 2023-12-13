@@ -1329,10 +1329,6 @@ MonoBehaviour:
   pbest_25mRF_ProTxt: {fileID: 3345954725609702496}
   profilebuttonNameTxt: {fileID: 1665633906}
   profileBtnImg: {fileID: 2146821007}
-  MainLeaderBoardRow: {fileID: 4934858579370562750, guid: d6386bf796e717b49a31ad49bd177b7e,
-    type: 3}
-  MainLeaderBoardRowParent: {fileID: 595018890674432418}
-  userPosOnMainLeaderBoardData: {fileID: 8268494987717238584}
 --- !u!1 &216654139
 GameObject:
   m_ObjectHideFlags: 0
@@ -47032,7 +47028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &2967729691009848877
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -54210,7 +54206,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 25m Rapid Fire
+  m_text: '25m Rapid Fire
+
+    [ BETA ]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 91746cd754d5ed84188242f1f1a519ed, type: 2}
   m_sharedMaterial: {fileID: -4190258476315376023, guid: 91746cd754d5ed84188242f1f1a519ed,
@@ -54238,8 +54236,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 0.8
+  m_fontSizeBase: 0.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
