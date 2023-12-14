@@ -110,7 +110,10 @@ public class PistolUIManager : MonoBehaviour
         }
         if (GunGameManeger.Instance.isRankedMode == false)
         {
-            startMsgUI.SetActive(false);
+            if (GunGameManeger.Instance.isRankedMode == true)
+            { 
+                startMsgUI.SetActive(false); 
+            }
             menuPanel.SetActive(true);
             startBtn.SetActive(true);
             resumeBtn.SetActive(false);
@@ -189,6 +192,7 @@ public class PistolUIManager : MonoBehaviour
     {
         startMsgUI.SetActive(false);
         menuPanel.SetActive(true);
+        isOtherUIOpen = false;
     }
     public void DisbaleUXBtnClick()
     {
@@ -429,7 +433,7 @@ public class PistolUIManager : MonoBehaviour
     public void updateShotScreen(Vector3 pos, float scoreVal, float direction)
     {
         progresBar.transform.GetChild(GunGameManeger.Instance.noOfShotsFired).GetComponent<UIBlock2D>().Color = HexToColor("#FF9F0A");
-        shotsLeftTxt.text = (30 - GunGameManeger.Instance.noOfShotsFired).ToString();
+        shotsLeftTxt.text = (30 - (GunGameManeger.Instance.noOfShotsFired+1)).ToString();
         if (scoreVal < 1)
         {
             shotScore = 0;
@@ -467,8 +471,12 @@ public class PistolUIManager : MonoBehaviour
                 else { }
                 shotScore = Mathf.Floor(shotScore);
 
+                Debug.Log(" before :: " + direction);
+
+                angle = direction - 45;
+                Debug.Log(" Aft :: " + angle);
                 ////// Precision zone multiplayer
-                
+
             }
             if (weaponManager.Instance.isRifleMode == true)
             {
@@ -497,6 +505,11 @@ public class PistolUIManager : MonoBehaviour
                     finalScore = shotScore + "x";
                 }
                 else { }
+
+                Debug.Log(" before :: " + direction);
+
+                angle = direction - 45;
+                Debug.Log(" Aft :: " + angle);
             }
             Debug.Log("Final score : "+finalScore);
         }
@@ -599,10 +612,7 @@ public class PistolUIManager : MonoBehaviour
         placedObject.transform.localPosition = pos;
 
 
-        Debug.Log(" before :: " + direction);
-
-        angle = direction - 45;
-        Debug.Log(" Aft :: " + angle);
+        
 
         placedObject.transform.parent = resetParent.transform;
         placedObject.transform.localScale = resetShotPos.transform.localScale;

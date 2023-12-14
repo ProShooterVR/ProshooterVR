@@ -99,7 +99,7 @@ public class UXManagerAirPistol : MonoBehaviour
 
                    // Lables[1].SetActive(false);
                    // Lables[2].SetActive(true);
-                    Highlights[1].GetComponent<Outline>().enabled = true;
+                   // Highlights[1].GetComponent<Outline>().enabled = true;
                     break;
                 case 3:
                     labelToOn(3);
@@ -121,12 +121,12 @@ public class UXManagerAirPistol : MonoBehaviour
 
                    // Lables[4].SetActive(false);
                   //  Lables[5].SetActive(true);
-                    Highlights[2].SetActive(true);
-                    Highlights[2].GetComponent<Outline>().enabled = true;
+                    Highlights[1].SetActive(true);
+                    Highlights[1].GetComponent<Outline>().enabled = true;
                     break;
                 case 6:
-                    Highlights[2].SetActive(false);
-                    Highlights[2].GetComponent<Outline>().enabled = false;
+                    Highlights[1].SetActive(false);
+                    Highlights[1].GetComponent<Outline>().enabled = false;
 
                     labelToOn(6);
 
