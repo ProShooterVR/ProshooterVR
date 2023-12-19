@@ -39,8 +39,8 @@ public class RapidFireUIManager : MonoBehaviour
     public TextMeshPro currentSrScoreTxt;
     public TextMeshPro shotOnTargetTxt,shotMissedTxt;
     public TextMeshPro roundTxt,seriesTxt;
-    public TextMeshPro r1ScoreTxt,r2ScoreTxt,totalGameScoreTxt;
-    public GameObject round1Lble, round2Lble;
+    public TextMeshPro r1ScoreTxt,r2ScoreTxt, r3ScoreTxt, totalGameScoreTxt;
+    public GameObject round1Lble, round2Lble, round3Lble;
 
     [SerializeField]
     private GameObject helpPopUp;
@@ -97,7 +97,7 @@ public class RapidFireUIManager : MonoBehaviour
 
     public void ClearSeriesScreen()
     {
-        for (int j = 0; j < 3; j++)
+        for (int j = 0; j < 2; j++)
         {
             for (int i = 0; i < 5; i++)
             {
@@ -106,9 +106,8 @@ public class RapidFireUIManager : MonoBehaviour
         }
          
 
+        roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = "";
         roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(3).gameObject.GetComponent<TextMeshPro>().text = "";
-        roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(4).gameObject.GetComponent<TextMeshPro>().text = "";
-        roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(5).gameObject.GetComponent<TextMeshPro>().text = "";
 
     }
 
@@ -134,13 +133,7 @@ public class RapidFireUIManager : MonoBehaviour
 
 
         }
-        else if (RapidFireGunManager.Instance.SeriesCounter == 3)
-        {
-            RapidFireGunManager.Instance.series3Score = 0;
-            roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(5).gameObject.GetComponent<TextMeshPro>().text = "0";
-
-
-        }
+        
         currentSrScoreTxt.text = "0";
 
     }
@@ -237,8 +230,13 @@ public class RapidFireUIManager : MonoBehaviour
             }
             if (RapidFireGunManager.Instance.stageCounter == 1)
             {
-                RapidFireGunManager.Instance.series4Score = RapidFireGunManager.Instance.series4Score + (int)shotScore;
-                roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(3).gameObject.GetComponent<TextMeshPro>().text = RapidFireGunManager.Instance.series4Score.ToString();
+                RapidFireGunManager.Instance.series3Score = RapidFireGunManager.Instance.series3Score + (int)shotScore;
+                roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(3).gameObject.GetComponent<TextMeshPro>().text = RapidFireGunManager.Instance.series3Score.ToString();
+            }
+            if (RapidFireGunManager.Instance.stageCounter == 2)
+            {
+                RapidFireGunManager.Instance.series5Score = RapidFireGunManager.Instance.series5Score + (int)shotScore;
+                roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(3).gameObject.GetComponent<TextMeshPro>().text = RapidFireGunManager.Instance.series5Score.ToString();
             }
             //sr1ScoreTxt = roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(3).gameObject.GetComponent<TextMeshPro>();
         }
@@ -261,60 +259,52 @@ public class RapidFireUIManager : MonoBehaviour
             if (RapidFireGunManager.Instance.stageCounter == 1)
             {
 
-                RapidFireGunManager.Instance.series5Score = RapidFireGunManager.Instance.series5Score + (int)shotScore;
-                roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(4).gameObject.GetComponent<TextMeshPro>().text = RapidFireGunManager.Instance.series5Score.ToString();
+                RapidFireGunManager.Instance.series4Score = RapidFireGunManager.Instance.series4Score + (int)shotScore;
+                roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(4).gameObject.GetComponent<TextMeshPro>().text = RapidFireGunManager.Instance.series4Score.ToString();
+
+            }
+            if (RapidFireGunManager.Instance.stageCounter == 2)
+            {
+
+                RapidFireGunManager.Instance.series6Score = RapidFireGunManager.Instance.series6Score + (int)shotScore;
+                roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(4).gameObject.GetComponent<TextMeshPro>().text = RapidFireGunManager.Instance.series6Score.ToString();
 
             }
 
+            if (RapidFireGunManager.Instance.stageCounter == 0)
+            {
+                roundTxt.text = "Round 1";
+                RapidFireGunManager.Instance.round1Score = RapidFireGunManager.Instance.round1Score + (int)shotScore;
+                r1ScoreTxt.text = RapidFireGunManager.Instance.round1Score.ToString();
+                RapidFireGunManager.Instance.totalGameScore = RapidFireGunManager.Instance.totalGameScore + (int)shotScore;
+                totalGameScoreTxt.text = RapidFireGunManager.Instance.totalGameScore.ToString();
+            }
+            else if (RapidFireGunManager.Instance.stageCounter == 1)
+            {
+                roundTxt.text = "Round 2";
 
-            //   sr2ScoreTxt = roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(4).gameObject.GetComponent<TextMeshPro>();
+                RapidFireGunManager.Instance.round2Score = RapidFireGunManager.Instance.round2Score + (int)shotScore;
+                r2ScoreTxt.text = RapidFireGunManager.Instance.round2Score.ToString();
+                RapidFireGunManager.Instance.totalGameScore = RapidFireGunManager.Instance.totalGameScore + (int)shotScore;
+                totalGameScoreTxt.text = RapidFireGunManager.Instance.totalGameScore.ToString();
+
+            }
+            else if (RapidFireGunManager.Instance.stageCounter == 2)
+            {
+                roundTxt.text = "Round 3";
+
+                RapidFireGunManager.Instance.round3Score = RapidFireGunManager.Instance.round3Score + (int)shotScore;
+                r3ScoreTxt.text = RapidFireGunManager.Instance.round3Score.ToString();
+                RapidFireGunManager.Instance.totalGameScore = RapidFireGunManager.Instance.totalGameScore + (int)shotScore;
+                totalGameScoreTxt.text = RapidFireGunManager.Instance.totalGameScore.ToString();
+
+            }
 
 
         }
        
-        if (RapidFireGunManager.Instance.SeriesCounter == 3)
-        {
-            seriesTxt.text = "Series 3";
-
-            Debug.Log("33333333333" + screenNo);
-
-            roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(2).transform.GetChild(screenNo).gameObject.GetComponent<TextMeshPro>().text = shotScore.ToString();
-
-            if (RapidFireGunManager.Instance.stageCounter == 0)
-            {
-                RapidFireGunManager.Instance.series3Score = RapidFireGunManager.Instance.series3Score + (int)shotScore;
-                roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(5).gameObject.GetComponent<TextMeshPro>().text = RapidFireGunManager.Instance.series3Score.ToString();
-
-            }
-            if (RapidFireGunManager.Instance.stageCounter == 1)
-            {
-                RapidFireGunManager.Instance.series6Score = RapidFireGunManager.Instance.series6Score + (int)shotScore;
-                roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(5).gameObject.GetComponent<TextMeshPro>().text = RapidFireGunManager.Instance.series6Score.ToString();
-
-            }
-
-            //sr3ScoreTxt = roundDisplay[RapidFireGunManager.Instance.stageCounter].transform.GetChild(5).gameObject.GetComponent<TextMeshPro>();
-
-        }
-
-        if (RapidFireGunManager.Instance.stageCounter == 0)
-        {
-            roundTxt.text = "Round 1";
-            RapidFireGunManager.Instance.round1Score = RapidFireGunManager.Instance.round1Score + (int)shotScore;
-            r1ScoreTxt.text = RapidFireGunManager.Instance.round1Score.ToString();
-            RapidFireGunManager.Instance.totalGameScore = RapidFireGunManager.Instance.totalGameScore + (int)shotScore;
-            totalGameScoreTxt.text = RapidFireGunManager.Instance.totalGameScore.ToString();
-        }
-        else if (RapidFireGunManager.Instance.stageCounter == 1)
-        {
-            roundTxt.text = "Round 2";
-
-            RapidFireGunManager.Instance.round2Score = RapidFireGunManager.Instance.round2Score + (int)shotScore;
-            r2ScoreTxt.text = RapidFireGunManager.Instance.round2Score.ToString();
-            RapidFireGunManager.Instance.totalGameScore = RapidFireGunManager.Instance.totalGameScore + (int)shotScore;
-            totalGameScoreTxt.text = RapidFireGunManager.Instance.totalGameScore.ToString();
-
-        }
+       
+        
 
         //screenScores.Add(placedObject);
 

@@ -291,8 +291,8 @@ public class GunGameManeger : MonoBehaviour
             {
                 if (int.Parse(LocalUserDataManager.Instance.pbest_10mAirP_AmaTxt) < gameTotalScore)
                 {
-                    GunDataManager.Instance.personalAmaBestRifle = gameTotalScoreRifle;
-                    GunDataManager.Instance.personalGameBestRifle = gameTotalScoreRifle;
+                    GunDataManager.Instance.personalAmaBestPistol = gameTotalScore;
+                    GunDataManager.Instance.personalGameBestPistol = gameTotalScore;
                     pistolPopUPUIManager.Instance.pBestScoreTxt.text = gameTotalScoreRifle.ToString();
 
                 }

@@ -42,7 +42,7 @@ public class LerpToTarget : MonoBehaviour
                 isLerp = false;
                 if (isUXCalled == true)
                 {
-                    UXManagerAirPistol.Instance.UXEvents(0);
+                   // UXManagerAirPistol.Instance.UXEvents(0);
                     isUXCalled = false;
                 }
             }
@@ -52,7 +52,7 @@ public class LerpToTarget : MonoBehaviour
             isLerp = true;
             if(isUXCalled == false)
             {
-                UXManagerAirPistol.Instance.UXEvents(1);
+              //  UXManagerAirPistol.Instance.UXEvents(1);
                 isUXCalled = true;
             }
         }

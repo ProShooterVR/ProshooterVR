@@ -74,8 +74,11 @@ public class pistolPopUPUIManager : MonoBehaviour
             { 
                 placedObject.SetActive(false);
             }
-            screenScores.Add(placedObject);
-            placedObject.SetActive(false);
+            else {
+                screenScores.Add(placedObject);
+                placedObject.SetActive(false);
+            }
+            
         }
 
 

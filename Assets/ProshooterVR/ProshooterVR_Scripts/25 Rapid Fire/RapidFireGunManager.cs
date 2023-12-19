@@ -52,8 +52,8 @@ public class RapidFireGunManager : MonoBehaviour
     public int series4Score, series5Score, series6Score;
 
     public int currentSeriesScore;
-    public float sr1Timer, sr2Timer, sr3Timer,restTimer;
-    public int round1Score, round2Score;
+    public float round1Timer, round2Timer, round3Timer,restTimer;
+    public int round1Score, round2Score, round3Score;
     public int totalGameScore;
 
     public int shotsOnTarget, shotsMissed;
@@ -62,9 +62,9 @@ public class RapidFireGunManager : MonoBehaviour
     {
         load,
         attention,
-        sr1,
-        sr2,
-        sr3,
+        round1,
+        round2,
+        round3,
         end
     }
 
@@ -97,9 +97,14 @@ public class RapidFireGunManager : MonoBehaviour
         series1Score = 0;
         series2Score = 0;
         series3Score = 0;
+        series4Score = 0;
+        series5Score = 0;
+        series6Score = 0;
         currentSeriesScore = 0;
         round1Score = 0;
         round2Score = 0;
+        round3Score = 0;
+
         totalGameScore = 0;
         callInGameSounds = false;
     }
@@ -113,6 +118,8 @@ public class RapidFireGunManager : MonoBehaviour
         {
             RapidFireUIManager.Instance.round1Lble.SetActive(true);
             RapidFireUIManager.Instance.round2Lble.SetActive(false);
+            RapidFireUIManager.Instance.round3Lble.SetActive(false);
+
 
             RapidFireUIManager.Instance.roundDisplay[0].SetActive(true);
             RapidFireUIManager.Instance.roundDisplay[1].SetActive(false);
@@ -123,6 +130,17 @@ public class RapidFireGunManager : MonoBehaviour
             RapidFireUIManager.Instance.roundDisplay[0].SetActive(false);
             RapidFireUIManager.Instance.round1Lble.SetActive(false);
             RapidFireUIManager.Instance.round2Lble.SetActive(true);
+            RapidFireUIManager.Instance.round3Lble.SetActive(false);
+
+        }
+        else if (stageCounter == 2)
+        {
+            RapidFireUIManager.Instance.roundDisplay[2].SetActive(true);
+            RapidFireUIManager.Instance.roundDisplay[1].SetActive(false);
+            RapidFireUIManager.Instance.round1Lble.SetActive(false);
+            RapidFireUIManager.Instance.round2Lble.SetActive(true);
+            RapidFireUIManager.Instance.round3Lble.SetActive(true);
+
         }
     }
 
@@ -174,14 +192,11 @@ public class RapidFireGunManager : MonoBehaviour
             case gamestate.attention:
                     StartCoroutine(attentionCall());
                 break;
-            case gamestate.sr1:
+            case gamestate.round1:
                     series1Start();
                 break;
-            case gamestate.sr2:
+            case gamestate.round2:
                     series2Start();
-                break;
-            case gamestate.sr3:
-                    series3Start();
                 break;
             case gamestate.end:
                 break;
@@ -283,25 +298,39 @@ public class RapidFireGunManager : MonoBehaviour
 
     }
 
-    public void series3Start()
-    {
-        startSeries03();
-        Debug.Log("Series 03");
-    }
+   
     public void startSeries01()
     {
-        StartCoroutine(series(sr1Timer));
+        if(stageCounter == 0) {
+            StartCoroutine(series(round1Timer));
+        }else if (stageCounter == 1)
+        {
+            StartCoroutine(series(round2Timer));
+        }
+        else if (stageCounter == 2)
+        {
+            StartCoroutine(series(round3Timer));
+        }
+
     }
 
     public void startSeries02()
     {
-        StartCoroutine(series(sr2Timer));
+        if (stageCounter == 0)
+        {
+            StartCoroutine(series(round1Timer));
+        }
+        else if (stageCounter == 1)
+        {
+            StartCoroutine(series(round2Timer));
+        }
+        else if (stageCounter == 2)
+        {
+            StartCoroutine(series(round3Timer));
+        }
     }
 
-    public void startSeries03()
-    {
-        StartCoroutine(series(sr3Timer));
-    }
+   
 
     IEnumerator series(float timeVal)
     {
@@ -338,10 +367,10 @@ public class RapidFireGunManager : MonoBehaviour
         RapidFireGunManager.Instance.seriesStarted = false;
         RapidFireGunManager.Instance.isReloaded = false;
         callInGameSounds = true;
-        if (SeriesCounter == 3)
+        if (SeriesCounter == 2)
         {
             Debug.Log("Next Stage");
-            if (stageCounter == 1)
+            if (stageCounter == 2)
             {
                 updateMatchData();
                 state = gamestate.end;
