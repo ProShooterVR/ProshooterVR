@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using ProshooterVR;
 using Nova;
+using SimpleJSON;
 
 public class HUB_UIManager : MonoBehaviour
 {
@@ -41,7 +42,11 @@ public class HUB_UIManager : MonoBehaviour
 
     public TextMeshPro profilebuttonNameTxt;
     public UIBlock2D profileBtnImg;
+    public JSONNode MainLeaderboardJson;
 
+    public GameObject MainLeaderBoardRow, MainLeaderBoardRowParent;
+    public GameObject userPosOnMainLeaderBoardData;
+    public GameObject FilterPanel;
     ////
 
     public enum gameType
@@ -559,7 +564,30 @@ public class HUB_UIManager : MonoBehaviour
                 break;
         }
     }
+    public void MainLeaderboardUIFill()
+    {
+        int count = MainLeaderboardJson["leaderboardResults"].Count;
 
+        for (int i = 0; i < count; i++)
+        {
+            GameObject NewObj = Instantiate(HUB_UIManager.Instance.MainLeaderBoardRow, HUB_UIManager.Instance.MainLeaderBoardRowParent.transform);
+            NewObj.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["ranks"];
+            NewObj.transform.GetChild(3).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["meta_quest_username"];
+            NewObj.transform.GetChild(4).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["total_score"];
+            NewObj.transform.GetChild(5).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["matches_played"];
+
+            if (string.Compare("6438980339485102", MainLeaderboardJson["leaderboardResults"][i]["meta_unique_id"]) == 0)
+            {
+                NewObj.transform.GetChild(0).gameObject.SetActive(true);
+
+                HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["ranks"];
+                HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(3).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["meta_quest_username"];
+                HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(4).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["total_score"];
+                HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(5).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["matches_played"];
+            }
+            Debug.Log(MainLeaderboardJson["leaderboardResults"][i]["total_score"]);
+        }
+    }
 
     public void leaderboardUIFill()
     {

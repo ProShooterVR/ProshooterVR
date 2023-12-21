@@ -39,7 +39,7 @@ public class Mytimer : MonoBehaviour
         if (currentTime <= totalTime / 2)
         {
             if (RapidFireGunManager.Instance.callInGameSounds == true) { 
-                RapidFireGunManager.Instance.callIngamesounds(RapidFireGunManager.Instance.SeriesCounter);
+                RapidFireGunManager.Instance.callIngamesounds(RapidFireGunManager.Instance.stageCounter);
                 RapidFireGunManager.Instance.callInGameSounds = false;
             }
         }

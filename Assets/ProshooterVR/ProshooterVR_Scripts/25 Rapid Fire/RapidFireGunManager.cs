@@ -142,6 +142,8 @@ public class RapidFireGunManager : MonoBehaviour
             RapidFireUIManager.Instance.round3Lble.SetActive(true);
 
         }
+
+        
     }
 
     // Update is called once per frame
@@ -169,13 +171,21 @@ public class RapidFireGunManager : MonoBehaviour
         switch (round)
         {
             case 0:
-                InstructionManager.Instance.playInGameSounds(0);
+                
+               RF_FmodSetup.Instance.EightSecSeriesLoadEvent();
+                RapidFireUIManager.Instance.timeSer1Txt.text = round1Timer.ToString() + "Seconds";
+                RapidFireUIManager.Instance.timeSer2Txt.text = round1Timer.ToString() + "Seconds";
+
                 break;
             case 1:
-                InstructionManager.Instance.playInGameSounds(1);
+                RF_FmodSetup.Instance.SixSecSeriesLoadEvent();
+                RapidFireUIManager.Instance.timeSer1Txt.text = round2Timer.ToString() + "Seconds";
+                RapidFireUIManager.Instance.timeSer2Txt.text = round2Timer.ToString() + "Seconds";
                 break;
-            case 3:
-                InstructionManager.Instance.playInGameSounds(2);
+            case 2:
+                RF_FmodSetup.Instance.FourSecSeriesLoadEvent();
+                RapidFireUIManager.Instance.timeSer1Txt.text = round3Timer.ToString() + "Seconds";
+                RapidFireUIManager.Instance.timeSer2Txt.text = round3Timer.ToString() + "Seconds";
                 break;
             
         }
@@ -244,18 +254,20 @@ public class RapidFireGunManager : MonoBehaviour
     {
         state = gamestate.attention;
         startSeries = true;
-        float timeVal = InstructionManager.Instance.playInstruction(0);
-      RapidFireUIManager.Instance.instructionTxt.text = RapidFireUIManager.Instance.instructions[0];
+        //float timeVal = InstructionManager.Instance.playInstruction(0);
+        RF_FmodSetup.Instance.AthletesToTheLineLoadEvent();
 
-        yield return new WaitForSeconds(timeVal);
+        RapidFireUIManager.Instance.instructionTxt.text = RapidFireUIManager.Instance.instructions[0];
+
+        //yield return new WaitForSeconds(timeVal);
 
         yield return new WaitForSeconds(5f);
 
-        timeVal = InstructionManager.Instance.playInstruction(1);
+        //timeVal = InstructionManager.Instance.playInstruction(1);
 
-       RapidFireUIManager.Instance.instructionTxt.text = RapidFireUIManager.Instance.instructions[1];
+         RapidFireUIManager.Instance.instructionTxt.text = RapidFireUIManager.Instance.instructions[1];
 
-        yield return new WaitForSeconds(timeVal);
+        //yield return new WaitForSeconds(timeVal);
         currentTimerValue = 10f;
         StartTimer.GetComponent<Mytimer>().enabled = true;
 
@@ -266,9 +278,10 @@ public class RapidFireGunManager : MonoBehaviour
     public IEnumerator attentionCall()
     {
 
-        float timeVal = InstructionManager.Instance.playInstruction(2);
+        //float timeVal = InstructionManager.Instance.playInstruction(2);
+        RF_FmodSetup.Instance.AttentionEvent();
         RapidFireUIManager.Instance.instructionTxt.text = RapidFireUIManager.Instance.instructions[2];
-        yield return new WaitForSeconds(timeVal);
+        yield return new WaitForSeconds(0);
         readyPosObj.SetActive(true);
         RapidFireGunManager.Instance.isReloaded = true;
 
@@ -358,8 +371,8 @@ public class RapidFireGunManager : MonoBehaviour
         redLights.SetActive(false);
         greenLights.SetActive(false);
 
-        float val = InstructionManager.Instance.playInstruction(3);
-        RapidFireUIManager.Instance.instructionTxt.text = RapidFireUIManager.Instance.instructions[3];
+        //float val = InstructionManager.Instance.playInstruction(3);
+        //RapidFireUIManager.Instance.instructionTxt.text = RapidFireUIManager.Instance.instructions[3];
         
         
         currentTimerValue = restTimer;

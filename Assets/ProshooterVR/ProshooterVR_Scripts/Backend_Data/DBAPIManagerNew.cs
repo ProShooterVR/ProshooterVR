@@ -57,7 +57,6 @@ namespace ProshooterVR
         {
             getUserSettings(LocalUserDataManager.Instance.metaID);
 
-
         }
 
         public void Initialise_BackendDAta()
@@ -65,6 +64,9 @@ namespace ProshooterVR
 
             SaveMetaInfo(LocalUserDataManager.Instance.metaID, LocalUserDataManager.Instance.meta_username);
             getUserSettings(LocalUserDataManager.Instance.metaID);
+            
+            
+            MainLeaderBoardManager.Instance.AirPistolOverallLeaderBoardData(LocalUserDataManager.Instance.metaID);
 
 
         }
