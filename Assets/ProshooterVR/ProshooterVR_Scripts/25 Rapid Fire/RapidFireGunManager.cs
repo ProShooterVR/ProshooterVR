@@ -371,11 +371,12 @@ public class RapidFireGunManager : MonoBehaviour
 
         redLights.SetActive(false);
         greenLights.SetActive(false);
+        RF_FmodSetup.Instance.UnloadEvent();
 
         //float val = InstructionManager.Instance.playInstruction(3);
         //RapidFireUIManager.Instance.instructionTxt.text = RapidFireUIManager.Instance.instructions[3];
-        
-        
+
+
         currentTimerValue = restTimer;
         state = gamestate.load;
         RapidFireGunManager.Instance.seriesStarted = false;
