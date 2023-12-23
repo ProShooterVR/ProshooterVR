@@ -172,7 +172,7 @@ public class RapidFireGunManager : MonoBehaviour
         {
             case 0:
                 
-               RF_FmodSetup.Instance.EightSecSeriesLoadEvent();
+                RF_FmodSetup.Instance.EightSecSeriesLoadEvent();
                 RapidFireUIManager.Instance.timeSer1Txt.text = round1Timer.ToString() + "Seconds";
                 RapidFireUIManager.Instance.timeSer2Txt.text = round1Timer.ToString() + "Seconds";
 
@@ -196,7 +196,8 @@ public class RapidFireGunManager : MonoBehaviour
         switch (state)
         {
             case gamestate.load:
-                currentTimerValue = 10f;
+                    RF_FmodSetup.Instance.AthletesToTheLineLoadEvent();
+                    currentTimerValue = 10f;
                     StartCoroutine(weaponPrepareCall());
                 break;
             case gamestate.attention:
@@ -254,8 +255,8 @@ public class RapidFireGunManager : MonoBehaviour
     {
         state = gamestate.attention;
         startSeries = true;
+        RapidFireGunManager.Instance.callInGameSounds = true;
         //float timeVal = InstructionManager.Instance.playInstruction(0);
-        RF_FmodSetup.Instance.AthletesToTheLineLoadEvent();
 
         RapidFireUIManager.Instance.instructionTxt.text = RapidFireUIManager.Instance.instructions[0];
 
@@ -281,7 +282,7 @@ public class RapidFireGunManager : MonoBehaviour
         //float timeVal = InstructionManager.Instance.playInstruction(2);
         RF_FmodSetup.Instance.AttentionEvent();
         RapidFireUIManager.Instance.instructionTxt.text = RapidFireUIManager.Instance.instructions[2];
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(5f);
         readyPosObj.SetActive(true);
         RapidFireGunManager.Instance.isReloaded = true;
 
