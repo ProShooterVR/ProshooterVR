@@ -50,12 +50,13 @@ public class MainLeaderBoardManager : MonoBehaviour
         StartCoroutine(fetch10mAirPistolOverallLeaderBoardData(data));
     }
 
-    public void AirRifleOverallLeaderBoardData()
+    public void AirRifleOverallLeaderBoardData(string metaID)
     {
+        HUB_UIManager.Instance.ClearMainLeaderboardRows();
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
-            { "meta_unique_id", "784578547854345784502"},
+            { "meta_unique_id", metaID},
             { "above_count" , 1},
             { "below_count" , 1},
         };
@@ -65,12 +66,14 @@ public class MainLeaderBoardManager : MonoBehaviour
         StartCoroutine(fetch10mAirRifleOverallLeaderBoardData(data));
     }
 
-    public void AirPistolAmateurLeaderBoardData()
+    public void AirPistolAmateurLeaderBoardData(string metaID)
     {
+        HUB_UIManager.Instance.ClearMainLeaderboardRows();
+
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
-            { "meta_unique_id", "6438980339485102"},
+            { "meta_unique_id", metaID},
             { "difficulty_level", "amateur"},
             { "game_mode", 1},
             { "page_number", 1},
@@ -81,12 +84,13 @@ public class MainLeaderBoardManager : MonoBehaviour
         Debug.Log("coverted data is ||  " + data);
         StartCoroutine(fetchMainLeaderBoardData(data));
     }
-    public void AirPistolSemiProLeaderBoardData()
+    public void AirPistolSemiProLeaderBoardData(string metaID)
     {
+        HUB_UIManager.Instance.ClearMainLeaderboardRows();
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
-            { "meta_unique_id", "6438980339485102"},
+            { "meta_unique_id", metaID},
             { "difficulty_level", "semi_pro"},
             { "game_mode", 1},
             { "page_number", 1},
@@ -98,13 +102,13 @@ public class MainLeaderBoardManager : MonoBehaviour
         StartCoroutine(fetchMainLeaderBoardData(data));
 
     }
-    public void AirPistolProLeaderBoardData()
+    public void AirPistolProLeaderBoardData(string metaID)
     {
-
+        HUB_UIManager.Instance.ClearMainLeaderboardRows();
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
-            { "meta_unique_id", "6438980339485102"},
+            { "meta_unique_id", metaID},
             { "difficulty_level", "pro"},
             { "game_mode", 1},
             { "page_number", 1},
@@ -116,12 +120,13 @@ public class MainLeaderBoardManager : MonoBehaviour
         StartCoroutine(fetchMainLeaderBoardData(data));
     }
 
-    public void AirRifleAmateurLeaderBoardData()
+    public void AirRifleAmateurLeaderBoardData(string metaID)
     {
+        HUB_UIManager.Instance.ClearMainLeaderboardRows();
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
-            { "meta_unique_id", 6438980339485102},
+            { "meta_unique_id", metaID},
             { "difficulty_level", "amateur"},
             { "game_mode", 2},
             { "page_number", 1},
@@ -133,12 +138,13 @@ public class MainLeaderBoardManager : MonoBehaviour
         StartCoroutine(fetchMainLeaderBoardData(data));
     }
 
-    public void AirRifleSemiproLeaderBoardData()
+    public void AirRifleSemiproLeaderBoardData(string metaID)
     {
+        HUB_UIManager.Instance.ClearMainLeaderboardRows();
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
-            { "meta_unique_id", 6438980339485102},
+            { "meta_unique_id", metaID},
             { "difficulty_level", "semipro"},
             { "game_mode", 2},
             { "page_number", 1},
@@ -150,12 +156,13 @@ public class MainLeaderBoardManager : MonoBehaviour
         StartCoroutine(fetchMainLeaderBoardData(data));
     }
 
-    public void AirRifleProLeaderBoardData()
+    public void AirRifleProLeaderBoardData(string metaID)
     {
+        HUB_UIManager.Instance.ClearMainLeaderboardRows();
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
-            { "meta_unique_id", 6438980339485102},
+            { "meta_unique_id", metaID},
             { "difficulty_level", "pro"},
             { "game_mode", 2},
             { "page_number", 1},

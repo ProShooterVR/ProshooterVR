@@ -75,8 +75,8 @@ public class LocalUserDataManager : MonoBehaviour
     {
         startTime = DateTime.Now;
         isAggrDone = false;
-        metaID = "6889892497704835";
-        meta_username = "Trickerion";
+       // metaID = "6889892497704835";
+       // meta_username = "Trickerion";
     }
 
     // Update is called once per frame

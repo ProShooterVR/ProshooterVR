@@ -23,7 +23,7 @@ public class HUB_UIManager : MonoBehaviour
     public GameObject playBtn;
     public GameObject airPistolTut, airRifleTut, rapidRifeTUt;
     public GameObject musicPlayer;
-    public GameObject userProfileUI,mainUI,playerProfileMainUIBtn;
+    public GameObject userProfileUI, mainUI, playerProfileMainUIBtn;
     public TextMeshPro userNameTxtMainMenu;
 
     public GameObject gameModeSubMenu, arcadeSubMenu;
@@ -35,7 +35,7 @@ public class HUB_UIManager : MonoBehaviour
     public UIBlock2D profileImg;
 
     public TextMeshPro userNameTxt;
-    public TextMeshPro totalScoreTxt,matchesPlayedTxt,accuracyTxt;
+    public TextMeshPro totalScoreTxt, matchesPlayedTxt, accuracyTxt;
     public TextMeshPro pbest_10mAirP_AmaTxt, pbest_10mAirP_SemPTxt, pbest_10mAirP_ProTxt;
     public TextMeshPro pbest_10mAirR_AmaTxt, pbest_10mAirR_SemPTxt, pbest_10mAirR_ProTxt;
     public TextMeshPro pbest_25mRF_AmaTxt, pbest_25mRF_SemPTxt, pbest_25mRF_ProTxt;
@@ -61,11 +61,11 @@ public class HUB_UIManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        
+
     }
 
     // Get panles
-   
+
 
     private void Start()
     {
@@ -80,8 +80,14 @@ public class HUB_UIManager : MonoBehaviour
         HUB_UIManager.Instance.musicPlayer.SetActive(true);
         arcadeSubMenu.SetActive(false);
         gameModeSubMenu.SetActive(false);
-       // playerProfileMainUIBtn.SetActive(false);
+        // playerProfileMainUIBtn.SetActive(false);
+        FilterPanel.SetActive(false);
 
+    }
+
+    public void OnFilterPanelButtonClick()
+    {
+        FilterPanel.SetActive(!FilterPanel.activeSelf);
     }
 
     public void singlePlayerBtnClicked()
@@ -143,7 +149,7 @@ public class HUB_UIManager : MonoBehaviour
     {
         assistedGudSubMenu.SetActive(true);
         settingUI.SetActive(false);
-        if(LocalUserDataManager.Instance.isUXSaved == true)
+        if (LocalUserDataManager.Instance.isUXSaved == true)
         {
             assistedGudSubMenu.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
         }
@@ -184,9 +190,9 @@ public class HUB_UIManager : MonoBehaviour
         pbest_25mRF_AmaTxt.text = LocalUserDataManager.Instance.pbest_25mRF_AmaTxt;
         pbest_25mRF_SemPTxt.text = LocalUserDataManager.Instance.pbest_25mRF_SemPTxt;
         pbest_25mRF_ProTxt.text = LocalUserDataManager.Instance.pbest_25mRF_ProTxt;
-      
-       // StartCoroutine(LoadImageFromURL(LocalUserDataManager.Instance.metauser_profileImage_url));
-        
+
+        // StartCoroutine(LoadImageFromURL(LocalUserDataManager.Instance.metauser_profileImage_url));
+
 
     }
 
@@ -212,7 +218,7 @@ public class HUB_UIManager : MonoBehaviour
     public void UpdateProfileButton()
     {
         profilebuttonNameTxt.text = LocalUserDataManager.Instance.meta_username;
-       // StartCoroutine(LoadProfileBtnImgFromURL(LocalUserDataManager.Instance.metauser_profileImage_url));
+        // StartCoroutine(LoadProfileBtnImgFromURL(LocalUserDataManager.Instance.metauser_profileImage_url));
 
     }
 
@@ -275,7 +281,7 @@ public class HUB_UIManager : MonoBehaviour
         rapidRifeTUt.SetActive(false);
         musicPlayer.SetActive(false);
         VideoPlayerController.Instance.BigPlayButton.SetActive(true);
-       // HUB_UIManager.Instance.musicPlayer.GetComponent<MusicPlayer>().audioSource.enabled = false;
+        // HUB_UIManager.Instance.musicPlayer.GetComponent<MusicPlayer>().audioSource.enabled = false;
     }
     public void RapidFireTutorial()
     {
@@ -284,14 +290,14 @@ public class HUB_UIManager : MonoBehaviour
         rapidRifeTUt.SetActive(true);
         musicPlayer.SetActive(false);
         VideoPlayerController.Instance.BigPlayButton.SetActive(true);
-       // HUB_UIManager.Instance.musicPlayer.GetComponent<MusicPlayer>().audioSource.enabled = false;
+        // HUB_UIManager.Instance.musicPlayer.GetComponent<MusicPlayer>().audioSource.enabled = false;
     }
 
     public void closeAggrMenu()
     {
         LocalUserDataManager.Instance.isAggrDone = true;
     }
-    
+
     // 10m Air Pistol Scenes ----------------------------------------------------Start
 
     // Practice Modes ----------------------
@@ -403,7 +409,7 @@ public class HUB_UIManager : MonoBehaviour
             case 1:
                 LocalUserDataManager.Instance.levelSelected = LocalUserDataManager.gamerLevel.SemiPro;
                 LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.semi_pro;
-               // LiveUserDataManager.Instance.sortLeaderBoard();
+                // LiveUserDataManager.Instance.sortLeaderBoard();
 
                 break;
             case 2:
@@ -427,11 +433,11 @@ public class HUB_UIManager : MonoBehaviour
             case 0:
                 LocalUserDataManager.Instance.modeSelected = LocalUserDataManager.gameMode.AirPistol10M;
                 LocalUserDataManager.Instance.selectedGameMode = GameModes.AirPistol10m;
-               // LiveUserDataManager.Instance.sortLeaderBoard();
+                // LiveUserDataManager.Instance.sortLeaderBoard();
                 break;
             case 1:
                 LocalUserDataManager.Instance.modeSelected = LocalUserDataManager.gameMode.rapidFire25m;
-              //  LiveUserDataManager.Instance.sortLeaderBoard();
+                //  LiveUserDataManager.Instance.sortLeaderBoard();
                 break;
             case 2:
                 LocalUserDataManager.Instance.modeSelected = LocalUserDataManager.gameMode.airRifle10m;
@@ -440,12 +446,12 @@ public class HUB_UIManager : MonoBehaviour
                 //   LiveUserDataManager.Instance.sortLeaderBoard();
                 break;
         }
-       
+
     }
 
     public void PlayButtonClick()
     {
-        if(myGameType == gameType.match)
+        if (myGameType == gameType.match)
         {
             loadMatchMode();
         }
@@ -460,10 +466,10 @@ public class HUB_UIManager : MonoBehaviour
         }
     }
 
-    
 
-    
-    
+
+
+
 
     void loadPracticeMode()
     {
@@ -589,14 +595,15 @@ public class HUB_UIManager : MonoBehaviour
         }
     }
 
-    public void leaderboardUIFill()
+    public void ClearMainLeaderboardRows()
     {
-        //LiveUserDataManager.Instance.sortLeaderBoard();
-        
+        // Destroy existing rows
+        Transform parentTransform = HUB_UIManager.Instance.MainLeaderBoardRowParent.transform;
+        foreach (Transform child in parentTransform)
+        {
+            Destroy(child.gameObject);
+        }
 
-        
     }
-
 }
-
 
