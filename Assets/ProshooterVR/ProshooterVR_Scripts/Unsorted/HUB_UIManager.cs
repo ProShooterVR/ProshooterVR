@@ -582,7 +582,7 @@ public class HUB_UIManager : MonoBehaviour
             NewObj.transform.GetChild(4).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["total_score"];
             NewObj.transform.GetChild(5).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["matches_played"];
 
-            if (string.Compare("6438980339485102", MainLeaderboardJson["leaderboardResults"][i]["meta_unique_id"]) == 0)
+            if (string.Compare(LocalUserDataManager.Instance.metaID, MainLeaderboardJson["leaderboardResults"][i]["meta_unique_id"]) == 0)
             {
                 NewObj.transform.GetChild(0).gameObject.SetActive(true);
 
