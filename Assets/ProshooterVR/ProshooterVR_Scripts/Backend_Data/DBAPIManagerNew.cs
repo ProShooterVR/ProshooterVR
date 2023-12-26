@@ -30,21 +30,22 @@ namespace ProshooterVR
         /// <summary>
         /// All the required api list and the links START
         /// </summary>
+        /// 
         /// Test API
-        //private string createUserAPI = "http://54.201.154.149/api/user/createuser";
-        //private string fetchUserProfileInfo = "http://54.201.154.149/api/user/getuserinfobymetaid/";
-        //private string insertgamedata = "http://54.201.154.149/api/user/insertgamedata";
-        //private string fetchUserSettings = "http://54.201.154.149/api/user/getusersettings/";
-        //private string updateusersettings = "http://54.201.154.149/api/user/updateusersettings/";
+        private string createUserAPI = "http://54.201.154.149/api/user/createuser";
+        private string fetchUserProfileInfo = "http://54.201.154.149/api/user/getuserinfobymetaid/";
+        private string insertgamedata = "http://54.201.154.149/api/user/insertgamedata";
+        private string fetchUserSettings = "http://54.201.154.149/api/user/getusersettings/";
+        private string updateusersettings = "http://54.201.154.149/api/user/updateusersettings/";
 
 
 
         // prod API
-        private string createUserAPI = "http://15.206.116.210/api/user/createuser";
-        private string fetchUserProfileInfo = "http://15.206.116.210/api/user/getuserinfobymetaid/";
-        private string insertgamedata = "http://15.206.116.210/api/user/insertgamedata";
-        private string fetchUserSettings = "http://15.206.116.210/api/user/getusersettings/";
-        private string updateusersettings = "http://15.206.116.210/api/user/updateusersettings/";
+        //private string createUserAPI = "http://15.206.116.210/api/user/createuser";
+        //private string fetchUserProfileInfo = "http://15.206.116.210/api/user/getuserinfobymetaid/";
+        //private string insertgamedata = "http://15.206.116.210/api/user/insertgamedata";
+        //private string fetchUserSettings = "http://15.206.116.210/api/user/getusersettings/";
+        //private string updateusersettings = "http://15.206.116.210/api/user/updateusersettings/";
 
         /// 
 
@@ -67,8 +68,6 @@ namespace ProshooterVR
             
             
             MainLeaderBoardManager.Instance.AirPistolOverallLeaderBoardData(LocalUserDataManager.Instance.metaID);
-
-
         }
 
         /// <summary>
