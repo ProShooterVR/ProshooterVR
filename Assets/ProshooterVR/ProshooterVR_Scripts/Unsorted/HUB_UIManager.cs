@@ -46,7 +46,9 @@ public class HUB_UIManager : MonoBehaviour
 
     public GameObject MainLeaderBoardRow, MainLeaderBoardRowParent;
     public GameObject userPosOnMainLeaderBoardData;
-    public GameObject FilterPanel;
+    public GameObject FilterPanel, AirPistolLevelPanel, AirRifleLevelPanel;
+
+    public GameObject GamesPlayed_10mAP_OverallTxt, GamesPlayed_10mAR_OverallTxt, PrecisionPoints_10mAP_OverallTxt, PrecisionPoints_10mAR_OverallTxt;
     ////
 
     public enum gameType
@@ -82,12 +84,26 @@ public class HUB_UIManager : MonoBehaviour
         gameModeSubMenu.SetActive(false);
         // playerProfileMainUIBtn.SetActive(false);
         FilterPanel.SetActive(false);
-
+        AirPistolLevelPanel.SetActive(false);
+        AirRifleLevelPanel.SetActive(false);
     }
 
     public void OnFilterPanelButtonClick()
     {
         FilterPanel.SetActive(!FilterPanel.activeSelf);
+    }
+
+    public void OnAirPistolLevelButtonClick()
+    {
+        HUB_UIManager.Instance.ClearMainLeaderboardRows();
+        AirPistolLevelPanel.SetActive(true);
+        AirRifleLevelPanel.SetActive(false);
+    }
+    public void OnAirRifleLevelButtonClick()
+    {
+        HUB_UIManager.Instance.ClearMainLeaderboardRows();
+        AirPistolLevelPanel.SetActive(false);
+        AirRifleLevelPanel.SetActive(true);
     }
 
     public void singlePlayerBtnClicked()
@@ -590,11 +606,14 @@ public class HUB_UIManager : MonoBehaviour
                 HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(3).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["meta_quest_username"];
                 HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(4).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["total_score"];
                 HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(5).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["matches_played"];
+
+                Debug.Log("Fetched!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             }
             Debug.Log(MainLeaderboardJson["leaderboardResults"][i]["total_score"]);
         }
     }
 
+    
     public void ClearMainLeaderboardRows()
     {
         // Destroy existing rows

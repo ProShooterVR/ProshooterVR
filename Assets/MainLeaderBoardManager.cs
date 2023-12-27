@@ -8,11 +8,11 @@ using TMPro;
 
 public class MainLeaderBoardManager : MonoBehaviour
 {
-    private string fetchMainLeaderboardAPI = "http://54.201.154.149/api/user/getcompetitionleaderboard";
+    private string fetchMainLeaderboardAPI = "http://15.206.116.210/api/user/getcompetitionleaderboard";
 
-    private string fetch10mAirPistolOverallLeaderBoardAPI = "http://54.201.154.149/api/user/getleaderboard/overall/1";
+    private string fetch10mAirPistolOverallLeaderBoardAPI = "http://15.206.116.210/api/user/getleaderboard/overall/1";
 
-    private string fetch10mAirRifleOverallLeaderBoardAPI = "http://54.201.154.149/api/user/getleaderboard/overall/2";
+    private string fetch10mAirRifleOverallLeaderBoardAPI = "http://15.206.116.210/api/user/getleaderboard/overall/2";
 
     public static MainLeaderBoardManager Instance;
 
@@ -37,6 +37,7 @@ public class MainLeaderBoardManager : MonoBehaviour
 
     public void AirPistolOverallLeaderBoardData(string metaID)
     {
+        HUB_UIManager.Instance.ClearMainLeaderboardRows();
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
@@ -145,7 +146,7 @@ public class MainLeaderBoardManager : MonoBehaviour
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
             { "meta_unique_id", metaID},
-            { "difficulty_level", "semipro"},
+            { "difficulty_level", "semi_pro"},
             { "game_mode", 2},
             { "page_number", 1},
             { "page_count", 10},

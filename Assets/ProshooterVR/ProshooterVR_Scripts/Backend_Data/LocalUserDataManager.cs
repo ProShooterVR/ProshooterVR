@@ -20,7 +20,6 @@ public class LocalUserDataManager : MonoBehaviour
     }
 
 
-
     /// <summary>
     /// Local Meta User data manager to save data locally and update later in Live database
     /// </summary>

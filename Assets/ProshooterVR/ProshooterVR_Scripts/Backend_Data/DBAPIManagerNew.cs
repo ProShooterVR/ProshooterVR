@@ -32,20 +32,20 @@ namespace ProshooterVR
         /// </summary>
         /// 
         /// Test API
-        private string createUserAPI = "http://54.201.154.149/api/user/createuser";
-        private string fetchUserProfileInfo = "http://54.201.154.149/api/user/getuserinfobymetaid/";
-        private string insertgamedata = "http://54.201.154.149/api/user/insertgamedata";
-        private string fetchUserSettings = "http://54.201.154.149/api/user/getusersettings/";
-        private string updateusersettings = "http://54.201.154.149/api/user/updateusersettings/";
+        //private string createUserAPI = "http://54.201.154.149/api/user/createuser";
+        //private string fetchUserProfileInfo = "http://54.201.154.149/api/user/getuserinfobymetaid/";
+        //private string insertgamedata = "http://54.201.154.149/api/user/insertgamedata";
+        //private string fetchUserSettings = "http://54.201.154.149/api/user/getusersettings/";
+        //private string updateusersettings = "http://54.201.154.149/api/user/updateusersettings/";
 
 
 
         // prod API
-        //private string createUserAPI = "http://15.206.116.210/api/user/createuser";
-        //private string fetchUserProfileInfo = "http://15.206.116.210/api/user/getuserinfobymetaid/";
-        //private string insertgamedata = "http://15.206.116.210/api/user/insertgamedata";
-        //private string fetchUserSettings = "http://15.206.116.210/api/user/getusersettings/";
-        //private string updateusersettings = "http://15.206.116.210/api/user/updateusersettings/";
+        private string createUserAPI = "http://15.206.116.210/api/user/createuser";
+        private string fetchUserProfileInfo = "http://15.206.116.210/api/user/getuserinfobymetaid/";
+        private string insertgamedata = "http://15.206.116.210/api/user/insertgamedata";
+        private string fetchUserSettings = "http://15.206.116.210/api/user/getusersettings/";
+        private string updateusersettings = "http://15.206.116.210/api/user/updateusersettings/";
 
         /// 
 
@@ -139,8 +139,6 @@ namespace ProshooterVR
         public IEnumerator FetchProfileData(string metaid)
         {
 
-
-
             // Create a UnityWebRequest with the desired HTTP method (GET in this case)
             UnityWebRequest request = UnityWebRequest.Get(fetchUserProfileInfo + metaid);
 
@@ -166,9 +164,7 @@ namespace ProshooterVR
                 string jsonString = request.downloadHandler.text;
                 Debug.Log(jsonString);
 
-
                 PlayerData PlayerDataObj = JsonUtility.FromJson<PlayerData>(jsonString);
-
 
                 LocalUserDataManager.Instance.userNameTxt = PlayerDataObj.meta_quest_username;
                 LocalUserDataManager.Instance.totalScoreTxt = PlayerDataObj.total_player_score.ToString();
@@ -265,7 +261,7 @@ namespace ProshooterVR
             Dictionary<string, object> metaData = new Dictionary<string, object>
             {
                 { "meta_unique_id", LocalUserDataManager.Instance.metaID },
-                { "gamemode",  gameMode},
+                { "game_mode",  gameMode},
                 { "difficulty_level", LocalUserDataManager.Instance.SelectedGameLevel },
                 { "30_shots_score", ScoresRifle},
                 { "average_score",GunDataManager.Instance.avgSrScoreRifle },
