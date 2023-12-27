@@ -241,6 +241,8 @@ public class RapidFireGunManager : MonoBehaviour
         RapidFireEndSessionManager.Instance.avgScoreTxt.text = avgScore.ToString();
         RapidFireEndSessionManager.Instance.round1ScoreTxt.text = round1Score.ToString();
         RapidFireEndSessionManager.Instance.round2ScoreTxt.text = round2Score.ToString();
+        RapidFireEndSessionManager.Instance.round3ScoreTxt.text = round3Score.ToString();
+
 
         //   RapidFireEndSessionManager.Instance.innerTText.text = innerTno.ToString("F1");
 
@@ -381,7 +383,7 @@ public class RapidFireGunManager : MonoBehaviour
         state = gamestate.load;
         RapidFireGunManager.Instance.seriesStarted = false;
         RapidFireGunManager.Instance.isReloaded = false;
-        callInGameSounds = true;
+       // callInGameSounds = true;
         if (SeriesCounter == 2)
         {
             Debug.Log("Next Stage");

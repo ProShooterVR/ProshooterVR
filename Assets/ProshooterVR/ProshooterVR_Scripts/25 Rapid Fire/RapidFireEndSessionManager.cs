@@ -13,7 +13,7 @@ public class RapidFireEndSessionManager : MonoBehaviour
 
     public TextMeshPro userNameTxt;
     public TextMeshPro srs1ScoreTxt, srs2ScoreTxt, srs3ScoreTxt, round1ScoreTxt;
-    public TextMeshPro srs4ScoreTxt, srs5ScoreTxt, srs6ScoreTxt, round2ScoreTxt;
+    public TextMeshPro srs4ScoreTxt, srs5ScoreTxt, srs6ScoreTxt, round2ScoreTxt, round3ScoreTxt;
     public TextMeshPro totalgameScoretxt;
     public TextMeshPro avgScoreTxt, shotsHitTxt, shotsmissTxt, innerTText, timeSpentTxt, pBestScoreTxt;
 
