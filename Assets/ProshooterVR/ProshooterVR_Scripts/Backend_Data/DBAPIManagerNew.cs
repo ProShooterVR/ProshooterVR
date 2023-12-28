@@ -134,6 +134,8 @@ namespace ProshooterVR
         public void getProfileData(string metaID)
         {
             StartCoroutine(FetchProfileData(metaID));
+            MainLeaderBoardManager.Instance.AirPistolOverallLeaderBoardData(LocalUserDataManager.Instance.metaID);
+            MainLeaderBoardManager.Instance.AirRifleOverallLeaderBoardData(LocalUserDataManager.Instance.metaID);
         }
 
         public IEnumerator FetchProfileData(string metaid)

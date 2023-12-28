@@ -224,6 +224,17 @@ public class MainLeaderBoardManager : MonoBehaviour
                 JSONNode data = JSON.Parse(jsonString);
                 HUB_UIManager.Instance.MainLeaderboardJson = JSON.Parse(jsonString);
                 HUB_UIManager.Instance.MainLeaderboardUIFill();
+
+                for (int i = 0; i < HUB_UIManager.Instance.MainLeaderboardJson.Count; i++)
+                {
+                    if (string.Compare(LocalUserDataManager.Instance.metaID, HUB_UIManager.Instance.MainLeaderboardJson["leaderboardResults"][i]["meta_unique_id"]) == 0)
+                    {
+                        LocalUserDataManager.Instance.OverallPoints_10AP_Txt = HUB_UIManager.Instance.MainLeaderboardJson["leaderboardResults"][i]["total_score"];
+                        LocalUserDataManager.Instance.OverallGamesPlayed_10AP_Txt = HUB_UIManager.Instance.MainLeaderboardJson["leaderboardResults"][i]["matches_played"];
+
+                        Debug.Log("Fetched!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    }
+                }
             }
         }
     }
@@ -248,8 +259,20 @@ public class MainLeaderBoardManager : MonoBehaviour
                 Debug.Log(jsonString);
 
                 JSONNode data = JSON.Parse(jsonString);
+
                 HUB_UIManager.Instance.MainLeaderboardJson = JSON.Parse(jsonString);
                 HUB_UIManager.Instance.MainLeaderboardUIFill();
+
+                for (int i = 0; i < HUB_UIManager.Instance.MainLeaderboardJson.Count; i++)
+                {
+                    if (string.Compare(LocalUserDataManager.Instance.metaID, HUB_UIManager.Instance.MainLeaderboardJson["leaderboardResults"][i]["meta_unique_id"]) == 0)
+                    {
+                        LocalUserDataManager.Instance.OverallPoints_10AR_Txt = HUB_UIManager.Instance.MainLeaderboardJson["leaderboardResults"][i]["total_score"];
+                        LocalUserDataManager.Instance.OverallGamesPlayed_10AR_Txt = HUB_UIManager.Instance.MainLeaderboardJson["leaderboardResults"][i]["matches_played"];
+
+                        Debug.Log("Fetched!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    }
+                }
             }
         }
     }

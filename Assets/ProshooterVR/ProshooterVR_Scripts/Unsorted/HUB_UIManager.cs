@@ -48,7 +48,7 @@ public class HUB_UIManager : MonoBehaviour
     public GameObject userPosOnMainLeaderBoardData;
     public GameObject FilterPanel, AirPistolLevelPanel, AirRifleLevelPanel;
 
-    public GameObject GamesPlayed_10mAP_OverallTxt, GamesPlayed_10mAR_OverallTxt, PrecisionPoints_10mAP_OverallTxt, PrecisionPoints_10mAR_OverallTxt;
+    public TextMeshPro GamesPlayed_10mAP_OverallTxt, GamesPlayed_10mAR_OverallTxt, PrecisionPoints_10mAP_OverallTxt, PrecisionPoints_10mAR_OverallTxt;
     ////
 
     public enum gameType
@@ -86,6 +86,7 @@ public class HUB_UIManager : MonoBehaviour
         FilterPanel.SetActive(false);
         AirPistolLevelPanel.SetActive(false);
         AirRifleLevelPanel.SetActive(false);
+
     }
 
     public void OnFilterPanelButtonClick()
@@ -207,9 +208,11 @@ public class HUB_UIManager : MonoBehaviour
         pbest_25mRF_SemPTxt.text = LocalUserDataManager.Instance.pbest_25mRF_SemPTxt;
         pbest_25mRF_ProTxt.text = LocalUserDataManager.Instance.pbest_25mRF_ProTxt;
 
+        GamesPlayed_10mAP_OverallTxt.text = LocalUserDataManager.Instance.OverallGamesPlayed_10AP_Txt;
+        GamesPlayed_10mAR_OverallTxt.text = LocalUserDataManager.Instance.OverallGamesPlayed_10AR_Txt;
+        PrecisionPoints_10mAP_OverallTxt.text = LocalUserDataManager.Instance.OverallPoints_10AP_Txt;
+        PrecisionPoints_10mAR_OverallTxt.text = LocalUserDataManager.Instance.OverallPoints_10AR_Txt;
         // StartCoroutine(LoadImageFromURL(LocalUserDataManager.Instance.metauser_profileImage_url));
-
-
     }
 
     IEnumerator LoadImageFromURL(string url)
@@ -606,6 +609,8 @@ public class HUB_UIManager : MonoBehaviour
                 HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(3).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["meta_quest_username"];
                 HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(4).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["total_score"];
                 HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(5).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["matches_played"];
+
+
 
                 Debug.Log("Fetched!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             }
