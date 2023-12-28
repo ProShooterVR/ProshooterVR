@@ -502,7 +502,7 @@ public class PistolUIManager : MonoBehaviour
 
                     finalScore = shotScore.ToString();
                     shotRoundScoreRifle = shotScore;
-                    finalScore = shotScore + "x";
+                   
                 }
                 else { }
 
@@ -540,10 +540,10 @@ public class PistolUIManager : MonoBehaviour
                 FmodSetup.Instance.GoodShotEvent();
 
             }
-            else if (shotScore == 9)
+            else if (shotScore == 9 || shotScore >= 9 && shotScore < 10)
             {
-                instructionText.text = Instructions.Almostthere;
                 fadeScore.color = Color.green;
+                instructionText.text = Instructions.Almostthere;
                 FmodSetup.Instance.GoodShotEvent();
             }
             else if (shotScore >= 10)
@@ -574,7 +574,7 @@ public class PistolUIManager : MonoBehaviour
                 instructionText.text = Instructions.Goodshot;
                 FmodSetup.Instance.GoodShotEvent();
             }
-            else if (shotRoundScoreRifle == 9)
+            else if (shotRoundScoreRifle == 9 || shotRoundScoreRifle >= 9 && shotRoundScoreRifle < 10)
             {
                 fadeScore.color = Color.green;
                 instructionText.text = Instructions.Almostthere;
