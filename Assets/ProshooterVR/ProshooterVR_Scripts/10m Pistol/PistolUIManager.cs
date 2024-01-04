@@ -495,7 +495,7 @@ public class PistolUIManager : MonoBehaviour
                     finalScore = shotScore.ToString();
                    // finalScore = finalScore.Substring(0, finalScore.Length - 1);
                     shotRoundScoreRifle = float.Parse(finalScore);
-                    finalScore = finalScore + "x";
+                    //finalScore = finalScore + "x";
                 }
                 else if (shotScore == 10.9f)
                 {

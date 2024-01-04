@@ -38,9 +38,16 @@ public class Mytimer : MonoBehaviour
         currentTime -= Time.deltaTime;
         if (currentTime <= totalTime / 2)
         {
-            if (RapidFireGunManager.Instance.callInGameSounds == true) { 
-                RapidFireGunManager.Instance.callIngamesounds(RapidFireGunManager.Instance.stageCounter);
-                RapidFireGunManager.Instance.callInGameSounds = false;
+            if (RapidFireGunManager.Instance.callInGameSounds == true) {
+                if (RapidFireGunManager.Instance.isRankedMode == true)
+                { RapidFireGunManager.Instance.callIngamesounds(RapidFireGunManager.Instance.stageCounter);
+                    RapidFireGunManager.Instance.callInGameSounds = false;
+                }
+                if (RapidFireGunManager.Instance.isPracticeMode == true)
+                {
+                    RapidFireGunManager.Instance.callIngamesoundsPractice(RapidFireGunManager.Instance.practiceSeriesSound);
+                    RapidFireGunManager.Instance.callInGameSounds = false;
+                }
             }
         }
             // Check if the countdown has reached zero

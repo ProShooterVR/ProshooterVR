@@ -53,6 +53,7 @@ public class RapidFireUIManager : MonoBehaviour
     public GameObject startBtn, resumeBtn;
     public GameObject scoreScreen;
     public GameObject endSessionScreen;
+    public GameObject selectSeriesUI;
     private void Awake()
     {
         Instance = this;
@@ -68,6 +69,7 @@ public class RapidFireUIManager : MonoBehaviour
         endSessionScreen.SetActive(false);
         scoreScreen.SetActive(false);
         setSwitch = false;
+        selectSeriesUI.SetActive(false);
 
     }
 
@@ -85,6 +87,14 @@ public class RapidFireUIManager : MonoBehaviour
             }
 
         }
+    }
+
+
+    public void SelectSeriesBtnClick()
+    {
+        selectSeriesUI.SetActive(true);
+        menuPanel.SetActive(false);
+        settingPopUp.SetActive(false);
     }
 
     public void clearScreen()
@@ -314,6 +324,7 @@ public class RapidFireUIManager : MonoBehaviour
 
     public void StartButtonClick()
     {
+        selectSeriesUI.SetActive(false);
         startBtn.SetActive(false);
         resumeBtn.SetActive(true);
         scoreScreen.SetActive(true);

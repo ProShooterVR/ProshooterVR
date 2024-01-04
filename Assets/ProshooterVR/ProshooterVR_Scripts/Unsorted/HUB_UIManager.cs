@@ -49,6 +49,8 @@ public class HUB_UIManager : MonoBehaviour
     public GameObject FilterPanel, AirPistolLevelPanel, AirRifleLevelPanel;
 
     public TextMeshPro GamesPlayed_10mAP_OverallTxt, GamesPlayed_10mAR_OverallTxt, PrecisionPoints_10mAP_OverallTxt, PrecisionPoints_10mAR_OverallTxt;
+
+    public TextMeshPro LBModeText, LBLevelText;
     ////
 
     public enum gameType
@@ -96,12 +98,18 @@ public class HUB_UIManager : MonoBehaviour
 
     public void OnAirPistolLevelButtonClick()
     {
+        string ModeName = "10m Air Pistol";
+        HUB_UIManager.Instance.LBModeText.text = ModeName;
+
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
         AirPistolLevelPanel.SetActive(true);
         AirRifleLevelPanel.SetActive(false);
     }
     public void OnAirRifleLevelButtonClick()
     {
+        string ModeName = "10m Air Rifle";
+        HUB_UIManager.Instance.LBModeText.text = ModeName;
+
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
         AirPistolLevelPanel.SetActive(false);
         AirRifleLevelPanel.SetActive(true);
@@ -191,6 +199,7 @@ public class HUB_UIManager : MonoBehaviour
     }
     public void update_playerProfileData()
     {
+
         userNameTxt.text = LocalUserDataManager.Instance.userNameTxt;
         totalScoreTxt.text = LocalUserDataManager.Instance.totalScoreTxt;
         matchesPlayedTxt.text = LocalUserDataManager.Instance.matchesPlayedTxt;
@@ -413,6 +422,20 @@ public class HUB_UIManager : MonoBehaviour
         SceneManager.LoadSceneAsync("ProShooterVR_25mRF_Amateur");
     }
 
+
+    private void load25mRFProPractice()
+    {
+        SceneManager.LoadSceneAsync("ProShooterVR_25mRF_Pro_Practice");
+    }
+    private void load25mRFSemProPractice()
+    {
+        SceneManager.LoadSceneAsync("ProShooterVR_25mRF_SemPro_Practice");
+    }
+    private void load25mRFAmateurPractice()
+    {
+        SceneManager.LoadSceneAsync("ProShooterVR_25mRF_Amateur_Practice");
+    }
+
     //10m Air Rifle Scenes -------------------------------------------------------End
 
     public void setLevel(int no)
@@ -512,13 +535,13 @@ public class HUB_UIManager : MonoBehaviour
                 switch (LocalUserDataManager.Instance.levelSelected)
                 {
                     case LocalUserDataManager.gamerLevel.Amateur:
-                        load25mRFAmateur();
+                        load25mRFAmateurPractice();
                         break;
                     case LocalUserDataManager.gamerLevel.SemiPro:
-                        load25mRFSemPro();
+                        load25mRFSemProPractice();
                         break;
                     case LocalUserDataManager.gamerLevel.Pro:
-                        load25mRFPro();
+                        load25mRFProPractice();
                         break;
                 }
                 break;

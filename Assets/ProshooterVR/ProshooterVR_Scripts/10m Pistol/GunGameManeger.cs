@@ -284,8 +284,12 @@ public class GunGameManeger : MonoBehaviour
             pistolPopUPUIManager.Instance.innerTText.text = innerTno.ToString("F1");
 
             pistolPopUPUIManager.Instance.shotsHitTxt.text = noShotsHit.ToString("F1");
-            pistolPopUPUIManager.Instance.shotsmissTxt.text = noShotMissed.ToString("F1"); 
-            pistolPopUPUIManager.Instance.timeSpentTxt.text = totalGameTime.ToString("F1");
+            pistolPopUPUIManager.Instance.shotsmissTxt.text = noShotMissed.ToString("F1");
+
+            float minutes = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime / 60);
+            float seconds = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime % 60);
+            pistolPopUPUIManager.Instance.timeSpentTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+           
 
             if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.amateur)
             {
@@ -344,8 +348,8 @@ public class GunGameManeger : MonoBehaviour
             GunDataManager.Instance.noOfShotsMissed = noShotMissed;
             GunDataManager.Instance.noOfShotsOnTarget = noShotsHit;
 
-            float minutes = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime / 60);
-            float seconds = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime % 60);
+           // float minutes = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime / 60);
+           // float seconds = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime % 60);
             GunDataManager.Instance.totalTimeSpent = string.Format("{0:00}:{1:00}", minutes, seconds);
            
          
@@ -379,7 +383,9 @@ public class GunGameManeger : MonoBehaviour
 
             pistolPopUPUIManager.Instance.shotsHitTxt.text = noShotsHit.ToString("F1");
             pistolPopUPUIManager.Instance.shotsmissTxt.text = noShotMissed.ToString("F1");
-            pistolPopUPUIManager.Instance.timeSpentTxt.text = totalGameTime.ToString("F1");
+            float minutes = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime / 60);
+            float seconds = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime % 60);
+            pistolPopUPUIManager.Instance.timeSpentTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
             if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.amateur)
             {
@@ -438,8 +444,8 @@ public class GunGameManeger : MonoBehaviour
             GunDataManager.Instance.noOfShotsMissed = noShotMissed;
             GunDataManager.Instance.noOfShotsOnTarget = noShotsHit;
 
-            float minutes = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime / 60);
-            float seconds = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime % 60);
+          //  float minutes1 = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime / 60);
+           /// float seconds1 = Mathf.FloorToInt(GunGameManeger.Instance.totalGameTime % 60);
             GunDataManager.Instance.totalTimeSpent = string.Format("{0:00}:{1:00}", minutes, seconds);
 
           

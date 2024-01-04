@@ -65,8 +65,6 @@ namespace ProshooterVR
 
             SaveMetaInfo(LocalUserDataManager.Instance.metaID, LocalUserDataManager.Instance.meta_username);
             getUserSettings(LocalUserDataManager.Instance.metaID);
-            
-            
             MainLeaderBoardManager.Instance.AirPistolOverallLeaderBoardData(LocalUserDataManager.Instance.metaID);
         }
 
@@ -134,8 +132,10 @@ namespace ProshooterVR
         public void getProfileData(string metaID)
         {
             StartCoroutine(FetchProfileData(metaID));
-            MainLeaderBoardManager.Instance.AirPistolOverallLeaderBoardData(LocalUserDataManager.Instance.metaID);
-            MainLeaderBoardManager.Instance.AirRifleOverallLeaderBoardData(LocalUserDataManager.Instance.metaID);
+            MainLeaderBoardManager.Instance.AirPistolOverallPlayerProfileData(LocalUserDataManager.Instance.metaID);
+            MainLeaderBoardManager.Instance.AirRifleOverallPlayerProfileData(LocalUserDataManager.Instance.metaID);
+        
+
         }
 
         public IEnumerator FetchProfileData(string metaid)

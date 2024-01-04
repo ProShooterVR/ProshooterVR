@@ -27,11 +27,11 @@ public class MusicPlayer : MonoBehaviour
     public GameObject loopOffButton; // Reference to the LoopON button GameObject on the UI.
 
     public GameObject PlayListPanel;
-    public Button songButton1; // Reference to the first song button.
-    public Button songButton2; // Reference to the second song button.
-    public Button songButton3; // Reference to the third song button.
-    public Button songButton4; // Reference to the fourth song button.
-    public Button songButton5; // Reference to the fifth song button.
+    public GameObject songButton1; // Reference to the first song button.
+    public GameObject songButton2; // Reference to the second song button.
+    public GameObject songButton3; // Reference to the third song button.
+    public GameObject songButton4; // Reference to the fourth song button.
+    public GameObject songButton5; // Reference to the fifth song button.
 
     public GameObject PlayListOnButton;
     public GameObject PlayListOffButton;

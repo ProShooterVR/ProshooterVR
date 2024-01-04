@@ -58,6 +58,9 @@ public class RapidFireGunManager : MonoBehaviour
 
     public int shotsOnTarget, shotsMissed;
     public bool callInGameSounds;
+
+    public GameObject SlideObject;
+    public int practiceSeriesSound;
     public enum gamestate
     {
         load,
@@ -107,6 +110,8 @@ public class RapidFireGunManager : MonoBehaviour
 
         totalGameScore = 0;
         callInGameSounds = false;
+
+        SlideObject.SetActive(false);
     }
 
     public void resetStage()
@@ -166,12 +171,47 @@ public class RapidFireGunManager : MonoBehaviour
     }
 
 
+    public void selectSeries(int val)
+    {
+        round1Timer = val;
+        round2Timer = val;
+        round3Timer = val;
+
+    }
+    public void selectSeriesSound(int val)
+    {
+        practiceSeriesSound = val;
+    }
+
     public void callIngamesounds(int round)
     {
         switch (round)
         {
             case 0:
-                
+                RF_FmodSetup.Instance.EightSecSeriesLoadEvent();
+                RapidFireUIManager.Instance.timeSer1Txt.text = round1Timer.ToString() + "Seconds";
+                RapidFireUIManager.Instance.timeSer2Txt.text = round1Timer.ToString() + "Seconds";
+                break;
+            case 1:
+                RF_FmodSetup.Instance.SixSecSeriesLoadEvent();
+                RapidFireUIManager.Instance.timeSer1Txt.text = round2Timer.ToString() + "Seconds";
+                RapidFireUIManager.Instance.timeSer2Txt.text = round2Timer.ToString() + "Seconds";
+                break;
+            case 2:
+                RF_FmodSetup.Instance.FourSecSeriesLoadEvent();
+                RapidFireUIManager.Instance.timeSer1Txt.text = round3Timer.ToString() + "Seconds";
+                RapidFireUIManager.Instance.timeSer2Txt.text = round3Timer.ToString() + "Seconds";
+                break;
+            
+        }
+    }
+
+    public void callIngamesoundsPractice(int round)
+    {
+        switch (round)
+        {
+            case 0:
+
                 RF_FmodSetup.Instance.EightSecSeriesLoadEvent();
                 RapidFireUIManager.Instance.timeSer1Txt.text = round1Timer.ToString() + "Seconds";
                 RapidFireUIManager.Instance.timeSer2Txt.text = round1Timer.ToString() + "Seconds";
@@ -187,7 +227,7 @@ public class RapidFireGunManager : MonoBehaviour
                 RapidFireUIManager.Instance.timeSer1Txt.text = round3Timer.ToString() + "Seconds";
                 RapidFireUIManager.Instance.timeSer2Txt.text = round3Timer.ToString() + "Seconds";
                 break;
-            
+
         }
     }
 

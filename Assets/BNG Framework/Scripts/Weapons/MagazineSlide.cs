@@ -179,6 +179,11 @@ namespace BNG {
                     {
                         ArcadeGameManager.instance.SlideObject.SetActive(true);
                     }
+
+                    if (weaponManager.Instance.isRapidFireMode == true)
+                    {
+                        RapidFireGunManager.Instance.SlideObject.SetActive(true);
+                    }
                 }
             }
 
@@ -219,6 +224,11 @@ namespace BNG {
                             Destroy(HeldMagazine.gameObject);
                             Instantiate(ArcadeGameManager.instance.prefabToInstantiate, ArcadeGameManager.instance.spawnClipOrg.transform.position, ArcadeGameManager.instance.spawnClipOrg.transform.rotation);
                             ArcadeGameManager.instance.SlideObject.SetActive(false);
+                        }
+
+                        if (weaponManager.Instance.isRapidFireMode == true)
+                        {       
+                            RapidFireGunManager.Instance.SlideObject.SetActive(false);
                         }
                     }
                 }
