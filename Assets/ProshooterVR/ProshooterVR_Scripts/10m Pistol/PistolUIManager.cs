@@ -224,6 +224,7 @@ public class PistolUIManager : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex, LoadSceneMode.Single);
         setSwitch = false;
         RayManager.Instance.EnableRey();
+        setSwitch = false;
     }
 
     public void leaderBoardClick()
@@ -240,6 +241,8 @@ public class PistolUIManager : MonoBehaviour
     {
         gripAdjustUI.SetActive(true);
         menuPanel.SetActive(false);
+        setSwitch = false;
+        isOtherUIOpen = true;
 
     }
 
@@ -256,34 +259,22 @@ public class PistolUIManager : MonoBehaviour
     {
         helpPopUp.SetActive(false);
         settingPopUp.SetActive(true);
+        menuPanel.SetActive(true);
         setSwitch = false;
 
     }
     public void HelpButtonClick()
     {
-        settingPopUp.SetActive(false);
-
+        settingPopUp.SetActive(true);
+        menuPanel.SetActive(false);
         helpPopUp.SetActive(true);
         helpScr1.SetActive(true);
         helpScr2.SetActive(false);
         helpScr3.SetActive(false);
+        setSwitch = false;
+        isOtherUIOpen = true;
     }
 
-    public void StandSettingButtonClick()
-    {
-        settingPopUp.SetActive(false);
-        standSettingPopup.SetActive(true);
-        StandBehavour.Instance.enableMovement();
-      
-    }
-    public void SaveStandSettingButtonClick()
-    {
-        settingPopUp.SetActive(true);
-        standSettingPopup.SetActive(false);
-        StandBehavour.Instance.disableMovement();
-
-
-    }
 
 
 
@@ -307,6 +298,7 @@ public class PistolUIManager : MonoBehaviour
 
 
         UXManagerAirPistol.Instance.UXEvents(0);
+        setSwitch = false;
 
     }
     public void resumeBtnClick()
@@ -315,6 +307,7 @@ public class PistolUIManager : MonoBehaviour
         setSwitch = false;
         settingPopUp.SetActive(false);
         RayManager.Instance.DisableRey();
+        setSwitch = false;
 
     }
 
@@ -326,12 +319,7 @@ public class PistolUIManager : MonoBehaviour
         setSwitch = false;
 
     }
-    public void CloseHelpPanel()
-    {
-        helpPopUp.SetActive(false);
-        setSwitch = false;
-
-    }
+ 
     public void nextButtonClick()
     {
         btnCnt++;

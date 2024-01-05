@@ -69,7 +69,8 @@ public class RapidFireUIManager : MonoBehaviour
         endSessionScreen.SetActive(false);
         scoreScreen.SetActive(false);
         setSwitch = false;
-        selectSeriesUI.SetActive(false);
+        if (RapidFireGunManager.Instance.isPracticeMode == true)
+        { selectSeriesUI.SetActive(false); }
 
     }
 
@@ -324,7 +325,10 @@ public class RapidFireUIManager : MonoBehaviour
 
     public void StartButtonClick()
     {
-        selectSeriesUI.SetActive(false);
+        if (RapidFireGunManager.Instance.isPracticeMode == true)
+        { selectSeriesUI.SetActive(false); }
+
+
         startBtn.SetActive(false);
         resumeBtn.SetActive(true);
         scoreScreen.SetActive(true);
@@ -361,7 +365,8 @@ public class RapidFireUIManager : MonoBehaviour
     }
     public void backButtonClick()
     {
-        endSessionScreen.SetActive(false);
         RapidFireEndSessionManager.Instance.disableTargetScores();
+        endSessionScreen.SetActive(false);
+
     }
 }

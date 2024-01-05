@@ -113,7 +113,7 @@ public class RapidFireEndSessionManager : MonoBehaviour
     {
         for (int i = 0; i < screenScores.Count; i++)
         {
-            screenScores[i].SetActive(true);
+            screenScores[i].SetActive(false);
         }
     }
 }
