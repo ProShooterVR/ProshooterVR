@@ -56,13 +56,13 @@ namespace ProshooterVR
         /// </summary>
         private void Start()
         {
-            getUserSettings(LocalUserDataManager.Instance.metaID);
-
+            getUserSettings(LocalUserDataManager.Instance.metaID);       
         }
 
         public void Initialise_BackendDAta()
         {
-
+            string ModeName = "10m Air Pistol";
+            HUB_UIManager.Instance.LBModeText.text = ModeName;
             SaveMetaInfo(LocalUserDataManager.Instance.metaID, LocalUserDataManager.Instance.meta_username);
             getUserSettings(LocalUserDataManager.Instance.metaID);
             MainLeaderBoardManager.Instance.AirPistolOverallLeaderBoardData(LocalUserDataManager.Instance.metaID);

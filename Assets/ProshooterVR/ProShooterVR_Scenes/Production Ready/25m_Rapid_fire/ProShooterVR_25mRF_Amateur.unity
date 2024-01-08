@@ -3201,7 +3201,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 160848724}
-  - component: {fileID: 160848726}
   - component: {fileID: 160848725}
   m_Layer: 0
   m_Name: Fire Shot Fmod
@@ -3256,24 +3255,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &160848726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160848723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 0
-  UnloadEvent: 0
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!1 &164316623
 GameObject:
   m_ObjectHideFlags: 0
@@ -6158,7 +6139,6 @@ Transform:
   - {fileID: 1638558386}
   - {fileID: 2073298114}
   - {fileID: 506391560}
-  - {fileID: 1393265666}
   - {fileID: 1314139037}
   - {fileID: 1413280395}
   - {fileID: 1858988960}
@@ -8070,7 +8050,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 506391560}
-  - component: {fileID: 506391562}
   - component: {fileID: 506391561}
   m_Layer: 0
   m_Name: Gun Slide Fmod
@@ -8125,24 +8104,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &506391562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506391559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 0
-  UnloadEvent: 0
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!1001 &522019553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16852,7 +16813,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 855644851}
-  - component: {fileID: 855644853}
   - component: {fileID: 855644852}
   m_Layer: 0
   m_Name: 8Sec Series Load
@@ -16907,24 +16867,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &855644853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855644850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 0
-  UnloadEvent: 0
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!1 &856680504
 GameObject:
   m_ObjectHideFlags: 0
@@ -24415,7 +24357,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1314139037}
-  - component: {fileID: 1314139039}
   - component: {fileID: 1314139038}
   m_Layer: 0
   m_Name: Attention
@@ -24470,24 +24411,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &1314139039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314139036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 0
-  UnloadEvent: 0
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!1 &1328761893
 GameObject:
   m_ObjectHideFlags: 0
@@ -25936,88 +25859,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388843599}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1393265665
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1393265666}
-  - component: {fileID: 1393265668}
-  - component: {fileID: 1393265667}
-  m_Layer: 0
-  m_Name: GunGrab
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1393265666
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393265665}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 344007236}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1393265667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393265665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: Player
-  EventReference:
-    Guid:
-      Data1: -117502042
-      Data2: 1253283904
-      Data3: 70918528
-      Data4: -570600849
-    Path: event:/Main_Player/Weapons/10M Pistol/Gun_Pickup
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 1
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &1393265668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393265665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 0
-  UnloadEvent: 0
-  Banks:
-  - Master
-  CollisionTag: Player
-  PreloadSamples: 1
 --- !u!1 &1396416862
 GameObject:
   m_ObjectHideFlags: 0
@@ -26451,7 +26292,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1413280395}
-  - component: {fileID: 1413280397}
   - component: {fileID: 1413280396}
   m_Layer: 0
   m_Name: Match Starts
@@ -26506,24 +26346,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &1413280397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413280394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 0
-  UnloadEvent: 0
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!1001 &1414133945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28088,7 +27910,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1523015985}
-  - component: {fileID: 1523015987}
   - component: {fileID: 1523015986}
   m_Layer: 0
   m_Name: 4Sec Series Load
@@ -28143,24 +27964,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &1523015987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1523015984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 0
-  UnloadEvent: 0
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!1 &1524342215 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 951450449852205800, guid: 2eb435e763221124b8c8453c4cb3f159,
@@ -28803,7 +28606,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1638558386}
-  - component: {fileID: 1638558385}
   - component: {fileID: 1638558384}
   m_Layer: 0
   m_Name: Mag Insert Fmod
@@ -28843,24 +28645,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &1638558385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1638558383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 0
-  UnloadEvent: 0
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!4 &1638558386
 Transform:
   m_ObjectHideFlags: 0
@@ -29383,7 +29167,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1684749171}
-  - component: {fileID: 1684749173}
   - component: {fileID: 1684749172}
   m_Layer: 0
   m_Name: Athletes To The Line
@@ -29438,24 +29221,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &1684749173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1684749170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 0
-  UnloadEvent: 0
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!1 &1687049189
 GameObject:
   m_ObjectHideFlags: 0
@@ -32471,7 +32236,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1858988960}
-  - component: {fileID: 1858988962}
   - component: {fileID: 1858988961}
   m_Layer: 0
   m_Name: Unload
@@ -32526,24 +32290,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &1858988962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858988959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 0
-  UnloadEvent: 0
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!1 &1862420110
 GameObject:
   m_ObjectHideFlags: 0
@@ -32938,7 +32684,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1876719585}
-  - component: {fileID: 1876719587}
   - component: {fileID: 1876719586}
   m_Layer: 0
   m_Name: 6sec Series Load
@@ -32993,24 +32738,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &1876719587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1876719584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 0
-  UnloadEvent: 0
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!1 &1879588111
 GameObject:
   m_ObjectHideFlags: 0
@@ -36121,7 +35848,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2073298114}
-  - component: {fileID: 2073298113}
   - component: {fileID: 2073298112}
   m_Layer: 0
   m_Name: Mag Remove Fmod
@@ -36161,24 +35887,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &2073298113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2073298111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 0
-  UnloadEvent: 0
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!4 &2073298114
 Transform:
   m_ObjectHideFlags: 0

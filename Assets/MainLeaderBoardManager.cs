@@ -56,6 +56,8 @@ public class MainLeaderBoardManager : MonoBehaviour
         {
             { "meta_unique_id", metaID},
             { "above_count" , 1},
+            { "page_count", 6},
+            { "page_number", 1},
             { "below_count" , 1},
         };
 
@@ -76,6 +78,8 @@ public class MainLeaderBoardManager : MonoBehaviour
         {
             { "meta_unique_id", metaID},
             { "above_count" , 1},
+            { "page_count", 6},
+            { "page_number", 1},
             { "below_count" , 1},
         };
 
@@ -94,6 +98,8 @@ public class MainLeaderBoardManager : MonoBehaviour
             { "meta_unique_id", metaID},
             { "above_count" , 1},
             { "below_count" , 1},
+            { "page_count", 6},
+            { "page_number", 1},
         };
 
         string data = JsonConvert.SerializeObject(metaData);
@@ -111,6 +117,8 @@ public class MainLeaderBoardManager : MonoBehaviour
             { "meta_unique_id", metaID},
             { "above_count" , 1},
             { "below_count" , 1},
+            { "page_count", 6},
+            { "page_number", 1},
         };
 
         string data = JsonConvert.SerializeObject(metaData);
@@ -131,7 +139,7 @@ public class MainLeaderBoardManager : MonoBehaviour
             { "difficulty_level", "amateur"},
             { "game_mode", 1},
             { "page_number", 1},
-            { "page_count", 10},
+            { "page_count", 6},
         };
 
         string data = JsonConvert.SerializeObject(metaData);
@@ -151,7 +159,7 @@ public class MainLeaderBoardManager : MonoBehaviour
             { "difficulty_level", "semi_pro"},
             { "game_mode", 1},
             { "page_number", 1},
-            { "page_count", 10},
+            { "page_count", 6},
         };
 
         string data = JsonConvert.SerializeObject(metaData);
@@ -172,7 +180,7 @@ public class MainLeaderBoardManager : MonoBehaviour
             { "difficulty_level", "pro"},
             { "game_mode", 1},
             { "page_number", 1},
-            { "page_count", 10},
+            { "page_count", 6},
         };
 
         string data = JsonConvert.SerializeObject(metaData);
@@ -193,7 +201,7 @@ public class MainLeaderBoardManager : MonoBehaviour
             { "difficulty_level", "amateur"},
             { "game_mode", 2},
             { "page_number", 1},
-            { "page_count", 10},
+            { "page_count", 6},
         };
 
         string data = JsonConvert.SerializeObject(metaData);
@@ -214,7 +222,7 @@ public class MainLeaderBoardManager : MonoBehaviour
             { "difficulty_level", "semi_pro"},
             { "game_mode", 2},
             { "page_number", 1},
-            { "page_count", 10},
+            { "page_count", 6},
         };
 
         string data = JsonConvert.SerializeObject(metaData);
@@ -235,7 +243,7 @@ public class MainLeaderBoardManager : MonoBehaviour
             { "difficulty_level", "pro"},
             { "game_mode", 2},
             { "page_number", 1},
-            { "page_count", 10},
+            { "page_count", 6},
         };
 
         string data = JsonConvert.SerializeObject(metaData);

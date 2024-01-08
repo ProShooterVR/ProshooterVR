@@ -7408,7 +7408,6 @@ GameObject:
   - component: {fileID: 8472464520118789008}
   - component: {fileID: 1831393341053821259}
   - component: {fileID: 4297815893714645016}
-  - component: {fileID: 3750545166614503548}
   - component: {fileID: 8884262454684004697}
   m_Layer: 0
   m_Name: XR Rig Advanced_AirPistol
@@ -7436,7 +7435,7 @@ Transform:
   - {fileID: 3148369880521927004}
   - {fileID: 2647608715432591277}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &8472464520118789008
 MonoBehaviour:
@@ -7577,24 +7576,6 @@ MonoBehaviour:
   HMDIsActive: 0
   LeftControllerPosition: {x: -0.2, y: -0.2, z: 0.5}
   RightControllerPosition: {x: 0.2, y: -0.2, z: 0.5}
---- !u!114 &3750545166614503548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4130317688915077025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 7
-  UnloadEvent: 0
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!114 &8884262454684004697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7616,8 +7597,8 @@ MonoBehaviour:
       Data4: -464069421
     Path: event:/AMB
   Event: 
-  PlayEvent: 11
-  StopEvent: 0
+  PlayEvent: 1
+  StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 1

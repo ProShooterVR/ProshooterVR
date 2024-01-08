@@ -136,10 +136,7 @@ public class PistolUIManager : MonoBehaviour
         Debug.Log(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         instructionText.text = "";
         shotsLeftTxt.text = "30";
-      //  
-
-
-
+        //  
 
     }
 

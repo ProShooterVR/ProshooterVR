@@ -411,29 +411,29 @@ public class HUB_UIManager : MonoBehaviour
 
     private void load25mRFPro()
     {
-        SceneManager.LoadSceneAsync("ProShooterVR_25mRF_Pro");
+        SceneManager.LoadScene("ProShooterVR_25mRF_Pro");
     }
     private void load25mRFSemPro()
     {
-        SceneManager.LoadSceneAsync("ProShooterVR_25mRF_SemiPro");
+        SceneManager.LoadScene("ProShooterVR_25mRF_SemiPro");
     }
     private void load25mRFAmateur()
     {
-        SceneManager.LoadSceneAsync("ProShooterVR_25mRF_Amateur");
+        SceneManager.LoadScene("ProShooterVR_25mRF_Amateur");
     }
 
 
     private void load25mRFProPractice()
     {
-        SceneManager.LoadSceneAsync("ProShooterVR_25mRF_Pro_Practice");
+        SceneManager.LoadScene("ProShooterVR_25mRF_Pro_Practice");
     }
     private void load25mRFSemProPractice()
     {
-        SceneManager.LoadSceneAsync("ProShooterVR_25mRF_SemPro_Practice");
+        SceneManager.LoadScene("ProShooterVR_25mRF_SemPro_Practice");
     }
     private void load25mRFAmateurPractice()
     {
-        SceneManager.LoadSceneAsync("ProShooterVR_25mRF_Amateur_Practice");
+        SceneManager.LoadScene("ProShooterVR_25mRF_Amateur_Practice");
     }
 
     //10m Air Rifle Scenes -------------------------------------------------------End

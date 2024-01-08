@@ -9428,6 +9428,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3750545166614503548, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
+        type: 3}
+      propertyPath: UnloadEvent
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4105645247194749864, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
         type: 3}
       propertyPath: controllerGFX
@@ -9447,6 +9452,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884262454684004697, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
+        type: 3}
+      propertyPath: StopEvent
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17478,7 +17488,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 572299668}
-  - component: {fileID: 572299670}
   - component: {fileID: 572299669}
   m_Layer: 0
   m_Name: GunGrab
@@ -17523,8 +17532,8 @@ MonoBehaviour:
       Data4: -570600849
     Path: event:/Main_Player/Weapons/10M Pistol/Gun_Pickup
   Event: 
-  PlayEvent: 3
-  StopEvent: 4
+  PlayEvent: 0
+  StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 1
@@ -17533,24 +17542,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &572299670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 572299667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 3
-  UnloadEvent: 4
-  Banks:
-  - Master
-  CollisionTag: Player
-  PreloadSamples: 1
 --- !u!1 &575241309
 GameObject:
   m_ObjectHideFlags: 0
@@ -31716,7 +31707,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1206014509}
-  - component: {fileID: 1206014508}
   - component: {fileID: 1206014507}
   m_Layer: 0
   m_Name: Good Shot
@@ -31737,7 +31727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: 
+  CollisionTag: Player
   EventReference:
     Guid:
       Data1: 1202321045
@@ -31746,8 +31736,8 @@ MonoBehaviour:
       Data4: -1895079676
     Path: event:/UISFX/Shots/good_Shot
   Event: 
-  PlayEvent: 11
-  StopEvent: 12
+  PlayEvent: 0
+  StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 1
@@ -31756,24 +31746,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &1206014508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1206014506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 7
-  UnloadEvent: 8
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!4 &1206014509
 Transform:
   m_ObjectHideFlags: 0
@@ -37971,7 +37943,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1431591942}
-  - component: {fileID: 1431591941}
   - component: {fileID: 1431591940}
   m_Layer: 0
   m_Name: Bad Shot
@@ -37992,7 +37963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: 
+  CollisionTag: Player
   EventReference:
     Guid:
       Data1: -1581102826
@@ -38001,8 +37972,8 @@ MonoBehaviour:
       Data4: 18254064
     Path: event:/UISFX/Shots/Bad_Shot
   Event: 
-  PlayEvent: 11
-  StopEvent: 12
+  PlayEvent: 0
+  StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 1
@@ -38011,24 +37982,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &1431591941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1431591939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 7
-  UnloadEvent: 8
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!4 &1431591942
 Transform:
   m_ObjectHideFlags: 0
@@ -40124,7 +40077,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1530466987}
-  - component: {fileID: 1530466986}
   - component: {fileID: 1530466985}
   m_Layer: 0
   m_Name: Decent Shot
@@ -40145,7 +40097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: 
+  CollisionTag: Player
   EventReference:
     Guid:
       Data1: -367571760
@@ -40154,8 +40106,8 @@ MonoBehaviour:
       Data4: -1664470095
     Path: event:/UISFX/Shots/Decent_Shot
   Event: 
-  PlayEvent: 11
-  StopEvent: 12
+  PlayEvent: 0
+  StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 1
@@ -40164,24 +40116,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &1530466986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530466984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 7
-  UnloadEvent: 8
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!4 &1530466987
 Transform:
   m_ObjectHideFlags: 0
@@ -48871,7 +48805,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1894911895}
-  - component: {fileID: 1894911897}
   - component: {fileID: 1894911896}
   m_Layer: 0
   m_Name: Fire Shot Fmod
@@ -48907,7 +48840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: 
+  CollisionTag: Player
   EventReference:
     Guid:
       Data1: 1105297814
@@ -48917,7 +48850,7 @@ MonoBehaviour:
     Path: event:/Main_Player/Weapons/10M Pistol/10M_PistolFire
   Event: 
   PlayEvent: 0
-  StopEvent: 0
+  StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 1
@@ -48926,24 +48859,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &1894911897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1894911894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 0
-  UnloadEvent: 0
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!1 &1900707301
 GameObject:
   m_ObjectHideFlags: 0
@@ -49659,7 +49574,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1936793065}
-  - component: {fileID: 1936793064}
   - component: {fileID: 1936793063}
   m_Layer: 0
   m_Name: Epic Shot
@@ -49680,7 +49594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: 
+  CollisionTag: Player
   EventReference:
     Guid:
       Data1: -1611537619
@@ -49689,8 +49603,8 @@ MonoBehaviour:
       Data4: 106456069
     Path: event:/UISFX/Shots/Epic_Shot
   Event: 
-  PlayEvent: 11
-  StopEvent: 12
+  PlayEvent: 0
+  StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 1
@@ -49699,24 +49613,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &1936793064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1936793062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 7
-  UnloadEvent: 8
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!4 &1936793065
 Transform:
   m_ObjectHideFlags: 0
@@ -51775,7 +51671,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2029983962}
-  - component: {fileID: 2029983961}
   - component: {fileID: 2029983960}
   m_Layer: 0
   m_Name: Reload Open Fmod
@@ -51796,7 +51691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: 
+  CollisionTag: Player
   EventReference:
     Guid:
       Data1: 842265668
@@ -51805,8 +51700,8 @@ MonoBehaviour:
       Data4: -561764644
     Path: event:/Main_Player/Weapons/10M Pistol/10M_Pistol_Reload_open
   Event: 
-  PlayEvent: 11
-  StopEvent: 12
+  PlayEvent: 0
+  StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 1
@@ -51815,24 +51710,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &2029983961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2029983959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 7
-  UnloadEvent: 8
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!4 &2029983962
 Transform:
   m_ObjectHideFlags: 0
@@ -54072,7 +53949,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2132336934}
-  - component: {fileID: 2132336933}
   - component: {fileID: 2132336932}
   m_Layer: 0
   m_Name: Reload Close Fmod
@@ -54093,7 +53969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: 
+  CollisionTag: Player
   EventReference:
     Guid:
       Data1: 280020306
@@ -54102,8 +53978,8 @@ MonoBehaviour:
       Data4: -126719863
     Path: event:/Main_Player/Weapons/10M Pistol/10M_Pistol_Reload_close
   Event: 
-  PlayEvent: 11
-  StopEvent: 12
+  PlayEvent: 0
+  StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 1
@@ -54112,24 +53988,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &2132336933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2132336931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 7
-  UnloadEvent: 8
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!4 &2132336934
 Transform:
   m_ObjectHideFlags: 0

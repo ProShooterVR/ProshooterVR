@@ -6,7 +6,6 @@ public class RF_FmodSetup: MonoBehaviour
     public static RF_FmodSetup Instance;
     [SerializeField]
     private StudioEventEmitter Attention, Unload, MatchStarts, FourSecSeriesLoad, SixSecSeriesLoad, EightSecSeriesLoad, AthletesToTheLine;
-
     private void Awake()
     {
         Instance = this;
@@ -14,7 +13,7 @@ public class RF_FmodSetup: MonoBehaviour
 
     private void Start()
     {
-        if (Attention == null)
+        /*if (Attention == null)
         {
             Debug.LogError("Event Emitter not assigned!");
             return;
@@ -48,7 +47,7 @@ public class RF_FmodSetup: MonoBehaviour
         {
             Debug.LogError("Event Emitter not assigned!");
             return;
-        }
+        }*/
     }
 
     public void AttentionEvent()
