@@ -224,7 +224,6 @@ public class PistolUIManager : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex, LoadSceneMode.Single);
         setSwitch = false;
         RayManager.Instance.EnableRey();
-        setSwitch = false;
     }
 
     public void leaderBoardClick()
@@ -299,6 +298,7 @@ public class PistolUIManager : MonoBehaviour
 
         UXManagerAirPistol.Instance.UXEvents(0);
         setSwitch = false;
+        isOtherUIOpen = false;
 
     }
     public void resumeBtnClick()

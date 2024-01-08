@@ -33,7 +33,7 @@ public class UXManagerAirPistol : MonoBehaviour
         }
 
         resetUXData();
-        Highlights[2].SetActive(false);
+      //  Highlights[2].SetActive(false);
 
     }
 

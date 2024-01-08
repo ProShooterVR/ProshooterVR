@@ -64,8 +64,12 @@ public class HandRotation : MonoBehaviour
         {
            PistolUIManager.Instance.rightHandController.GetComponent<HandRotation>().enabled = false;
            PistolUIManager.Instance.settingPopUp.SetActive(true);
-           RayManager.Instance.EnableRey();
+            PistolUIManager.Instance.menuPanel.SetActive(true);
+                
+            RayManager.Instance.EnableRey();
             onExit();
+            PistolUIManager.Instance.isOtherUIOpen = false;
+            PistolUIManager.Instance.setSwitch = false;
         }
 
         // For Save/Comfirm Adjusted Grip Settings
@@ -73,9 +77,14 @@ public class HandRotation : MonoBehaviour
         {
             PistolUIManager.Instance.rightHandController.GetComponent<HandRotation>().enabled = false;
             PistolUIManager.Instance.settingPopUp.SetActive(true);
+            PistolUIManager.Instance.menuPanel.SetActive(true);
+
             RayManager.Instance.EnableRey();
             saveGripAdjustment();
             onExit();
+            PistolUIManager.Instance.isOtherUIOpen = false;
+            PistolUIManager.Instance.setSwitch = false;
+
 
         }
     }
