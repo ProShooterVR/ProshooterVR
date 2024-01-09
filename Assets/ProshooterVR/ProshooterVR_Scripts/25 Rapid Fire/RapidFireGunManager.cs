@@ -163,11 +163,7 @@ public class RapidFireGunManager : MonoBehaviour
                 float seconds = Mathf.FloorToInt(timeRemaining % 60);
                 //timerValTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
-            }
-        
-
-            
-        
+            }   
     }
 
 

@@ -775,6 +775,7 @@ namespace BNG
         public virtual void Reload()
         {
             InternalAmmo = MaxInternalAmmo;
+                       
         }
 
         void updateChamberedBullet()
@@ -829,6 +830,10 @@ namespace BNG
             }
 
             chamberRound();
+            if (weaponManager.Instance.isRapidFireMode == true)
+            {
+                RapidFireGunManager.Instance.SlideObject.SetActive(false);
+            }
 
             // Slide is no longer forced back if weapon was just charged
             slideForcedBack = false;
@@ -945,15 +950,24 @@ namespace BNG
                     if (distance <= minSlideDistance)
                     {
                         slideBeginningReached = true;
+                        if (weaponManager.Instance.isRapidFireMode == true)
+                        {
+                            RapidFireGunManager.Instance.SlideObject.SetActive(false);
+                        }
                     }
 
                     if (frames > 2)
                     {
                         slideBeginningReached = true;
+                        if (weaponManager.Instance.isRapidFireMode == true)
+                        {
+                            RapidFireGunManager.Instance.SlideObject.SetActive(false);
+                        }
                     }
 
                     yield return new WaitForEndOfFrame();
                 }
+
             }
         }
     }
