@@ -1575,6 +1575,16 @@ namespace FMOD.Studio
             return hasHandle() && FMOD_Studio_EventInstance_IsValid(this.handle);
         }
 
+        public float setVolume()
+        {
+            throw new NotImplementedException();
+        }
+
+        public float getVolume()
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 

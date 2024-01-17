@@ -151,8 +151,8 @@ MonoBehaviour:
   active: 1
   Properties:
     LiveUpdate:
-      Value: 0
-      HasValue: 0
+      Value: 1
+      HasValue: 1
     LiveUpdatePort:
       Value: 9264
       HasValue: 1
@@ -166,11 +166,11 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     BuildDirectory:
-      Value: 
-      HasValue: 0
+      Value: Android
+      HasValue: 1
     SpeakerMode:
-      Value: 0
-      HasValue: 0
+      Value: 3
+      HasValue: 1
     VirtualChannelCount:
       Value: 0
       HasValue: 0
@@ -233,13 +233,13 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     Overlay:
-      Value: 1
+      Value: 0
       HasValue: 1
     Logging:
       Value: 0
       HasValue: 0
     SampleRate:
-      Value: 48000
+      Value: 0
       HasValue: 1
     BuildDirectory:
       Value: 
@@ -357,14 +357,14 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
-  HasSourceProject: 1
-  HasPlatforms: 1
+  HasSourceProject: 0
+  HasPlatforms: 0
   sourceProjectPath: D:/FMOD GITHUB/FMOD/Pro Shooter1.7/Pro Shooter1.7.fspro
-  sourceBankPath: D:/FMOD GITHUB/FMOD/Pro Shooter1.7/Build
+  sourceBankPath: D:/FMOD GITHUB/FMOD/Pro Shooter1.7/Build/Android
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
-  AutomaticEventLoading: 1
+  AutomaticEventLoading: 0
   BankLoadType: 0
   AutomaticSampleLoading: 1
   EncryptionKey: 
@@ -372,7 +372,7 @@ MonoBehaviour:
   TargetAssetPath: FMODBanks
   TargetBankFolder: FMODBANKS
   EventLinkage: 0
-  LoggingLevel: 2
+  LoggingLevel: 0
   SpeakerModeSettings: []
   SampleRateSettings: []
   LiveUpdateSettings: []
@@ -383,16 +383,18 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  Banks: []
-  BanksToLoad: []
+  Banks:
+  - Master.assets
+  BanksToLoad:
+  - Master
   LiveUpdatePort: 9264
-  EnableMemoryTracking: 0
+  EnableMemoryTracking: 1
   AndroidUseOBB: 1
   AndroidPatchBuild: 0
   MeterChannelOrdering: 0
   StopEventsOutsideMaxDistance: 0
   BoltUnitOptionsBuildPending: 0
-  EnableErrorCallback: 0
+  EnableErrorCallback: 1
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
   CurrentVersion: 131609
@@ -428,8 +430,8 @@ MonoBehaviour:
   active: 1
   Properties:
     LiveUpdate:
-      Value: 1
-      HasValue: 1
+      Value: 0
+      HasValue: 0
     LiveUpdatePort:
       Value: 0
       HasValue: 0
@@ -443,11 +445,11 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     BuildDirectory:
-      Value: 
-      HasValue: 0
+      Value: Android
+      HasValue: 1
     SpeakerMode:
-      Value: 0
-      HasValue: 0
+      Value: 3
+      HasValue: 1
     VirtualChannelCount:
       Value: 0
       HasValue: 0

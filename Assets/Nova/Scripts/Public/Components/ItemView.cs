@@ -108,6 +108,7 @@ namespace Nova
 
         [NonSerialized]
         private UIBlock _uiBlock = null;
+        public float normalizedValue;
 
         internal Type TypeOfVisuals => HasVisuals ? Visuals.GetType() : null;
         internal bool HasVisuals => Visuals != null;

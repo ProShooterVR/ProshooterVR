@@ -20,6 +20,7 @@ namespace NovaSamples.UIControls
         public UIBlock2D Knob = null;
         [Tooltip("The Textblock used to display the numerical value and units of the slider's selected value.")]
         public TextBlock Units = null;
+        public float normalizedValue;
 
         protected override UIBlock TransitionTargetFallback => Knob;
     }

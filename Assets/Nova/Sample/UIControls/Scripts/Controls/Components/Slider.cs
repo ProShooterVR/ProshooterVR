@@ -17,7 +17,7 @@ namespace NovaSamples.UIControls
 
         [SerializeField]
         [Tooltip("The numeric value associated with the slider.")]
-        private float value;
+        public float value;
 
         [SerializeField]
         [Range(0, 1)]
@@ -62,6 +62,7 @@ namespace NovaSamples.UIControls
         [SerializeField]
         [Tooltip("The string format to use when displaying the slider value to the end user.")]
         private string unitsFormat = "{0:0.00}";
+        public float normalizedValue;
 
         private void OnEnable()
         {

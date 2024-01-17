@@ -51,6 +51,8 @@ public class HUB_UIManager : MonoBehaviour
     public TextMeshPro GamesPlayed_10mAP_OverallTxt, GamesPlayed_10mAR_OverallTxt, PrecisionPoints_10mAP_OverallTxt, PrecisionPoints_10mAR_OverallTxt;
 
     public TextMeshPro LBModeText, LBLevelText;
+
+    public GameObject SoundControlPanel, AMB;
     ////
 
     public enum gameType
@@ -88,9 +90,16 @@ public class HUB_UIManager : MonoBehaviour
         FilterPanel.SetActive(false);
         AirPistolLevelPanel.SetActive(false);
         AirRifleLevelPanel.SetActive(false);
+        SoundControlPanel.SetActive(false);
 
+        AMB.SetActive(true);
     }
 
+    public void OnAudioSettingsButtonClick()
+    {
+        SoundControlPanel.SetActive(true);
+        settingUI.SetActive(false);
+    }
     public void OnFilterPanelButtonClick()
     {
         FilterPanel.SetActive(!FilterPanel.activeSelf);
