@@ -88,6 +88,8 @@ public class PistolUIManager : MonoBehaviour
     public bool isOtherUIOpen;
     public TextMeshPro shotsLeftTxt;
 
+    public GameObject AudioSettingsUIPanel, SettingsUIPanel;
+
     private void Awake()
     {
         Instance = this;
@@ -138,6 +140,8 @@ public class PistolUIManager : MonoBehaviour
         shotsLeftTxt.text = "30";
         //  
 
+        AudioSettingsUIPanel.SetActive(false);
+        SettingsUIPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -235,13 +239,39 @@ public class PistolUIManager : MonoBehaviour
 
     public void gameSettingsButtonClicked()
     {
+        SettingsUIPanel.SetActive(true);
+        menuPanel.SetActive(false);
+        setSwitch = false;
+        isOtherUIOpen = true;
+    }
+    public void GripAdjustmentButtonClicked()
+    {
+        SettingsUIPanel.SetActive(false);
         gripAdjustUI.SetActive(true);
         menuPanel.SetActive(false);
         setSwitch = false;
         isOtherUIOpen = true;
-
     }
-
+    public void AudioSettingsButtonClicked()
+    {
+        AudioSettingsUIPanel.SetActive(true);
+        menuPanel.SetActive(false);
+    }
+    public void AudioSettingsCloseButtonClicked()
+    {
+        AudioSettingsUIPanel.SetActive(false);
+        menuPanel.SetActive(true);
+    }
+    public void AudioSettingsSaveButtonClicked()
+    {
+        AudioSettingsUIPanel.SetActive(false);
+        menuPanel.SetActive(true);
+    }
+    public void GameSettingPanelCloseButtonClicked()
+    {
+        SettingsUIPanel.SetActive(false);
+        menuPanel.SetActive(true);
+    }
     public void gripAdjustBtnCLick()
     {
         rightHandController.GetComponent<HandRotation>().enabled = true;
@@ -249,7 +279,6 @@ public class PistolUIManager : MonoBehaviour
         UXManagerAirPistol.Instance.resetUXData();
         RayManager.Instance.DisableRey();
         gripAdjustUI.SetActive(false);
-
     }
     public void HelpPopupCloseButton()
     {
@@ -257,7 +286,6 @@ public class PistolUIManager : MonoBehaviour
         settingPopUp.SetActive(true);
         menuPanel.SetActive(true);
         setSwitch = false;
-
     }
     public void HelpButtonClick()
     {
@@ -270,9 +298,6 @@ public class PistolUIManager : MonoBehaviour
         setSwitch = false;
         isOtherUIOpen = true;
     }
-
-
-
 
     public void startBtnClick()
     {
