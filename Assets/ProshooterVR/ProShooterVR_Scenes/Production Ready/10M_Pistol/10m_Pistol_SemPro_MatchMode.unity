@@ -5032,6 +5032,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 59805204}
+    - targetCorrespondingSourceObject: {fileID: 3343796276783164974, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 59805207}
   m_SourcePrefab: {fileID: 100100000, guid: 03c29f4a94dbf5b44915011c5d467a8f, type: 3}
 --- !u!4 &59805202 stripped
 Transform:
@@ -5066,6 +5070,33 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 59805201}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &59805206 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 624285334299759167, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 59805201}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59805203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &59805207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59805203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 59805206}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &60960144
 GameObject:
   m_ObjectHideFlags: 0
@@ -7651,6 +7682,7 @@ GameObject:
   - component: {fileID: 126726372}
   - component: {fileID: 126726371}
   - component: {fileID: 126726370}
+  - component: {fileID: 126726378}
   m_Layer: 5
   m_Name: No
   m_TagString: Untagged
@@ -8096,6 +8128,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &126726378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126726368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 126726373}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &127053771
 GameObject:
   m_ObjectHideFlags: 0
@@ -12303,6 +12350,7 @@ GameObject:
   - component: {fileID: 260194782}
   - component: {fileID: 260194781}
   - component: {fileID: 260194780}
+  - component: {fileID: 260194788}
   m_Layer: 5
   m_Name: Audio Settings
   m_TagString: Untagged
@@ -12748,6 +12796,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &260194788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260194778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 260194783}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1001 &266593142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12811,6 +12874,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3595095124837753261, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3750545166614503548, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
         type: 3}
       propertyPath: UnloadEvent
@@ -12825,6 +12893,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: XR Rig Advanced_AirPistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 6488047753212739079, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6720645507687443602, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
         type: 3}
@@ -16384,15 +16457,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3343796276783164974, guid: 03c29f4a94dbf5b44915011c5d467a8f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 343894500}
+      addedObject: {fileID: 343894498}
     - targetCorrespondingSourceObject: {fileID: 8111755004194187437, guid: 03c29f4a94dbf5b44915011c5d467a8f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 665874973}
+      addedObject: {fileID: 1436530734}
     - targetCorrespondingSourceObject: {fileID: 2142064732982539226, guid: 03c29f4a94dbf5b44915011c5d467a8f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 343894498}
+      addedObject: {fileID: 343894497}
     - targetCorrespondingSourceObject: {fileID: 5303831987033581549, guid: 03c29f4a94dbf5b44915011c5d467a8f,
         type: 3}
       insertIndex: -1
@@ -16400,7 +16473,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6685402381170086454, guid: 03c29f4a94dbf5b44915011c5d467a8f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 807244862}
+      addedObject: {fileID: 1822001968}
   m_SourcePrefab: {fileID: 100100000, guid: 03c29f4a94dbf5b44915011c5d467a8f, type: 3}
 --- !u!4 &343894484 stripped
 Transform:
@@ -16426,24 +16499,84 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 343894483}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &343894488 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7580698008893195582, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 343894483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343894485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &343894489 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6685402381170086454, guid: 03c29f4a94dbf5b44915011c5d467a8f,
     type: 3}
   m_PrefabInstance: {fileID: 343894483}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &343894490 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2476407423634037357, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 343894483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343894489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &343894491 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5303831987033581549, guid: 03c29f4a94dbf5b44915011c5d467a8f,
     type: 3}
   m_PrefabInstance: {fileID: 343894483}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &343894492 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1732440893741176090, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 343894483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343894491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &343894493 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2142064732982539226, guid: 03c29f4a94dbf5b44915011c5d467a8f,
     type: 3}
   m_PrefabInstance: {fileID: 343894483}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &343894494 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 484345250036509234, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 343894483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343894493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &343894495 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 624285334299759167, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 343894483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343894486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &343894496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16453,13 +16586,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 343894491}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerNode: 4
-  hapticDuration: 0.1
-  hapticAmplitude: 0.2
---- !u!114 &343894498
+  Button: {fileID: 343894492}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
+--- !u!114 &343894497
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16468,13 +16601,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 343894493}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerNode: 4
-  hapticDuration: 0.1
-  hapticAmplitude: 0.2
---- !u!114 &343894500
+  Button: {fileID: 343894494}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
+--- !u!114 &343894498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16483,12 +16616,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 343894486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerNode: 4
-  hapticDuration: 0.1
-  hapticAmplitude: 0.2
+  Button: {fileID: 343894495}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &345023673
 GameObject:
   m_ObjectHideFlags: 0
@@ -18132,6 +18265,7 @@ GameObject:
   - component: {fileID: 407731614}
   - component: {fileID: 407731613}
   - component: {fileID: 407731612}
+  - component: {fileID: 407731620}
   m_Layer: 5
   m_Name: No
   m_TagString: Untagged
@@ -18577,6 +18711,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &407731620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407731610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 407731615}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &411385792
 GameObject:
   m_ObjectHideFlags: 0
@@ -19303,6 +19452,7 @@ GameObject:
   - component: {fileID: 448613969}
   - component: {fileID: 448613968}
   - component: {fileID: 448613967}
+  - component: {fileID: 448613975}
   m_Layer: 5
   m_Name: No
   m_TagString: Untagged
@@ -19748,6 +19898,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &448613975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448613965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 448613970}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &452167755
 GameObject:
   m_ObjectHideFlags: 0
@@ -22648,6 +22813,7 @@ GameObject:
   - component: {fileID: 560109577}
   - component: {fileID: 560109576}
   - component: {fileID: 560109575}
+  - component: {fileID: 560109583}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -23093,6 +23259,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &560109583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560109573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 560109578}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &561284576
 GameObject:
   m_ObjectHideFlags: 0
@@ -23657,6 +23838,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 566057772}
+    - targetCorrespondingSourceObject: {fileID: 3343796276783164974, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 566057775}
   m_SourcePrefab: {fileID: 100100000, guid: 03c29f4a94dbf5b44915011c5d467a8f, type: 3}
 --- !u!4 &566057770 stripped
 Transform:
@@ -23691,6 +23876,33 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 566057769}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &566057774 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 624285334299759167, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 566057769}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566057771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &566057775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566057771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 566057774}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &572299667
 GameObject:
   m_ObjectHideFlags: 0
@@ -23853,7 +24065,7 @@ GameObject:
   - component: {fileID: 592776465}
   - component: {fileID: 592776464}
   - component: {fileID: 592776463}
-  - component: {fileID: 592776462}
+  - component: {fileID: 592776470}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -23877,21 +24089,6 @@ Transform:
   m_Father: {fileID: 343894484}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &592776462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592776460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerNode: 0
-  hapticDuration: 0.2
-  hapticAmplitude: 0.5
 --- !u!114 &592776463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24299,6 +24496,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &592776470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592776460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 592776465}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &603352557
 GameObject:
   m_ObjectHideFlags: 0
@@ -24313,6 +24525,7 @@ GameObject:
   - component: {fileID: 603352561}
   - component: {fileID: 603352560}
   - component: {fileID: 603352559}
+  - component: {fileID: 603352564}
   m_Layer: 5
   m_Name: Next Button
   m_TagString: Untagged
@@ -24706,6 +24919,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &603352564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603352557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 603352561}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &603460949
 GameObject:
   m_ObjectHideFlags: 0
@@ -26534,6 +26762,7 @@ GameObject:
   - component: {fileID: 647220405}
   - component: {fileID: 647220404}
   - component: {fileID: 647220403}
+  - component: {fileID: 647220408}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -26928,6 +27157,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &647220408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647220401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 647220405}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &650471112
 GameObject:
   m_ObjectHideFlags: 0
@@ -27086,21 +27330,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656789023}
   m_CullTransparentMesh: 1
---- !u!114 &665874973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343894485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerNode: 4
-  hapticDuration: 0.1
-  hapticAmplitude: 0.2
 --- !u!1 &671296712
 GameObject:
   m_ObjectHideFlags: 0
@@ -30580,21 +30809,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.06, y: 0.10179113, z: 0.07}
   m_Center: {x: 0, y: -0.010895561, z: 0.006}
---- !u!114 &807244862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343894489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerNode: 4
-  hapticDuration: 0.1
-  hapticAmplitude: 0.2
 --- !u!1 &831289766
 GameObject:
   m_ObjectHideFlags: 0
@@ -31999,6 +32213,7 @@ GameObject:
   - component: {fileID: 869807289}
   - component: {fileID: 869807288}
   - component: {fileID: 869807287}
+  - component: {fileID: 869807294}
   m_Layer: 5
   m_Name: Save Button
   m_TagString: Untagged
@@ -32424,6 +32639,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &869807294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869807285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 869807289}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &889984261
 GameObject:
   m_ObjectHideFlags: 0
@@ -33350,6 +33580,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 898786929}
+    - targetCorrespondingSourceObject: {fileID: 3343796276783164974, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 898786931}
   m_SourcePrefab: {fileID: 100100000, guid: 03c29f4a94dbf5b44915011c5d467a8f, type: 3}
 --- !u!1 &898786926 stripped
 GameObject:
@@ -33384,6 +33618,33 @@ MonoBehaviour:
   controllerNode: 0
   hapticDuration: 0.2
   hapticAmplitude: 0.5
+--- !u!114 &898786930 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 624285334299759167, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 898786925}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898786928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &898786931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898786928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 898786930}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &900821285
 GameObject:
   m_ObjectHideFlags: 0
@@ -34363,6 +34624,7 @@ GameObject:
   - component: {fileID: 926707598}
   - component: {fileID: 926707597}
   - component: {fileID: 926707596}
+  - component: {fileID: 926707603}
   m_Layer: 5
   m_Name: Grip Adjustment
   m_TagString: Untagged
@@ -34805,6 +35067,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &926707603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926707594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 926707598}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &928210990
 GameObject:
   m_ObjectHideFlags: 0
@@ -40296,6 +40573,7 @@ GameObject:
   - component: {fileID: 1159499642}
   - component: {fileID: 1159499641}
   - component: {fileID: 1159499640}
+  - component: {fileID: 1159499647}
   m_Layer: 5
   m_Name: Close Button
   m_TagString: Untagged
@@ -40721,6 +40999,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1159499647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159499638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1159499642}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1169408910
 GameObject:
   m_ObjectHideFlags: 0
@@ -48635,6 +48928,21 @@ Transform:
   m_Father: {fileID: 164331258}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1436530734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343894485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 343894488}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1440769609
 GameObject:
   m_ObjectHideFlags: 0
@@ -58400,6 +58708,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1814095128}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1822001968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343894489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 343894490}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1831702336
 GameObject:
   m_ObjectHideFlags: 0
@@ -59606,6 +59929,7 @@ GameObject:
   - component: {fileID: 1868901999}
   - component: {fileID: 1868901998}
   - component: {fileID: 1868901997}
+  - component: {fileID: 1868902002}
   m_Layer: 5
   m_Name: Previous Button
   m_TagString: Untagged
@@ -59999,6 +60323,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1868902002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868901995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1868901999}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1869693553
 GameObject:
   m_ObjectHideFlags: 0

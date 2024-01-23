@@ -2365,7 +2365,7 @@ MonoBehaviour:
   LBModeText: {fileID: 456444957}
   LBLevelText: {fileID: 1156459040}
   SoundControlPanel: {fileID: 1626402510}
-  AMB: {fileID: 1516953798}
+  AMB: {fileID: 1781580094}
 --- !u!1 &160478808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,7 +2383,7 @@ GameObject:
   - component: {fileID: 160478813}
   - component: {fileID: 160478812}
   - component: {fileID: 160478811}
-  - component: {fileID: 160478810}
+  - component: {fileID: 160478819}
   m_Layer: 5
   m_Name: Pro Button
   m_TagString: Untagged
@@ -2409,22 +2409,6 @@ Transform:
   m_Father: {fileID: 1077851275}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &160478810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160478808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 160478816}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &160478811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2869,6 +2853,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &160478819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160478808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 160478816}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &175974362
 GameObject:
   m_ObjectHideFlags: 0
@@ -5651,7 +5650,7 @@ GameObject:
   - component: {fileID: 309156995}
   - component: {fileID: 309156994}
   - component: {fileID: 309156993}
-  - component: {fileID: 309156992}
+  - component: {fileID: 309157002}
   m_Layer: 5
   m_Name: Amateur Button
   m_TagString: Untagged
@@ -5659,22 +5658,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &309156992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309156991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 309156998}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &309156993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6137,6 +6120,21 @@ Transform:
   m_Father: {fileID: 1077851275}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &309157002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309156991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 309156998}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &356554243
 GameObject:
   m_ObjectHideFlags: 0
@@ -7291,7 +7289,7 @@ GameObject:
   - component: {fileID: 427275381}
   - component: {fileID: 427275380}
   - component: {fileID: 427275379}
-  - component: {fileID: 427275378}
+  - component: {fileID: 427275386}
   m_Layer: 5
   m_Name: PixelPop Button
   m_TagString: Untagged
@@ -7316,22 +7314,6 @@ Transform:
   m_Father: {fileID: 89361422}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &427275378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 427275376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 427275380}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
 --- !u!114 &427275379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7743,6 +7725,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &427275386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427275376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 427275380}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &437751458
 GameObject:
   m_ObjectHideFlags: 0
@@ -8802,7 +8799,7 @@ GameObject:
   - component: {fileID: 469588260}
   - component: {fileID: 469588259}
   - component: {fileID: 469588258}
-  - component: {fileID: 469588257}
+  - component: {fileID: 469588267}
   m_Layer: 5
   m_Name: Semipro Button
   m_TagString: Untagged
@@ -8810,22 +8807,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &469588257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 469588256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 469588263}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &469588258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9288,6 +9269,21 @@ Transform:
   m_Father: {fileID: 1077851275}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &469588267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469588256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 469588263}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &470431326
 GameObject:
   m_ObjectHideFlags: 0
@@ -9784,6 +9780,7 @@ GameObject:
   - component: {fileID: 515235129}
   - component: {fileID: 515235131}
   - component: {fileID: 515235132}
+  - component: {fileID: 515235133}
   m_Layer: 5
   m_Name: Player ProfileBtn
   m_TagString: Untagged
@@ -10191,6 +10188,21 @@ MonoBehaviour:
     Y: 0
     Z: 0
   GestureSpace: 0
+--- !u!114 &515235133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515235124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 515235132}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &516103049
 GameObject:
   m_ObjectHideFlags: 0
@@ -12910,6 +12922,7 @@ GameObject:
   - component: {fileID: 732690084}
   - component: {fileID: 732690083}
   - component: {fileID: 732690082}
+  - component: {fileID: 732690088}
   m_Layer: 5
   m_Name: Filter Button
   m_TagString: Untagged
@@ -13325,6 +13338,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &732690088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732690080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 732690085}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!114 &736503902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15894,8 +15922,8 @@ GameObject:
   - component: {fileID: 970085624}
   - component: {fileID: 970085623}
   - component: {fileID: 970085622}
-  - component: {fileID: 970085621}
   - component: {fileID: 970085620}
+  - component: {fileID: 970085628}
   m_Layer: 5
   m_Name: 25m Rapid Fire Button
   m_TagString: Untagged
@@ -15935,22 +15963,6 @@ MonoBehaviour:
   controllerNode: 4
   hapticDuration: 0.2
   hapticAmplitude: 0.5
---- !u!114 &970085621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 970085618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 970085622}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
 --- !u!114 &970085622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16347,6 +16359,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &970085628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970085618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 970085622}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &970527733
 GameObject:
   m_ObjectHideFlags: 0
@@ -16362,7 +16389,7 @@ GameObject:
   - component: {fileID: 970527738}
   - component: {fileID: 970527737}
   - component: {fileID: 970527736}
-  - component: {fileID: 970527735}
+  - component: {fileID: 970527742}
   m_Layer: 5
   m_Name: Close Button
   m_TagString: Untagged
@@ -16386,22 +16413,6 @@ Transform:
   m_Father: {fileID: 1626402511}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &970527735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 970527733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 970527737}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
 --- !u!114 &970527736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16481,8 +16492,8 @@ MonoBehaviour:
   OnClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AudioManagerAndMusicPlayer, Assembly-CSharp
+      - m_Target: {fileID: 572437133}
+        m_TargetAssemblyTypeName: FmodAudioManager, Assembly-CSharp
         m_MethodName: OnCloseButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -16788,6 +16799,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &970527742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970527733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 970527737}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &971592160
 GameObject:
   m_ObjectHideFlags: 0
@@ -17969,7 +17995,7 @@ GameObject:
   - component: {fileID: 1023086081}
   - component: {fileID: 1023086080}
   - component: {fileID: 1023086079}
-  - component: {fileID: 1023086078}
+  - component: {fileID: 1023086086}
   m_Layer: 5
   m_Name: Audio Settings
   m_TagString: Untagged
@@ -17993,22 +18019,6 @@ Transform:
   m_Father: {fileID: 6867143729606244637}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1023086078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1023086076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 5703996068501776439}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
 --- !u!114 &1023086079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18416,134 +18426,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1023394890
-GameObject:
+--- !u!114 &1023086086
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1023394892}
-  - component: {fileID: 1023394891}
-  m_Layer: 0
-  m_Name: Buttons Audio Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &1023394891
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1023394890}
+  m_GameObject: {fileID: 1023086076}
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &1023394892
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1023394890}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.16345102, y: 0.37490755, z: -0.32235718}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2571359853246428772}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1023086083}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1033224403
 GameObject:
   m_ObjectHideFlags: 0
@@ -24274,88 +24171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1516953798
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1516953800}
-  - component: {fileID: 1516953799}
-  - component: {fileID: 1516953801}
-  m_Layer: 0
-  m_Name: AMB
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1516953799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516953798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1747644957
-      Data2: 1176609402
-      Data3: 903443590
-      Data4: -464069421
-    Path: event:/AMB
-  Event: 
-  PlayEvent: 11
-  StopEvent: 12
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 1
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!4 &1516953800
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516953798}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.58694446, y: 2.2919548, z: 3.9726045}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 23
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1516953801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516953798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 7
-  UnloadEvent: 0
-  Banks:
-  - Master
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!114 &1518166207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25368,8 +25183,8 @@ GameObject:
   - component: {fileID: 1571514268}
   - component: {fileID: 1571514267}
   - component: {fileID: 1571514266}
-  - component: {fileID: 1571514265}
   - component: {fileID: 1571514264}
+  - component: {fileID: 1571514273}
   m_Layer: 5
   m_Name: 10m Air Pistol Button
   m_TagString: Untagged
@@ -25392,22 +25207,6 @@ MonoBehaviour:
   controllerNode: 4
   hapticDuration: 0.2
   hapticAmplitude: 0.5
---- !u!114 &1571514265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1571514263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 1571514266}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
 --- !u!114 &1571514266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25821,6 +25620,21 @@ Transform:
   m_Father: {fileID: 216654140}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1571514273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571514263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1571514266}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1615411303
 GameObject:
   m_ObjectHideFlags: 0
@@ -28105,7 +27919,6 @@ GameObject:
   - component: {fileID: 1675975653}
   - component: {fileID: 1675975655}
   - component: {fileID: 1675975656}
-  - component: {fileID: 1675975657}
   - component: {fileID: 1675975658}
   - component: {fileID: 1675975659}
   - component: {fileID: 1675975660}
@@ -28422,22 +28235,6 @@ MonoBehaviour:
   controllerNode: 4
   hapticDuration: 0.2
   hapticAmplitude: 0.5
---- !u!114 &1675975657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675975651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 5703996068501776439}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
 --- !u!114 &1675975658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28592,13 +28389,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1675975651}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 1675975658}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1678829814
 GameObject:
   m_ObjectHideFlags: 0
@@ -29033,13 +28829,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1678829814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 1678829820}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1682035441
 GameObject:
   m_ObjectHideFlags: 0
@@ -29756,6 +29551,7 @@ GameObject:
   - component: {fileID: 1716724919}
   - component: {fileID: 1716724918}
   - component: {fileID: 1716724917}
+  - component: {fileID: 1716724923}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -30171,6 +29967,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1716724923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716724915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1716724920}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1717229833
 GameObject:
   m_ObjectHideFlags: 0
@@ -31540,6 +31351,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1781580094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1781580095}
+  m_Layer: 0
+  m_Name: EmptyTempObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1781580095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781580094}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.467662, y: 2.7795248, z: 4.0307856}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1790136037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32311,7 +32153,8 @@ GameObject:
   - component: {fileID: 1799321327}
   - component: {fileID: 1799321326}
   - component: {fileID: 1799321325}
-  - component: {fileID: 1799321324}
+  - component: {fileID: 1799321333}
+  - component: {fileID: 1799321334}
   m_Layer: 5
   m_Name: Arcade Button
   m_TagString: Untagged
@@ -32337,22 +32180,6 @@ Transform:
   m_Father: {fileID: 7222721892988107125}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1799321324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799321322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 1799321329}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &1799321325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32764,6 +32591,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1799321333
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799321322}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.20211887, z: 0.053258896}
+  m_Center: {x: 0, y: -0.0025410652, z: -0.016246796}
+--- !u!114 &1799321334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799321322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1799321329}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1828711354
 GameObject:
   m_ObjectHideFlags: 0
@@ -33998,7 +33861,7 @@ GameObject:
   - component: {fileID: 1986802245}
   - component: {fileID: 1986802244}
   - component: {fileID: 1986802243}
-  - component: {fileID: 1986802242}
+  - component: {fileID: 1986802252}
   m_Layer: 5
   m_Name: Overall Button
   m_TagString: Untagged
@@ -34006,22 +33869,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1986802242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986802241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 1986802248}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &1986802243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34484,6 +34331,21 @@ Transform:
   m_Father: {fileID: 1077851275}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1986802252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986802241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1986802248}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &2001472713
 GameObject:
   m_ObjectHideFlags: 0
@@ -34497,7 +34359,6 @@ GameObject:
   - component: {fileID: 2001472715}
   - component: {fileID: 2001472717}
   - component: {fileID: 2001472718}
-  - component: {fileID: 2001472719}
   - component: {fileID: 2001472720}
   - component: {fileID: 2001472721}
   - component: {fileID: 2001472722}
@@ -34814,22 +34675,6 @@ MonoBehaviour:
   controllerNode: 4
   hapticDuration: 0.2
   hapticAmplitude: 0.5
---- !u!114 &2001472719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001472713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 1675975658}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
 --- !u!114 &2001472720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34984,13 +34829,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2001472713}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 2001472720}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &2004486366
 GameObject:
   m_ObjectHideFlags: 0
@@ -35006,8 +34850,8 @@ GameObject:
   - component: {fileID: 2004486371}
   - component: {fileID: 2004486370}
   - component: {fileID: 2004486369}
-  - component: {fileID: 2004486368}
   - component: {fileID: 2004486367}
+  - component: {fileID: 2004486376}
   m_Layer: 5
   m_Name: 10m Air Rifle Button
   m_TagString: Untagged
@@ -35030,22 +34874,6 @@ MonoBehaviour:
   controllerNode: 4
   hapticDuration: 0.2
   hapticAmplitude: 0.5
---- !u!114 &2004486368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2004486366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 2004486369}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
 --- !u!114 &2004486369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35459,6 +35287,21 @@ Transform:
   m_Father: {fileID: 216654140}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2004486376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004486366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 2004486369}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &2007032552
 GameObject:
   m_ObjectHideFlags: 0
@@ -35839,7 +35682,7 @@ GameObject:
   - component: {fileID: 2007505787}
   - component: {fileID: 2007505786}
   - component: {fileID: 2007505785}
-  - component: {fileID: 2007505784}
+  - component: {fileID: 2007505791}
   m_Layer: 5
   m_Name: Save Button
   m_TagString: Untagged
@@ -35863,22 +35706,6 @@ Transform:
   m_Father: {fileID: 1626402511}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2007505784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007505782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 2007505786}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &2007505785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35958,8 +35785,8 @@ MonoBehaviour:
   OnClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AudioManagerAndMusicPlayer, Assembly-CSharp
+      - m_Target: {fileID: 572437133}
+        m_TargetAssemblyTypeName: FmodAudioManager, Assembly-CSharp
         m_MethodName: OnSaveButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -36265,6 +36092,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2007505791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007505782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 2007505786}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &2033869612
 GameObject:
   m_ObjectHideFlags: 0
@@ -37321,8 +37163,8 @@ GameObject:
   - component: {fileID: 2094159208}
   - component: {fileID: 2094159207}
   - component: {fileID: 2094159206}
-  - component: {fileID: 2094159205}
   - component: {fileID: 2094159204}
+  - component: {fileID: 2094159211}
   m_Layer: 5
   m_Name: Play Button
   m_TagString: Untagged
@@ -37361,22 +37203,6 @@ MonoBehaviour:
   controllerNode: 4
   hapticDuration: 0.2
   hapticAmplitude: 0.5
---- !u!114 &2094159205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094159202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 2094159206}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
 --- !u!114 &2094159206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37748,6 +37574,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2094159211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094159202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 2094159206}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &2110099428
 GameObject:
   m_ObjectHideFlags: 0
@@ -38407,7 +38248,7 @@ GameObject:
   - component: {fileID: 8566545874392248728}
   - component: {fileID: 6291072974284966156}
   - component: {fileID: 8569310690228937545}
-  - component: {fileID: 8569310690228937544}
+  - component: {fileID: 8569310690228937546}
   m_Layer: 5
   m_Name: Shuffle OFF
   m_TagString: Untagged
@@ -38591,8 +38432,8 @@ GameObject:
   - component: {fileID: 5447814449593390511}
   - component: {fileID: 5313258328613913606}
   - component: {fileID: 4752093869022663408}
-  - component: {fileID: 7164951978157108315}
   - component: {fileID: 7164951978157108314}
+  - component: {fileID: 7164951978157108315}
   m_Layer: 5
   m_Name: Shuffle ON
   m_TagString: Untagged
@@ -42732,8 +42573,8 @@ GameObject:
   - component: {fileID: 4638831192615079987}
   - component: {fileID: 7220391810546093089}
   - component: {fileID: 1958786127830164118}
-  - component: {fileID: 9189219774429688399}
   - component: {fileID: 9189219774429688398}
+  - component: {fileID: 9189219774429688399}
   m_Layer: 5
   m_Name: Play Icon
   m_TagString: Untagged
@@ -49976,8 +49817,8 @@ GameObject:
   - component: {fileID: 7444294876977410045}
   - component: {fileID: 7293845361642453029}
   - component: {fileID: 8348525219327088681}
-  - component: {fileID: 8429462688780484502}
   - component: {fileID: 8429462688780484501}
+  - component: {fileID: 8429462688780484502}
   m_Layer: 5
   m_Name: PlayList ON
   m_TagString: Untagged
@@ -51015,6 +50856,7 @@ GameObject:
   - component: {fileID: 2156828877898293857}
   - component: {fileID: 7226607042487160382}
   - component: {fileID: 1520297486793879248}
+  - component: {fileID: 8078469013709713457}
   m_Layer: 5
   m_Name: The Lounge Mix
   m_TagString: Untagged
@@ -54149,22 +53991,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 8076806401100260549}
   m_maskType: 0
---- !u!114 &1381920986314387607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7784338187142211632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 5675113431117847578}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &1384342553599460736
 MonoBehaviour:
   m_ObjectHideFlags: 10
@@ -62571,22 +62397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2221196985946559912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5347197263853702358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 8506367833250944224}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!4 &2228616794858408356
 Transform:
   m_ObjectHideFlags: 0
@@ -62708,22 +62518,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.001}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2271881991478356705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5862089530021509434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 3735157487280174516}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &2273526680625673517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64567,7 +64361,7 @@ GameObject:
   - component: {fileID: 2561166854734913907}
   - component: {fileID: 1350844911841279767}
   - component: {fileID: 8199178786553650623}
-  - component: {fileID: 4588851556580526987}
+  - component: {fileID: 9081192158110134026}
   m_Layer: 5
   m_Name: Semipro Button
   m_TagString: Untagged
@@ -66527,7 +66321,6 @@ Transform:
   - {fileID: 3810712496422413962}
   - {fileID: 5244045645445310012}
   - {fileID: 4545797049648783731}
-  - {fileID: 1023394892}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -68270,22 +68063,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2828684084269656102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3615089074714746357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 2789014415155089156}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &2841484415581917950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70932,6 +70709,7 @@ GameObject:
   - component: {fileID: 5364022789434838341}
   - component: {fileID: 2877035974553890361}
   - component: {fileID: 2234981863679220975}
+  - component: {fileID: 8893805736591735805}
   m_Layer: 5
   m_Name: World Fusion
   m_TagString: Untagged
@@ -70994,8 +70772,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.20211887, z: 0.025176525}
-  m_Center: {x: 0, y: -0.0025410652, z: -0.0022056103}
+  m_Size: {x: 1, y: 0.20211887, z: 0.053258896}
+  m_Center: {x: 0, y: -0.0025410652, z: -0.016246796}
 --- !u!114 &3087323749983771625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72809,6 +72587,7 @@ GameObject:
   - component: {fileID: 27477141827155688}
   - component: {fileID: 2355721106227897667}
   - component: {fileID: 7169945154109213856}
+  - component: {fileID: 7169945154109213857}
   m_Layer: 5
   m_Name: 70's
   m_TagString: Untagged
@@ -74120,7 +73899,7 @@ GameObject:
   - component: {fileID: 1518166212}
   - component: {fileID: 1518166224}
   - component: {fileID: 6274814650189330758}
-  - component: {fileID: 6274814650189330757}
+  - component: {fileID: 6274814650189330759}
   m_Layer: 5
   m_Name: Pro
   m_TagString: Untagged
@@ -76428,7 +76207,7 @@ GameObject:
   - component: {fileID: 3145401286758403544}
   - component: {fileID: 6954874775396923652}
   - component: {fileID: 3185680105693380581}
-  - component: {fileID: 2828684084269656102}
+  - component: {fileID: 7198630729691412618}
   m_Layer: 5
   m_Name: 10m Air Pistol Button
   m_TagString: Untagged
@@ -78637,7 +78416,8 @@ GameObject:
   - component: {fileID: 6225642266864267631}
   - component: {fileID: 1276022017}
   - component: {fileID: 7983772346145341486}
-  - component: {fileID: 7983772346145341487}
+  - component: {fileID: 7983772346145341488}
+  - component: {fileID: 7983772346145341489}
   m_Layer: 5
   m_Name: Tutorial Button
   m_TagString: Untagged
@@ -79579,7 +79359,7 @@ GameObject:
   - component: {fileID: 4381133142122405181}
   - component: {fileID: 613060545965128697}
   - component: {fileID: 6325332022835164195}
-  - component: {fileID: 6325332022835164194}
+  - component: {fileID: 6325332022835164196}
   m_Layer: 5
   m_Name: Loop OFF
   m_TagString: Untagged
@@ -80539,13 +80319,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2570573283886058806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 1790136037}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!65 &3941661544784025282
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -82436,8 +82215,8 @@ GameObject:
   - component: {fileID: 7634361424697492399}
   - component: {fileID: 1544561523843791613}
   - component: {fileID: 7585123240559546178}
-  - component: {fileID: 7634361424697492401}
   - component: {fileID: 7634361424697492400}
+  - component: {fileID: 7634361424697492401}
   m_Layer: 5
   m_Name: Pause Icon
   m_TagString: Untagged
@@ -84903,7 +84682,7 @@ GameObject:
   - component: {fileID: 3078515789651380203}
   - component: {fileID: 1276022019}
   - component: {fileID: 8291873133023301819}
-  - component: {fileID: 8291873133023301818}
+  - component: {fileID: 8291873133023301820}
   m_Layer: 5
   m_Name: Single Player Button
   m_TagString: Untagged
@@ -86470,22 +86249,6 @@ MonoBehaviour:
     ShadowCastingMode: 2
     ReceiveShadows: 1
   PreviewSize: {x: 1, y: 1, z: 0}
---- !u!114 &4588851556580526987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2399881015825511576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 9081192158110134025}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &4595384537551462885
 MonoBehaviour:
   m_ObjectHideFlags: 10
@@ -91817,13 +91580,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 966601649264365882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 1790136039}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &5219719761789412002
 GameObject:
   m_ObjectHideFlags: 0
@@ -93085,6 +92847,7 @@ GameObject:
   - component: {fileID: 5659885697620248737}
   - component: {fileID: 8781087313430282012}
   - component: {fileID: 8287752139007864702}
+  - component: {fileID: 8781087313430282013}
   m_Layer: 5
   m_Name: Orchestral Horizon
   m_TagString: Untagged
@@ -93127,7 +92890,7 @@ GameObject:
   - component: {fileID: 2102260163561286223}
   - component: {fileID: 915146143201393802}
   - component: {fileID: 7051030480291922816}
-  - component: {fileID: 2221196985946559912}
+  - component: {fileID: 9012398602897963365}
   m_Layer: 5
   m_Name: Pro Button
   m_TagString: Untagged
@@ -95151,7 +94914,8 @@ GameObject:
   - component: {fileID: 5120244120301879063}
   - component: {fileID: 224505194}
   - component: {fileID: 5703996068501776440}
-  - component: {fileID: 5703996068501776441}
+  - component: {fileID: 5703996068501776442}
+  - component: {fileID: 5703996068501776443}
   m_Layer: 5
   m_Name: Settings Button
   m_TagString: Untagged
@@ -97640,7 +97404,28 @@ MonoBehaviour:
   controllerNode: 4
   hapticDuration: 0.2
   hapticAmplitude: 0.5
---- !u!114 &5703996068501776441
+--- !u!65 &5703996068501776442
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550720852017065594}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.20211887, z: 0.053258896}
+  m_Center: {x: 0, y: -0.0025410652, z: -0.016246796}
+--- !u!114 &5703996068501776443
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97649,13 +97434,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5550720852017065594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 5703996068501776439}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!4 &5708459234390338801
 Transform:
   m_ObjectHideFlags: 0
@@ -97733,7 +97517,7 @@ GameObject:
   - component: {fileID: 2056937934757851833}
   - component: {fileID: 3199514970870004840}
   - component: {fileID: 7825522905269200568}
-  - component: {fileID: 7825522905269200567}
+  - component: {fileID: 7825522905269200569}
   m_Layer: 5
   m_Name: PlayList OFF
   m_TagString: Untagged
@@ -99702,7 +99486,7 @@ GameObject:
   - component: {fileID: 5638568471913041469}
   - component: {fileID: 2658914505334088271}
   - component: {fileID: 7594328219816586212}
-  - component: {fileID: 2271881991478356705}
+  - component: {fileID: 8463618180400093396}
   m_Layer: 5
   m_Name: Overall Button
   m_TagString: Untagged
@@ -101956,13 +101740,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1947004411486497940}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 736503907}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!114 &6120380812889212817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104319,22 +104102,6 @@ MonoBehaviour:
     FillEnabled: 1
   texture: {fileID: 0}
   sprite: {fileID: 0}
---- !u!114 &6274814650189330757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3397815504365466597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 1518166224}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &6274814650189330758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104350,6 +104117,21 @@ MonoBehaviour:
   controllerNode: 4
   hapticDuration: 0.2
   hapticAmplitude: 0.5
+--- !u!114 &6274814650189330759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3397815504365466597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1518166224}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!114 &6285303150966544863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105557,22 +105339,6 @@ MonoBehaviour:
     FillEnabled: 1
   texture: {fileID: 2800000, guid: a7cc56cfa93efb249a5b2c80391f0f79, type: 3}
   sprite: {fileID: 0}
---- !u!114 &6325332022835164194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3850443748432655135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 3799815069794372646}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &6325332022835164195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105588,6 +105354,21 @@ MonoBehaviour:
   controllerNode: 4
   hapticDuration: 0.2
   hapticAmplitude: 0.5
+--- !u!114 &6325332022835164196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3850443748432655135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 3799815069794372646}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!114 &6326374504052366129
 MonoBehaviour:
   m_ObjectHideFlags: 10
@@ -107863,6 +107644,7 @@ GameObject:
   - component: {fileID: 1711568975171927318}
   - component: {fileID: 6035716313207400351}
   - component: {fileID: 7849764134689716924}
+  - component: {fileID: 7849764134689716925}
   m_Layer: 5
   m_Name: Tranquil
   m_TagString: Untagged
@@ -108053,7 +107835,8 @@ GameObject:
   - component: {fileID: 2378340741527868989}
   - component: {fileID: 1276022018}
   - component: {fileID: 9024933709698234745}
-  - component: {fileID: 9024933709698234746}
+  - component: {fileID: 9024933709698234747}
+  - component: {fileID: 9024933709698234748}
   m_Layer: 5
   m_Name: Practice Button
   m_TagString: Untagged
@@ -108496,7 +108279,7 @@ GameObject:
   - component: {fileID: 1518166210}
   - component: {fileID: 1518166223}
   - component: {fileID: 6543470756872838945}
-  - component: {fileID: 6543470756872838944}
+  - component: {fileID: 6543470756872838946}
   m_Layer: 5
   m_Name: Amateur
   m_TagString: Untagged
@@ -108763,22 +108546,6 @@ MonoBehaviour:
     FillEnabled: 1
   texture: {fileID: 0}
   sprite: {fileID: 0}
---- !u!114 &6543470756872838944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6536222313482113331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 1518166223}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &6543470756872838945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108794,6 +108561,21 @@ MonoBehaviour:
   controllerNode: 4
   hapticDuration: 0.2
   hapticAmplitude: 0.5
+--- !u!114 &6543470756872838946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6536222313482113331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1518166223}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &6555013389299768926
 GameObject:
   m_ObjectHideFlags: 0
@@ -119344,8 +119126,8 @@ GameObject:
   - component: {fileID: 5065819322975943608}
   - component: {fileID: 5919739085798125144}
   - component: {fileID: 6711793738396319772}
-  - component: {fileID: 8592990562638923069}
   - component: {fileID: 8592990562638923068}
+  - component: {fileID: 8592990562638923069}
   m_Layer: 5
   m_Name: Loop ON
   m_TagString: Untagged
@@ -121537,7 +121319,7 @@ GameObject:
   - component: {fileID: 1518166214}
   - component: {fileID: 1518166225}
   - component: {fileID: 7065689243421861561}
-  - component: {fileID: 7065689243421861560}
+  - component: {fileID: 7065689243421861562}
   m_Layer: 5
   m_Name: Semi Pro
   m_TagString: Untagged
@@ -121545,22 +121327,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7065689243421861560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7065689243421861559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 1518166225}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &7065689243421861561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121576,6 +121342,21 @@ MonoBehaviour:
   controllerNode: 4
   hapticDuration: 0.2
   hapticAmplitude: 0.5
+--- !u!114 &7065689243421861562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7065689243421861559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1518166225}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!4 &7066556255069597413
 Transform:
   m_ObjectHideFlags: 0
@@ -122199,13 +121980,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 138370285261395780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 3534945364742037141}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!114 &7167261112409691825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122288,6 +122068,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9600247, y: 0.16363895, z: 0.08606768}
   m_Center: {x: 0.0013334751, y: 0.00020104647, z: -0.038172007}
+--- !u!114 &7169945154109213857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3266198673852956167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 5473138819796078870}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!114 &7178218726421866627
 MonoBehaviour:
   m_ObjectHideFlags: 10
@@ -122341,13 +122136,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1052394721682197954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 942722193}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!224 &7187926019126268716
 RectTransform:
   m_ObjectHideFlags: 0
@@ -122431,6 +122225,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7198630729691412618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3615089074714746357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 2789014415155089156}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &7217205176337254577
 GameObject:
   m_ObjectHideFlags: 0
@@ -126533,8 +126342,8 @@ GameObject:
   - component: {fileID: 941761716347682488}
   - component: {fileID: 2495764766008311048}
   - component: {fileID: 3941661544784025282}
-  - component: {fileID: 7633643566686929949}
   - component: {fileID: 7633643566686929948}
+  - component: {fileID: 7633643566686929949}
   m_Layer: 5
   m_Name: Next Icon
   m_TagString: Untagged
@@ -126566,13 +126375,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7633643566686929947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 2841484415581917950}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!114 &7634361424697492399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126633,13 +126441,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4194216896423189808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 5816745519581111240}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!114 &7641440041228817330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129323,7 +129130,7 @@ GameObject:
   - component: {fileID: 8113979590408079668}
   - component: {fileID: 4401039338215594374}
   - component: {fileID: 7425876308923690418}
-  - component: {fileID: 1381920986314387607}
+  - component: {fileID: 8113979590408079669}
   m_Layer: 5
   m_Name: 10m Air Rifle  Button
   m_TagString: Untagged
@@ -129476,22 +129283,6 @@ MonoBehaviour:
           PressedAnimation: Pressed
         Background: {fileID: 1130417593098506987}
         Label: {fileID: 0}
---- !u!114 &7825522905269200567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5756240984780206191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 6230954033090855167}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &7825522905269200568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129507,6 +129298,21 @@ MonoBehaviour:
   controllerNode: 4
   hapticDuration: 0.2
   hapticAmplitude: 0.5
+--- !u!114 &7825522905269200569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5756240984780206191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 6230954033090855167}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!23 &7827741045287324220
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -129669,6 +129475,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9600247, y: 0.16363895, z: 0.08606768}
   m_Center: {x: 0.0013334751, y: 0.00020104647, z: -0.038172007}
+--- !u!114 &7849764134689716925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6455937216773294285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 6473411449997873536}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!23 &7850714545386506707
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -130165,7 +129986,7 @@ GameObject:
   - component: {fileID: 5746469042767799036}
   - component: {fileID: 3092765978492122046}
   - component: {fileID: 1096026704977345043}
-  - component: {fileID: 8564123122179711306}
+  - component: {fileID: 7914715340024438150}
   m_Layer: 5
   m_Name: Amateur Button
   m_TagString: Untagged
@@ -130173,6 +129994,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7914715340024438150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7914715340024438149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 7477366608005205861}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &7921905625921080736
 GameObject:
   m_ObjectHideFlags: 0
@@ -130749,7 +130585,28 @@ MonoBehaviour:
   controllerNode: 4
   hapticDuration: 0.2
   hapticAmplitude: 0.5
---- !u!114 &7983772346145341487
+--- !u!65 &7983772346145341488
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3801259015149260559}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.20211887, z: 0.053258896}
+  m_Center: {x: 0, y: -0.0025410652, z: -0.016246796}
+--- !u!114 &7983772346145341489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130758,13 +130615,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3801259015149260559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 7983772346145341485}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!114 &7990134532974598816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132194,6 +132050,21 @@ MonoBehaviour:
     FillEnabled: 1
   texture: {fileID: 0}
   sprite: {fileID: 0}
+--- !u!114 &8078469013709713457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167045603627629263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 4180556596272816093}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &8083197133047638080
 GameObject:
   m_ObjectHideFlags: 0
@@ -132358,6 +132229,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.20211887, z: 0.025176525}
   m_Center: {x: 0, y: -0.0025410652, z: -0.0022056103}
+--- !u!114 &8113979590408079669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7784338187142211632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 5675113431117847578}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!114 &8114716336098706386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132624,9 +132510,234 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 69687520981828730, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 78293176466985684, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 150529441822460338, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224543400021179243, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919006019581321686, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 920557195481780246, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1040420956700115572, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1061722500384534519, guid: 979b1d6e2beb0504facf24c0323bf114,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260183482469031311, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351422104896939700, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1421301170519391895, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464867451986692546, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598854722516619666, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640855004545672534, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990000479949048607, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107371041343898205, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207577834890744225, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351823651740051241, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413069644194577973, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619759149713080516, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679863536084328076, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863949802751236779, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893927973065392611, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3057551939713187432, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433049648646489763, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440245139325422606, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3515258552177941125, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592228088160890492, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600669050659452040, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3770821318836153653, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3803811910204224433, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956972562059472586, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970312858190588075, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058775085214726319, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4298986943592125969, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343757701349533603, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343757701349533603, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343757701349533603, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413870661842175222, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452220490845323639, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481608757647700775, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4844685045835480732, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893671493980899941, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922522753838423456, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980793778346358848, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995155329370648441, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5172043473337306193, guid: 979b1d6e2beb0504facf24c0323bf114,
@@ -132634,10 +132745,95 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5263675500110841338, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5411428133926526783, guid: 979b1d6e2beb0504facf24c0323bf114,
         type: 3}
       propertyPath: m_Name
       value: XR Rig Advanced HUB
+      objectReference: {fileID: 0}
+    - target: {fileID: 5421787766791764906, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590995011033884595, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746887672867611526, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780830859707109799, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068044069743708162, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212860281325461400, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6531572446982287589, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559811373535695349, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643816886953696330, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643816886953696330, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6872213989676628779, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: HandSide
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6872213989676628779, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: AllowTeleportRotation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010160272972290874, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025304089797345109, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103097630543481010, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162691081534323342, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7315850766301464768, guid: 979b1d6e2beb0504facf24c0323bf114,
         type: 3}
@@ -132694,6 +132890,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7350394300838318133, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7523512361995494774, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7528901446187786788, guid: 979b1d6e2beb0504facf24c0323bf114,
         type: 3}
       propertyPath: field of view
@@ -132704,15 +132910,60 @@ PrefabInstance:
       propertyPath: near clip plane
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 7660791363999383639, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7801325361629669432, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7846219493872862599, guid: 979b1d6e2beb0504facf24c0323bf114,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089804670778063054, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164805381634916112, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347268284111186589, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8534797300820826309, guid: 979b1d6e2beb0504facf24c0323bf114,
         type: 3}
       propertyPath: lineRenderer
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689213956801345382, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728446961200964386, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782813357358154964, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142669325694006013, guid: 979b1d6e2beb0504facf24c0323bf114,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 670494203672239129, guid: 979b1d6e2beb0504facf24c0323bf114, type: 3}
@@ -133844,22 +134095,6 @@ MonoBehaviour:
           PressedAnimation: Pressed
         Background: {fileID: 6844791362115554956}
         Label: {fileID: 0}
---- !u!114 &8291873133023301818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4415960993338398809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 6120380812889212817}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &8291873133023301819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133875,6 +134110,21 @@ MonoBehaviour:
   controllerNode: 4
   hapticDuration: 0.2
   hapticAmplitude: 0.5
+--- !u!114 &8291873133023301820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4415960993338398809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 6120380812889212817}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!114 &8300384340215811145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134973,8 +135223,8 @@ GameObject:
   - component: {fileID: 5042810007013703103}
   - component: {fileID: 6739076579065745489}
   - component: {fileID: 1513270162750793861}
-  - component: {fileID: 8423519410302428823}
   - component: {fileID: 8423519410302428822}
+  - component: {fileID: 8423519410302428823}
   m_Layer: 5
   m_Name: Previous Icon
   m_TagString: Untagged
@@ -135006,13 +135256,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8423519410302428821}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 453493855815660108}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!114 &8425622803127085896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135227,13 +135476,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1084642700887476043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 6731626690836060808}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!224 &8432702597220275206
 RectTransform:
   m_ObjectHideFlags: 0
@@ -135630,6 +135878,21 @@ Transform:
   m_Father: {fileID: 3141522581466745667}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8463618180400093396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5862089530021509434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 3735157487280174516}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!4 &8465257136823272365
 Transform:
   m_ObjectHideFlags: 0
@@ -136345,22 +136608,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8564123122179711306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7914715340024438149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 7477366608005205861}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!1 &8564952494510515171
 GameObject:
   m_ObjectHideFlags: 0
@@ -136420,22 +136667,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8569310690228937544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130251618972516841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 7163407667079358235}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
 --- !u!114 &8569310690228937545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136451,6 +136682,21 @@ MonoBehaviour:
   controllerNode: 4
   hapticDuration: 0.2
   hapticAmplitude: 0.5
+--- !u!114 &8569310690228937546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130251618972516841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 7163407667079358235}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &8574312882280136117
 GameObject:
   m_ObjectHideFlags: 0
@@ -136640,13 +136886,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6825796151710487494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 7890171803476925115}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &8595432310376414739
 GameObject:
   m_ObjectHideFlags: 0
@@ -138409,6 +138654,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8781087313430282013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5342514745545451414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 5899209187185190485}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!114 &8794130672198833502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139187,6 +139447,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8893805736591735805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3064771867902152762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 4008135237184994177}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!23 &8896399296867352613
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -140671,6 +140946,21 @@ MonoBehaviour:
     FillEnabled: 1
   texture: {fileID: 0}
   sprite: {fileID: 0}
+--- !u!114 &9012398602897963365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5347197263853702358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 8506367833250944224}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &9013969293563441686
 GameObject:
   m_ObjectHideFlags: 0
@@ -140736,7 +141026,28 @@ MonoBehaviour:
   controllerNode: 4
   hapticDuration: 0.2
   hapticAmplitude: 0.5
---- !u!114 &9024933709698234746
+--- !u!65 &9024933709698234747
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6517610904430615414}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.20211887, z: 0.053258896}
+  m_Center: {x: 0, y: -0.0025410652, z: -0.016246796}
+--- !u!114 &9024933709698234748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140745,13 +141056,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6517610904430615414}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 2396771684611634715}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!114 &9033355598039969530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141444,6 +141754,21 @@ MonoBehaviour:
     Y: 0
     Z: 0
   GestureSpace: 0
+--- !u!114 &9081192158110134026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2399881015825511576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 9081192158110134025}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!224 &9087022003177380439
 RectTransform:
   m_ObjectHideFlags: 0
@@ -142530,13 +142855,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8462467640625335249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Button: {fileID: 5703996068501776439}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
+  Button: {fileID: 9165033266546379797}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!224 &9165833984748175158
 RectTransform:
   m_ObjectHideFlags: 0
@@ -142828,13 +143152,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 469898198100170976}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 9135046696002890129}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 1023394891}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!114 &9190457815658132885
 MonoBehaviour:
   m_ObjectHideFlags: 0

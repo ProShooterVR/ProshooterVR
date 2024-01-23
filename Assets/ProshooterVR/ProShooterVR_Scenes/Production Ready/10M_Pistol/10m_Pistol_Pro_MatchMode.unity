@@ -876,6 +876,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &15328213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056922145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1056922148}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &19304642
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,7 +907,7 @@ GameObject:
   - component: {fileID: 19304647}
   - component: {fileID: 19304646}
   - component: {fileID: 19304645}
-  - component: {fileID: 19304644}
+  - component: {fileID: 19304652}
   m_Layer: 5
   m_Name: Audio Settings
   m_TagString: Untagged
@@ -916,21 +931,6 @@ Transform:
   m_Father: {fileID: 1470871617}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &19304644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19304642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerNode: 0
-  hapticDuration: 0.2
-  hapticAmplitude: 0.5
 --- !u!114 &19304645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1338,6 +1338,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &19304652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19304642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 19304647}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &20032889
 GameObject:
   m_ObjectHideFlags: 0
@@ -4509,7 +4524,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3343796276783164974, guid: 03c29f4a94dbf5b44915011c5d467a8f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 89429042}
+      addedObject: {fileID: 89429044}
   m_SourcePrefab: {fileID: 100100000, guid: 03c29f4a94dbf5b44915011c5d467a8f, type: 3}
 --- !u!4 &89429040 stripped
 Transform:
@@ -4523,7 +4538,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 89429039}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &89429042
+--- !u!114 &89429042 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 624285334299759167, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 89429039}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89429041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &89429043 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 673311501282563938, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 89429039}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &89429044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4532,18 +4565,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 89429041}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerNode: 0
-  hapticDuration: 0.2
-  hapticAmplitude: 0.5
---- !u!1 &89429043 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 673311501282563938, guid: 03c29f4a94dbf5b44915011c5d467a8f,
-    type: 3}
-  m_PrefabInstance: {fileID: 89429039}
-  m_PrefabAsset: {fileID: 0}
+  Button: {fileID: 89429042}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &100038668
 GameObject:
   m_ObjectHideFlags: 0
@@ -9921,6 +9948,7 @@ GameObject:
   - component: {fileID: 268822977}
   - component: {fileID: 268822976}
   - component: {fileID: 268822975}
+  - component: {fileID: 268822982}
   m_Layer: 5
   m_Name: Grip Adjustment
   m_TagString: Untagged
@@ -10363,6 +10391,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &268822982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268822973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 268822977}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &272392764
 GameObject:
   m_ObjectHideFlags: 0
@@ -18238,7 +18281,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3343796276783164974, guid: 03c29f4a94dbf5b44915011c5d467a8f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 561629896}
+      addedObject: {fileID: 561629898}
   m_SourcePrefab: {fileID: 100100000, guid: 03c29f4a94dbf5b44915011c5d467a8f, type: 3}
 --- !u!4 &561629894 stripped
 Transform:
@@ -18252,7 +18295,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 561629893}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &561629896
+--- !u!114 &561629896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 624285334299759167, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 561629893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561629895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &561629897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 673311501282563938, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 561629893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &561629898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18261,18 +18322,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 561629895}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerNode: 0
-  hapticDuration: 0.2
-  hapticAmplitude: 0.5
---- !u!1 &561629897 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 673311501282563938, guid: 03c29f4a94dbf5b44915011c5d467a8f,
-    type: 3}
-  m_PrefabInstance: {fileID: 561629893}
-  m_PrefabAsset: {fileID: 0}
+  Button: {fileID: 561629896}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &568887778
 GameObject:
   m_ObjectHideFlags: 0
@@ -32349,15 +32404,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3343796276783164974, guid: 03c29f4a94dbf5b44915011c5d467a8f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1056922160}
+      addedObject: {fileID: 1056922158}
     - targetCorrespondingSourceObject: {fileID: 8111755004194187437, guid: 03c29f4a94dbf5b44915011c5d467a8f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1801091450}
+      addedObject: {fileID: 15328213}
     - targetCorrespondingSourceObject: {fileID: 2142064732982539226, guid: 03c29f4a94dbf5b44915011c5d467a8f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1056922158}
+      addedObject: {fileID: 1056922157}
     - targetCorrespondingSourceObject: {fileID: 5303831987033581549, guid: 03c29f4a94dbf5b44915011c5d467a8f,
         type: 3}
       insertIndex: -1
@@ -32365,7 +32420,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6685402381170086454, guid: 03c29f4a94dbf5b44915011c5d467a8f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2099729570}
+      addedObject: {fileID: 1392579137}
   m_SourcePrefab: {fileID: 100100000, guid: 03c29f4a94dbf5b44915011c5d467a8f, type: 3}
 --- !u!4 &1056922144 stripped
 Transform:
@@ -32391,24 +32446,84 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1056922143}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1056922148 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7580698008893195582, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1056922143}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056922145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1056922149 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6685402381170086454, guid: 03c29f4a94dbf5b44915011c5d467a8f,
     type: 3}
   m_PrefabInstance: {fileID: 1056922143}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1056922150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2476407423634037357, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1056922143}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056922149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1056922151 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5303831987033581549, guid: 03c29f4a94dbf5b44915011c5d467a8f,
     type: 3}
   m_PrefabInstance: {fileID: 1056922143}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1056922152 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1732440893741176090, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1056922143}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056922151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1056922153 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2142064732982539226, guid: 03c29f4a94dbf5b44915011c5d467a8f,
     type: 3}
   m_PrefabInstance: {fileID: 1056922143}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1056922154 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 484345250036509234, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1056922143}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056922153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1056922155 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 624285334299759167, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1056922143}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056922146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1056922156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32418,13 +32533,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1056922151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerNode: 0
-  hapticDuration: 0.2
-  hapticAmplitude: 0.5
---- !u!114 &1056922158
+  Button: {fileID: 1056922152}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
+--- !u!114 &1056922157
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32433,13 +32548,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1056922153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerNode: 0
-  hapticDuration: 0.2
-  hapticAmplitude: 0.5
---- !u!114 &1056922160
+  Button: {fileID: 1056922154}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
+--- !u!114 &1056922158
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32448,12 +32563,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1056922146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerNode: 0
-  hapticDuration: 0.2
-  hapticAmplitude: 0.5
+  Button: {fileID: 1056922155}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1064024442
 GameObject:
   m_ObjectHideFlags: 0
@@ -33804,6 +33919,7 @@ GameObject:
   - component: {fileID: 1108571760}
   - component: {fileID: 1108571759}
   - component: {fileID: 1108571758}
+  - component: {fileID: 1108571763}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -34198,6 +34314,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1108571763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108571756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1108571760}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1111463042
 GameObject:
   m_ObjectHideFlags: 0
@@ -37853,7 +37984,7 @@ GameObject:
   - component: {fileID: 1210650714}
   - component: {fileID: 1210650713}
   - component: {fileID: 1210650712}
-  - component: {fileID: 1210650711}
+  - component: {fileID: 1210650719}
   m_Layer: 5
   m_Name: No
   m_TagString: Untagged
@@ -37877,21 +38008,6 @@ Transform:
   m_Father: {fileID: 561629894}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1210650711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210650709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerNode: 0
-  hapticDuration: 0.2
-  hapticAmplitude: 0.5
 --- !u!114 &1210650712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38299,6 +38415,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1210650719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210650709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1210650714}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1212518504
 GameObject:
   m_ObjectHideFlags: 0
@@ -39938,7 +40069,7 @@ GameObject:
   - component: {fileID: 1264418640}
   - component: {fileID: 1264418639}
   - component: {fileID: 1264418638}
-  - component: {fileID: 1264418637}
+  - component: {fileID: 1264418645}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -39962,21 +40093,6 @@ Transform:
   m_Father: {fileID: 1056922144}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1264418637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1264418635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerNode: 0
-  hapticDuration: 0.2
-  hapticAmplitude: 0.5
 --- !u!114 &1264418638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40384,6 +40500,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1264418645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264418635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1264418640}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1266343455
 GameObject:
   m_ObjectHideFlags: 0
@@ -41478,7 +41609,7 @@ GameObject:
   - component: {fileID: 1315205344}
   - component: {fileID: 1315205343}
   - component: {fileID: 1315205342}
-  - component: {fileID: 1315205341}
+  - component: {fileID: 1315205348}
   m_Layer: 5
   m_Name: Close Button
   m_TagString: Untagged
@@ -41502,22 +41633,6 @@ Transform:
   m_Father: {fileID: 1361997197}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1315205341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1315205339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 1315205343}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
 --- !u!114 &1315205342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41904,6 +42019,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1315205348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315205339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1315205343}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1317616553
 GameObject:
   m_ObjectHideFlags: 0
@@ -44538,6 +44668,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1392579137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056922149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1056922150}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1398095603
 GameObject:
   m_ObjectHideFlags: 0
@@ -47448,7 +47593,7 @@ GameObject:
   - component: {fileID: 1530592277}
   - component: {fileID: 1530592276}
   - component: {fileID: 1530592275}
-  - component: {fileID: 1530592274}
+  - component: {fileID: 1530592282}
   m_Layer: 5
   m_Name: No
   m_TagString: Untagged
@@ -47472,21 +47617,6 @@ Transform:
   m_Father: {fileID: 89429040}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1530592274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530592272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerNode: 0
-  hapticDuration: 0.2
-  hapticAmplitude: 0.5
 --- !u!114 &1530592275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47894,6 +48024,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1530592282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530592272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1530592277}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1531411406
 GameObject:
   m_ObjectHideFlags: 0
@@ -52537,6 +52682,7 @@ GameObject:
   - component: {fileID: 1651262536}
   - component: {fileID: 1651262535}
   - component: {fileID: 1651262534}
+  - component: {fileID: 1651262539}
   m_Layer: 5
   m_Name: Next Button
   m_TagString: Untagged
@@ -52930,6 +53076,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1651262539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651262532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1651262536}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1651392969
 GameObject:
   m_ObjectHideFlags: 0
@@ -52946,7 +53107,7 @@ GameObject:
   - component: {fileID: 1651392974}
   - component: {fileID: 1651392973}
   - component: {fileID: 1651392972}
-  - component: {fileID: 1651392971}
+  - component: {fileID: 1651392979}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -52970,21 +53131,6 @@ Transform:
   m_Father: {fileID: 1470871617}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1651392971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651392969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerNode: 0
-  hapticDuration: 0.2
-  hapticAmplitude: 0.5
 --- !u!114 &1651392972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53392,6 +53538,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1651392979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651392969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1651392974}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1656652535
 GameObject:
   m_ObjectHideFlags: 0
@@ -55228,6 +55389,7 @@ GameObject:
   - component: {fileID: 1699585146}
   - component: {fileID: 1699585145}
   - component: {fileID: 1699585144}
+  - component: {fileID: 1699585149}
   m_Layer: 5
   m_Name: Previous Button
   m_TagString: Untagged
@@ -55621,6 +55783,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1699585149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699585142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1699585146}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1705917535
 GameObject:
   m_ObjectHideFlags: 0
@@ -57831,21 +58008,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800058954}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1801091450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056922145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerNode: 0
-  hapticDuration: 0.2
-  hapticAmplitude: 0.5
 --- !u!1 &1814239893
 GameObject:
   m_ObjectHideFlags: 0
@@ -61853,6 +62015,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3595095124837753261, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3750545166614503548, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
         type: 3}
       propertyPath: UnloadEvent
@@ -61867,6 +62034,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: XR Rig Advanced_AirPistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 6488047753212739079, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6720645507687443602, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
         type: 3}
@@ -62303,7 +62475,7 @@ GameObject:
   - component: {fileID: 1932667593}
   - component: {fileID: 1932667592}
   - component: {fileID: 1932667591}
-  - component: {fileID: 1932667590}
+  - component: {fileID: 1932667598}
   m_Layer: 5
   m_Name: No
   m_TagString: Untagged
@@ -62327,21 +62499,6 @@ Transform:
   m_Father: {fileID: 1986138866}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1932667590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1932667588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerNode: 0
-  hapticDuration: 0.2
-  hapticAmplitude: 0.5
 --- !u!114 &1932667591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62749,6 +62906,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1932667598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932667588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 1932667593}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &1937278980
 GameObject:
   m_ObjectHideFlags: 0
@@ -64377,7 +64549,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3343796276783164974, guid: 03c29f4a94dbf5b44915011c5d467a8f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1986138868}
+      addedObject: {fileID: 1986138870}
   m_SourcePrefab: {fileID: 100100000, guid: 03c29f4a94dbf5b44915011c5d467a8f, type: 3}
 --- !u!4 &1986138866 stripped
 Transform:
@@ -64391,7 +64563,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1986138865}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1986138868
+--- !u!114 &1986138868 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 624285334299759167, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1986138865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986138867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1986138869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 673311501282563938, guid: 03c29f4a94dbf5b44915011c5d467a8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1986138865}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1986138870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64400,18 +64590,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1986138867}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerNode: 0
-  hapticDuration: 0.2
-  hapticAmplitude: 0.5
---- !u!1 &1986138869 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 673311501282563938, guid: 03c29f4a94dbf5b44915011c5d467a8f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1986138865}
-  m_PrefabAsset: {fileID: 0}
+  Button: {fileID: 1986138868}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1001 &1995502170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65585,7 +65769,7 @@ GameObject:
   - component: {fileID: 2071002982}
   - component: {fileID: 2071002981}
   - component: {fileID: 2071002980}
-  - component: {fileID: 2071002979}
+  - component: {fileID: 2071002986}
   m_Layer: 5
   m_Name: Save Button
   m_TagString: Untagged
@@ -65609,22 +65793,6 @@ Transform:
   m_Father: {fileID: 1361997197}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2071002979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071002977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7812d9dfa559f4aae87bc1153b2100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 2071002981}
-  hoverSound: {fileID: 8300000, guid: bf0cef1ed3c8dee4aa4e962b5f961e11, type: 3}
-  clickSound: {fileID: 8300000, guid: 6a8a9fb325b785a4d8d0b7dba140f24f, type: 3}
-  audioSource: {fileID: 0}
 --- !u!114 &2071002980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66011,6 +66179,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2071002986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071002977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6684289b1d3a5c54facff9ad38b85827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 2071002981}
+  hoverEventPath: event:/UIUX/Hover
+  clickEventPath: event:/UIUX/Click
 --- !u!1 &2071629564
 GameObject:
   m_ObjectHideFlags: 0
@@ -66585,21 +66768,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &2099729570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056922149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7763cc336006bae489411efea611de90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerNode: 0
-  hapticDuration: 0.2
-  hapticAmplitude: 0.5
 --- !u!1 &2108493229
 GameObject:
   m_ObjectHideFlags: 0
