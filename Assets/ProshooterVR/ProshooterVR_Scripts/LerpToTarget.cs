@@ -16,6 +16,9 @@ public class LerpToTarget : MonoBehaviour
     private Quaternion targetRotation;
 
     public GameObject gunObj;
+    public GameObject grabArea;
+
+    public GameObject Table;
 
     public bool isLerp;
     public bool isUXCalled;
@@ -31,6 +34,7 @@ public class LerpToTarget : MonoBehaviour
         isLerp = false;
         isUXCalled = false;
         originalObject.SetActive(false);
+        grabArea.SetActive(true);
     }
     private void Update()
     {
@@ -38,7 +42,9 @@ public class LerpToTarget : MonoBehaviour
         {
             if (isLerp == true)
             {
-                StartLerping();
+                //  StartLerping();
+                Table.GetComponent<BoxCollider>().enabled = true;
+                grabArea.SetActive(true);
                 isLerp = false;
                 if (isUXCalled == true)
                 {
@@ -50,7 +56,11 @@ public class LerpToTarget : MonoBehaviour
         if (gunObj.GetComponent<Grabbable>().BeingHeld == true)
         {
             isLerp = true;
-            if(isUXCalled == false)
+            Table.GetComponent<BoxCollider>().enabled = false;
+            grabArea.SetActive(false);
+
+
+            if (isUXCalled == false)
             {
               //  UXManagerAirPistol.Instance.UXEvents(1);
                 isUXCalled = true;

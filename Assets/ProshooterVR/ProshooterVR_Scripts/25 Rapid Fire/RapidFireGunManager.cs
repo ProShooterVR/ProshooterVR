@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using NovaSamples.Inventory;
+using ProshooterVR;
 
 
 public class RapidFireGunManager : MonoBehaviour
@@ -10,11 +11,10 @@ public class RapidFireGunManager : MonoBehaviour
     public static RapidFireGunManager Instance;
 
 
-
     public bool isPracticeMode, isRankedMode;
 
 
-    public int noOfShotsFired;
+    public int noOfShotsFired, noOfTotalShotsFired;
 
     float timeRemaining;
 
@@ -61,6 +61,8 @@ public class RapidFireGunManager : MonoBehaviour
 
     public GameObject SlideObject;
     public int practiceSeriesSound;
+
+    bool isMatchComplte;
     public enum gamestate
     {
         load,
@@ -84,8 +86,9 @@ public class RapidFireGunManager : MonoBehaviour
     void Start()
     {
         
-        timerValue = 8;
-        currentTimerValue = 10f;
+       
+        noOfTotalShotsFired = 0;
+     
         resetData = true;
         redLights.SetActive(false);
         greenLights.SetActive(false);
@@ -110,7 +113,7 @@ public class RapidFireGunManager : MonoBehaviour
 
         totalGameScore = 0;
         callInGameSounds = false;
-
+        isMatchComplte = false;
         SlideObject.SetActive(false);
     }
 
@@ -258,8 +261,10 @@ public class RapidFireGunManager : MonoBehaviour
 
     }
 
-   public void updateMatchData()
+   public void updateCompleteMatchData()
     {
+        isMatchComplte = true;
+
         RayManager.Instance.EnableRey();
 
         RapidFireUIManager.Instance.endSessionScreen.SetActive(true);
@@ -280,14 +285,115 @@ public class RapidFireGunManager : MonoBehaviour
         RapidFireEndSessionManager.Instance.round3ScoreTxt.text = round3Score.ToString();
 
 
-        //   RapidFireEndSessionManager.Instance.innerTText.text = innerTno.ToString("F1");
 
         RapidFireEndSessionManager.Instance.shotsHitTxt.text = shotsOnTarget.ToString();
         RapidFireEndSessionManager.Instance.shotsmissTxt.text = shotsMissed.ToString();
         RapidFireEndSessionManager.Instance.totalgameScoretxt.text = totalGameScore.ToString();
 
-        //RapidFireEndSessionManager.Instance.timeSpentTxt.text = totalGameTime.ToString("F1");
+
+        // add data to backend data call
+        RapidFireDataManager.Instance.acgScore = avgScore;
+
+        RapidFireDataManager.Instance.series1Score = series1Score;
+        RapidFireDataManager.Instance.series2Score = series2Score;
+        RapidFireDataManager.Instance.series3Score = series3Score;
+        RapidFireDataManager.Instance.series4Score = series4Score;
+        RapidFireDataManager.Instance.series5Score = series5Score;
+        RapidFireDataManager.Instance.series6Score = series6Score;
+
+        RapidFireDataManager.Instance.round1Score = round1Score;
+        RapidFireDataManager.Instance.round2Score = round2Score;
+        RapidFireDataManager.Instance.round3Score = round3Score;
+
+        RapidFireDataManager.Instance.totalGameScore = totalGameScore;
+
+        RapidFireDataManager.Instance.shotsMissed = shotsMissed;
+        RapidFireDataManager.Instance.shotsOnTarget = shotsOnTarget;
+
+        if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.amateur)
+        {
+            if (int.Parse(LocalUserDataManager.Instance.pbest_25mRF_AmaTxt) < totalGameScore)
+            {
+                RapidFireDataManager.Instance.personalAmaBestRF = totalGameScore;
+                RapidFireDataManager.Instance.personalGameBestRF = totalGameScore;
+            }
+        }
+        else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.semi_pro)
+        {
+            if (int.Parse(LocalUserDataManager.Instance.pbest_25mRF_SemPTxt) < totalGameScore)
+            {
+                RapidFireDataManager.Instance.personalSemiProBestRF = totalGameScore;
+                RapidFireDataManager.Instance.personalGameBestRF = totalGameScore;
+            }
+        }
+        else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.pro)
+        {
+            if (int.Parse(LocalUserDataManager.Instance.pbest_25mRF_ProTxt) < totalGameScore)
+            {
+                RapidFireDataManager.Instance.personalProBestRF = totalGameScore;
+                RapidFireDataManager.Instance.personalGameBestRF = totalGameScore;
+            }
+        }
+
+
+        DBAPIManagerNew.Instance.SaveGameDataRF(3);
     }
+
+
+
+    public void updateInCompleteMatchData()
+    {
+        // add data to backend data call
+
+        int avgScore = (series1Score + series2Score + series3Score + series4Score + series5Score + series6Score) / 6;
+
+        RapidFireDataManager.Instance.acgScore = avgScore;
+
+        RapidFireDataManager.Instance.series1Score = series1Score;
+        RapidFireDataManager.Instance.series2Score = series2Score;
+        RapidFireDataManager.Instance.series3Score = series3Score;
+        RapidFireDataManager.Instance.series4Score = series4Score;
+        RapidFireDataManager.Instance.series5Score = series5Score;
+        RapidFireDataManager.Instance.series6Score = series6Score;
+
+        RapidFireDataManager.Instance.round1Score = round1Score;
+        RapidFireDataManager.Instance.round2Score = round2Score;
+        RapidFireDataManager.Instance.round3Score = round3Score;
+
+        RapidFireDataManager.Instance.totalGameScore = totalGameScore;
+
+
+        if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.amateur)
+        {
+            if (int.Parse(LocalUserDataManager.Instance.pbest_25mRF_AmaTxt) < totalGameScore)
+            {
+                RapidFireDataManager.Instance.personalAmaBestRF = totalGameScore;
+                RapidFireDataManager.Instance.personalGameBestRF = totalGameScore;
+            }
+        }
+        else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.semi_pro)
+        {
+            if (int.Parse(LocalUserDataManager.Instance.pbest_25mRF_SemPTxt) < totalGameScore)
+            {
+                RapidFireDataManager.Instance.personalSemiProBestRF = totalGameScore;
+                RapidFireDataManager.Instance.personalGameBestRF = totalGameScore;
+            }
+        }
+        else if (LocalUserDataManager.Instance.SelectedGameLevel == GameLevel.pro)
+        {
+            if (int.Parse(LocalUserDataManager.Instance.pbest_25mRF_ProTxt) < totalGameScore)
+            {
+                RapidFireDataManager.Instance.personalProBestRF = totalGameScore;
+                RapidFireDataManager.Instance.personalGameBestRF = totalGameScore;
+            }
+        }
+
+
+
+    }
+
+
+
 
     IEnumerator weaponPrepareCall()
     {
@@ -425,7 +531,7 @@ public class RapidFireGunManager : MonoBehaviour
             Debug.Log("Next Stage");
             if (stageCounter == 2)
             {
-                updateMatchData();
+                updateCompleteMatchData();
                 state = gamestate.end;
             }
             else
@@ -449,6 +555,12 @@ public class RapidFireGunManager : MonoBehaviour
 
     }
 
-
+    void OnApplicationQuit()
+    {
+       if(isMatchComplte == false)
+        {
+            updateInCompleteMatchData();
+        }
+    }
 }
     

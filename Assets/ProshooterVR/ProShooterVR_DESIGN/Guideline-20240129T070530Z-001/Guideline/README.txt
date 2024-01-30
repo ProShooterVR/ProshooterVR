@@ -1,0 +1,1 @@
+- Use the same texture & material for both

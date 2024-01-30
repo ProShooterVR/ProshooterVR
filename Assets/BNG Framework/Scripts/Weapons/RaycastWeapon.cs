@@ -295,6 +295,7 @@ namespace BNG
                     if(RapidFireGunManager.Instance.isReloaded == true)
                     {
                         Shoot();
+                        RapidFireGunManager.Instance.noOfTotalShotsFired++;
                         readyToShoot = FiringMethod == FiringType.Semi;
                         if (RapidFireGunManager.Instance.countingScore == false)
                         {

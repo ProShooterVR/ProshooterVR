@@ -3,6 +3,7 @@ using FMODUnity;
 using FMOD.Studio;
 using TMPro;
 using NovaSamples.UIControls;
+using System.Collections;
 
 public class FmodAudioManager : MonoBehaviour
 {
@@ -41,23 +42,49 @@ public class FmodAudioManager : MonoBehaviour
     [Range(0, 1)]
     public float AmbienceVolume = 1;
 
-    private Bus masterBus;
-    private Bus musicBus;
-    private Bus sfxBus;
-    private Bus ambienceBus;
-
-    public void Start()
+    public Bus masterBus;
+    public Bus musicBus;
+    public Bus sfxBus;
+    public Bus ambienceBus;
+    private bool isFMODInitialized = false;
+    private void Start()
     {
+        StartCoroutine(WaitForFMODInitialization());
+    }
+
+    private IEnumerator WaitForFMODInitialization()
+    {
+        // Wait until FMOD is initialized
+        while (!RuntimeManager.IsInitialized)
+        {
+            yield return null;
+        }
+
+        // FMOD is now initialized, you can proceed with your operations
+        isFMODInitialized = true;
+
+        // Example: Play an FMOD event after initialization
+        if (isFMODInitialized)
+        {
+            Debug.Log("Ready to Initilized");
+            StartInit();
+           
+        }
+    }
+
+    public void StartInit()
+    {
+        
         masterBus = RuntimeManager.GetBus("bus:/");
         musicBus = RuntimeManager.GetBus("bus:/Music");
         sfxBus = RuntimeManager.GetBus("bus:/SFX");
         ambienceBus = RuntimeManager.GetBus("bus:/AMB");
 
         // Add debug logs
-        Debug.Log("Master Bus: " + masterBus.isValid());
-        Debug.Log("Music Bus: " + musicBus.isValid());
-        Debug.Log("SFX Bus: " + sfxBus.isValid());
-        Debug.Log("Ambience Bus: " + ambienceBus.isValid());
+        //Debug.Log("Master Bus: " + masterBus.isValid());
+        //Debug.Log("Music Bus: " + musicBus.isValid());
+        //Debug.Log("SFX Bus: " + sfxBus.isValid());
+        //Debug.Log("Ambience Bus: " + ambienceBus.isValid());
 
         // Set initial volumes to maximum
         initialMasterVolume = MasterVolume;
@@ -76,7 +103,15 @@ public class FmodAudioManager : MonoBehaviour
         musicSlider.OnValueChanged.AddListener(OnMusicSliderValueChanged);
         sfxSlider.OnValueChanged.AddListener(OnSFXSliderValueChanged);
         ambienceSlider.OnValueChanged.AddListener(OnAmbienceSliderValueChanged);
+
+
+        FmodMusicPlayer.Instance.currentIndex = 1;
+        FmodMusicPlayer.Instance.PlayCurrentSong();
+        FmodMusicPlayer.Instance.DisplayPlaylist();
     }
+
+
+
 
     private void Update()
     {

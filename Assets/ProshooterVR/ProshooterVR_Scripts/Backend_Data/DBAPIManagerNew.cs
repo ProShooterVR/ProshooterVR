@@ -1,13 +1,9 @@
-using UnityEngine;
+using Newtonsoft.Json;
+using SimpleJSON;
 using System.Collections;
 using System.Collections.Generic;
-using Firebase.Database;
-using Firebase;
-using System;
-using Newtonsoft.Json;
-using System.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.Networking;
-using SimpleJSON;
 
 namespace ProshooterVR
 {
@@ -44,6 +40,7 @@ namespace ProshooterVR
         private string createUserAPI = "http://15.206.116.210/api/user/createuser";
         private string fetchUserProfileInfo = "http://15.206.116.210/api/user/getuserinfobymetaid/";
         private string insertgamedata = "http://15.206.116.210/api/user/insertgamedata";
+
         private string fetchUserSettings = "http://15.206.116.210/api/user/getusersettings/";
         private string updateusersettings = "http://15.206.116.210/api/user/updateusersettings/";
 
@@ -56,7 +53,8 @@ namespace ProshooterVR
         /// </summary>
         private void Start()
         {
-            getUserSettings(LocalUserDataManager.Instance.metaID);       
+            getUserSettings(LocalUserDataManager.Instance.metaID);
+           
         }
 
         public void Initialise_BackendDAta()
@@ -255,6 +253,11 @@ namespace ProshooterVR
 
             return dictionary;
         }
+
+        /// <summary>
+        /// Send Air Rifle data to backend
+        /// </summary>
+        /// <param name="gameMode"></param>
         public void SaveGameDataRifle(int gameMode)
         {
 
@@ -283,10 +286,72 @@ namespace ProshooterVR
             StartCoroutine(SaveGameDataUserDB(data));
 
         }
+
+
+
+        /// <summary>
+        /// Send 25M Rapid Fire data to backend
+        /// </summary>
+        /// <param name="gameMode"></param>
+        public void SaveGameDataRF(int gameMode)
+        {
+
+            Dictionary<int, float> ScoresRF = ConvertArrayToDictionary(RapidFireDataManager.Instance.ScoresRapidFire);
+            // Create a new dictionary to store meta_id and meta_name
+            Dictionary<string, object> metaData = new Dictionary<string, object>
+            {
+                { "meta_unique_id", LocalUserDataManager.Instance.metaID },
+                { "game_mode",  gameMode},
+                { "difficulty_level", LocalUserDataManager.Instance.SelectedGameLevel },
+                { "30_shots_score", ScoresRF},
+                { "average_score",RapidFireDataManager.Instance.acgScore },
+                { "no_of_shots_on_target",RapidFireDataManager.Instance.shotsOnTarget },
+                { "no_of_shots_missed",RapidFireDataManager.Instance.shotsMissed },
+                { "personal_best",RapidFireDataManager.Instance.personalGameBestRF },
+                { "series_1_score",RapidFireDataManager.Instance.series1Score },
+                { "series_2_score",RapidFireDataManager.Instance.series2Score},
+                { "series_3_score",RapidFireDataManager.Instance.series3Score },
+                { "series_4_score",RapidFireDataManager.Instance.series4Score },
+                { "series_5_score",RapidFireDataManager.Instance.series5Score},
+                { "series_6_score",RapidFireDataManager.Instance.series6Score },
+                { "round_1_score",RapidFireDataManager.Instance.round1Score },
+                { "round_2_score",RapidFireDataManager.Instance.round2Score },
+                { "round_3_score",RapidFireDataManager.Instance.round3Score },
+                { "total_game_score",RapidFireDataManager.Instance.totalGameScore },
+            };
+
+            string data = JsonConvert.SerializeObject(metaData);
+            Debug.Log("coverted data is ||  " + data);
+            StartCoroutine(SaveRFGameDataUserDB(data));
+
+        }
+
+
         IEnumerator SaveGameDataUserDB(string JSONdata)
         {
 
             using (UnityWebRequest www = UnityWebRequest.Post(insertgamedata, JSONdata, "application/json"))
+            {
+                www.SetRequestHeader("authorization", accessToken);
+
+                yield return www.SendWebRequest();
+
+                if (www.result != UnityWebRequest.Result.Success)
+                {
+                    Debug.Log(www.error);
+                }
+                else
+                {
+                    Debug.Log("Form upload complete!");
+                    getProfileData(LocalUserDataManager.Instance.metaID);
+                }
+            }
+
+        }
+
+        IEnumerator SaveRFGameDataUserDB(string JSONdata)
+        {
+            using (UnityWebRequest www = UnityWebRequest.Post(API_manager.insert25mrapidfiregamedata(), JSONdata, "application/json"))
             {
                 www.SetRequestHeader("authorization", accessToken);
 
@@ -574,5 +639,18 @@ namespace ProshooterVR
             this.total_player_score = total_player_score;
         }
 
+    }
+
+    public static class API_manager
+    {
+        // change this value as per production state
+        public static bool UseProductionApi { get; set; } = true;
+
+
+        // 25m RF api calls
+        public static string insert25mrapidfiregamedata()
+        {
+            return UseProductionApi ? "http://15.206.116.210/api/user/insert25mrapidfiregamedata" : "http://54.201.154.149/api/user/insert25mrapidfiregamedata";
+        }
     }
 }

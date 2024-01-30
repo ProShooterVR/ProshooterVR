@@ -14,7 +14,7 @@ public class FmodMusicPlayer : MonoBehaviour
     }
 
     public List<GameObject> playlist;
-    private int currentIndex = 0;
+    public int currentIndex = 0;
     private bool isShuffled = false;
     private bool isLooping = false;
     private bool isPlaylist = false;
@@ -50,8 +50,7 @@ public class FmodMusicPlayer : MonoBehaviour
         //StartSound.SetActive(true);
 
         currentIndex = 0;
-        PlayCurrentSong();
-        DisplayPlaylist();
+       
     }
 
     void Update()

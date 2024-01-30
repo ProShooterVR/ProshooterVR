@@ -134,7 +134,8 @@ public class HUB_UIManager : MonoBehaviour
         arcadeSubMenu.SetActive(false);
         levelUI.SetActive(true);
         assistedGudSubMenu.SetActive(false);
-
+        levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
+        setLevel(0);
         myGameType = gameType.match;
     }
 
@@ -148,6 +149,9 @@ public class HUB_UIManager : MonoBehaviour
         gameModeSubMenu.SetActive(true);
         arcadeSubMenu.SetActive(false);
         myGameType = gameType.practice;
+
+        levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
+        setLevel(0);
 
     }
     public void AracadeBtnClicked()

@@ -188,6 +188,8 @@ public class RapidFireUIManager : MonoBehaviour
                 screentxt[screenNo].transform.GetChild(0).GetComponent<TextMeshPro>().text = shotScore.ToString();
             }
 
+            RapidFireDataManager.Instance.ScoresRapidFire[RapidFireGunManager.Instance.noOfTotalShotsFired] = (int)shotScore;
+
             GameObject placedObject = Instantiate(ScreenobjectToPlace, screenCenter.transform.position, Quaternion.identity, screens[screenNo].transform.GetChild(0).transform);
 
             Vector3 scle = screenCenter.transform.localScale;
