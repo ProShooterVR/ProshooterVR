@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BNG;
-
+using ProshooterVR;
 public class pistolPallet : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -27,9 +27,10 @@ public class pistolPallet : MonoBehaviour
                 GunGameManeger.Instance.isPallatPlaced = true;
                 GunGameManeger.Instance.touchReloader.SetActive(true);
 
-                GunGameManeger.Instance.pallatePt.SetActive(false);
-                
-                UXManagerAirPistol.Instance.UXEvents(4);
+                gunRelodeManager.Instance.PalletPoint.SetActive(false);
+                gunRelodeManager.Instance.RelodTouch.SetActive(true);
+
+            UXManagerAirPistol.Instance.UXEvents(4);
                 Debug.Log("working");
                 other.gameObject.SetActive(false);
             }

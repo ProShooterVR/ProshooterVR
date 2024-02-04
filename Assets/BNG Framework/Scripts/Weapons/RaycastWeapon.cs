@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+using ProshooterVR;
 namespace BNG
 {
 
@@ -347,8 +347,8 @@ namespace BNG
                                 GunGameManeger.Instance.isReloaded = false;
                                 GunGameManeger.Instance.isPallatPlaced = false;
                                 GunGameManeger.Instance.touchReloader.SetActive(true);
-                                GunGameManeger.Instance.relodePt.SetActive(true);
-
+                                gunRelodeManager.Instance.RelodTouch.SetActive(true);
+                               
 
                             }
                             // Immediately ready to keep firing if 
@@ -370,7 +370,7 @@ namespace BNG
                                 GunGameManeger.Instance.isReloaded = false;
                                 GunGameManeger.Instance.isPallatPlaced = false;
                                 GunGameManeger.Instance.touchReloader.SetActive(true);
-                                GunGameManeger.Instance.relodePt.SetActive(true);
+                                gunRelodeManager.Instance.RelodTouch.SetActive(true);
 
 
                             }
@@ -399,7 +399,7 @@ namespace BNG
                                 GunGameManeger.Instance.isReloaded = false;
                                 GunGameManeger.Instance.isPallatPlaced = false;
                                 GunGameManeger.Instance.touchReloader.SetActive(true);
-                                GunGameManeger.Instance.relodePt.SetActive(true);
+                                gunRelodeManager.Instance.RelodTouch.SetActive(true);
 
 
                             }
@@ -422,7 +422,7 @@ namespace BNG
                                 GunGameManeger.Instance.isReloaded = false;
                                 GunGameManeger.Instance.isPallatPlaced = false;
                                 GunGameManeger.Instance.touchReloader.SetActive(true);
-                                GunGameManeger.Instance.relodePt.SetActive(true);
+                                gunRelodeManager.Instance.RelodTouch.SetActive(true);
 
 
                             }
@@ -833,7 +833,7 @@ namespace BNG
             chamberRound();
             if (weaponManager.Instance.isRapidFireMode == true)
             {
-                RapidFireGunManager.Instance.SlideObject.SetActive(false);
+                RFGun_ReloadManager.Instance.SlideObject.SetActive(false);
             }
 
             // Slide is no longer forced back if weapon was just charged
@@ -953,7 +953,7 @@ namespace BNG
                         slideBeginningReached = true;
                         if (weaponManager.Instance.isRapidFireMode == true)
                         {
-                            RapidFireGunManager.Instance.SlideObject.SetActive(false);
+                            RFGun_ReloadManager.Instance.SlideObject.SetActive(false);
                         }
                     }
 
@@ -962,7 +962,7 @@ namespace BNG
                         slideBeginningReached = true;
                         if (weaponManager.Instance.isRapidFireMode == true)
                         {
-                            RapidFireGunManager.Instance.SlideObject.SetActive(false);
+                            RFGun_ReloadManager.Instance.SlideObject.SetActive(false);
                         }
                     }
 

@@ -49,7 +49,7 @@ public class FmodAudioManager : MonoBehaviour
     private bool isFMODInitialized = false;
     private void Start()
     {
-        StartCoroutine(WaitForFMODInitialization());
+       // StartCoroutine(WaitForFMODInitialization());
     }
 
     private IEnumerator WaitForFMODInitialization()

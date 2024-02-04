@@ -25,15 +25,15 @@ public class UXManagerAirPistol : MonoBehaviour
         if (LocalUserDataManager.Instance.isUXSaved == true)
         {
             GunGameManeger.Instance.isUXON = true;
-
         }
         else
         {
             GunGameManeger.Instance.isUXON = false;
         }
 
+        Highlights[1] = GunGameManeger.Instance.UIdisp;
+        Lables[6] = GunGameManeger.Instance.scoreScrrenUI;
         resetUXData();
-      //  Highlights[2].SetActive(false);
 
     }
 

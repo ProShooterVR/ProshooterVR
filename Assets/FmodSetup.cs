@@ -5,7 +5,7 @@ public class FmodSetup : MonoBehaviour
 {
     public static FmodSetup Instance;
     [SerializeField]
-    private StudioEventEmitter ReloadOpen, ReloadClose, EpicShot, GoodShot, BadShot, DecentShot;
+    private StudioEventEmitter EpicShot, GoodShot, BadShot, DecentShot;
 
     private void Awake()
     {
@@ -14,16 +14,7 @@ public class FmodSetup : MonoBehaviour
 
     private void Start()
     {
-        if (ReloadOpen == null)
-        {
-            Debug.LogError("Event Emitter not assigned!");
-            return;
-        }
-        if (ReloadClose == null)
-        {
-            Debug.LogError("Event Emitter not assigned!");
-            return;
-        }
+        
         if (EpicShot == null)
         {
             Debug.LogError("Event Emitter not assigned!");
@@ -46,32 +37,7 @@ public class FmodSetup : MonoBehaviour
         }
     }
 
-    public void ReloadOpenEvent()
-    {
-        // Ensure the event emitter is valid before attempting to play
-        if (ReloadOpen)
-        {
-            // Play the assigned FMOD event
-            ReloadOpen.Play();
-        }
-        else
-        {
-            Debug.LogError("Event Emitter not assigned!");
-        }
-    }
-    public void ReloadCloseEvent()
-    {
-        // Ensure the event emitter is valid before attempting to play
-        if (ReloadClose)
-        {
-            // Play the assigned FMOD event
-            ReloadClose.Play();
-        }
-        else
-        {
-            Debug.LogError("Event Emitter not assigned!");
-        }
-    }
+   
     public void EpicShotEvent()
     {
         // Ensure the event emitter is valid before attempting to play

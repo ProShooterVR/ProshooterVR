@@ -308,7 +308,9 @@ public class PistolUIManager : MonoBehaviour
         menuPanel.SetActive(false);
         settingPopUp.SetActive(false);
         GunGameManeger.Instance.touchReloader.SetActive(true);
-        GunGameManeger.Instance.relodePt.SetActive(true);
+
+        gunRelodeManager.Instance.RelodTouch.SetActive(true);
+        Debug.Log("fsdfsdfsdfsdfdfsdfsdfsdfsdf");
         GunGameManeger.Instance.spawnBullet = true;
         RayManager.Instance.DisableRey();
        
@@ -321,6 +323,9 @@ public class PistolUIManager : MonoBehaviour
         UXManagerAirPistol.Instance.UXEvents(0);
         setSwitch = false;
         isOtherUIOpen = false;
+
+        UXManagerAirPistol.Instance.resetUXData();
+
 
     }
     public void resumeBtnClick()

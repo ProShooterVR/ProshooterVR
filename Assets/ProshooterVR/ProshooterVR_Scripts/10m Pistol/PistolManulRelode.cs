@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using BNG;
-
+using ProshooterVR;
 public class PistolManulRelode : MonoBehaviour
 {
 
@@ -33,18 +33,20 @@ public class PistolManulRelode : MonoBehaviour
             {
                 GunGameManeger.Instance.tempPallet.SetActive(true);
 
+                gunRelodeManager.Instance.animator.Rebind();
+                gunRelodeManager.Instance.animator.Play(gunRelodeManager.Instance.clip1);
+
                 isDown = false;
                 isUP = true;
-                GunGameManeger.Instance.animator.Rebind();
-                GunGameManeger.Instance.animator.Play(GunGameManeger.Instance.clip1);
 
                 GunGameManeger.Instance.isReloaded = false;
                 GunGameManeger.Instance.isReloading = true;
                 //GunGameManeger.Instance.audioSrc.PlayOneShot(GunGameManeger.Instance.pistol[0]);
-                FmodSetup.Instance.ReloadOpenEvent();
+                GunFmodSetup.Instance.ReloadOpenEvent();
                 //ReloadOpen.SetActive(true);
                 GunGameManeger.Instance.touchReloader.SetActive(false);
-                GunGameManeger.Instance.pallatePt.SetActive(true);
+                gunRelodeManager.Instance.PalletPoint.SetActive(true);
+                gunRelodeManager.Instance.RelodTouch.SetActive(false);
 
                 UXManagerAirPistol.Instance.UXEvents(2);
 
@@ -58,18 +60,19 @@ public class PistolManulRelode : MonoBehaviour
             {
                 if (GunGameManeger.Instance.isPallatPlaced == true)
                 {
+                    gunRelodeManager.Instance.animator.Rebind();
+                    gunRelodeManager.Instance.animator.Play(gunRelodeManager.Instance.clip2);
+
                     isDown = true;
                     isUP = false;
-                    GunGameManeger.Instance.animator.Rebind();
-                    GunGameManeger.Instance.animator.Play(GunGameManeger.Instance.clip2);
 
                     GunGameManeger.Instance.isReloaded = true;
                     GunGameManeger.Instance.isReloading = false;
                     //GunGameManeger.Instance.audioSrc.PlayOneShot(GunGameManeger.Instance.pistol[1]);
-                    FmodSetup.Instance.ReloadCloseEvent();
+                    GunFmodSetup.Instance.ReloadCloseEvent();
                     //ReloadClose.SetActive(true);
                     GunGameManeger.Instance.touchReloader.SetActive(false);
-                    GunGameManeger.Instance.relodePt.SetActive(false);
+                    gunRelodeManager.Instance.RelodTouch.SetActive(false);
                     UXManagerAirPistol.Instance.UXEvents(5);
 
                     Debug.Log("UP");

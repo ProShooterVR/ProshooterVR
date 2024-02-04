@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147642215603731470}
   m_LocalRotation: {x: -0, y: -0.9997326, z: -0, w: -0.02312356}
-  m_LocalPosition: {x: 0.027337292, y: 1.0005001, z: 0.0852859}
+  m_LocalPosition: {x: -0.589, y: 0.832, z: 0.507}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -469,7 +469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8363735106399254975
 Transform:
   m_ObjectHideFlags: 0
@@ -707,7 +707,7 @@ ConfigurableJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3241907770697814779}
-  m_ConnectedBody: {fileID: 3996461174916145918}
+  m_ConnectedBody: {fileID: 0}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
@@ -859,7 +859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2893237598679348744
 Transform:
   m_ObjectHideFlags: 0
@@ -1054,7 +1054,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5795637042596498907}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.0070617604, y: 1.0210001, z: 0.08400331}
+  m_LocalPosition: {x: -0.623, y: 0.852, z: 0.506}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1156,8 +1156,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5657550802174617228}
   - component: {fileID: 2234997868702677167}
-  - component: {fileID: 3996461174916145918}
-  - component: {fileID: 2498778840970940166}
   m_Layer: 0
   m_Name: Rifle stand Dynamic
   m_TagString: Untagged
@@ -1180,7 +1178,7 @@ Transform:
   - {fileID: 7269712018271601745}
   - {fileID: 5776126679222916163}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
 --- !u!33 &2234997868702677167
 MeshFilter:
@@ -1190,49 +1188,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6923590269623353675}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &3996461174916145918
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6923590269623353675}
-  serializedVersion: 4
-  m_Mass: 100
-  m_Drag: 2
-  m_AngularDrag: 0.5
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &2498778840970940166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6923590269623353675}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 617324b2298ba164f822e4e949c85222, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveHigh: {fileID: 7911257446041685936}
-  udHigh: {fileID: 2258171468601362689}
-  baseG: {fileID: 2740993790183769232}
-  MoveStand: {fileID: 3241907770697814779}
 --- !u!1 &6924586082809293607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,7 +1325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8895331068493011465
 Transform:
   m_ObjectHideFlags: 0

@@ -10,7 +10,13 @@ public class RapidFireGunManager : MonoBehaviour
 {
     public static RapidFireGunManager Instance;
 
+    public GameObject dynamicGun;
+    public GameObject gunGameObject;
+    public Transform gunSpawnPoint;
+    public GameObject gunPlatform;
+    public GameObject spwanEffect;
 
+            
     public bool isPracticeMode, isRankedMode;
 
 
@@ -115,8 +121,12 @@ public class RapidFireGunManager : MonoBehaviour
         callInGameSounds = false;
         isMatchComplte = false;
         SlideObject.SetActive(false);
+        
     }
-
+    public void respawnNewWeapon()
+    {
+        dynamicGun = Instantiate(gunGameObject, gunSpawnPoint.position, gunSpawnPoint.rotation);
+    }
     public void resetStage()
     {
         state = gamestate.load;

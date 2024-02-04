@@ -31,13 +31,9 @@ public class ReloadManager : MonoBehaviour
     {
         GunGameManeger.Instance.mat.GetComponent<Renderer>().material = GunGameManeger.Instance.blue;
 
-        GunGameManeger.Instance.animator.Rebind();
-        GunGameManeger.Instance.animator.Play(GunGameManeger.Instance.clip1);
         yield return new WaitForSeconds(0.6f);
-        GunGameManeger.Instance.audioSrc.PlayOneShot(GunGameManeger.Instance.pistol[0]);
 
         yield return new WaitForSeconds(1.2f);
-        GunGameManeger.Instance.audioSrc.PlayOneShot(GunGameManeger.Instance.pistol[1]);
 
         yield return new WaitForSeconds(0.5f);
         GunGameManeger.Instance.isReloading = false;

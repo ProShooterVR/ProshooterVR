@@ -14,9 +14,14 @@ public class GunGameManeger : MonoBehaviour
 
     public static GunGameManeger Instance;
 
+    public GameObject UIdisp,scoreScrrenUI;
+    public GameObject dynamicGun;
+    public GameObject gunGameObject;
+    public Transform gunSpawnPoint;
+    public GameObject gunPlatform;
+    public GameObject spwanEffect;
     public bool isPracticeMode, isRankedMode;
 
-    public GameObject pistolObj;
 
     public int noOfShotsFired,noShotMissed,noShotsHit;
     public int shotsFired;
@@ -41,11 +46,7 @@ public class GunGameManeger : MonoBehaviour
 
     public bool isReloaded,isReloading,isPallatPlaced;
 
-    public Animator animator;
-    public string clip1,clip2;
-
-    public AudioSource audioSrc;
-    public AudioClip[] pistol;
+  
 
     public int avgScore,innerTno;
     public float timeSpent;
@@ -73,12 +74,12 @@ public class GunGameManeger : MonoBehaviour
     public GameObject palletSpawn;
 
     public GameObject touchReloader;
-    public GameObject relodePt, pallatePt;
+   
 
     public GameObject palletPrefab,tempPallet, palletHoldPos,palletParent;
     public bool spawnBullet;
 
-    public bool isUXON;
+    public bool isUXON,isWespaonSpawn;
 
     void Awake()
     {
@@ -100,7 +101,6 @@ public class GunGameManeger : MonoBehaviour
         {
             if (isPracticeMode == true)
             {
-                pistolObj.GetComponent<RaycastWeapon>().ReloadMethod = ReloadType.InfiniteAmmo;
                 PistolUIManager.Instance.timerValue.gameObject.SetActive(true);
                 PistolUIManager.Instance.timerValue.text = "-- : --";
                 shotsFired = 0;
@@ -108,11 +108,7 @@ public class GunGameManeger : MonoBehaviour
 
             if (isRankedMode == true)
             {
-                //noOfShotsFired = 0 ;
-                pistolObj.GetComponent<RaycastWeapon>().ReloadMethod = ReloadType.InfiniteAmmo;
-                //pistolObj.GetComponent<RaycastWeapon>().InternalAmmo = 30;
-
-                // scorePanels = new GameObject[3];
+                
                 noOfShotsFired = 0;
                 shotsFired = 0;
                 timeRemaining = 900f;
@@ -141,7 +137,6 @@ public class GunGameManeger : MonoBehaviour
         {
             if (isPracticeMode == true)
             {
-                pistolObj.GetComponent<RaycastWeapon>().ReloadMethod = ReloadType.InfiniteAmmo;
                 PistolUIManager.Instance.timerValue.gameObject.SetActive(true);
                 PistolUIManager.Instance.timerValue.text = "-- : --";
                 shotsFired = 0;
@@ -150,7 +145,6 @@ public class GunGameManeger : MonoBehaviour
             if (isRankedMode == true)
             {
               
-                pistolObj.GetComponent<RaycastWeapon>().ReloadMethod = ReloadType.InfiniteAmmo;
             
                 noOfShotsFired = 0;
                 shotsFired = 0;
@@ -162,7 +156,6 @@ public class GunGameManeger : MonoBehaviour
 
             }
         }
-        pistolObj.GetComponent<RaycastWeapon>().ReloadMethod = ReloadType.InfiniteAmmo;
         noOfShotsFired = 0;
 
         series1Score = series2Score = series3Score = 0;
@@ -178,13 +171,17 @@ public class GunGameManeger : MonoBehaviour
         isMatchDataUpdated = false;
         touchReloader.SetActive(false);
 
-        relodePt.SetActive(false);
-        pallatePt.SetActive(false);
+       
         currentPallet = palletObj;
 
-      //  PistolUIManager.Instance.startBtnClick();
+        dynamicGun =  Instantiate(gunGameObject, gunSpawnPoint.position, gunSpawnPoint.rotation);
+        isWespaonSpawn = true;
 
+    }
 
+    public void respawnNewWeapon()
+    {
+      dynamicGun = Instantiate(gunGameObject, gunSpawnPoint.position, gunSpawnPoint.rotation);
     }
 
     void loadSavedRotation(Quaternion mySavedRotation )
@@ -469,7 +466,7 @@ public class GunGameManeger : MonoBehaviour
         {
             PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(i).GetChild(1).gameObject.GetComponent<TextMeshPro>().text = "";
             PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(i).GetChild(2).gameObject.SetActive(false);
-            PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(i).GetChild(2).gameObject.transform.Rotate(0, 0, 0);
+            PistolUIManager.Instance.scorePanelData.gameObject.transform.GetChild(i).GetChild(2).gameObject.transform.localRotation = Quaternion.identity;
         }
 
         PistolUIManager.Instance.clearShotScreen();
