@@ -20,6 +20,8 @@ public class GunGameManeger : MonoBehaviour
     public Transform gunSpawnPoint;
     public GameObject gunPlatform;
     public GameObject spwanEffect;
+    public GameObject snapPoint;
+
     public bool isPracticeMode, isRankedMode;
 
 
@@ -174,14 +176,17 @@ public class GunGameManeger : MonoBehaviour
        
         currentPallet = palletObj;
 
-        dynamicGun =  Instantiate(gunGameObject, gunSpawnPoint.position, gunSpawnPoint.rotation);
+        respawnNewWeapon();
         isWespaonSpawn = true;
 
     }
 
     public void respawnNewWeapon()
     {
-      dynamicGun = Instantiate(gunGameObject, gunSpawnPoint.position, gunSpawnPoint.rotation);
+       dynamicGun = Instantiate(gunGameObject, gunSpawnPoint.position, gunSpawnPoint.rotation);
+
+        snapPoint.GetComponent<SnapZone>().SetHeldItem(dynamicGun.GetComponent<Grabbable>());
+
     }
 
     void loadSavedRotation(Quaternion mySavedRotation )

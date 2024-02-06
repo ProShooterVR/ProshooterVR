@@ -231,6 +231,19 @@ namespace BNG {
             return closest;
         }
 
+        // New method to set HeldItem from external scripts
+        public void SetHeldItem(Grabbable newHeldItem)
+        {
+            if (HeldItem == null)
+            {
+                GrabGrabbable(newHeldItem);
+            }
+            else
+            {
+                Debug.LogWarning("HeldItem is already set. Release it first before setting a new one.");
+            }
+        }
+
         public virtual void GrabGrabbable(Grabbable grab) {
 
             // Grab is already in Snap Zone
@@ -313,6 +326,7 @@ namespace BNG {
             LastSnapTime = Time.time;
         }
 
+      
         void disableGrabbable(Grabbable grab) {
 
             if (DisableColliders) {
@@ -444,6 +458,8 @@ namespace BNG {
                     }
                 }
             }
+
+            
 
             HeldItem = null;
         }

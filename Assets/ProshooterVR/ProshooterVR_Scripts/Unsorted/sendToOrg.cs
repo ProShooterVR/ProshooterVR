@@ -7,7 +7,6 @@ public class sendToOrg : MonoBehaviour
 {
     private bool hasSpawnedNewGun = false;
 
-
     void OnTriggerEnter(Collider collision)
     {
         Debug.Log("" + collision.gameObject.tag);

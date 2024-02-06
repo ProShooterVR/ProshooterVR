@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
 using FMODUnity;
+using System.Collections;
 
 public class FmodMusicPlayer : MonoBehaviour
 {
@@ -47,10 +48,22 @@ public class FmodMusicPlayer : MonoBehaviour
         loopOnButton.SetActive(isLooping);
         loopOffButton.SetActive(!isLooping);
 
-        //StartSound.SetActive(true);
 
         currentIndex = 0;
-       
+
+      StartCoroutine(disbaleAllTracks());
+        PlayCurrentSong();
+    }
+
+    IEnumerator disbaleAllTracks()
+    {
+        for( int i =0; i < this.gameObject.transform.childCount; i++)
+        {
+            this.gameObject.transform.GetChild(i).gameObject.SetActive(false);
+        }
+        PlayCurrentSong();
+        yield return null;
+
     }
 
     void Update()
