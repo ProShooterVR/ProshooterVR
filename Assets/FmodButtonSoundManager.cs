@@ -15,6 +15,15 @@ public class FmodButtonSoundManager : MonoBehaviour
     private FMOD.Studio.EventInstance hoverEventInstance;
     private FMOD.Studio.EventInstance clickEventInstance;
 
+    //public GameObject HoverPanel;
+    //public GameObject ButtonBorder;
+
+    public void Start()
+    {
+        //HoverPanel.SetActive(false);
+        //ButtonBorder.SetActive(false);
+    }
+
     public void OnEnable()
     {
         /*** Subscribe to desired gesture events ***/
@@ -29,6 +38,9 @@ public class FmodButtonSoundManager : MonoBehaviour
 
     private void HandleHoverEvent(Gesture.OnHover evt)
     {
+        //HoverPanel.SetActive(true);
+        //ButtonBorder.SetActive(true);
+
         if (hoverEventInstance.isValid())
         {
             hoverEventInstance.start();
@@ -37,6 +49,8 @@ public class FmodButtonSoundManager : MonoBehaviour
 
     private void HandleUnhoverEvent(Gesture.OnUnhover evt)
     {
+        //HoverPanel.SetActive(false);
+        //ButtonBorder.SetActive(false);
         // No need to handle anything for unhover in this example
     }
 

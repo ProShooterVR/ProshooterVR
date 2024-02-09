@@ -182,7 +182,7 @@ namespace BNG {
 
                     if (weaponManager.Instance.isRapidFireMode == true)
                     {
-                        RapidFireGunManager.Instance.SlideObject.SetActive(true);
+                        RFGun_ReloadManager.Instance.SlideObject.SetActive(true);
                     }
                 }
             }
@@ -227,7 +227,10 @@ namespace BNG {
                         }
 
                         if (weaponManager.Instance.isRapidFireMode == true)
-                        {       
+                        {
+                            HeldMagazine.gameObject.SetActive(false);
+                            Destroy(HeldMagazine.gameObject);
+                            RapidFireGunManager.Instance.respawnNewMagZ();
                             RapidFireGunManager.Instance.SlideObject.SetActive(false);
                         }
                     }

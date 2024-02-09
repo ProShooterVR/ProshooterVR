@@ -14,7 +14,7 @@ namespace BNG {
 
         public bool RandomYRotation = true;
 
-        public float DestroyTime = 10f;
+        public float DestroyTime;
 
         // Start is called before the first frame update
         void Start() {

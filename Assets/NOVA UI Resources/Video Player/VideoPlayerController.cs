@@ -121,6 +121,8 @@ public class VideoPlayerController : MonoBehaviour
         slider.value = 0f;
         UpdateStartTimeText(0f);
         HUB_UIManager.Instance.musicPlayer.SetActive(true);
+        HUB_UIManager.Instance.tutorailUI.SetActive(true);
+
 
     }
 

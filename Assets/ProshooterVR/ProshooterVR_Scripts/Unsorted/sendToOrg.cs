@@ -19,7 +19,17 @@ public class sendToOrg : MonoBehaviour
             // Destroy the current gun
             Destroy(collision.gameObject);
             StartCoroutine(spawn());
-            Debug.Log("56666666666666666666666666666666666666666666666666666666666666667");
+
+        }
+
+        if (!hasSpawnedNewGun && collision.gameObject.CompareTag("MagZ") == true)
+        {
+            // Set the flag to true to prevent multiple spawns
+            hasSpawnedNewGun = true;
+
+            // Destroy the current gun
+            Destroy(collision.gameObject);
+            StartCoroutine(spawn());
 
         }
     } 
@@ -36,7 +46,7 @@ public class sendToOrg : MonoBehaviour
         }
         if (weaponManager.Instance.isRapidFireMode == true)
         {
-            //RapidFireGunManager.Instance.respawnNewWeapon();
+            RapidFireGunManager.Instance.respawnNewWeapon();
 
         }
 

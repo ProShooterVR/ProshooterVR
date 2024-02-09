@@ -16,43 +16,45 @@ public class HUB_UIManager : MonoBehaviour
     //Making it static to access all over layers
     public static HUB_UIManager Instance;
 
-    public GameObject gameModeUI, tutorailUI;
+    public GameObject tutorailUI;
     public GameObject levelUI;
 
     public GameObject settingUI;
-    public GameObject playBtn;
     public GameObject airPistolTut, airRifleTut, rapidRifeTUt;
     public GameObject musicPlayer;
-    public GameObject userProfileUI, mainUI, playerProfileMainUIBtn;
+    public GameObject userProfileUI, mainUI;
     public TextMeshPro userNameTxtMainMenu;
 
-    public GameObject gameModeSubMenu, arcadeSubMenu;
     public GameObject assistedGudSubMenu;
+
+
+    public GameObject airPsubMenu, airRsubMenu, rfSubMenu;
     /// <summary>
     /// User Profile data local save
     /// </summary>
     ///
-    public UIBlock2D profileImg;
 
     public TextMeshPro userNameTxt;
-    public TextMeshPro totalScoreTxt, matchesPlayedTxt, accuracyTxt;
     public TextMeshPro pbest_10mAirP_AmaTxt, pbest_10mAirP_SemPTxt, pbest_10mAirP_ProTxt;
     public TextMeshPro pbest_10mAirR_AmaTxt, pbest_10mAirR_SemPTxt, pbest_10mAirR_ProTxt;
     public TextMeshPro pbest_25mRF_AmaTxt, pbest_25mRF_SemPTxt, pbest_25mRF_ProTxt;
 
-    public TextMeshPro profilebuttonNameTxt;
-    public UIBlock2D profileBtnImg;
     public JSONNode MainLeaderboardJson;
 
     public GameObject MainLeaderBoardRow, MainLeaderBoardRowParent;
     public GameObject userPosOnMainLeaderBoardData;
-    public GameObject FilterPanel, AirPistolLevelPanel, AirRifleLevelPanel;
 
     public TextMeshPro GamesPlayed_10mAP_OverallTxt, GamesPlayed_10mAR_OverallTxt, PrecisionPoints_10mAP_OverallTxt, PrecisionPoints_10mAR_OverallTxt;
 
     public TextMeshPro LBModeText, LBLevelText;
 
     public GameObject SoundControlPanel, AMB;
+
+
+    public GameObject profBginPan, profIntmPan, profProffPan;
+
+    public GameObject LeaderBoardModePanel, LeaderBoardDifficultyPanel;
+    
     ////
 
     public enum gameType
@@ -75,34 +77,122 @@ public class HUB_UIManager : MonoBehaviour
 
     private void Start()
     {
-        gameModeUI.SetActive(false);
+
+        // UI panels to turn OFF on start
         tutorailUI.SetActive(false);
         settingUI.SetActive(false);
         assistedGudSubMenu.SetActive(false);
-
         levelUI.SetActive(false);
-        playBtn.SetActive(false);
-        levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
-        HUB_UIManager.Instance.musicPlayer.SetActive(true);
-        arcadeSubMenu.SetActive(false);
-        gameModeSubMenu.SetActive(false);
-        // playerProfileMainUIBtn.SetActive(false);
-        FilterPanel.SetActive(false);
-        AirPistolLevelPanel.SetActive(false);
-        AirRifleLevelPanel.SetActive(false);
         SoundControlPanel.SetActive(false);
-
         AMB.SetActive(true);
+        airRifleTut.SetActive(false);
+        rapidRifeTUt.SetActive(false);
+        musicPlayer.SetActive(false);
+
+        //levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
+        HUB_UIManager.Instance.musicPlayer.SetActive(true);
+
+        // playerProfileMainUIBtn.SetActive(false);
+
+
+        // UI panels to turn ON on start
+        mainUI.SetActive(true);
+        userProfileUI.SetActive(true);
+        profileBtnClicked();
+        backToMainMenu();
+    }
+
+
+    public void profAPBtn()
+    {
+        profBginPan.SetActive(true);
+        profIntmPan.SetActive(false);
+        profProffPan.SetActive(false);
+
+    }
+    public void profARBtn()
+    {
+        profBginPan.SetActive(false);
+        profIntmPan.SetActive(true);
+        profProffPan.SetActive(false);
+    }
+    public void profRFBtn()
+    {
+        profBginPan.SetActive(false);
+        profIntmPan.SetActive(false);
+        profProffPan.SetActive(true);
+    }
+
+    public void beginnerBtnClick()
+    {
+        setLevel(0);
+        PlayButtonClick();
+    }
+    public void interMBtnClick()
+    {
+        setLevel(1);
+        PlayButtonClick();
+
+    }
+    public void professionalBtnClick()
+    {
+        setLevel(2);
+        PlayButtonClick();
+
+    }
+
+    public void airPistolBtnClick()
+    {
+        mainUI.SetActive(false);
+        airPsubMenu.SetActive(true);
+        airRsubMenu.SetActive(false);
+        rfSubMenu.SetActive(false);
+        levelUI.SetActive(true);
+        setMode(0);
+        singlePlayerBtnClicked();
+    }
+    public void airRifleBtnClick()
+    {
+        mainUI.SetActive(false);
+        airPsubMenu.SetActive(false);
+        airRsubMenu.SetActive(true);
+        rfSubMenu.SetActive(false);
+        levelUI.SetActive(true);
+
+        setMode(2);
+        singlePlayerBtnClicked();
+
+
+    }
+    public void rapidFireBtnClick()
+    {
+        mainUI.SetActive(false);
+        airPsubMenu.SetActive(false);
+        airRsubMenu.SetActive(false);
+        rfSubMenu.SetActive(true);
+        levelUI.SetActive(true);
+
+        setMode(1);
+        singlePlayerBtnClicked();
+
+    }
+
+    public void backToMainMenu()
+    {
+        mainUI.SetActive(true);
+        airPsubMenu.SetActive(false);
+        airRsubMenu.SetActive(false);
+        rfSubMenu.SetActive(false);
+        levelUI.SetActive(false);
+        settingUI.SetActive(false);
+        tutorailUI.SetActive(false);
+
     }
 
     public void OnAudioSettingsButtonClick()
     {
         SoundControlPanel.SetActive(true);
         settingUI.SetActive(false);
-    }
-    public void OnFilterPanelButtonClick()
-    {
-        FilterPanel.SetActive(!FilterPanel.activeSelf);
     }
 
     public void OnAirPistolLevelButtonClick()
@@ -111,8 +201,6 @@ public class HUB_UIManager : MonoBehaviour
         HUB_UIManager.Instance.LBModeText.text = ModeName;
 
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
-        AirPistolLevelPanel.SetActive(true);
-        AirRifleLevelPanel.SetActive(false);
     }
     public void OnAirRifleLevelButtonClick()
     {
@@ -120,49 +208,27 @@ public class HUB_UIManager : MonoBehaviour
         HUB_UIManager.Instance.LBModeText.text = ModeName;
 
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
-        AirPistolLevelPanel.SetActive(false);
-        AirRifleLevelPanel.SetActive(true);
     }
 
     public void singlePlayerBtnClicked()
     {
-        gameModeUI.SetActive(true);
-        tutorailUI.SetActive(false);
-        userProfileUI.SetActive(false);
-        gameModeSubMenu.SetActive(true);
-        settingUI.SetActive(false);
-        arcadeSubMenu.SetActive(false);
-        levelUI.SetActive(true);
-        assistedGudSubMenu.SetActive(false);
+        Debug.Log("404044040404040404004400400404040440");
+        Debug.Log("404044040404040404004400400404040440");
         levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
-        setLevel(0);
         myGameType = gameType.match;
     }
 
     public void PracticeBtnClicked()
     {
-        levelUI.SetActive(true);
-        assistedGudSubMenu.SetActive(false);
-        settingUI.SetActive(false);
-        gameModeUI.SetActive(true);
-        tutorailUI.SetActive(false);
-        gameModeSubMenu.SetActive(true);
-        arcadeSubMenu.SetActive(false);
         myGameType = gameType.practice;
-
-        levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
-        setLevel(0);
-
+        levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(1);
     }
     public void AracadeBtnClicked()
     {
         levelUI.SetActive(false);
         assistedGudSubMenu.SetActive(false);
 
-        gameModeUI.SetActive(false);
         tutorailUI.SetActive(false);
-        gameModeSubMenu.SetActive(false);
-        arcadeSubMenu.SetActive(true);
         myGameType = gameType.arcade;
 
     }
@@ -170,18 +236,15 @@ public class HUB_UIManager : MonoBehaviour
     public void setingsBtnClicked()
     {
         settingUI.SetActive(true);
-        gameModeUI.SetActive(false);
-        tutorailUI.SetActive(false);
-        userProfileUI.SetActive(false);
-        arcadeSubMenu.SetActive(false);
-
+        airPsubMenu.SetActive(false);
+        airRsubMenu.SetActive(false);
+        rfSubMenu.SetActive(false);
+        levelUI.SetActive(false);
+        mainUI.SetActive(false);
     }
     public void profileBtnClicked()
     {
-        mainUI.SetActive(false);
         DBAPIManagerNew.Instance.getProfileData(LocalUserDataManager.Instance.metaID);
-        userProfileUI.SetActive(true);
-
     }
     public void assistedBtnClicked()
     {
@@ -214,9 +277,9 @@ public class HUB_UIManager : MonoBehaviour
     {
 
         userNameTxt.text = LocalUserDataManager.Instance.userNameTxt;
-        totalScoreTxt.text = LocalUserDataManager.Instance.totalScoreTxt;
-        matchesPlayedTxt.text = LocalUserDataManager.Instance.matchesPlayedTxt;
-        accuracyTxt.text = LocalUserDataManager.Instance.accuracyTxt;
+       // totalScoreTxt.text = LocalUserDataManager.Instance.totalScoreTxt;
+      //  matchesPlayedTxt.text = LocalUserDataManager.Instance.matchesPlayedTxt;
+     //   accuracyTxt.text = LocalUserDataManager.Instance.accuracyTxt;
 
         pbest_10mAirP_AmaTxt.text = LocalUserDataManager.Instance.pbest_10mAirP_AmaTxt;
         pbest_10mAirP_SemPTxt.text = LocalUserDataManager.Instance.pbest_10mAirP_SemPTxt;
@@ -250,7 +313,6 @@ public class HUB_UIManager : MonoBehaviour
             else
             {
                 Texture2D texture = www.texture;
-                profileImg.SetImage(texture);
             }
         }
     }
@@ -258,7 +320,6 @@ public class HUB_UIManager : MonoBehaviour
 
     public void UpdateProfileButton()
     {
-        profilebuttonNameTxt.text = LocalUserDataManager.Instance.meta_username;
         // StartCoroutine(LoadProfileBtnImgFromURL(LocalUserDataManager.Instance.metauser_profileImage_url));
 
     }
@@ -276,16 +337,11 @@ public class HUB_UIManager : MonoBehaviour
             else
             {
                 Texture2D texture = www.texture;
-                profileBtnImg.SetImage(texture);
             }
         }
     }
 
-    public void closeUserProfile()
-    {
-        userProfileUI.SetActive(false);
-        mainUI.SetActive(true);
-    }
+  
 
     public void closeAssistesGud()
     {
@@ -296,18 +352,21 @@ public class HUB_UIManager : MonoBehaviour
 
     public void tutorialBtnClicked()
     {
-        gameModeUI.SetActive(false);
         tutorailUI.SetActive(true);
-        settingUI.SetActive(false);
-        userProfileUI.SetActive(false);
-        arcadeSubMenu.SetActive(false);
+        mainUI.SetActive(false);
+        airPsubMenu.SetActive(false);
+        airRsubMenu.SetActive(false);
+        rfSubMenu.SetActive(false);
         levelUI.SetActive(false);
+        settingUI.SetActive(false);
 
 
     }
 
     public void airPistolTutorial()
     {
+        tutorailUI.SetActive(false);
+
         airPistolTut.SetActive(true);
         airRifleTut.SetActive(false);
         rapidRifeTUt.SetActive(false);
@@ -317,6 +376,8 @@ public class HUB_UIManager : MonoBehaviour
     }
     public void airRifleTutorial()
     {
+        tutorailUI.SetActive(false);
+
         airPistolTut.SetActive(false);
         airRifleTut.SetActive(true);
         rapidRifeTUt.SetActive(false);
@@ -326,6 +387,8 @@ public class HUB_UIManager : MonoBehaviour
     }
     public void RapidFireTutorial()
     {
+        tutorailUI.SetActive(false);
+
         airPistolTut.SetActive(false);
         airRifleTut.SetActive(false);
         rapidRifeTUt.SetActive(true);
@@ -366,7 +429,6 @@ public class HUB_UIManager : MonoBehaviour
     // Macth  Modes ----------------------
     private void load10mPistolAmatuerMatch()
     {
-        LocalUserDataManager.Instance.selectedGameMode = GameModes.AirPistol10m;
         LocalUserDataManager.Instance.SelectedGameLevel = GameLevel.amateur;
 
         SceneManager.LoadSceneAsync("10m_Pistol_Amateur_MatchMode");
@@ -482,27 +544,28 @@ public class HUB_UIManager : MonoBehaviour
     }
     public void setMode(int no)
     {
-        playBtn.SetActive(true);
         switch (no)
         {
             case 0:
                 LocalUserDataManager.Instance.modeSelected = LocalUserDataManager.gameMode.AirPistol10M;
                 LocalUserDataManager.Instance.selectedGameMode = GameModes.AirPistol10m;
-                // LiveUserDataManager.Instance.sortLeaderBoard();
                 break;
             case 1:
                 LocalUserDataManager.Instance.modeSelected = LocalUserDataManager.gameMode.rapidFire25m;
-                //  LiveUserDataManager.Instance.sortLeaderBoard();
                 break;
             case 2:
                 LocalUserDataManager.Instance.modeSelected = LocalUserDataManager.gameMode.airRifle10m;
                 LocalUserDataManager.Instance.selectedGameMode = GameModes.AirRifle10m;
-
-                //   LiveUserDataManager.Instance.sortLeaderBoard();
                 break;
         }
 
     }
+
+
+
+
+
+
 
     public void PlayButtonClick()
     {

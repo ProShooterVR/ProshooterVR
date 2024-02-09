@@ -93,6 +93,8 @@ public static class GameModes
 {
     public static readonly string AirPistol10m = "AirPistol10M";
     public static readonly string AirRifle10m = "AirRifle10m";
+    public static readonly string RapidFire = "RapidFire";
+
 }
 public static class GameLevel
 {

@@ -5,6 +5,14 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace BNG {
+
+    public enum HandSide
+    {
+        None,
+        Left,
+        Right
+    }
+
     public class SnapZone : MonoBehaviour {
 
         [Header("Starting / Held Item")]
@@ -98,6 +106,11 @@ namespace BNG {
         public Grabbable ClosestGrabbable;
 
         SnapZoneOffset offset;
+
+
+       
+
+
 
         void Start() {
             gZone = GetComponent<GrabbablesInTrigger>();

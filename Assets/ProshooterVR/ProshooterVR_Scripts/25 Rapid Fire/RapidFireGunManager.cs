@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using NovaSamples.Inventory;
 using ProshooterVR;
-
+using BNG;
 
 public class RapidFireGunManager : MonoBehaviour
 {
@@ -14,9 +14,18 @@ public class RapidFireGunManager : MonoBehaviour
     public GameObject gunGameObject;
     public Transform gunSpawnPoint;
     public GameObject gunPlatform;
-    public GameObject spwanEffect;
+    public GameObject gunSpwanEffect;
+    public GameObject gunSnapPoint;
 
-            
+
+    public GameObject dyMagZ;
+    public GameObject MagZGameObject;
+    public Transform MagZSpawnPoint;
+    public GameObject MagZPlatform;
+    public GameObject MagZspwanEffect;
+    public GameObject MagZSnapPoint;
+
+
     public bool isPracticeMode, isRankedMode;
 
 
@@ -120,12 +129,23 @@ public class RapidFireGunManager : MonoBehaviour
         totalGameScore = 0;
         callInGameSounds = false;
         isMatchComplte = false;
-        SlideObject.SetActive(false);
-        
+      //  respawnNewWeapon();
+       // respawnNewMagZ();
     }
     public void respawnNewWeapon()
     {
-        dynamicGun = Instantiate(gunGameObject, gunSpawnPoint.position, gunSpawnPoint.rotation);
+        //dynamicGun = Instantiate(gunGameObject, gunSpawnPoint.position, gunSpawnPoint.rotation);
+        //RFGun_ReloadManager.Instance.SlideObject.SetActive(false);
+        //gunSnapPoint.GetComponent<SnapZone>().SetHeldItem(dynamicGun.GetComponent<Grabbable>());
+
+
+    }
+
+    public void respawnNewMagZ()
+    {
+        //dyMagZ = Instantiate(MagZGameObject, MagZSpawnPoint.position, MagZSpawnPoint.rotation);
+        //MagZSnapPoint.GetComponent<SnapZone>().SetHeldItem(dyMagZ.GetComponent<Grabbable>());
+
     }
     public void resetStage()
     {

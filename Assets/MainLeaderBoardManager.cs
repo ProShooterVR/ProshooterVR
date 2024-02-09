@@ -46,7 +46,6 @@ public class MainLeaderBoardManager : MonoBehaviour
     public void AirPistolOverallLeaderBoardData(string metaID)
     {
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
-        HUB_UIManager.Instance.FilterPanel.SetActive(false);
 
         string LevelName = "Overall";
         HUB_UIManager.Instance.LBLevelText.text = LevelName;
@@ -72,7 +71,6 @@ public class MainLeaderBoardManager : MonoBehaviour
         HUB_UIManager.Instance.LBLevelText.text = LevelName;
 
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
-        HUB_UIManager.Instance.FilterPanel.SetActive(false);
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
@@ -91,7 +89,6 @@ public class MainLeaderBoardManager : MonoBehaviour
     public void AirPistolOverallPlayerProfileData(string metaID)
     {
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
-        HUB_UIManager.Instance.FilterPanel.SetActive(false);
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
@@ -110,7 +107,6 @@ public class MainLeaderBoardManager : MonoBehaviour
     public void AirRifleOverallPlayerProfileData(string metaID)
     {
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
-        HUB_UIManager.Instance.FilterPanel.SetActive(false);
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
@@ -131,7 +127,6 @@ public class MainLeaderBoardManager : MonoBehaviour
         string LevelName = "Amateur";
         HUB_UIManager.Instance.LBLevelText.text = LevelName;
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
-        HUB_UIManager.Instance.FilterPanel.SetActive(false);
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
@@ -151,7 +146,6 @@ public class MainLeaderBoardManager : MonoBehaviour
         string LevelName = "SemiPro";
         HUB_UIManager.Instance.LBLevelText.text = LevelName;
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
-        HUB_UIManager.Instance.FilterPanel.SetActive(false);
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
@@ -172,7 +166,6 @@ public class MainLeaderBoardManager : MonoBehaviour
         string LevelName = "Pro";
         HUB_UIManager.Instance.LBLevelText.text = LevelName;
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
-        HUB_UIManager.Instance.FilterPanel.SetActive(false);
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
@@ -193,7 +186,6 @@ public class MainLeaderBoardManager : MonoBehaviour
         string LevelName = "Amateur";
         HUB_UIManager.Instance.LBLevelText.text = LevelName;
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
-        HUB_UIManager.Instance.FilterPanel.SetActive(false);
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
@@ -214,7 +206,6 @@ public class MainLeaderBoardManager : MonoBehaviour
         string LevelName = "SemiPro";
         HUB_UIManager.Instance.LBLevelText.text = LevelName;
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
-        HUB_UIManager.Instance.FilterPanel.SetActive(false);
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
@@ -235,7 +226,6 @@ public class MainLeaderBoardManager : MonoBehaviour
         string LevelName = "Pro";
         HUB_UIManager.Instance.LBLevelText.text = LevelName;
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
-        HUB_UIManager.Instance.FilterPanel.SetActive(false);
         // Create a new dictionary to store meta_id and meta_name
         Dictionary<string, object> metaData = new Dictionary<string, object>
         {
