@@ -51,7 +51,7 @@ public class FmodMusicPlayer : MonoBehaviour
 
         currentIndex = 0;
 
-      StartCoroutine(disbaleAllTracks());
+        //StartCoroutine(disbaleAllTracks());
         PlayCurrentSong();
     }
 

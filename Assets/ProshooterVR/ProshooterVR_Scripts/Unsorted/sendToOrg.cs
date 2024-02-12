@@ -22,13 +22,12 @@ public class sendToOrg : MonoBehaviour
 
         }
 
-        if (!hasSpawnedNewGun && collision.gameObject.CompareTag("MagZ") == true)
+        if (!hasSpawnedNewGun && collision.gameObject.CompareTag("RF") == true)
         {
             // Set the flag to true to prevent multiple spawns
             hasSpawnedNewGun = true;
 
             // Destroy the current gun
-            Destroy(collision.gameObject);
             StartCoroutine(spawn());
 
         }
@@ -43,11 +42,9 @@ public class sendToOrg : MonoBehaviour
             GunGameManeger.Instance.respawnNewWeapon();
             gunRelodeManager.Instance.PalletPoint.SetActive(true);
             
-        }
-        if (weaponManager.Instance.isRapidFireMode == true)
+        }else if (weaponManager.Instance.isRapidFireMode == true)
         {
-            RapidFireGunManager.Instance.respawnNewWeapon();
-
+            RapidFireGunManager.Instance.repos25RFWeapon();
         }
 
         hasSpawnedNewGun = false;

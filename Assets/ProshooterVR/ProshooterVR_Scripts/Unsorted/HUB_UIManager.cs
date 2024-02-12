@@ -54,7 +54,9 @@ public class HUB_UIManager : MonoBehaviour
     public GameObject profBginPan, profIntmPan, profProffPan;
 
     public GameObject LeaderBoardModePanel, LeaderBoardDifficultyPanel;
-    
+
+    public GameObject LeaderboardModeDropDownlist, LeaderboardDifficultyDropDownlist;
+
     ////
 
     public enum gameType
@@ -89,10 +91,8 @@ public class HUB_UIManager : MonoBehaviour
         rapidRifeTUt.SetActive(false);
         musicPlayer.SetActive(false);
 
-        //levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
         HUB_UIManager.Instance.musicPlayer.SetActive(true);
 
-        // playerProfileMainUIBtn.SetActive(false);
 
 
         // UI panels to turn ON on start
@@ -100,6 +100,21 @@ public class HUB_UIManager : MonoBehaviour
         userProfileUI.SetActive(true);
         profileBtnClicked();
         backToMainMenu();
+
+        LocalUserDataManager.Instance.selectedGameMode = GameModes.AirPistol10m;
+        LoadLeaderboardata(0);
+    }
+
+    public void leaderboardModeBtnClick()
+    {
+        LeaderboardDifficultyDropDownlist.SetActive(false);
+        LeaderboardModeDropDownlist.SetActive(true);
+    }
+
+    public void leaderboardDifficultyBtnClick()
+    {
+        LeaderboardDifficultyDropDownlist.SetActive(true);
+        LeaderboardModeDropDownlist.SetActive(false);
     }
 
 
@@ -186,7 +201,7 @@ public class HUB_UIManager : MonoBehaviour
         levelUI.SetActive(false);
         settingUI.SetActive(false);
         tutorailUI.SetActive(false);
-
+        SoundControlPanel.SetActive(false); 
     }
 
     public void OnAudioSettingsButtonClick()
@@ -197,14 +212,14 @@ public class HUB_UIManager : MonoBehaviour
 
     public void OnAirPistolLevelButtonClick()
     {
-        string ModeName = "10m Air Pistol";
+        string ModeName = "AIR PISTOL";
         HUB_UIManager.Instance.LBModeText.text = ModeName;
 
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
     }
     public void OnAirRifleLevelButtonClick()
     {
-        string ModeName = "10m Air Rifle";
+        string ModeName = "AIR RIFLE";
         HUB_UIManager.Instance.LBModeText.text = ModeName;
 
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
@@ -212,8 +227,6 @@ public class HUB_UIManager : MonoBehaviour
 
     public void singlePlayerBtnClicked()
     {
-        Debug.Log("404044040404040404004400400404040440");
-        Debug.Log("404044040404040404004400400404040440");
         levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
         myGameType = gameType.match;
     }
@@ -235,6 +248,10 @@ public class HUB_UIManager : MonoBehaviour
 
     public void setingsBtnClicked()
     {
+        tutorailUI.SetActive(false);
+        airPistolTut.SetActive(false);
+        airRifleTut.SetActive(false);
+        rapidRifeTUt.SetActive(false);
         settingUI.SetActive(true);
         airPsubMenu.SetActive(false);
         airRsubMenu.SetActive(false);
@@ -244,6 +261,7 @@ public class HUB_UIManager : MonoBehaviour
     }
     public void profileBtnClicked()
     {
+       // LocalUserDataManager.Instance.metaID = "6889892497704835";
         DBAPIManagerNew.Instance.getProfileData(LocalUserDataManager.Instance.metaID);
     }
     public void assistedBtnClicked()
@@ -275,6 +293,7 @@ public class HUB_UIManager : MonoBehaviour
     }
     public void update_playerProfileData()
     {
+        Debug.Log("0000000000000000000000000000000000000000000000000000000000000000000");
 
         userNameTxt.text = LocalUserDataManager.Instance.userNameTxt;
        // totalScoreTxt.text = LocalUserDataManager.Instance.totalScoreTxt;
@@ -586,6 +605,60 @@ public class HUB_UIManager : MonoBehaviour
 
 
 
+    public void LoadLeaderboardata(int no)
+    {
+        LeaderboardDifficultyDropDownlist.SetActive(false);
+        LeaderboardModeDropDownlist.SetActive(false);
+        switch (no)
+        {
+            case 0:
+                if (LocalUserDataManager.Instance.selectedGameMode == GameModes.AirPistol10m)
+                {
+                    MainLeaderBoardManager.Instance.AirPistolOverallLeaderBoardData(LocalUserDataManager.Instance.metaID);
+                }
+                if (LocalUserDataManager.Instance.selectedGameMode == GameModes.AirRifle10m)
+                {
+                    MainLeaderBoardManager.Instance.AirRifleOverallLeaderBoardData(LocalUserDataManager.Instance.metaID);
+                }
+                break;
+            case 1:
+                if (LocalUserDataManager.Instance.selectedGameMode == GameModes.AirPistol10m)
+                {
+                    MainLeaderBoardManager.Instance.AirPistolAmateurLeaderBoardData(LocalUserDataManager.Instance.metaID);
+                }
+                if (LocalUserDataManager.Instance.selectedGameMode == GameModes.AirRifle10m)
+                {
+                    MainLeaderBoardManager.Instance.AirRifleAmateurLeaderBoardData(LocalUserDataManager.Instance.metaID);
+                }
+                break;
+            case 2:
+                if (LocalUserDataManager.Instance.selectedGameMode == GameModes.AirPistol10m)
+                {
+                    MainLeaderBoardManager.Instance.AirPistolSemiProLeaderBoardData(LocalUserDataManager.Instance.metaID);
+                }
+                if (LocalUserDataManager.Instance.selectedGameMode == GameModes.AirRifle10m)
+                {
+                    MainLeaderBoardManager.Instance.AirRifleSemiproLeaderBoardData(LocalUserDataManager.Instance.metaID);
+                }
+                break;
+            case 3:
+                if (LocalUserDataManager.Instance.selectedGameMode == GameModes.AirPistol10m)
+                {
+                    MainLeaderBoardManager.Instance.AirPistolProLeaderBoardData(LocalUserDataManager.Instance.metaID);
+                }
+                if (LocalUserDataManager.Instance.selectedGameMode == GameModes.AirRifle10m)
+                {
+                    MainLeaderBoardManager.Instance.AirRifleProLeaderBoardData(LocalUserDataManager.Instance.metaID);
+                }
+                break;
+        }
+
+
+        
+       
+
+       
+    }
 
 
 
@@ -704,10 +777,10 @@ public class HUB_UIManager : MonoBehaviour
             {
                 NewObj.transform.GetChild(0).gameObject.SetActive(true);
 
-                HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["ranks"];
-                HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(3).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["meta_quest_username"];
-                HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(4).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["total_score"];
-                HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(5).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["matches_played"];
+                //HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["ranks"];
+                //HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(3).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["meta_quest_username"];
+                //HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(4).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["total_score"];
+                //HUB_UIManager.Instance.userPosOnMainLeaderBoardData.transform.GetChild(5).gameObject.GetComponent<TextMeshPro>().text = MainLeaderboardJson["leaderboardResults"][i]["matches_played"];
 
 
 

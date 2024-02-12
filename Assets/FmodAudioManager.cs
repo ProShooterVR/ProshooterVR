@@ -49,28 +49,9 @@ public class FmodAudioManager : MonoBehaviour
     private bool isFMODInitialized = false;
     private void Start()
     {
-       // StartCoroutine(WaitForFMODInitialization());
+        StartInit();
     }
 
-    private IEnumerator WaitForFMODInitialization()
-    {
-        // Wait until FMOD is initialized
-        while (!RuntimeManager.IsInitialized)
-        {
-            yield return null;
-        }
-
-        // FMOD is now initialized, you can proceed with your operations
-        isFMODInitialized = true;
-
-        // Example: Play an FMOD event after initialization
-        if (isFMODInitialized)
-        {
-            Debug.Log("Ready to Initilized");
-            StartInit();
-           
-        }
-    }
 
     public void StartInit()
     {

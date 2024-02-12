@@ -1876,7 +1876,7 @@ GameObject:
   - component: {fileID: 7280634311380336627}
   m_Layer: 10
   m_Name: 25 Meter Rapid Fire Pistol_UX
-  m_TagString: Weapon
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1909,7 +1909,7 @@ Transform:
   - {fileID: 3193777619339334130}
   - {fileID: 2893470776440228176}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &8097425247388605029
 MeshFilter:
@@ -1966,7 +1966,7 @@ MonoBehaviour:
   GrabSpeed: 20
   RemoteGrabbable: 1
   RemoteGrabMechanic: 0
-  RemoteGrabDistance: 2.5
+  RemoteGrabDistance: 5
   ThrowForceMultiplier: 2.5
   ThrowForceMultiplierAngular: 1.5
   BreakDistance: 1
@@ -2032,13 +2032,13 @@ MonoBehaviour:
   Damage: 25
   FiringMethod: 0
   ReloadMethod: 1
-  FiringRate: 0.05
+  FiringRate: 0.3
   BulletImpactForce: 1000
   InternalAmmo: 0
   MaxInternalAmmo: 5
   AutoChamberRounds: 1
   MustChamberRounds: 1
-  AlwaysFireProjectile: 1
+  AlwaysFireProjectile: 0
   FireProjectileInSlowMo: 0
   SlowMoRateOfFire: 0
   ShotForce: 100
@@ -2053,10 +2053,9 @@ MonoBehaviour:
   MuzzlePointTransform: {fileID: 7111009230781500342}
   EjectPointTransform: {fileID: 1912641189614626935}
   ChamberedBullet: {fileID: 2419712977067918894}
-  MuzzleFlashObject: {fileID: 1651861135841735256}
+  MuzzleFlashObject: {fileID: 4241671139008554148}
   BulletCasingPrefab: {fileID: 4241671139008554148}
-  ProjectilePrefab: {fileID: 1449094533667961452, guid: 4af46545725f628459794cfc7c0f7d54,
-    type: 3}
+  ProjectilePrefab: {fileID: 4241671139008554148}
   HitFXPrefab: {fileID: 6115266998615064276, guid: 7454c37e77bb2db4db66cc6d69d58a58,
     type: 3}
   GunShotSound: {fileID: 0}
@@ -5152,6 +5151,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2835804419385032575}
     m_Modifications:
+    - target: {fileID: 4213795611944346737, guid: 9e3b0bca4dce07c4cac56011bea1487d,
+        type: 3}
+      propertyPath: ringSizeGrabbable
+      value: 1200
+      objectReference: {fileID: 0}
     - target: {fileID: 4213795611944346737, guid: 9e3b0bca4dce07c4cac56011bea1487d,
         type: 3}
       propertyPath: RingSecondarySelectedColor.g

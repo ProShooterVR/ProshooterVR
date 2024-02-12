@@ -10,20 +10,13 @@ public class RapidFireGunManager : MonoBehaviour
 {
     public static RapidFireGunManager Instance;
 
-    public GameObject dynamicGun;
+   
     public GameObject gunGameObject;
-    public Transform gunSpawnPoint;
+    public GameObject gunSpawnPoint;
     public GameObject gunPlatform;
-    public GameObject gunSpwanEffect;
-    public GameObject gunSnapPoint;
 
 
-    public GameObject dyMagZ;
-    public GameObject MagZGameObject;
-    public Transform MagZSpawnPoint;
-    public GameObject MagZPlatform;
-    public GameObject MagZspwanEffect;
-    public GameObject MagZSnapPoint;
+
 
 
     public bool isPracticeMode, isRankedMode;
@@ -129,14 +122,25 @@ public class RapidFireGunManager : MonoBehaviour
         totalGameScore = 0;
         callInGameSounds = false;
         isMatchComplte = false;
-      //  respawnNewWeapon();
-       // respawnNewMagZ();
+        RFGun_ReloadManager.Instance.SlideObject.SetActive(false);
+        //  respawnNewWeapon();
+        // respawnNewMagZ();
     }
     public void respawnNewWeapon()
     {
         //dynamicGun = Instantiate(gunGameObject, gunSpawnPoint.position, gunSpawnPoint.rotation);
         //RFGun_ReloadManager.Instance.SlideObject.SetActive(false);
-        //gunSnapPoint.GetComponent<SnapZone>().SetHeldItem(dynamicGun.GetComponent<Grabbable>());
+
+
+    }
+    public void repos25RFWeapon()
+    {
+        // dynamicGun = Instantiate(gunGameObject, gunSpawnPoint.position, gunSpawnPoint.rotation);
+
+        //Debug.Log("repossseeeeeeeeeeeeeeee");
+        //gunGameObject.transform.position = gunSpawnPoint.transform.position;
+        //gunGameObject.transform.rotation = gunSpawnPoint.transform.rotation;
+
 
 
     }

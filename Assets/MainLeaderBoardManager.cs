@@ -47,7 +47,7 @@ public class MainLeaderBoardManager : MonoBehaviour
     {
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
 
-        string LevelName = "Overall";
+        string LevelName = "OVERALL";
         HUB_UIManager.Instance.LBLevelText.text = LevelName;
 
         // Create a new dictionary to store meta_id and meta_name
@@ -67,7 +67,7 @@ public class MainLeaderBoardManager : MonoBehaviour
 
     public void AirRifleOverallLeaderBoardData(string metaID)
     {
-        string LevelName = "Overall";
+        string LevelName = "OVERALL";
         HUB_UIManager.Instance.LBLevelText.text = LevelName;
 
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
@@ -100,7 +100,7 @@ public class MainLeaderBoardManager : MonoBehaviour
         };
 
         string data = JsonConvert.SerializeObject(metaData);
-        Debug.Log("coverted data is ||  " + data);
+      //  Debug.Log("coverted data is ||  " + data);
         StartCoroutine(fetch10mAirPistolOverallPlayerProfileData(data));
     }
 
@@ -118,13 +118,13 @@ public class MainLeaderBoardManager : MonoBehaviour
         };
 
         string data = JsonConvert.SerializeObject(metaData);
-        Debug.Log("coverted data is ||  " + data);
+      //  Debug.Log("coverted data is ||  " + data);
         StartCoroutine(fetch10mAirRifleOverallPlayerProfileData(data));
     }
 
     public void AirPistolAmateurLeaderBoardData(string metaID)
     {
-        string LevelName = "Amateur";
+        string LevelName = "BEGINNER";
         HUB_UIManager.Instance.LBLevelText.text = LevelName;
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
         // Create a new dictionary to store meta_id and meta_name
@@ -138,12 +138,12 @@ public class MainLeaderBoardManager : MonoBehaviour
         };
 
         string data = JsonConvert.SerializeObject(metaData);
-        Debug.Log("coverted data is ||  " + data);
+      //  Debug.Log("coverted data is ||  " + data);
         StartCoroutine(fetchMainLeaderBoardData(data));
     }
     public void AirPistolSemiProLeaderBoardData(string metaID)
     {
-        string LevelName = "SemiPro";
+        string LevelName = "INTERMEDIATE";
         HUB_UIManager.Instance.LBLevelText.text = LevelName;
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
         // Create a new dictionary to store meta_id and meta_name
@@ -157,13 +157,13 @@ public class MainLeaderBoardManager : MonoBehaviour
         };
 
         string data = JsonConvert.SerializeObject(metaData);
-        Debug.Log("coverted data is ||  " + data);
+      //  Debug.Log("coverted data is ||  " + data);
         StartCoroutine(fetchMainLeaderBoardData(data));
 
     }
     public void AirPistolProLeaderBoardData(string metaID)
     {
-        string LevelName = "Pro";
+        string LevelName = "PROFESSIONAL";
         HUB_UIManager.Instance.LBLevelText.text = LevelName;
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
         // Create a new dictionary to store meta_id and meta_name
@@ -177,13 +177,13 @@ public class MainLeaderBoardManager : MonoBehaviour
         };
 
         string data = JsonConvert.SerializeObject(metaData);
-        Debug.Log("coverted data is ||  " + data);
+       /// Debug.Log("coverted data is ||  " + data);
         StartCoroutine(fetchMainLeaderBoardData(data));
     }
 
     public void AirRifleAmateurLeaderBoardData(string metaID)
     {
-        string LevelName = "Amateur";
+        string LevelName = "BEGINNER";
         HUB_UIManager.Instance.LBLevelText.text = LevelName;
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
         // Create a new dictionary to store meta_id and meta_name
@@ -197,13 +197,13 @@ public class MainLeaderBoardManager : MonoBehaviour
         };
 
         string data = JsonConvert.SerializeObject(metaData);
-        Debug.Log("coverted data is ||  " + data);
+      //  Debug.Log("coverted data is ||  " + data);
         StartCoroutine(fetchMainLeaderBoardData(data));
     }
 
     public void AirRifleSemiproLeaderBoardData(string metaID)
     {
-        string LevelName = "SemiPro";
+        string LevelName = "INTERMEDIATE";
         HUB_UIManager.Instance.LBLevelText.text = LevelName;
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
         // Create a new dictionary to store meta_id and meta_name
@@ -217,13 +217,13 @@ public class MainLeaderBoardManager : MonoBehaviour
         };
 
         string data = JsonConvert.SerializeObject(metaData);
-        Debug.Log("coverted data is ||  " + data);
+      //  Debug.Log("coverted data is ||  " + data);
         StartCoroutine(fetchMainLeaderBoardData(data));
     }
 
     public void AirRifleProLeaderBoardData(string metaID)
     {
-        string LevelName = "Pro";
+        string LevelName = "PROFESSIONAL";
         HUB_UIManager.Instance.LBLevelText.text = LevelName;
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
         // Create a new dictionary to store meta_id and meta_name
@@ -237,7 +237,7 @@ public class MainLeaderBoardManager : MonoBehaviour
         };
 
         string data = JsonConvert.SerializeObject(metaData);
-        Debug.Log("coverted data is ||  " + data);
+      //  Debug.Log("coverted data is ||  " + data);
         StartCoroutine(fetchMainLeaderBoardData(data));
     }
 
@@ -257,9 +257,9 @@ public class MainLeaderBoardManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("API Data Fetched!");
+                //Debug.Log("API Data Fetched!");
                 string jsonString = www.downloadHandler.text;
-                Debug.Log(jsonString);
+                //Debug.Log(jsonString);
 
                 JSONNode data = JSON.Parse(jsonString);
                 HUB_UIManager.Instance.MainLeaderboardJson = JSON.Parse(jsonString);
@@ -283,9 +283,9 @@ public class MainLeaderBoardManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("API Data Fetched!");
+                //Debug.Log("API Data Fetched!");
                 string jsonString = www.downloadHandler.text;
-                Debug.Log(jsonString);
+               // Debug.Log(jsonString);
 
                 JSONNode data = JSON.Parse(jsonString);
                 HUB_UIManager.Instance.MainLeaderboardJson = JSON.Parse(jsonString);
@@ -309,9 +309,9 @@ public class MainLeaderBoardManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("API Data Fetched!");
+                //Debug.Log("API Data Fetched!");
                 string jsonString = www.downloadHandler.text;
-                Debug.Log(jsonString);
+              //  Debug.Log(jsonString);
 
                 JSONNode data = JSON.Parse(jsonString);
 
@@ -337,9 +337,9 @@ public class MainLeaderBoardManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("API Data Fetched!");
+                //Debug.Log("API Data Fetched!");
                 string jsonString = www.downloadHandler.text;
-                Debug.Log(jsonString);
+               // Debug.Log(jsonString);
 
                 JSONNode data = JSON.Parse(jsonString);
 
@@ -375,9 +375,9 @@ public class MainLeaderBoardManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("API Data Fetched!");
+                //Debug.Log("API Data Fetched!");
                 string jsonString = www.downloadHandler.text;
-                Debug.Log(jsonString);
+               // Debug.Log(jsonString);
 
                 JSONNode data = JSON.Parse(jsonString);
                 HUB_UIManager.Instance.MainLeaderboardJson = JSON.Parse(jsonString);
@@ -390,7 +390,7 @@ public class MainLeaderBoardManager : MonoBehaviour
                         LocalUserDataManager.Instance.OverallPoints_10AP_Txt = HUB_UIManager.Instance.MainLeaderboardJson["leaderboardResults"][i]["total_score"];
                         LocalUserDataManager.Instance.OverallGamesPlayed_10AP_Txt = HUB_UIManager.Instance.MainLeaderboardJson["leaderboardResults"][i]["matches_played"];
 
-                        Debug.Log("Fetched!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                       // Debug.Log("Fetched!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                     }
                 }
             }

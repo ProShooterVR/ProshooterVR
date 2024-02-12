@@ -59,7 +59,7 @@ namespace ProshooterVR
 
         public void Initialise_BackendDAta()
         {
-            string ModeName = "10m Air Pistol";
+            string ModeName = "AIR PISTOL";
             HUB_UIManager.Instance.LBModeText.text = ModeName;
             SaveMetaInfo(LocalUserDataManager.Instance.metaID, LocalUserDataManager.Instance.meta_username);
             getUserSettings(LocalUserDataManager.Instance.metaID);
@@ -183,8 +183,7 @@ namespace ProshooterVR
                 LocalUserDataManager.Instance.pbest_25mRF_SemPTxt = PlayerDataObj.p_best_25m_rf_semp.ToString();
                 LocalUserDataManager.Instance.pbest_25mRF_ProTxt = PlayerDataObj.p_best_25m_rf_pro.ToString();
 
-                HUB_UIManager.Instance.UpdateProfileButton();
-
+                HUB_UIManager.Instance.update_playerProfileData();
                 // Now you can access class fields directly
                 // Debug.Log(PlayerData.meta_unique_id);
 

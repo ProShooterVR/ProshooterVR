@@ -339,7 +339,7 @@ MonoBehaviour:
   Path: ../../ProShooter VR/FMOD Github/FMOD/Pro Shooter1.7/Build/Android/Master.assets.bank
   Name: Master.assets
   StudioPath: bank:/Master.assets
-  lastModified: 638428209967795968
+  lastModified: 638431953524109123
   FileSizes: []
   Exists: 1
 --- !u!114 &-2949196128323500648
@@ -369,6 +369,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 506
+--- !u!114 &-2815878196824568280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Menu_Music/Song1
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Menu_Music/Song1
+  Guid:
+    Data1: -1528909826
+    Data2: 1203217658
+    Data3: -293876074
+    Data4: -76209464
+  Banks:
+  - {fileID: -1568275619435084750}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 105822
 --- !u!114 &-2671358573531870609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,7 +504,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 63
---- !u!114 &-1981833553516263977
+--- !u!114 &-1870267650781728252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -486,21 +513,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Main Menu/Parameter 1
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Menu_Music/Song5
   m_EditorClassIdentifier: 
-  Name: Parameter 1
-  StudioPath: 
-  Min: 0
-  Max: 5
-  Default: 0
-  ID:
-    data1: 2359923732
-    data2: 3181327117
-  Type: 1
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
+  Path: event:/Music/Menu_Music/Song5
+  Guid:
+    Data1: -1696128203
+    Data2: 1123498968
+    Data3: -439272032
+    Data4: 1130980514
+  Banks:
+  - {fileID: -1568275619435084750}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 89547
 --- !u!114 &-1568275619435084750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,9 +546,36 @@ MonoBehaviour:
   Path: ../../ProShooter VR/FMOD Github/FMOD/Pro Shooter1.7/Build/Android/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638428209966857144
+  lastModified: 638431953523133924
   FileSizes: []
   Exists: 1
+--- !u!114 &-1437430623301925591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Menu_Music/Song3
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Menu_Music/Song3
+  Guid:
+    Data1: -2085148509
+    Data2: 1260001081
+    Data3: 1878301334
+    Data4: -2019609428
+  Banks:
+  - {fileID: -1568275619435084750}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 105822
 --- !u!114 &-1145115955801373947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,7 +738,6 @@ MonoBehaviour:
   - {fileID: 4272014544768438429}
   - {fileID: -2479788448166086628}
   - {fileID: 1060114720644491745}
-  - {fileID: 2264550498147666858}
   - {fileID: 8111189192541480478}
   - {fileID: -1018635690725364618}
   - {fileID: 7761435479168656165}
@@ -721,12 +777,17 @@ MonoBehaviour:
   - {fileID: -8828927924632290970}
   - {fileID: -7806340247843242815}
   - {fileID: 3570740885842896839}
+  - {fileID: -1870267650781728252}
+  - {fileID: -1437430623301925591}
+  - {fileID: 2131536758038632981}
+  - {fileID: 6578922595848114841}
+  - {fileID: -2815878196824568280}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1568275619435084750}
   StringsBanks:
   - {fileID: 8785164549793434345}
-  cacheTime: 638428209967807537
+  cacheTime: 638431953524119264
   cacheVersion: 131609
 --- !u!114 &73592704222966043
 MonoBehaviour:
@@ -890,7 +951,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 320
---- !u!114 &2264550498147666858
+--- !u!114 &2131536758038632981
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -900,24 +961,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/Main Menu
+  m_Name: event:/Music/Menu_Music/Song2
   m_EditorClassIdentifier: 
-  Path: event:/Music/Main Menu
+  Path: event:/Music/Menu_Music/Song2
   Guid:
-    Data1: 1301683007
-    Data2: 1169004821
-    Data3: 1838421165
-    Data4: 1044593589
+    Data1: 1065227482
+    Data2: 1156272615
+    Data3: -985753464
+    Data4: 801828979
   Banks:
   - {fileID: -1568275619435084750}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters:
-  - {fileID: -1981833553516263977}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 158720
 --- !u!114 &2400271052537352243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1323,6 +1383,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 51
+--- !u!114 &6578922595848114841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Menu_Music/Song4
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Menu_Music/Song4
+  Guid:
+    Data1: -756275993
+    Data2: 1108827123
+    Data3: -249426760
+    Data4: 276393062
+  Banks:
+  - {fileID: -1568275619435084750}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 97697
 --- !u!114 &6913086270068867109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1473,10 +1560,10 @@ MonoBehaviour:
   Path: ../../ProShooter VR/FMOD Github/FMOD/Pro Shooter1.7/Build/Android/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638428209967807537
+  lastModified: 638431953524119264
   FileSizes:
   - Name: 
-    Value: 3652
+    Value: 3746
   Exists: 1
 --- !u!114 &9008823353090014532
 MonoBehaviour:

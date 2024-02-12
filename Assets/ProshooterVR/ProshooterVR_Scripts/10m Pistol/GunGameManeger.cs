@@ -82,7 +82,6 @@ public class GunGameManeger : MonoBehaviour
     public bool spawnBullet;
 
     public bool isUXON,isWespaonSpawn;
-
     void Awake()
     {
         Instance = this;
@@ -185,8 +184,11 @@ public class GunGameManeger : MonoBehaviour
     {
        dynamicGun = Instantiate(gunGameObject, gunSpawnPoint.position, gunSpawnPoint.rotation);
 
-        snapPoint.GetComponent<SnapZone>().SetHeldItem(dynamicGun.GetComponent<Grabbable>());
+       snapPoint.GetComponent<SnapZone>().SetHeldItem(dynamicGun.GetComponent<Grabbable>());
+        gunRelodeManager.Instance.RelodTouch.SetActive(true);
+        GunGameManeger.Instance.touchReloader.SetActive(true);
 
+        
     }
 
     void loadSavedRotation(Quaternion mySavedRotation )
