@@ -1357,7 +1357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3046878078822308614
 Transform:
   m_ObjectHideFlags: 0
@@ -1437,7 +1437,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083589683631325440}
-  m_Mesh: {fileID: -919449108001477757, guid: ce5607596f9c72b468d8b18260f8e3ce, type: 3}
+  m_Mesh: {fileID: -4318702644326574952, guid: ce5607596f9c72b468d8b18260f8e3ce, type: 3}
 --- !u!23 &1484834885959359741
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1648,6 +1648,60 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!1 &1295522438032583660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4719109079757673834}
+  - component: {fileID: 3370792427547366191}
+  m_Layer: 10
+  m_Name: MoriniCM200Ei_Left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4719109079757673834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295522438032583660}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.0057, y: -0.0426, z: -0.046800017}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7049998841986446021}
+  m_Father: {fileID: 2359190325371376407}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!95 &3370792427547366191
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295522438032583660}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2c2971b11e7dbf54f89e6f30ca186c04, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1327527698919880676
 GameObject:
   m_ObjectHideFlags: 0
@@ -5221,7 +5275,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3683649980377533488}
-  m_Mesh: {fileID: 8118694993052342807, guid: ce5607596f9c72b468d8b18260f8e3ce, type: 3}
+  m_Mesh: {fileID: -8797508486300412809, guid: ce5607596f9c72b468d8b18260f8e3ce, type: 3}
 --- !u!23 &7061097378611709613
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10395,6 +10449,60 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7563584762403332026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6038223128861967353}
+  - component: {fileID: 1904240297210345052}
+  m_Layer: 0
+  m_Name: MoriniCM200Ei
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6038223128861967353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7563584762403332026}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.0057, y: -0.0426, z: -0.046800017}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3833552956076295933}
+  m_Father: {fileID: 2359190325371376407}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!95 &1904240297210345052
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7563584762403332026}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 063ce06ace9c90344b8832457d191b79, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7655194459799077424
 GameObject:
   m_ObjectHideFlags: 0
@@ -12116,7 +12224,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8293309390232923948}
-  m_Mesh: {fileID: 46540918320926155, guid: ce5607596f9c72b468d8b18260f8e3ce, type: 3}
+  m_Mesh: {fileID: -7085790092968198418, guid: ce5607596f9c72b468d8b18260f8e3ce, type: 3}
 --- !u!23 &3502935707288855981
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13877,12 +13985,14 @@ Transform:
   - {fileID: 4425332184223856476}
   - {fileID: 8129358830111635973}
   - {fileID: 3046878078822308614}
+  - {fileID: 6038223128861967353}
+  - {fileID: 4719109079757673834}
   - {fileID: 8038212061441245100}
   - {fileID: 653545322169831583}
   - {fileID: 5567335378903564424}
   - {fileID: 5510127012258130848}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &1027049328033404485
 MeshFilter:
@@ -14558,6 +14668,85 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2773521345612946996}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3655020086255608086
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6038223128861967353}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ce5607596f9c72b468d8b18260f8e3ce,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce5607596f9c72b468d8b18260f8e3ce,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00000016763808
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce5607596f9c72b468d8b18260f8e3ce,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000000037252903
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce5607596f9c72b468d8b18260f8e3ce,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0000000033866172
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce5607596f9c72b468d8b18260f8e3ce,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce5607596f9c72b468d8b18260f8e3ce,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce5607596f9c72b468d8b18260f8e3ce,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce5607596f9c72b468d8b18260f8e3ce,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce5607596f9c72b468d8b18260f8e3ce,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce5607596f9c72b468d8b18260f8e3ce,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce5607596f9c72b468d8b18260f8e3ce,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ce5607596f9c72b468d8b18260f8e3ce,
+        type: 3}
+      propertyPath: m_Name
+      value: MoriniCM200Ei
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ce5607596f9c72b468d8b18260f8e3ce, type: 3}
+--- !u!4 &3833552956076295933 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ce5607596f9c72b468d8b18260f8e3ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3655020086255608086}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7243476928376072848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14651,4 +14840,83 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8985109566677802732, guid: 6686dcf10cbd5244a8c55049e2f75e97,
     type: 3}
   m_PrefabInstance: {fileID: 7243476928376072848}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7375798762628257070
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4719109079757673834}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: b6109cab6ccd94f4b86e77807df7a7bb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b6109cab6ccd94f4b86e77807df7a7bb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b6109cab6ccd94f4b86e77807df7a7bb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b6109cab6ccd94f4b86e77807df7a7bb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b6109cab6ccd94f4b86e77807df7a7bb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b6109cab6ccd94f4b86e77807df7a7bb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b6109cab6ccd94f4b86e77807df7a7bb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b6109cab6ccd94f4b86e77807df7a7bb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b6109cab6ccd94f4b86e77807df7a7bb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b6109cab6ccd94f4b86e77807df7a7bb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b6109cab6ccd94f4b86e77807df7a7bb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6109cab6ccd94f4b86e77807df7a7bb,
+        type: 3}
+      propertyPath: m_Name
+      value: MoriniCM200Ei_Left
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6109cab6ccd94f4b86e77807df7a7bb, type: 3}
+--- !u!4 &7049998841986446021 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b6109cab6ccd94f4b86e77807df7a7bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 7375798762628257070}
   m_PrefabAsset: {fileID: 0}
