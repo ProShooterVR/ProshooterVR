@@ -64,8 +64,10 @@ public class HandRotation : MonoBehaviour
         {
            PistolUIManager.Instance.rightHandController.GetComponent<HandRotation>().enabled = false;
            PistolUIManager.Instance.settingPopUp.SetActive(true);
-            PistolUIManager.Instance.menuPanel.SetActive(true);
-                
+           PistolUIManager.Instance.menuPanel.SetActive(true);
+           PistolUIManager.Instance.gripAdjustUI.SetActive(false);
+
+
             RayManager.Instance.EnableRey();
             onExit();
             PistolUIManager.Instance.isOtherUIOpen = false;
@@ -78,6 +80,7 @@ public class HandRotation : MonoBehaviour
             PistolUIManager.Instance.rightHandController.GetComponent<HandRotation>().enabled = false;
             PistolUIManager.Instance.settingPopUp.SetActive(true);
             PistolUIManager.Instance.menuPanel.SetActive(true);
+            PistolUIManager.Instance.gripAdjustUI.SetActive(false);
 
             RayManager.Instance.EnableRey();
             saveGripAdjustment();

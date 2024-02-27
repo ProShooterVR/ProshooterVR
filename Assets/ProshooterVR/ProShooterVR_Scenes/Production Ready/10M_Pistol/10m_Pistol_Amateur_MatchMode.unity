@@ -2420,7 +2420,7 @@ MonoBehaviour:
   UIdisp: {fileID: 14919489}
   scoreScrrenUI: {fileID: 1123312376}
   dynamicGun: {fileID: 0}
-  gunGameObject: {fileID: 9118790531059255339, guid: 39dd72d3f4017dc49872c2408ac6986d,
+  gunGameObject: {fileID: 9118790531059255339, guid: 3688e9f4c24c537459d8d69d120e2d45,
     type: 3}
   gunSpawnPoint: {fileID: 2083210553}
   gunPlatform: {fileID: 893505651}
@@ -2428,6 +2428,10 @@ MonoBehaviour:
   snapPoint: {fileID: 1274121259}
   isPracticeMode: 0
   isRankedMode: 1
+  leftHandGunModel: {fileID: 9118790531059255339, guid: 39dd72d3f4017dc49872c2408ac6986d,
+    type: 3}
+  rightHandGunModel: {fileID: 9118790531059255339, guid: de4035d6f3a00554ba9d205b97c91726,
+    type: 3}
   noOfShotsFired: 0
   noShotMissed: 0
   noShotsHit: 0
@@ -2474,6 +2478,8 @@ MonoBehaviour:
   palletSpawn: {fileID: 6667757392204128069, guid: cfa06e0270501e042ab680d3bcab0a85,
     type: 3}
   touchReloader: {fileID: 370723395}
+  leftHandTouch: {fileID: 370723395}
+  rightHandTouch: {fileID: 898859645}
   palletPrefab: {fileID: 6612220930903426548, guid: 5e1698e7dedb2c24e94d052a2e1d6d9c,
     type: 3}
   tempPallet: {fileID: 911684733}
@@ -6290,74 +6296,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1598457716262472726, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1598457716262472726, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
-        type: 3}
-      propertyPath: m_TargetDisplay
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4130317688915077025, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
         type: 3}
       propertyPath: m_Name
       value: XR Rig Advanced_AirPistol
       objectReference: {fileID: 0}
-    - target: {fileID: 4130317688915077025, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4656598010770069753, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
-        type: 3}
-      propertyPath: m_AllowXRRendering
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5723055978899655806, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6425666042750817726, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6488047753212739079, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6720645507687443602, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
-        type: 3}
-      propertyPath: field of view
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6720645507687443602, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
-        type: 3}
-      propertyPath: m_TargetDisplay
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6720645507687443602, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
-        type: 3}
-      propertyPath: near clip plane
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 6720645507687443602, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 1911
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3595095124837753261, guid: 6ee8dd692d3cabb4dad6f2a1d745a572, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4013006185785478356, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1511466288}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ee8dd692d3cabb4dad6f2a1d745a572, type: 3}
 --- !u!1 &370723392 stripped
@@ -8962,12 +8908,6 @@ RectTransform:
   m_AnchoredPosition: {x: -6, y: -375}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!4 &504064427 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4013006185785478356, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
-    type: 3}
-  m_PrefabInstance: {fileID: 370723391}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &518350856
 GameObject:
   m_ObjectHideFlags: 0
@@ -15038,6 +14978,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 897232151}
   m_CullTransparentMesh: 1
+--- !u!1 &898859645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6398030763443389218, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
+    type: 3}
+  m_PrefabInstance: {fileID: 370723391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &900821285
 GameObject:
   m_ObjectHideFlags: 0
@@ -16668,6 +16614,7 @@ MonoBehaviour:
   endSessionPopup: {fileID: 5628947944286231034}
   standSettingPopup: {fileID: 0}
   setSwitch: 0
+  isOtherUIOpen: 0
   helpScr1: {fileID: 2000615440}
   helpScr2: {fileID: 1190740231}
   helpScr3: {fileID: 1546891617}
@@ -16682,7 +16629,6 @@ MonoBehaviour:
   startMsgUI: {fileID: 662588151}
   rightHandController: {fileID: 370723396}
   progresBar: {fileID: 2041216090}
-  isOtherUIOpen: 0
   shotsLeftTxt: {fileID: 2041216091}
   AudioSettingsUIPanel: {fileID: 1191610785}
   SettingsUIPanel: {fileID: 1587041923981769619}
@@ -30273,89 +30219,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1511466287
+--- !u!1 &1511466287 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6546423190655409366, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
+    type: 3}
+  m_PrefabInstance: {fileID: 370723391}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1511466288}
-  - component: {fileID: 1511466291}
-  - component: {fileID: 1511466290}
-  m_Layer: 0
-  m_Name: Blinder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1511466288
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511466287}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.016, y: -0.002080083, z: 0.0143}
-  m_LocalScale: {x: 0.06967695, y: 0.1436849, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 504064427}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &1511466290
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511466287}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: b8974e976fc92f14b9718dcfbe48240b, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1511466291
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511466287}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1537578116
 GameObject:
   m_ObjectHideFlags: 0
@@ -72748,7 +72617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &3548756858004296170
 MonoBehaviour:
   m_ObjectHideFlags: 0

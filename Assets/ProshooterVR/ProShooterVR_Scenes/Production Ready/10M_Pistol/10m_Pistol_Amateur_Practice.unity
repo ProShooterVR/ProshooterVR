@@ -3767,7 +3767,7 @@ MonoBehaviour:
   UIdisp: {fileID: 2141589457}
   scoreScrrenUI: {fileID: 901530042}
   dynamicGun: {fileID: 0}
-  gunGameObject: {fileID: 9118790531059255339, guid: 39dd72d3f4017dc49872c2408ac6986d,
+  gunGameObject: {fileID: 9118790531059255339, guid: 3688e9f4c24c537459d8d69d120e2d45,
     type: 3}
   gunSpawnPoint: {fileID: 175660483}
   gunPlatform: {fileID: 275678991}
@@ -3775,6 +3775,10 @@ MonoBehaviour:
   snapPoint: {fileID: 21063668}
   isPracticeMode: 1
   isRankedMode: 0
+  leftHandGunModel: {fileID: 9118790531059255339, guid: 39dd72d3f4017dc49872c2408ac6986d,
+    type: 3}
+  rightHandGunModel: {fileID: 9118790531059255339, guid: de4035d6f3a00554ba9d205b97c91726,
+    type: 3}
   noOfShotsFired: 0
   noShotMissed: 0
   noShotsHit: 0
@@ -3821,6 +3825,8 @@ MonoBehaviour:
   palletSpawn: {fileID: 6667757392204128069, guid: cfa06e0270501e042ab680d3bcab0a85,
     type: 3}
   touchReloader: {fileID: 1307082423}
+  leftHandTouch: {fileID: 1307082423}
+  rightHandTouch: {fileID: 7894510117998819931}
   palletPrefab: {fileID: 911684733}
   tempPallet: {fileID: 911684733}
   palletHoldPos: {fileID: 1951198471036318708}
@@ -19377,6 +19383,7 @@ MonoBehaviour:
   endSessionPopup: {fileID: 3308508875706688513}
   standSettingPopup: {fileID: 0}
   setSwitch: 0
+  isOtherUIOpen: 0
   helpScr1: {fileID: 957272666}
   helpScr2: {fileID: 78465180}
   helpScr3: {fileID: 266256575}
@@ -19391,7 +19398,6 @@ MonoBehaviour:
   startMsgUI: {fileID: 0}
   rightHandController: {fileID: 7894510117998819929}
   progresBar: {fileID: 99592060}
-  isOtherUIOpen: 0
   shotsLeftTxt: {fileID: 99592061}
   AudioSettingsUIPanel: {fileID: 878556856}
   SettingsUIPanel: {fileID: 1381327756}
@@ -34008,7 +34014,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1704142719
 Transform:
   m_ObjectHideFlags: 0
@@ -104457,6 +104463,12 @@ GameObject:
 --- !u!1 &7894510117998819930 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7538869271803997496, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
+    type: 3}
+  m_PrefabInstance: {fileID: 7894510117998819928}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7894510117998819931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6398030763443389218, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
     type: 3}
   m_PrefabInstance: {fileID: 7894510117998819928}
   m_PrefabAsset: {fileID: 0}

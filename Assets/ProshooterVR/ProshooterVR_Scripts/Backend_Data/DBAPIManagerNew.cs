@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
 using SimpleJSON;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -416,8 +417,16 @@ namespace ProshooterVR
                 LocalUserDataManager.Instance.grabRotationAirPistol.z = float.Parse(data["results"]["rotation_z"]);
                 LocalUserDataManager.Instance.grabRotationAirPistol.w = float.Parse(data["results"]["rotation_w"]);
                 LocalUserDataManager.Instance.isUXSaved = bool.Parse(data["results"]["ux_help"]);
+                string handSelection = data["results"]["hand_selection"];
 
-                Debug.Log(data["results"]["ux_help"]);
+                if (handSelection.Equals("left", StringComparison.OrdinalIgnoreCase))
+                {
+                    LocalUserDataManager.Instance.isRightHand = false;
+                }
+                else if (handSelection.Equals("right", StringComparison.OrdinalIgnoreCase))
+                {
+                    LocalUserDataManager.Instance.isRightHand = true;
+                }
 
                 // PlayerData PlayerDataObj = JsonUtility.FromJson<PlayerData>(jsonString);
 
@@ -480,7 +489,7 @@ namespace ProshooterVR
 
 
         //////
-        ///
+        /// SAVING UX SETTINGS
 
         public void saveUXSettings(bool val)
         {
@@ -494,6 +503,53 @@ namespace ProshooterVR
             Dictionary<string, object> metaData = new Dictionary<string, object>
             {
                 { "ux_help", data}
+            };
+
+            string JSONdata = JsonConvert.SerializeObject(metaData);
+
+
+            UnityWebRequest request = UnityWebRequest.Put(updateusersettings + LocalUserDataManager.Instance.metaID, JSONdata);
+            request.method = "PATCH";
+            request.SetRequestHeader("authorization", accessToken);
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            // Set the default download buffer
+            request.downloadHandler = new DownloadHandlerBuffer();
+
+            // Send the request itself
+            yield return request.SendWebRequest();
+
+
+            if (request.isNetworkError || request.isHttpError)
+            {
+                Debug.Log("EROORR :: " + request.error);
+            }
+            else
+            {
+                Debug.Log("Form upload complete!");
+            }
+
+        }
+
+        /////
+        //
+
+
+        //////
+        /// SAVING UX SETTINGS
+
+        public void saveHandSelectionSettings(string val)
+        {
+            StartCoroutine(saveHandSelection(val));
+        }
+
+        IEnumerator saveHandSelection(string data)
+        {
+
+            // Create a new dictionary to store meta_id and meta_name
+            Dictionary<string, object> metaData = new Dictionary<string, object>
+            {
+                { "hand_selection", data}
             };
 
             string JSONdata = JsonConvert.SerializeObject(metaData);

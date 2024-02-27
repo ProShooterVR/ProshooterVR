@@ -52,6 +52,7 @@ public class LocalUserDataManager : MonoBehaviour
     public bool isGrabRotaionSaved;
     public bool isUXSaved;
     public Quaternion grabRotationAirPistol;
+    public bool isRightHand;
 
     public enum gamerLevel
     {

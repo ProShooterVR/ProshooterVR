@@ -23,7 +23,7 @@ public class GunGameManeger : MonoBehaviour
     public GameObject snapPoint;
 
     public bool isPracticeMode, isRankedMode;
-
+    public GameObject leftHandGunModel, rightHandGunModel;
 
     public int noOfShotsFired,noShotMissed,noShotsHit;
     public int shotsFired;
@@ -75,7 +75,7 @@ public class GunGameManeger : MonoBehaviour
     public GameObject palletObj,currentPallet;
     public GameObject palletSpawn;
 
-    public GameObject touchReloader;
+    public GameObject touchReloader, leftHandTouch, rightHandTouch;
    
 
     public GameObject palletPrefab,tempPallet, palletHoldPos,palletParent;
@@ -98,8 +98,24 @@ public class GunGameManeger : MonoBehaviour
         GunGameManeger.Instance.tempPallet.SetActive(false);
         isUXON = LocalUserDataManager.Instance.isUXSaved;
 
+      
+
         if (weaponManager.Instance.isPistolMode == true)
         {
+            if (LocalUserDataManager.Instance.isRightHand == true)
+            {
+                gunGameObject = rightHandGunModel;
+                touchReloader = leftHandTouch;
+            }
+            else
+            {
+                gunGameObject = leftHandGunModel;
+                touchReloader = rightHandTouch;
+
+
+            }
+
+
             if (isPracticeMode == true)
             {
                 PistolUIManager.Instance.timerValue.gameObject.SetActive(true);

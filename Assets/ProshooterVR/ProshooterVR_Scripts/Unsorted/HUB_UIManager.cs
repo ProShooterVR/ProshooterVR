@@ -25,7 +25,7 @@ public class HUB_UIManager : MonoBehaviour
     public GameObject userProfileUI, mainUI;
     public TextMeshPro userNameTxtMainMenu;
 
-    public GameObject assistedGudSubMenu;
+    public GameObject assistedGudSubMenu,handSelectionMenu;
 
 
     public GameObject airPsubMenu, airRsubMenu, rfSubMenu;
@@ -84,6 +84,8 @@ public class HUB_UIManager : MonoBehaviour
         tutorailUI.SetActive(false);
         settingUI.SetActive(false);
         assistedGudSubMenu.SetActive(false);
+        handSelectionMenu.SetActive(false);
+
         levelUI.SetActive(false);
         SoundControlPanel.SetActive(false);
         AMB.SetActive(true);
@@ -201,7 +203,10 @@ public class HUB_UIManager : MonoBehaviour
         levelUI.SetActive(false);
         settingUI.SetActive(false);
         tutorailUI.SetActive(false);
-        SoundControlPanel.SetActive(false); 
+        SoundControlPanel.SetActive(false);
+        handSelectionMenu.SetActive(false);
+        assistedGudSubMenu.SetActive(false);
+
     }
 
     public void OnAudioSettingsButtonClick()
@@ -240,6 +245,7 @@ public class HUB_UIManager : MonoBehaviour
     {
         levelUI.SetActive(false);
         assistedGudSubMenu.SetActive(false);
+        handSelectionMenu.SetActive(false);
 
         tutorailUI.SetActive(false);
         myGameType = gameType.arcade;
@@ -277,6 +283,35 @@ public class HUB_UIManager : MonoBehaviour
             assistedGudSubMenu.GetComponent<CustomButtonNavigator>().onButtonClicked(1);
 
         }
+    }
+
+    public void handSelectionBtnClicked()
+    {
+        handSelectionMenu.SetActive(true);
+        settingUI.SetActive(false);
+        if (LocalUserDataManager.Instance.isUXSaved == true)
+        {
+            handSelectionMenu.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
+        }
+        else
+        {
+            handSelectionMenu.GetComponent<CustomButtonNavigator>().onButtonClicked(1);
+
+        }
+    }
+
+    public void lefthandedBtnClicked()
+    {
+        LocalUserDataManager.Instance.isRightHand = false;
+        DBAPIManagerNew.Instance.saveHandSelectionSettings("left");
+
+    }
+
+    public void righthandedBtnClicked()
+    {
+        LocalUserDataManager.Instance.isRightHand = true;
+        DBAPIManagerNew.Instance.saveHandSelectionSettings("right");
+
     }
 
     public void assistedGuidEnable()

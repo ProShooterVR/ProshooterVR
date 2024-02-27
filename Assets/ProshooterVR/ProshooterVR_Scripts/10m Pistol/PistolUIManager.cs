@@ -65,6 +65,8 @@ public class PistolUIManager : MonoBehaviour
     float targetscoreOff, screenscoreOff;
     public GameObject endMatchPopUp,settingPopUp,endSessionPopup,standSettingPopup;
     public bool setSwitch;
+    public bool isOtherUIOpen;
+
 
 
     [SerializeField]
@@ -85,7 +87,6 @@ public class PistolUIManager : MonoBehaviour
     public GameObject startMsgUI;
     public GameObject rightHandController;
     public GameObject progresBar;
-    public bool isOtherUIOpen;
     public TextMeshPro shotsLeftTxt;
 
     public GameObject AudioSettingsUIPanel, SettingsUIPanel;
