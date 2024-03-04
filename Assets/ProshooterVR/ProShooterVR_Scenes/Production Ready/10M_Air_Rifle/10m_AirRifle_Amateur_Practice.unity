@@ -19477,6 +19477,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 654856251}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &679248653 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3938898378027756213, guid: d39479ff10bf3ba46882b4b4a757e0bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1267407591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &686520177
 GameObject:
   m_ObjectHideFlags: 0
@@ -30150,6 +30156,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1267407591}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1267407596 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8217959945139438109, guid: d39479ff10bf3ba46882b4b4a757e0bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1267407591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1277182834
 GameObject:
   m_ObjectHideFlags: 0
@@ -35422,14 +35434,17 @@ MonoBehaviour:
   UIdisp: {fileID: 1707976467}
   scoreScrrenUI: {fileID: 1713341532}
   dynamicGun: {fileID: 0}
-  gunGameObject: {fileID: 4861451447738956809, guid: 038513bfcf365134d97a63118954f71f,
-    type: 3}
+  gunGameObject: {fileID: 0}
   gunSpawnPoint: {fileID: 458856983}
   gunPlatform: {fileID: 686520177}
   spwanEffect: {fileID: 1350182593}
   snapPoint: {fileID: 76881472}
   isPracticeMode: 1
   isRankedMode: 0
+  leftHandGunModel: {fileID: 2870699395758290241, guid: 2930e5682a0c22c4f8d8456b4eaf1809,
+    type: 3}
+  rightHandGunModel: {fileID: 4861451447738956809, guid: 038513bfcf365134d97a63118954f71f,
+    type: 3}
   noOfShotsFired: 0
   noShotMissed: 0
   noShotsHit: 0
@@ -35476,11 +35491,15 @@ MonoBehaviour:
   palletSpawn: {fileID: 6667757392204128069, guid: cfa06e0270501e042ab680d3bcab0a85,
     type: 3}
   touchReloader: {fileID: 1267407592}
+  leftHandTouch: {fileID: 1267407592}
+  rightHandTouch: {fileID: 1267407596}
+  palletParent: {fileID: 1267407594}
+  palletHoldPos: {fileID: 1267407593}
   palletPrefab: {fileID: 6612220930903426548, guid: 5e1698e7dedb2c24e94d052a2e1d6d9c,
     type: 3}
   tempPallet: {fileID: 5795637044552482639}
-  palletHoldPos: {fileID: 1267407593}
-  palletParent: {fileID: 1267407594}
+  LeftpalletParent: {fileID: 1267407594}
+  RightpalletParent: {fileID: 679248653}
   spawnBullet: 0
   isUXON: 0
   isWespaonSpawn: 0
@@ -37822,7 +37841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1698588750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39670,6 +39689,7 @@ MonoBehaviour:
   endSessionPopup: {fileID: 264398695}
   standSettingPopup: {fileID: 2115336894}
   setSwitch: 0
+  isOtherUIOpen: 0
   helpScr1: {fileID: 1334875571}
   helpScr2: {fileID: 55228861}
   helpScr3: {fileID: 800389949}
@@ -39684,7 +39704,6 @@ MonoBehaviour:
   startMsgUI: {fileID: 0}
   rightHandController: {fileID: 0}
   progresBar: {fileID: 449662928}
-  isOtherUIOpen: 0
   shotsLeftTxt: {fileID: 449662929}
   AudioSettingsUIPanel: {fileID: 1235691725}
   SettingsUIPanel: {fileID: 1678921164}

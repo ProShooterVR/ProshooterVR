@@ -46,7 +46,6 @@ public class FmodAudioManager : MonoBehaviour
     public Bus musicBus;
     public Bus sfxBus;
     public Bus ambienceBus;
-    private bool isFMODInitialized = false;
     private void Start()
     {
         StartInit();

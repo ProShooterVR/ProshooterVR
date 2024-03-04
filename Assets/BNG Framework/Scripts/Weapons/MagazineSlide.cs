@@ -183,6 +183,10 @@ namespace BNG {
                     if (weaponManager.Instance.isRapidFireMode == true)
                     {
                         RFGun_ReloadManager.Instance.SlideObject.SetActive(true);
+                        RFGun_ReloadManager.Instance.magZEffect.SetActive(false);
+                        RFGun_ReloadManager.Instance.gunReloadEffect.SetActive(true);
+
+
                     }
                 }
             }
@@ -231,7 +235,6 @@ namespace BNG {
                             HeldMagazine.gameObject.SetActive(false);
                             Destroy(HeldMagazine.gameObject);
                             RapidFireGunManager.Instance.respawnNewMagZ();
-                            RapidFireGunManager.Instance.SlideObject.SetActive(false);
                         }
                     }
                 }

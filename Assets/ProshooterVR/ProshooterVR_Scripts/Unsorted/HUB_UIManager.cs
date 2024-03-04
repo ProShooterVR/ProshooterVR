@@ -254,6 +254,7 @@ public class HUB_UIManager : MonoBehaviour
 
     public void setingsBtnClicked()
     {
+
         tutorailUI.SetActive(false);
         airPistolTut.SetActive(false);
         airRifleTut.SetActive(false);
@@ -264,6 +265,11 @@ public class HUB_UIManager : MonoBehaviour
         rfSubMenu.SetActive(false);
         levelUI.SetActive(false);
         mainUI.SetActive(false);
+        handSelectionMenu.SetActive(false);
+        assistedGudSubMenu.SetActive(false);
+        SoundControlPanel.SetActive(false);
+
+
     }
     public void profileBtnClicked()
     {

@@ -2428,9 +2428,9 @@ MonoBehaviour:
   snapPoint: {fileID: 1274121259}
   isPracticeMode: 0
   isRankedMode: 1
-  leftHandGunModel: {fileID: 9118790531059255339, guid: 39dd72d3f4017dc49872c2408ac6986d,
+  leftHandGunModel: {fileID: 9095523661592807077, guid: 39dd72d3f4017dc49872c2408ac6986d,
     type: 3}
-  rightHandGunModel: {fileID: 9118790531059255339, guid: de4035d6f3a00554ba9d205b97c91726,
+  rightHandGunModel: {fileID: 5143896133755256715, guid: de4035d6f3a00554ba9d205b97c91726,
     type: 3}
   noOfShotsFired: 0
   noShotMissed: 0
@@ -2480,11 +2480,13 @@ MonoBehaviour:
   touchReloader: {fileID: 370723395}
   leftHandTouch: {fileID: 370723395}
   rightHandTouch: {fileID: 898859645}
+  palletParent: {fileID: 0}
+  palletHoldPos: {fileID: 0}
   palletPrefab: {fileID: 6612220930903426548, guid: 5e1698e7dedb2c24e94d052a2e1d6d9c,
     type: 3}
   tempPallet: {fileID: 911684733}
-  palletHoldPos: {fileID: 370723392}
-  palletParent: {fileID: 370723393}
+  LeftpalletParent: {fileID: 370723393}
+  RightpalletParent: {fileID: 1384481390}
   spawnBullet: 0
   isUXON: 0
   isWespaonSpawn: 0
@@ -6306,12 +6308,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ee8dd692d3cabb4dad6f2a1d745a572, type: 3}
---- !u!1 &370723392 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5265450062949456173, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
-    type: 3}
-  m_PrefabInstance: {fileID: 370723391}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &370723393 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 732354676130721153, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
@@ -18519,21 +18515,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 98077190186698630, guid: 4bf933446ef8e054b9961937bc83439c,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.25067702
-      objectReference: {fileID: 0}
-    - target: {fileID: 98077190186698630, guid: 4bf933446ef8e054b9961937bc83439c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.38735005
-      objectReference: {fileID: 0}
-    - target: {fileID: 98077190186698630, guid: 4bf933446ef8e054b9961937bc83439c,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4496408
-      objectReference: {fileID: 0}
-    - target: {fileID: 98077190186698630, guid: 4bf933446ef8e054b9961937bc83439c,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.66
       objectReference: {fileID: 0}
@@ -18580,11 +18561,6 @@ PrefabInstance:
     - target: {fileID: 98077190186698630, guid: 4bf933446ef8e054b9961937bc83439c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1448208097891165610, guid: 4bf933446ef8e054b9961937bc83439c,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3381508295722715953, guid: 4bf933446ef8e054b9961937bc83439c,
@@ -27881,6 +27857,12 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1384481390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6264993071065937211, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
+    type: 3}
+  m_PrefabInstance: {fileID: 370723391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1400135893
 GameObject:
   m_ObjectHideFlags: 0
@@ -34628,7 +34610,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1791427605
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2544,9 +2544,9 @@ MonoBehaviour:
   snapPoint: {fileID: 1274121259}
   isPracticeMode: 0
   isRankedMode: 1
-  leftHandGunModel: {fileID: 9118790531059255339, guid: 39dd72d3f4017dc49872c2408ac6986d,
+  leftHandGunModel: {fileID: 9095523661592807077, guid: 39dd72d3f4017dc49872c2408ac6986d,
     type: 3}
-  rightHandGunModel: {fileID: 9118790531059255339, guid: 3688e9f4c24c537459d8d69d120e2d45,
+  rightHandGunModel: {fileID: 5143896133755256715, guid: de4035d6f3a00554ba9d205b97c91726,
     type: 3}
   noOfShotsFired: 0
   noShotMissed: 0
@@ -2596,11 +2596,13 @@ MonoBehaviour:
   touchReloader: {fileID: 370723395}
   leftHandTouch: {fileID: 370723395}
   rightHandTouch: {fileID: 192906155}
+  palletParent: {fileID: 370723393}
+  palletHoldPos: {fileID: 370723392}
   palletPrefab: {fileID: 6612220930903426548, guid: 5e1698e7dedb2c24e94d052a2e1d6d9c,
     type: 3}
   tempPallet: {fileID: 911684733}
-  palletHoldPos: {fileID: 370723392}
-  palletParent: {fileID: 370723393}
+  LeftpalletParent: {fileID: 370723393}
+  RightpalletParent: {fileID: 1460938868}
   spawnBullet: 0
   isUXON: 0
   isWespaonSpawn: 0
@@ -28994,6 +28996,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1460938868 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6264993071065937211, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
+    type: 3}
+  m_PrefabInstance: {fileID: 370723391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1462606350
 GameObject:
   m_ObjectHideFlags: 0
@@ -35283,7 +35291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1791427605
 MonoBehaviour:
   m_ObjectHideFlags: 0

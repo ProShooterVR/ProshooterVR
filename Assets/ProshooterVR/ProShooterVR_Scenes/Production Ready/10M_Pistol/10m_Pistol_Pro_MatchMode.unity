@@ -2479,6 +2479,8 @@ MonoBehaviour:
   tempPallet: {fileID: 911684733}
   palletHoldPos: {fileID: 370723392}
   palletParent: {fileID: 370723393}
+  LeftpalletParent: {fileID: 370723393}
+  RightpalletParent: {fileID: 1342296785}
   spawnBullet: 0
   isUXON: 0
   isWespaonSpawn: 0
@@ -10511,7 +10513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &603460954
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26355,6 +26357,12 @@ RectTransform:
   m_AnchoredPosition: {x: -1.6, y: 105}
   m_SizeDelta: {x: 1196.9, y: 132.4}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1342296785 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6264993071065937211, guid: 6ee8dd692d3cabb4dad6f2a1d745a572,
+    type: 3}
+  m_PrefabInstance: {fileID: 370723391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1342952939
 GameObject:
   m_ObjectHideFlags: 0
@@ -34675,7 +34683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1791427605
 MonoBehaviour:
   m_ObjectHideFlags: 0

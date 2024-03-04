@@ -383,8 +383,6 @@ namespace ProshooterVR
         public IEnumerator FetchUserSettings(string metaid)
         {
 
-
-
             // Create a UnityWebRequest with the desired HTTP method (GET in this case)
             UnityWebRequest request = UnityWebRequest.Get(fetchUserSettings + metaid);
 
@@ -419,11 +417,11 @@ namespace ProshooterVR
                 LocalUserDataManager.Instance.isUXSaved = bool.Parse(data["results"]["ux_help"]);
                 string handSelection = data["results"]["hand_selection"];
 
-                if (handSelection.Equals("left", StringComparison.OrdinalIgnoreCase))
+                if (String.Equals("left",handSelection))
                 {
                     LocalUserDataManager.Instance.isRightHand = false;
                 }
-                else if (handSelection.Equals("right", StringComparison.OrdinalIgnoreCase))
+                else 
                 {
                     LocalUserDataManager.Instance.isRightHand = true;
                 }

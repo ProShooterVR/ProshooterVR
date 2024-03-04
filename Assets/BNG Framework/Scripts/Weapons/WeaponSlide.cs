@@ -93,8 +93,16 @@ namespace BNG {
         // Update is called once per frame
         void Update() {
 
+            // Check if the slide movement is completed
+            if (this != null && !this.LockedBack)
+            {
+                
+                Debug.Log("Slide movement is completed");
+                // Do something when the slide movement is completed
+            }
+
             // If our slide is currently locked just set it and return early
-            if(lockSlidePosition) {
+            if (lockSlidePosition) {
                 transform.localPosition = _lockPosition;
                 return;
             }

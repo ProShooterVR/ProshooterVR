@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class followPos : MonoBehaviour
 {
-    public Transform refPos; 
+    //public Transform refPos; 
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +14,8 @@ public class followPos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = refPos.position;
+
+        this.transform.position = GunGameManeger.Instance.touchReloader.transform.position;
         
     }
 }

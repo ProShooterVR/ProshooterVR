@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class spawn_pallet : MonoBehaviour
 {
-   public bool inSide, outSide;
+    public bool inSide, outSide;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class spawn_pallet : MonoBehaviour
     void Update()
     {
 
-        if (InputBridge.Instance.LeftTriggerDown == true)
+        if (InputBridge.Instance.LeftTriggerDown == true || InputBridge.Instance.RightTriggerDown == true)
         {
             Debug.Log("Clicked");
             if (inSide == true)

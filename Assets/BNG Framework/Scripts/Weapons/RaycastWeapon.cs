@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using ProshooterVR;
+using UnityEngine.VFX;
+
 namespace BNG
 {
 
@@ -295,6 +297,9 @@ namespace BNG
                     if(RapidFireGunManager.Instance.isReloaded == true)
                     {
                         Shoot();
+                        RFGun_ReloadManager.Instance.FireAnim.GetComponent<Animator>().Play("Fire");
+                        RFGun_ReloadManager.Instance.FireAnim.GetComponent<VisualEffect>().Play();
+
                         RapidFireGunManager.Instance.noOfTotalShotsFired++;
                         readyToShoot = FiringMethod == FiringType.Semi;
                         if (RapidFireGunManager.Instance.countingScore == false)
@@ -834,6 +839,7 @@ namespace BNG
             if (weaponManager.Instance.isRapidFireMode == true)
             {
                 RFGun_ReloadManager.Instance.SlideObject.SetActive(false);
+                RFGun_ReloadManager.Instance.gunReloadEffect.SetActive(false);
             }
 
             // Slide is no longer forced back if weapon was just charged

@@ -11,11 +11,18 @@ public class RapidFireGunManager : MonoBehaviour
     public static RapidFireGunManager Instance;
 
    
-    public GameObject gunGameObject;
+    public GameObject gunGameObject,gunSnapPoint;
+
+    public GameObject leftHandGun, rightHandGun;
     public GameObject gunSpawnPoint;
     public GameObject gunPlatform;
+    public GameObject gunSpawneffect;
 
-
+    public GameObject dynamicGun;
+    public GameObject dyMagZ;
+    public GameObject MagZGameObject;
+    public Transform MagZSpawnPoint;
+    public GameObject MagZSnapPoint;
 
 
 
@@ -82,6 +89,7 @@ public class RapidFireGunManager : MonoBehaviour
     }
 
     public gamestate state;
+    
 
     private void Awake()
     {
@@ -122,33 +130,45 @@ public class RapidFireGunManager : MonoBehaviour
         totalGameScore = 0;
         callInGameSounds = false;
         isMatchComplte = false;
-        RFGun_ReloadManager.Instance.SlideObject.SetActive(false);
-        //  respawnNewWeapon();
-        // respawnNewMagZ();
+
+        if (LocalUserDataManager.Instance.isRightHand == true)
+        {
+            gunGameObject = rightHandGun;
+        }
+        else
+        {
+            gunGameObject = leftHandGun;
+        }
+
+      //  RFGun_ReloadManager.Instance.SlideObject.SetActive(false);
+          respawnNewWeapon();
+          respawnNewMagZ();
     }
     public void respawnNewWeapon()
     {
-        //dynamicGun = Instantiate(gunGameObject, gunSpawnPoint.position, gunSpawnPoint.rotation);
-        //RFGun_ReloadManager.Instance.SlideObject.SetActive(false);
+        dynamicGun = Instantiate(gunGameObject, gunSpawnPoint.transform.position, gunSpawnPoint.transform.rotation);
+        gunSnapPoint.GetComponent<SnapZone>().SetHeldItem(dynamicGun.GetComponent<Grabbable>());
+
+        RFGun_ReloadManager.Instance.SlideObject.SetActive(false);
 
 
     }
-    public void repos25RFWeapon()
-    {
-        // dynamicGun = Instantiate(gunGameObject, gunSpawnPoint.position, gunSpawnPoint.rotation);
+    //public void repos25RFWeapon()
+    //{
+    //    dynamicGun = Instantiate(gunGameObject, gunSpawnPoint.transform.position, gunSpawnPoint.transform.rotation);
 
-        //Debug.Log("repossseeeeeeeeeeeeeeee");
-        //gunGameObject.transform.position = gunSpawnPoint.transform.position;
-        //gunGameObject.transform.rotation = gunSpawnPoint.transform.rotation;
+    //    Debug.Log("repossseeeeeeeeeeeeeeee");
+    //    gunGameObject.transform.position = gunSpawnPoint.transform.position;
+    //    gunGameObject.transform.rotation = gunSpawnPoint.transform.rotation;
+    //    gunGameObject.transform.rotation = gunSpawnPoint.transform.rotation;
+    //    MagZSnapPoint.GetComponent<SnapZone>().SetHeldItem(dyMagZ.GetComponent<Grabbable>());
 
-
-
-    }
+    //}
 
     public void respawnNewMagZ()
     {
-        //dyMagZ = Instantiate(MagZGameObject, MagZSpawnPoint.position, MagZSpawnPoint.rotation);
-        //MagZSnapPoint.GetComponent<SnapZone>().SetHeldItem(dyMagZ.GetComponent<Grabbable>());
+        dyMagZ = Instantiate(MagZGameObject, MagZSpawnPoint.position, MagZSpawnPoint.rotation);
+        MagZSnapPoint.GetComponent<SnapZone>().SetHeldItem(dyMagZ.GetComponent<Grabbable>());
 
     }
     public void resetStage()

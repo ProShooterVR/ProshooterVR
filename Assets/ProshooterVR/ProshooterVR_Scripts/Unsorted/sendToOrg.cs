@@ -44,7 +44,7 @@ public class sendToOrg : MonoBehaviour
             
         }else if (weaponManager.Instance.isRapidFireMode == true)
         {
-            RapidFireGunManager.Instance.repos25RFWeapon();
+            //RapidFireGunManager.Instance.repos25RFWeapon();
         }
 
         hasSpawnedNewGun = false;

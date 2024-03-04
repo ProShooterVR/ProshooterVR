@@ -1,5 +1,7 @@
 using Nova;
 using UnityEngine;
+using FMOD;
+using FMODUnity;
 
 /// <summary>
 /// A sample component responsible for subscribing to and handling hover, unhover, and click events.
@@ -9,8 +11,8 @@ public class HubUIButtonManager : MonoBehaviour
     // Serialize and assign in Editor
     public Interactable Button = null;
 
-    public string hoverEventPath = "event:/UIUX/Hover";
-    public string clickEventPath = "event:/UIUX/Click";
+    private string hoverEventPath = "event:/UIUX/Hover";
+    private string clickEventPath = "event:/UIUX/Click";
 
     private FMOD.Studio.EventInstance hoverEventInstance;
     private FMOD.Studio.EventInstance clickEventInstance;
@@ -56,7 +58,7 @@ public class HubUIButtonManager : MonoBehaviour
 
     private void HandleClickEvent(Gesture.OnClick evt)
     {
-        Debug.Log("Clicked!");
+        //Debug.Log("Clicked!");
 
         if (clickEventInstance.isValid())
         {

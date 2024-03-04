@@ -76,9 +76,9 @@ public class GunGameManeger : MonoBehaviour
     public GameObject palletSpawn;
 
     public GameObject touchReloader, leftHandTouch, rightHandTouch;
-   
 
-    public GameObject palletPrefab,tempPallet, palletHoldPos,palletParent;
+    public GameObject palletParent, palletHoldPos;
+    public GameObject palletPrefab,tempPallet,LeftpalletParent, RightpalletParent;
     public bool spawnBullet;
 
     public bool isUXON,isWespaonSpawn;
@@ -105,13 +105,20 @@ public class GunGameManeger : MonoBehaviour
             if (LocalUserDataManager.Instance.isRightHand == true)
             {
                 gunGameObject = rightHandGunModel;
+                rightHandTouch.SetActive(false);
+                leftHandTouch.SetActive(true);
                 touchReloader = leftHandTouch;
+                palletParent = LeftpalletParent;
+                palletHoldPos = LeftpalletParent.transform.GetChild(0).gameObject;
             }
             else
             {
+                leftHandTouch.SetActive(false);
+                rightHandTouch.SetActive(true);
                 gunGameObject = leftHandGunModel;
                 touchReloader = rightHandTouch;
-
+                palletParent = RightpalletParent;
+                palletHoldPos = RightpalletParent.transform.GetChild(0).gameObject;
 
             }
 
@@ -152,6 +159,28 @@ public class GunGameManeger : MonoBehaviour
         }
         if (weaponManager.Instance.isRifleMode == true)
         {
+            if (LocalUserDataManager.Instance.isRightHand == true)
+            {
+                gunGameObject = rightHandGunModel;
+                leftHandTouch.SetActive(true);
+                rightHandTouch.SetActive(false);
+                touchReloader = leftHandTouch;
+                palletParent = LeftpalletParent;
+                palletHoldPos = LeftpalletParent.transform.GetChild(0).gameObject;
+            }
+            else
+            {
+                leftHandTouch.SetActive(false);
+                rightHandTouch.SetActive(true);
+
+                gunGameObject = leftHandGunModel;
+                touchReloader = rightHandTouch;
+                palletParent = RightpalletParent;
+                palletHoldPos = RightpalletParent.transform.GetChild(0).gameObject;
+
+
+            }
+
             if (isPracticeMode == true)
             {
                 PistolUIManager.Instance.timerValue.gameObject.SetActive(true);
