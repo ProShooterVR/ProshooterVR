@@ -140,7 +140,6 @@ public class GunGameManeger : MonoBehaviour
                 PistolUIManager.Instance.currentSeriesScoreTxt.gameObject.SetActive(true);
                 Debug.Log("Rankded mode");
 
-
             }
 
             ////
@@ -227,9 +226,9 @@ public class GunGameManeger : MonoBehaviour
 
     public void respawnNewWeapon()
     {
-       dynamicGun = Instantiate(gunGameObject, gunSpawnPoint.position, gunSpawnPoint.rotation);
+        dynamicGun = Instantiate(gunGameObject, gunSpawnPoint.position, gunSpawnPoint.rotation);
 
-       snapPoint.GetComponent<SnapZone>().SetHeldItem(dynamicGun.GetComponent<Grabbable>());
+        snapPoint.GetComponent<SnapZone>().SetHeldItem(dynamicGun.GetComponent<Grabbable>());
         gunRelodeManager.Instance.RelodTouch.SetActive(true);
         GunGameManeger.Instance.touchReloader.SetActive(true);
 

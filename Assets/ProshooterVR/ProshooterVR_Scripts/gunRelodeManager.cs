@@ -19,6 +19,8 @@ namespace ProshooterVR
         public Animator animator;
         public string clip1, clip2;
 
+        public bool auto_reload;
+
         private void Start()
         {
             isUXCalled = false;
@@ -28,6 +30,7 @@ namespace ProshooterVR
         }
         private void Update()
         {
+
             if (gunObj.GetComponent<Grabbable>().BeingHeld == false)
             {
                 GunGameManeger.Instance.gunPlatform.GetComponent<BoxCollider>().enabled = true;

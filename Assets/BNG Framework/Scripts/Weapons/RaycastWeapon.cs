@@ -290,6 +290,25 @@ namespace BNG
             // Fire gun if possible
             if (readyToShoot && triggerValue >= 0.45f)
             {
+
+
+
+
+                /// Arena Air Pistol
+                /// 
+
+
+                if (Arena_AirPistol_mananger.Instance.isReloaded == true)
+                {
+                    Shoot();
+                    Arena_AirPistol_mananger.Instance.isReloaded = false;
+
+                }
+
+
+                /////
+
+
                 //// ----------------- 25m Rapid Fire Mode Calls ------------------------- ////////////
 
                 if (weaponManager.Instance.isRapidFireMode == true)

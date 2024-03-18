@@ -13,7 +13,7 @@ public class Arena_Manager : MonoBehaviour
 
     public GameObject arena_player,playerController;
 
-
+    public GameObject AirPistolUI;
     private void Awake()
     {
         Instance = this;
@@ -24,7 +24,7 @@ public class Arena_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        AirPistolUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -46,6 +46,9 @@ public class Arena_Manager : MonoBehaviour
         playerController.GetComponent<CharacterController>().enabled = true;
         playerController.GetComponent<LocomotionManager>().enabled = true;
 
+        AirPistolUI.SetActive(true);
+
+
     }
     public void airRifleBtnClick()
     {
@@ -57,6 +60,9 @@ public class Arena_Manager : MonoBehaviour
 
         playerController.GetComponent<CharacterController>().enabled = true;
         playerController.GetComponent<LocomotionManager>().enabled = true;
+       
+        AirPistolUI.SetActive(false);
+
 
     }
     public void rapidFireBtnClick()
