@@ -32,13 +32,13 @@ namespace NovaSamples.Inventory
             Debug.Log("enables");
 
             rey.GetComponent<LineRenderer>().enabled = true;
-            rey.GetComponent<LeftControllerRaycast>().enabled = true;
+            rey.GetComponent<ControllerRaycast>().enabled = true;
         }
         public void DisableRey()
         {
             Debug.Log("Disbaed");
             rey.GetComponent<LineRenderer>().enabled = false;
-            rey.GetComponent<LeftControllerRaycast>().enabled = false;
+            rey.GetComponent<ControllerRaycast>().enabled = false;
 
         }
 

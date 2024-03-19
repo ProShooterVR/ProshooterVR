@@ -1,11 +1,15 @@
 using BNG;
 using Nova;
+using System;
 using UnityEngine;
 
 namespace NovaSamples.Inventory
 {
-    public class LeftControllerRaycast : InputManager
+    public class ControllerRaycast : InputManager
     {
+
+        [Tooltip("Reference to the 3D object used as a point at the end of the line renderer")]
+        public Transform pointMarker; // Assign a 3D object in the Unity Editor
         /// <summary>
         /// The controlID for mouse point events
         /// </summary>
@@ -36,7 +40,7 @@ namespace NovaSamples.Inventory
         /// <summary>
         /// The camera used to convert a mouse position into a world ray
         /// </summary>
-
+        public string allowdTag;
 
         private void Update()
         {
@@ -52,20 +56,47 @@ namespace NovaSamples.Inventory
 
                 if (Physics.Raycast(ray, out hit, maxRaycastDistance, raycastLayerMask))
                 {
-                    // Object hit by the raycast
-                    lineRenderer.enabled = true;
 
-                    GameObject hitObject = hit.collider.gameObject;
-                    lineRenderer.SetPosition(1, hit.point);
-                    //Debug.Log("" + hitObject.name);
-                    // Do something with the hit object (e.g., interact, highlight, etc.)
-                    // ...
+                    if (String.Compare(hit.transform.gameObject.tag, allowdTag) == 0)
+                    {// Object hit by the raycast
+                        lineRenderer.enabled = true;
+
+                        GameObject hitObject = hit.collider.gameObject;
+                        lineRenderer.SetPosition(1, hit.point);
+
+                        if (pointMarker != null)
+                        {
+                            pointMarker.position = hit.point;
+                            pointMarker.gameObject.SetActive(true); // Make sure the marker is enabled
+
+                            float distance = Vector3.Distance(transform.position, hit.point);
+                            // Scale factor - adjust the base value (0.02f) to control the starting size
+                            // and the multiplier (0.02f) to control how much the size increases with distance
+                            float scaleValue = Mathf.Clamp(0.01f + (distance * 0.01f), 0.02f, 4f); // Adjust these min and max values as needed
+                            pointMarker.localScale = new Vector3(scaleValue, scaleValue, scaleValue);
+                        }
+                    
+                        //Debug.Log("" + hitObject.name);
+                        // Do something with the hit object (e.g., interact, highlight, etc.)
+                        // ...
+                    }
+                    else
+                    {
+                        lineRenderer.enabled = false;
+                        if (pointMarker != null) pointMarker.gameObject.SetActive(false);
+                    }
                 }
                 else
                 {
-                    //lineRenderer.enabled = false;
+                    lineRenderer.enabled = false;
                     // No hit, set the LineRenderer's endpoint to the maximum distance
                     lineRenderer.SetPosition(1, transform.position + transform.forward * maxRaycastDistance);
+                    // Position the point marker at the maximum distance
+                    if (pointMarker != null)
+                    {
+                        pointMarker.position = transform.position + transform.forward * maxRaycastDistance;
+                        pointMarker.gameObject.SetActive(false); // Optionally disable the marker when no object is hit
+                    }
                 }
 
                 // Invert scrolling for a mouse-type experience,

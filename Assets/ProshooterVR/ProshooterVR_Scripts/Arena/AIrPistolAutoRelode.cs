@@ -10,6 +10,8 @@ public class AIrPistolAutoRelode : MonoBehaviour
 
     public Animator animator;
     public string autoReload;
+    public GameObject reloadingAnim;
+    public GameObject gunObj;
 
     void Start()
     {
@@ -25,6 +27,16 @@ public class AIrPistolAutoRelode : MonoBehaviour
                 gunAutoReload(); 
             }
         }
+
+        if (gunObj.GetComponent<Grabbable>().BeingHeld == false)
+        {
+            Arena_AirPistol_mananger.Instance.gunGun_Holder.SetActive(true);
+
+        }
+        if (gunObj.GetComponent<Grabbable>().BeingHeld == true)
+        {
+            Arena_AirPistol_mananger.Instance.gunGun_Holder.SetActive(false);
+        }
     }
     private void gunAutoReload()
     {
@@ -33,6 +45,7 @@ public class AIrPistolAutoRelode : MonoBehaviour
 
     IEnumerator reloadGun()
     {
+        reloadingAnim.SetActive(true);
         animator.Rebind();
         animator.Play(autoReload);
         while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
@@ -42,6 +55,7 @@ public class AIrPistolAutoRelode : MonoBehaviour
 
         // Animation is complete, perform further actions
         Debug.Log("Reload animation complete!");
+        reloadingAnim.SetActive(false);
 
         Arena_AirPistol_mananger.Instance.isReloaded = true;
     }

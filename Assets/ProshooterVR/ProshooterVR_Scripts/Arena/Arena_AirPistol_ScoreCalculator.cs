@@ -17,7 +17,6 @@ public class Arena_AirPistol_ScoreCalculator : MonoBehaviour
     public int scoreMx, DistMx, minScore;
 
 
-    public Transform myParentTargetPos;
 
 
     private void Start()
@@ -71,15 +70,15 @@ public class Arena_AirPistol_ScoreCalculator : MonoBehaviour
                 Score = 0;
             }
             Debug.Log("Post score :: " + Score);
-          //  GunGameManeger.Instance.shotFired(newobjet.transform.localPosition, Score, angle);
 
+            Score = Mathf.Round(Score * 100f) / 100f;
 
+            int finalScore = (int)Score;
 
+            Arena_AirPistol_mananger.Instance.fadeScore.text = finalScore.ToString();
+            StartCoroutine(Arena_AirPistol_mananger.Instance.playAnim());
 
-
-            // Calculate the angle of the direction
-
-
+            Arena_AirPistol_mananger.Instance.displayScore(finalScore);
 
 
         }

@@ -11,6 +11,7 @@ public class Arena_Manager : MonoBehaviour
 
     public Transform airPistolSpawnPoint, airRifleSpawnPoint, rapidFireSpawnPoint, shotgunSpawnPoint;
 
+    public Transform orgPos;
     public GameObject arena_player,playerController;
 
     public GameObject AirPistolUI;
@@ -25,6 +26,7 @@ public class Arena_Manager : MonoBehaviour
     void Start()
     {
         AirPistolUI.SetActive(false);
+        orgPos = arena_player.transform;
     }
 
     // Update is called once per frame
@@ -37,6 +39,8 @@ public class Arena_Manager : MonoBehaviour
     }
 
     public void airPistolBtnClick() {
+
+        Arena_Manager.Instance.arena_player.transform.SetPositionAndRotation(orgPos.localPosition, orgPos.rotation);
 
         playerController.GetComponent<CharacterController>().enabled = false;
         playerController.GetComponent<LocomotionManager>().enabled = false;
@@ -52,6 +56,7 @@ public class Arena_Manager : MonoBehaviour
     }
     public void airRifleBtnClick()
     {
+        Arena_Manager.Instance.arena_player.transform.SetPositionAndRotation(orgPos.localPosition, orgPos.rotation);
 
         playerController.GetComponent<CharacterController>().enabled = false;
         playerController.GetComponent<LocomotionManager>().enabled = false;
@@ -67,6 +72,7 @@ public class Arena_Manager : MonoBehaviour
     }
     public void rapidFireBtnClick()
     {
+        Arena_Manager.Instance.arena_player.transform.SetPositionAndRotation(orgPos.localPosition, orgPos.rotation);
 
         playerController.GetComponent<CharacterController>().enabled = false;
         playerController.GetComponent<LocomotionManager>().enabled = false;
@@ -79,6 +85,7 @@ public class Arena_Manager : MonoBehaviour
     }
     public void shotgunBtnClick()
     {
+        Arena_Manager.Instance.arena_player.transform.SetPositionAndRotation(orgPos.localPosition, orgPos.rotation);
 
         playerController.GetComponent<CharacterController>().enabled = false;
         playerController.GetComponent<LocomotionManager>().enabled = false;
