@@ -257,6 +257,11 @@ namespace BNG {
             }
         }
 
+        public void clearHeldItem()
+        {
+            HeldItem = null;
+        }
+
         public virtual void GrabGrabbable(Grabbable grab) {
 
             // Grab is already in Snap Zone

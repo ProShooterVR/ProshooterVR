@@ -9,7 +9,6 @@ public class loadingtext : MonoBehaviour {
     private Image imageComp;
 
     public float speed = 200f;
-    public Text text;
     public Text textNormal;
 
 
@@ -42,12 +41,10 @@ public class loadingtext : MonoBehaviour {
             else {
 
             }
-            text.text = a + "%";
         }
         else
         {
             imageComp.fillAmount = 0.0f;
-            text.text = "0%";
         }
     }
 }

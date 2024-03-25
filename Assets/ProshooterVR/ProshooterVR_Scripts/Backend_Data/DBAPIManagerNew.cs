@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using backend_management;
 
 namespace ProshooterVR
 {
@@ -95,7 +96,7 @@ namespace ProshooterVR
         IEnumerator createUserDB(string JSONdata)
         {
 
-            using (UnityWebRequest www = UnityWebRequest.Post(createUserAPI, JSONdata, "application/json"))
+            using (UnityWebRequest www = UnityWebRequest.Post(global_API_manager.Instance.createUserAPI, JSONdata, "application/json"))
             {
                 // Set the Authorization header
               

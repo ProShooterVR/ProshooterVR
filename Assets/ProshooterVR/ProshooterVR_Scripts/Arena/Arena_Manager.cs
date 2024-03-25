@@ -32,10 +32,10 @@ public class Arena_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (InputBridge.Instance.XButtonDown == true || Input.GetKeyDown("space"))
-        {
-            proshooter_menu.SetActive(!proshooter_menu.activeSelf);
-        }
+        //if (InputBridge.Instance.XButtonDown == true || Input.GetKeyDown("space"))
+        //{
+        //    proshooter_menu.SetActive(!proshooter_menu.activeSelf);
+        //}
     }
 
     public void airPistolBtnClick() {

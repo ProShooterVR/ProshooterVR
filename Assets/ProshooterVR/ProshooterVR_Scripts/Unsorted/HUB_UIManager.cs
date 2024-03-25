@@ -93,7 +93,8 @@ public class HUB_UIManager : MonoBehaviour
         rapidRifeTUt.SetActive(false);
         musicPlayer.SetActive(false);
 
-        HUB_UIManager.Instance.musicPlayer.SetActive(true);
+        HUB_UIManager.Instance.musicPlayer.SetActive(false);
+            
 
 
 

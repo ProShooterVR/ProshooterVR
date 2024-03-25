@@ -1,5 +1,6 @@
+using BNG;
+using System.Collections;
 using UnityEngine;
-
 
 public class UIFollowVRPlayer : MonoBehaviour
 {
@@ -9,29 +10,90 @@ public class UIFollowVRPlayer : MonoBehaviour
     public float torsoHeightOffset = -0.5f; // Height offset from the head position to approximate the torso level
     public float smoothSpeed = 10f; // Speed of smoothing for position and rotation
     public float maxHeightAboveTorso = 0.2f; // Limit the maximum height above the calculated torso level
+    public GameObject uiObject; // The UI GameObject that should appear/disappear
+
+    private bool uiActive = false;
+    private Vector3 activePosition;
+    private Quaternion activeRotation;
 
     private void Update()
     {
         if (playerHead == null) return;
 
-        // Calculate the new position in front of the player
+        if (InputBridge.Instance.XButtonDown && !uiActive)
+        {
+            // Start appearing
+            StartCoroutine(Appear());
+        }
+        else if (!InputBridge.Instance.XButtonDown && uiActive)
+        {
+            // Start disappearing
+            StartCoroutine(Disappear());
+        }
+
+        if (uiActive)
+        {
+            // Keep the UI facing the player once active
+            FacePlayer();
+        }
+    }
+
+    IEnumerator Appear()
+    {
+        uiActive = true;
+        uiObject.SetActive(true);
+
+        Vector3 targetPosition = CalculateTargetPosition();
+        Quaternion targetRotation = CalculateTargetRotation();
+
+        while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * smoothSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * smoothSpeed);
+            yield return null;
+        }
+
+        activePosition = targetPosition;
+        activeRotation = targetRotation;
+    }
+
+    IEnumerator Disappear()
+    {
+        uiActive = false;
+
+        while (uiObject.activeSelf)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, Time.deltaTime * smoothSpeed);
+            if (transform.localScale.magnitude < 0.01f)
+            {
+                uiObject.SetActive(false);
+            }
+            yield return null;
+        }
+
+        // Reset scale for next appearance
+        transform.localScale = Vector3.one;
+    }
+
+    private void FacePlayer()
+    {
+        transform.position = activePosition;
+        transform.rotation = activeRotation;
+    }
+
+    private Vector3 CalculateTargetPosition()
+    {
         Vector3 targetPosition = playerHead.position + (playerHead.forward * distanceFromPlayer) + offsetFromForward;
-
-        // Calculate the desired torso level position
         float desiredYPosition = playerHead.position.y + torsoHeightOffset;
-        // Ensure the UI does not go below or above the torso level by a certain threshold
         targetPosition.y = Mathf.Clamp(targetPosition.y, desiredYPosition, desiredYPosition + maxHeightAboveTorso);
+        return targetPosition;
+    }
 
-        // Smoothly update position
-        transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * smoothSpeed);
-
-        // Calculate a smooth rotation to face the player
+    private Quaternion CalculateTargetRotation()
+    {
         Vector3 directionToFace = playerHead.position - transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(directionToFace);
-        // Adjust for the UI's default rotation (180 degrees around Y-axis)
         targetRotation *= Quaternion.Euler(0, 180, 0);
-
-        // Smoothly update rotation
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * smoothSpeed);
+        return targetRotation;
     }
 }

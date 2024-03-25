@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine;
 using Nova;
 using ProshooterVR;
+using SimpleJSON;
+
 public class Arena_AirPistol_mananger : MonoBehaviour
 {
     public static Arena_AirPistol_mananger Instance;
@@ -30,10 +32,12 @@ public class Arena_AirPistol_mananger : MonoBehaviour
     public GameObject[] AirPistolTargets;
 
     public int noOfShotsFired;
+    public int noOfShotsAllowed;
+    public float[] shotScores;
 
     public Transform orgPos;
 
-    public GameObject righthandedWeapon, righthandedWeaponPro;
+    public GameObject righthandedWeaponBegin, righthandedWeaponIntrm, righthandedWeaponPro;
     private GameObject dynamicGun;
     public GameObject scoreboardUI;
 
@@ -51,6 +55,14 @@ public class Arena_AirPistol_mananger : MonoBehaviour
 
     public float beginnerZ, IntrmZ, proZ;
 
+
+    public GameObject beginBtn, interMBtn, proBtn;
+
+    public GameObject AP_arenaDaily_totalscore_leaderboardParent, AP_arenaOverall_totalscore_leaderboardParent;
+    public GameObject AP_arenaDaily_totalshots_leaderboardParent, AP_arenaOverall_totalshots_leaderboardParent;
+    public GameObject AP_arenaDaily_tens_leaderboardParent, AP_arenaOverall_tens_leaderboardParent;
+
+
     public enum SkillLevel
     {
         Beginner,
@@ -59,6 +71,9 @@ public class Arena_AirPistol_mananger : MonoBehaviour
     }
 
     public SkillLevel playerSkillLevel;
+    public string selectedSkillLevel;
+
+    public GameObject startBtn, resetBtn;
 
     private void Awake()
     {
@@ -75,15 +90,13 @@ public class Arena_AirPistol_mananger : MonoBehaviour
         resetScores();
         noOfShotsFired = 0;
         resetLanesUI();
+        reset_Scores_countDisp();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(noOfShotsFired > 10)
-        {
-            ResetGame();
-        }
+        
     }
 
     public void startGame()
@@ -92,30 +105,52 @@ public class Arena_AirPistol_mananger : MonoBehaviour
         respawnNewWeapon(laneChosen);
         noOfShotsFired = 0;
 
-        LanesUIDisp[laneChosen].transform.Find("StartBtn").gameObject.SetActive(false);
-        LanesUIDisp[laneChosen].transform.Find("ResetBtn").gameObject.SetActive(true);
+        startBtn = LanesUIDisp[laneChosen].transform.GetChild(0).gameObject;
+        resetBtn = LanesUIDisp[laneChosen].transform.GetChild(1).gameObject;
+
+        startBtn.SetActive(false);
+        resetBtn.SetActive(true);
+
+        lockButtons();
 
     }
+
+    
     public void ResetGame()
     {
         //spawn the Air Pistol 
-       // respawnNewWeapon(laneChosen);
-       // noOfShitsFired = 0;
-       
-        LanesUIDisp[laneChosen].transform.Find("StartBtn").gameObject.SetActive(true);
-        LanesUIDisp[laneChosen].transform.Find("ResetBtn").gameObject.SetActive(false);
+        
+
+        noOfShotsFired = 0;
+
+        gunGun_Holder.SetActive(false);
+        gunGun_Holder.GetComponent<SnapZone>().clearHeldItem();
+
+
+        Destroy(dynamicGun);
+        startBtn.SetActive(true);
+        resetBtn.SetActive(false);
         resetScores();
+        reset_Scores_countDisp();
+        unlockButtons();
     }
+
+    
 
     public void choose5m()
     {
         AirPistolTargets[laneChosen].GetComponent<SmoothStartStopLerp>().StartMovement(beginnerZ);
         playerSkillLevel = SkillLevel.Beginner;
+        selectedSkillLevel = "amateur";
+
+
     }
     public void choose7m()
     {
         AirPistolTargets[laneChosen].GetComponent<SmoothStartStopLerp>().StartMovement(IntrmZ);
         playerSkillLevel = SkillLevel.Intermediate;
+        selectedSkillLevel = "semi_pro";
+
 
     }
 
@@ -123,6 +158,49 @@ public class Arena_AirPistol_mananger : MonoBehaviour
     {
         AirPistolTargets[laneChosen].GetComponent<SmoothStartStopLerp>().StartMovement(proZ);
         playerSkillLevel = SkillLevel.Professional;
+        selectedSkillLevel = "pro";
+
+
+    }
+
+
+    public void lockButtons()
+    {
+        switch (playerSkillLevel)
+        {
+
+            case SkillLevel.Beginner:
+                beginBtn.GetComponent<Interactable>().enabled = false;
+                beginBtn.GetComponent<HubUIButtonManager>().ButtonBorder.SetActive(true);
+                proBtn.GetComponent<Interactable>().enabled = false;
+                interMBtn.GetComponent<Interactable>().enabled = false;
+
+                break;
+            case SkillLevel.Intermediate:
+                beginBtn.GetComponent<Interactable>().enabled = false;
+                interMBtn.GetComponent<HubUIButtonManager>().ButtonBorder.SetActive(true);
+                proBtn.GetComponent<Interactable>().enabled = false;
+                interMBtn.GetComponent<Interactable>().enabled = false;
+                break;
+            case SkillLevel.Professional:
+                beginBtn.GetComponent<Interactable>().enabled = false;
+                proBtn.GetComponent<HubUIButtonManager>().ButtonBorder.SetActive(true);
+                proBtn.GetComponent<Interactable>().enabled = false;
+                interMBtn.GetComponent<Interactable>().enabled = false;
+                break;
+        }
+    }
+
+    public void unlockButtons()
+    {
+        beginBtn.GetComponent<Interactable>().enabled = true;
+        proBtn.GetComponent<Interactable>().enabled = true;
+        interMBtn.GetComponent<Interactable>().enabled = true;
+
+        beginBtn.GetComponent<HubUIButtonManager>().ButtonBorder.SetActive(false);
+        proBtn.GetComponent<HubUIButtonManager>().ButtonBorder.SetActive(false);
+        interMBtn.GetComponent<HubUIButtonManager>().ButtonBorder.SetActive(false);
+
 
     }
 
@@ -131,6 +209,11 @@ public class Arena_AirPistol_mananger : MonoBehaviour
 
         laneChosen = no;
         lanesUIActivator(no);
+        beginBtn = LanesUIDisp[laneChosen].transform.GetChild(4).gameObject;
+        interMBtn = LanesUIDisp[laneChosen].transform.GetChild(3).gameObject;
+        proBtn = LanesUIDisp[laneChosen].transform.GetChild(2).gameObject;
+
+
         //Close UI
         Arena_Manager.Instance.AirPistolUI.SetActive(false);
 
@@ -145,10 +228,12 @@ public class Arena_AirPistol_mananger : MonoBehaviour
         //spawn the player with no movement
         Arena_Manager.Instance.playerController.GetComponent<CharacterController>().enabled = false;
         Arena_Manager.Instance.playerController.GetComponent<LocomotionManager>().enabled = false;
+        Arena_Manager.Instance.playerController.GetComponent<PlayerTeleport>().enabled = false;
+
 
 
         Arena_Manager.Instance.arena_player.transform.SetPositionAndRotation(airPistol_Playerspawns[no].localPosition, airPistol_Playerspawns[no].rotation);
-        Arena_Manager.Instance.playerController.GetComponent<CharacterController>().enabled = true;
+        Arena_Manager.Instance.playerController.GetComponent<CharacterController>().enabled = false;
         Arena_Manager.Instance.playerController.GetComponent<LocomotionManager>().enabled = true;
         //set score anim pos
 
@@ -183,9 +268,9 @@ public class Arena_AirPistol_mananger : MonoBehaviour
     {
         for(int i = 0; i < scoreboardUI.transform.childCount; i++)
         {
-            for(int j = 0;j < scoreboardUI.transform.GetChild(i).childCount; j++)
+            for(int j = 0;j < scoreboardUI.transform.GetChild(i).GetChild(1).childCount; j++)
             {
-                scoreboardUI.transform.GetChild(i).GetChild(j).GetComponent<UIBlock2D>().Color = Color.white;
+                scoreboardUI.transform.GetChild(i).GetChild(1).GetChild(j).GetComponent<UIBlock2D>().Color = Color.white;
             }
         }
     }
@@ -203,12 +288,17 @@ public class Arena_AirPistol_mananger : MonoBehaviour
                 {
                     dynamicGun = Instantiate(righthandedWeaponPro, airPistol_Gunspawns[pos].position, airPistol_Gunspawns[pos].rotation);
                 }
+                else if(playerSkillLevel == SkillLevel.Intermediate)
+                {
+                    dynamicGun = Instantiate(righthandedWeaponIntrm, airPistol_Gunspawns[pos].position, airPistol_Gunspawns[pos].rotation);
+                }
                 else
                 {
-                    dynamicGun = Instantiate(righthandedWeapon, airPistol_Gunspawns[pos].position, airPistol_Gunspawns[pos].rotation);
-                }
+                    dynamicGun = Instantiate(righthandedWeaponBegin, airPistol_Gunspawns[pos].position, airPistol_Gunspawns[pos].rotation);
 
             }
+
+        }
             else
             {
                 //dynamicGun = Instantiate(righthandedWeapon, airPistol_Gunspawns[pos].position, airPistol_Gunspawns[pos].rotation);
@@ -228,18 +318,22 @@ public class Arena_AirPistol_mananger : MonoBehaviour
         Arena_Manager.Instance.playerController.GetComponent<CharacterController>().enabled = false;
         Arena_Manager.Instance.playerController.GetComponent<LocomotionManager>().enabled = false;
 
-        Arena_Manager.Instance.arena_player.transform.SetPositionAndRotation(Arena_Manager.Instance.airPistolSpawnPoint.position, Arena_Manager.Instance.airPistolSpawnPoint.rotation);
+        Arena_Manager.Instance.arena_player.transform.SetPositionAndRotation(Arena_Manager.Instance.airPistolSpawnPoint.position, Arena_Manager.Instance.arena_player.transform.rotation);
 
         Arena_Manager.Instance.playerController.GetComponent<CharacterController>().enabled = true;
         Arena_Manager.Instance.playerController.GetComponent<LocomotionManager>().enabled = true;
+        Arena_Manager.Instance.playerController.GetComponent<PlayerTeleport>().enabled = true;
 
         exitBtn.SetActive(false);
         Arena_Manager.Instance.AirPistolUI.SetActive(true);
-
+        resetLanesUI();
+        resetScores();
+        reset_Scores_countDisp();
         dynamicGun = null;
 
         resetScores();
         resetLanesUI();
+        ResetGame();
     }
 
     public IEnumerator playAnim()
@@ -256,18 +350,37 @@ public class Arena_AirPistol_mananger : MonoBehaviour
 
     public void displayScore(int score)
     {
+
+        shotScores[noOfShotsFired] = score;
+
         playerScore = playerScore + score;
         lane_Scores[laneChosen].text = playerScore.ToString();
 
         scores_countDisp[laneChosen].transform.GetChild(noOfShotsFired).GetComponent<UIBlock2D>().Color = Color.green;
         
         noOfShotsFired++;
- 
+        
+        if(noOfShotsFired == 10)
+        {
+            StartCoroutine(GameComplete());
+        }
 
+    }
+
+    IEnumerator GameComplete()
+    {
+
+        Areana_backendManager.Instance.SaveGameDataPistol();
+
+        yield return new WaitForSeconds(2f);
+        noOfShotsFired = 0;
+        reset_Scores_countDisp();
+        resetScores();
     }
 
     public void resetScores()
     {
+        shotScores = new float[noOfShotsAllowed];
         playerScore = 0;
         noOfShotsFired = 0;
         for (int i = 0; i < lane_Scores.Length; i++)
