@@ -351,7 +351,6 @@ public class Arena_AirPistol_mananger : MonoBehaviour
     public void displayScore(int score)
     {
 
-        shotScores[noOfShotsFired] = score;
 
         playerScore = playerScore + score;
         lane_Scores[laneChosen].text = playerScore.ToString();
@@ -359,8 +358,9 @@ public class Arena_AirPistol_mananger : MonoBehaviour
         scores_countDisp[laneChosen].transform.GetChild(noOfShotsFired).GetComponent<UIBlock2D>().Color = Color.green;
         
         noOfShotsFired++;
-        
-        if(noOfShotsFired == 10)
+        shotScores[noOfShotsFired] = score;
+
+        if (noOfShotsFired == 10)
         {
             StartCoroutine(GameComplete());
         }
