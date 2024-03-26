@@ -82,6 +82,7 @@ public class Arena_AirPistol_mananger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        noOfShotsAllowed = 10;
         airPistolTarget.SetActive(false);
         gunGun_Holder.SetActive(false);
         exitBtn.SetActive(false);
@@ -101,6 +102,7 @@ public class Arena_AirPistol_mananger : MonoBehaviour
 
     public void startGame()
     {
+        
         //spawn the Air Pistol 
         respawnNewWeapon(laneChosen);
         noOfShotsFired = 0;
@@ -122,7 +124,7 @@ public class Arena_AirPistol_mananger : MonoBehaviour
         
 
         noOfShotsFired = 0;
-
+        shotScores = new float[noOfShotsAllowed];
         gunGun_Holder.SetActive(false);
         gunGun_Holder.GetComponent<SnapZone>().clearHeldItem();
 
