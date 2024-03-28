@@ -48,7 +48,13 @@ public class AIrPistolAutoRelode : MonoBehaviour
         reloadingAnim.SetActive(true);
         animator.Rebind();
         animator.Play(autoReload);
-        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+        GunFmodSetup.Instance.ReloadOpenEvent();
+        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < .5f)
+        {
+            yield return null;
+        }
+        GunFmodSetup.Instance.ReloadCloseEvent();
+        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < .5f)
         {
             yield return null;
         }

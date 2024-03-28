@@ -42,7 +42,7 @@ namespace backend_management
         /// </summary>
 
         // ARENA AIR PISTOL API CALLS
-        public string insertArenaGameData = "/api/user/insertarenagamedata";
+        private string insertArenaGameData = "/api/user/insertarenagamedata";
 
         private string aP_arena_Daily_total_score_leaderboard = "/api/user/arena/daily/leaderboard/totalscore/10";
         private string aP_arena_Overall_total_score_leaderboard = "/api/user/arena/overall/leaderboard/totalscore/10";
@@ -66,6 +66,7 @@ namespace backend_management
         public string AP_arena_Overall_total_shots_leaderboard { get => aP_arena_Overall_total_shots_leaderboard; set => aP_arena_Overall_total_shots_leaderboard = value; }
         public string AP_arena_Daily_tenPointers_leaderboard { get => aP_arena_Daily_tenPointers_leaderboard; set => aP_arena_Daily_tenPointers_leaderboard = value; }
         public string AP_arena_Overall_tenPointers_leaderboard { get => aP_arena_Overall_tenPointers_leaderboard; set => aP_arena_Overall_tenPointers_leaderboard = value; }
+        public string InsertArenaGameData { get => insertArenaGameData; set => insertArenaGameData = value; }
 
         private void Start()
         {
@@ -102,7 +103,7 @@ namespace backend_management
             fetchUserSettings = prod_address + fetchUserSettings;
             updateusersettings = prod_address + updateusersettings;
 
-            insertArenaGameData = prod_address + insertArenaGameData;
+            InsertArenaGameData = prod_address + InsertArenaGameData;
 
 
             aP_arena_Daily_total_score_leaderboard = prod_address + aP_arena_Daily_total_score_leaderboard;
@@ -123,7 +124,7 @@ namespace backend_management
             fetchUserSettings = uat_address + fetchUserSettings;
             updateusersettings = uat_address + updateusersettings;
 
-            insertArenaGameData = uat_address + insertArenaGameData;
+            InsertArenaGameData = uat_address + InsertArenaGameData;
 
 
             aP_arena_Daily_total_score_leaderboard = uat_address + aP_arena_Daily_total_score_leaderboard;

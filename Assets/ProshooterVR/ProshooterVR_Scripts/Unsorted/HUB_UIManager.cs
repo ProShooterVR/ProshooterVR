@@ -28,7 +28,9 @@ public class HUB_UIManager : MonoBehaviour
     public GameObject assistedGudSubMenu,handSelectionMenu;
 
 
-    public GameObject airPsubMenu, airRsubMenu, rfSubMenu;
+    public GameObject airPsubMenu, airRsubMenu, rfSubMenu,modePanels;
+    public GameObject ap_singlePlayerUI, ar_singlePlayerUI, rf_singlePlayerUI;
+
     /// <summary>
     /// User Profile data local save
     /// </summary>
@@ -144,18 +146,18 @@ public class HUB_UIManager : MonoBehaviour
     public void beginnerBtnClick()
     {
         setLevel(0);
-        PlayButtonClick();
+       // PlayButtonClick();
     }
     public void interMBtnClick()
     {
         setLevel(1);
-        PlayButtonClick();
+       // PlayButtonClick();
 
     }
     public void professionalBtnClick()
     {
         setLevel(2);
-        PlayButtonClick();
+       /// PlayButtonClick();
 
     }
 
@@ -165,9 +167,9 @@ public class HUB_UIManager : MonoBehaviour
         airPsubMenu.SetActive(true);
         airRsubMenu.SetActive(false);
         rfSubMenu.SetActive(false);
+        modePanels.SetActive(false);
         levelUI.SetActive(true);
         setMode(0);
-        singlePlayerBtnClicked();
     }
     public void airRifleBtnClick()
     {
@@ -176,9 +178,9 @@ public class HUB_UIManager : MonoBehaviour
         airRsubMenu.SetActive(true);
         rfSubMenu.SetActive(false);
         levelUI.SetActive(true);
+        modePanels.SetActive(false);
 
         setMode(2);
-        singlePlayerBtnClicked();
 
 
     }
@@ -189,9 +191,9 @@ public class HUB_UIManager : MonoBehaviour
         airRsubMenu.SetActive(false);
         rfSubMenu.SetActive(true);
         levelUI.SetActive(true);
+        modePanels.SetActive(false);
 
         setMode(1);
-        singlePlayerBtnClicked();
 
     }
 
@@ -207,6 +209,7 @@ public class HUB_UIManager : MonoBehaviour
         SoundControlPanel.SetActive(false);
         handSelectionMenu.SetActive(false);
         assistedGudSubMenu.SetActive(false);
+        modePanels.SetActive(true);
 
     }
 
@@ -231,16 +234,39 @@ public class HUB_UIManager : MonoBehaviour
         HUB_UIManager.Instance.ClearMainLeaderboardRows();
     }
 
-    public void singlePlayerBtnClicked()
+    public void singlePlayerAPBtnClicked()
     {
-        levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(0);
+
+        airPsubMenu.SetActive(false);
+        ap_singlePlayerUI.SetActive(true);
+
+        myGameType = gameType.match;
+    }
+    public void singlePlayerARtnClicked()
+    {
+
+        airRsubMenu.SetActive(false);
+        ar_singlePlayerUI.SetActive(true);
+
         myGameType = gameType.match;
     }
 
-    public void PracticeBtnClicked()
+    public void singlePlayerRFBtnClicked()
     {
+
+        rfSubMenu.SetActive(false);
+        rf_singlePlayerUI.SetActive(true);
+
+        myGameType = gameType.match;
+    }
+
+
+    public void PracticeBtnAPClicked()
+    {
+        airPsubMenu.SetActive(false);
+
         myGameType = gameType.practice;
-        levelUI.GetComponent<CustomButtonNavigator>().onButtonClicked(1);
+      
     }
     public void AracadeBtnClicked()
     {
@@ -826,9 +852,9 @@ public class HUB_UIManager : MonoBehaviour
 
 
 
-                Debug.Log("Fetched!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+               // Debug.Log("Fetched!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             }
-            Debug.Log(MainLeaderboardJson["leaderboardResults"][i]["total_score"]);
+           // Debug.Log(MainLeaderboardJson["leaderboardResults"][i]["total_score"]);
         }
     }
 

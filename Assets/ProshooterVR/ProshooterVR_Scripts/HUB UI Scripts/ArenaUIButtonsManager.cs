@@ -52,6 +52,7 @@ public class ArenaUIButtonManager : MonoBehaviour
     {
         Color targetColor = HexToColor("#FF9F0A");
         Button.GetComponent<UIBlock2D>().Border.Color = targetColor;
+        Button.GetComponent<UIBlock2D>().Border.Width = 0.02f;
 
         if (hoverEventInstance.isValid())
         {
@@ -64,6 +65,8 @@ public class ArenaUIButtonManager : MonoBehaviour
         //HoverPanel.SetActive(false);
         //ButtonBorder.SetActive(false);
         Button.GetComponent<UIBlock2D>().Border.Color = Color.white;
+        Button.GetComponent<UIBlock2D>().Border.Width = 0.002f;
+
         // No need to handle anything for unhover in this example
     }
 

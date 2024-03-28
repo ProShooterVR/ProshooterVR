@@ -282,7 +282,8 @@ public class Arena_AirPistol_mananger : MonoBehaviour
         gunGun_Holder.SetActive(true);
 
         gunGun_Holder.transform.SetLocalPositionAndRotation(airPistolHolder_spawns[pos].position, airPistolHolder_spawns[pos].rotation);
-
+       
+        LocalUserDataManager.Instance.isRightHand = true;
 
             if (LocalUserDataManager.Instance.isRightHand == true)
             {
@@ -298,17 +299,18 @@ public class Arena_AirPistol_mananger : MonoBehaviour
                 {
                     dynamicGun = Instantiate(righthandedWeaponBegin, airPistol_Gunspawns[pos].position, airPistol_Gunspawns[pos].rotation);
 
-            }
+                 }
 
-        }
-            else
+
+            }
+        else
             {
                 //dynamicGun = Instantiate(righthandedWeapon, airPistol_Gunspawns[pos].position, airPistol_Gunspawns[pos].rotation);
             }
 
 
-
         gunGun_Holder.GetComponent<SnapZone>().SetHeldItem(dynamicGun.GetComponent<Grabbable>());
+
 
         isReloaded = true;
 
@@ -358,9 +360,9 @@ public class Arena_AirPistol_mananger : MonoBehaviour
         lane_Scores[laneChosen].text = playerScore.ToString();
 
         scores_countDisp[laneChosen].transform.GetChild(noOfShotsFired).GetComponent<UIBlock2D>().Color = Color.green;
-        
-        noOfShotsFired++;
         shotScores[noOfShotsFired] = score;
+
+        noOfShotsFired++;
 
         if (noOfShotsFired == 10)
         {

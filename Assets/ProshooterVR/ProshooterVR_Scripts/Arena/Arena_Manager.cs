@@ -32,13 +32,27 @@ public class Arena_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (InputBridge.Instance.XButtonDown == true || Input.GetKeyDown("space"))
-        //{
-        //    proshooter_menu.SetActive(!proshooter_menu.activeSelf);
-        //}
+        if (InputBridge.Instance.XButtonDown == true || Input.GetKeyDown(KeyCode.L))
+        {
+            if (proshooter_menu.activeSelf)
+            {
+                // If menu is active, deactivate it
+                proshooter_menu.GetComponent<UIBehaviour>().StartPopInEffect();
+            }
+            else
+            {
+                // If menu is inactive, activate it
+                proshooter_menu.SetActive(true);
+            }
+        }
     }
 
     public void airPistolBtnClick() {
+
+        weaponManager.Instance.isPistolMode = true;
+        weaponManager.Instance.isRifleMode = false;
+        weaponManager.Instance.isRapidFireMode = false;
+    
 
         Arena_Manager.Instance.arena_player.transform.SetPositionAndRotation(orgPos.localPosition, orgPos.rotation);
 
@@ -56,6 +70,9 @@ public class Arena_Manager : MonoBehaviour
     }
     public void airRifleBtnClick()
     {
+        weaponManager.Instance.isPistolMode = false;
+        weaponManager.Instance.isRifleMode = true;
+        weaponManager.Instance.isRapidFireMode = false;
         Arena_Manager.Instance.arena_player.transform.SetPositionAndRotation(orgPos.localPosition, orgPos.rotation);
 
         playerController.GetComponent<CharacterController>().enabled = false;
@@ -72,6 +89,10 @@ public class Arena_Manager : MonoBehaviour
     }
     public void rapidFireBtnClick()
     {
+        weaponManager.Instance.isPistolMode = false;
+        weaponManager.Instance.isRifleMode = false;
+        weaponManager.Instance.isRapidFireMode = true;
+
         Arena_Manager.Instance.arena_player.transform.SetPositionAndRotation(orgPos.localPosition, orgPos.rotation);
 
         playerController.GetComponent<CharacterController>().enabled = false;

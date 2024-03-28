@@ -407,7 +407,7 @@ namespace ProshooterVR
             {
                 // Request was successful, map JSON directly to a class
                 string jsonString = request.downloadHandler.text;
-                Debug.Log(jsonString);
+               // Debug.Log(jsonString);
 
                 JSONNode data = JSON.Parse(jsonString);
 

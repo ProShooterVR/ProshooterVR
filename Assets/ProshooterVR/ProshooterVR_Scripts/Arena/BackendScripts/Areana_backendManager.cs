@@ -84,7 +84,7 @@ public class Areana_backendManager : MonoBehaviour
     IEnumerator SaveGameDataUserDB(string JSONdata)
     {
 
-        using (UnityWebRequest www = UnityWebRequest.Post(global_API_manager.Instance.insertArenaGameData, JSONdata, "application/json"))
+        using (UnityWebRequest www = UnityWebRequest.Post(global_API_manager.Instance.InsertArenaGameData, JSONdata, "application/json"))
         {
             www.SetRequestHeader("authorization", accessToken);
 
@@ -97,6 +97,16 @@ public class Areana_backendManager : MonoBehaviour
             else
             {
                 Debug.Log("Form upload complete!");
+
+                AirPistolOverallLeaderBoardData(global_API_manager.Instance.AP_arena_Daily_total_score_leaderboard, Arena_AirPistol_mananger.Instance.AP_arenaDaily_totalscore_leaderboardParent, "total_score");
+                AirPistolOverallLeaderBoardData(global_API_manager.Instance.AP_arena_Overall_total_score_leaderboard, Arena_AirPistol_mananger.Instance.AP_arenaOverall_totalscore_leaderboardParent, "total_score");
+
+                AirPistolOverallLeaderBoardData(global_API_manager.Instance.AP_arena_Daily_total_shots_leaderboard, Arena_AirPistol_mananger.Instance.AP_arenaDaily_totalshots_leaderboardParent, "total_shots_target");
+                AirPistolOverallLeaderBoardData(global_API_manager.Instance.AP_arena_Overall_total_shots_leaderboard, Arena_AirPistol_mananger.Instance.AP_arenaOverall_totalshots_leaderboardParent, "total_shots_target");
+
+                AirPistolOverallLeaderBoardData(global_API_manager.Instance.AP_arena_Daily_tenPointers_leaderboard, Arena_AirPistol_mananger.Instance.AP_arenaDaily_tens_leaderboardParent, "total_ten_pointers");
+                AirPistolOverallLeaderBoardData(global_API_manager.Instance.AP_arena_Overall_tenPointers_leaderboard, Arena_AirPistol_mananger.Instance.AP_arenaOverall_tens_leaderboardParent, "total_ten_pointers");
+
             }
         }
 
@@ -136,9 +146,11 @@ public class Areana_backendManager : MonoBehaviour
 
             for (int i = 0; i < leaderBoardRef.transform.childCount; i++)
             {
-                leaderBoardRef.transform.GetChild(i).GetChild(0).GetComponent<TextMeshPro>().text = data["leaderboardResults"][i]["meta_quest_username"];
-                leaderBoardRef.transform.GetChild(i).GetChild(1).GetComponent<TextMeshPro>().text = data["leaderboardResults"][i][scoreRef];
-
+                for (int j = 0; j < data["leaderboardResults"].Count; j++)
+                {
+                    leaderBoardRef.transform.GetChild(i).GetChild(0).GetComponent<TextMeshPro>().text = data["leaderboardResults"][i]["meta_quest_username"];
+                    leaderBoardRef.transform.GetChild(i).GetChild(1).GetComponent<TextMeshPro>().text = data["leaderboardResults"][i][scoreRef];
+                }
             }
         }
             //-------------

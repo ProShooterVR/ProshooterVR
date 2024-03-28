@@ -1,3 +1,4 @@
+using Nova;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,14 +17,19 @@ public class buttonBG : MonoBehaviour
     {
         
     }
-
+    Color HexToColor(string hex)
+    {
+        Color color = new Color();
+        ColorUtility.TryParseHtmlString(hex, out color);
+        return color;
+    }
     public void selectedBtn()
     {
-        myBg.SetActive(true);
+        Color targetColor = HexToColor("#FF9F0A");
+        myBg.GetComponent<UIBlock2D>().Border.Color = targetColor;
     }
     public void delectedBtn()
     {
-        myBg.SetActive(false);
-
+        myBg.GetComponent<UIBlock2D>().Border.Color = Color.white;
     }
 }
